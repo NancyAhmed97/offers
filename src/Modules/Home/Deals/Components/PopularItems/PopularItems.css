@@ -25,4 +25,8 @@ right: 7px !important;
         display: flex;
         flex-direction: column;
     }
+    .popular_items .title ul li{
+        margin-right: 4px !important;
+        margin-left: 4px !important;
+    }
 }
