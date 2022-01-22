@@ -19,7 +19,7 @@ function Routes() {
           <Route  path="/contactus" render={() => <ContactUs />} />
           <Route  path="/aboutus" render={() => <Aboutus />} />
           <Route  path="/blogs" render={() => <Blogs />} />
-          <Route  path="/blogDetails" render={() => <BlogDetails />} />
+          <Route  path="/blogDetails/:id" render={() => <BlogDetails />} />
                   </Switch>
       )}
     />

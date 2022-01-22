@@ -6,6 +6,7 @@ import communications from "../../../../../Resources/Assets/img/smallMobile.png"
 import schoolSupplies from "../../../../../Resources/Assets/img/smallBook.png";
 import { useSelector } from "react-redux";
 import "./PopularItems.css";
+import { Link } from 'react-router-dom';
 import Product from "../../../../Common/Poduct/Product";
 function PopularItems() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
@@ -227,8 +228,7 @@ function PopularItems() {
               <p
                 id="electronics"
                 className={
-                  categoryState === "electronics" ||
-                  (categoryState === "" && "active")
+                  categoryState === "electronics"&& "active"
                 }
               >
                 {currentLocal.shopByCategory.electronics}
@@ -329,12 +329,14 @@ function PopularItems() {
                 {productschoolSupplies.map((productDetails) => {
                   return (
                     <Col md={3}>
-                      <Product
+          <Link to="/blogDetails">
+          <Product
                         img={productDetails.img}
                         title={productDetails.title}
                         rating={productDetails.rating}
                         price={productDetails.price}
                       />
+          </Link>
                     </Col>
                   );
                 })}

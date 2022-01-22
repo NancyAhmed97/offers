@@ -13,3 +13,7 @@
     border-bottom: 2px solid #E2C164;
     color: #1A1A18;
 }
+.popular_items a{
+    text-decoration: none;
+    color: #1A1A18;
+}

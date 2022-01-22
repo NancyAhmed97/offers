@@ -25,48 +25,56 @@ function HotSales() {
           title: "Add product name here in this space and edit it",
           rating: 4,
           price: "SAR 3,099.00",
+          id:1
         },
         {
           img: smallMobile,
           title: "Add product name here in this space and edit it",
           rating: 4,
           price: "SAR 3,099.00",
+          id:2
         },
         {
           img: smallBag,
           title: "Add product name here in this space and edit it",
           rating: 4,
           price: "SAR 3,099.00",
+          id:3
         },
         {
           img: smallBook,
           title: "Add product name here in this space and edit it",
           rating: 4,
           price: "SAR 3,099.00",
+          id:4
         },
         {
           img: smallCamer,
           title: "Add product name here in this space and edit it",
           rating: 4,
           price: "SAR 3,099.00",
+          id:5
         },
         {
           img: smallMobile,
           title: "Add product name here in this space and edit it",
           rating: 4,
           price: "SAR 3,099.00",
+          id:6
         },
         {
           img: smallBook,
           title: "Add product name here in this space and edit it",
           rating: 4,
           price: "SAR 3,099.00",
+          id:7
         },
         {
           img: smallCamer,
           title: "Add product name here in this space and edit it",
           rating: 4,
           price: "SAR 3,099.00",
+          id:8
         },
       ];
   return <div className='hot_sales pr pl'>

@@ -16,6 +16,7 @@
         top: 7px;
         right: 35px;
     }
+  
     @media only screen and (max-width: 768px) {
     
         .product .product_details {
