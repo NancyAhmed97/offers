@@ -1,0 +1,44 @@
+.deals_of_the_week{
+    position: relative;
+}
+.deals_of_the_week h2{
+    font-size: 20px !important;
+    padding-bottom: 17px !important;
+
+}
+
+.deals_of_the_week h2{
+    padding: 0;
+    margin: 0;
+    font-size: 26px;
+}
+.deals_of_the_week .slick-prev
+{
+    position: relative;
+    display: block;
+    bottom: 44px;
+    left: 252px;
+}
+.deals_of_the_week .slick-next
+{
+    position: relative;
+    bottom: 625px;
+    left: 273px;
+}
+.deals_of_the_week .slick-list{
+    position: relative;
+    bottom: 20px;
+}
+.deals_of_the_week a{
+    text-decoration: none;
+    color: #1A1A18;
+}
+.deals_of_the_week a p{
+    color: #1A1A18 !important;
+    opacity: 1;
+}
+.deals_of_the_week .product .like_icon
+{
+    right: 15px;
+    
+}

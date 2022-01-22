@@ -12,6 +12,7 @@ export const en = {
     hotSales:"Hot sales",
     hotSalesPragaph:"Shop the best prices and set your perfect outdoor vibe",
     popularItems:"Popular Items",
+    dealsOfTheWeek:"Deals Of The Week",
   },
   bestSeller:{
     bestSeller:"Best Seller",
