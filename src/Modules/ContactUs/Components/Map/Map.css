@@ -1,0 +1,12 @@
+
+
+.map iframe {
+    width: 100% !important;
+  }
+  iframe {
+    filter: grayscale(100%);
+  }
+  .gm-style-mot{
+      display: none !important;
+      visibility: hidden !important;
+  }

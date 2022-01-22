@@ -1,0 +1,19 @@
+.mission{
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+    margin-bottom: 64px;
+}
+.mission .mission_container{
+    width: 635px;
+
+}
+.mission .mission_container{
+    width: 635px;
+
+}
+.mission .mission_container p{
+font-size: 14px;
+color: #002543;
+opacity: 0.5;
+}

@@ -1,0 +1,28 @@
+.related_blog{
+    margin-top: 55px;
+    margin-bottom: 100px;
+}
+.related_blog .date
+{
+    background-color: #e2c164;
+    width: 116px;
+    font-size: 12px;
+    color: #fff;
+}
+.related_blog h5{
+    color:#1A1A18;
+    font-size:16px;
+    font-weight: bold;
+}
+.related_blog .paragrapg{
+    color: #878786;
+    font-size: 14px;
+}
+.related_blog a{
+    text-decoration: none;
+}
+@media only screen and (max-width: 768px) {
+    .related_blog{
+        margin-bottom: 20px;
+    }
+}

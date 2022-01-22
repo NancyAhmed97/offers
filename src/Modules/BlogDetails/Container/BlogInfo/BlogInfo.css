@@ -1,0 +1,18 @@
+.blog_info h2{
+    font-size: 22px;
+}
+.blog_info .blog-details-conten p{
+    font-size: 14px;
+    color: #002543;
+    opacity: 0.5;
+
+    padding-right: 64px;
+}
+@media only screen and (max-width: 768px) {
+    .blog_info .blog-details-conten p{
+        padding-right: 4px;
+    }
+    .blog_info img{
+        width: 100%;
+    }
+}

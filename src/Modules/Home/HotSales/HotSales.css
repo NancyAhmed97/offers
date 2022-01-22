@@ -1,0 +1,31 @@
+ .hot_sales{
+     margin-top:70px ;
+ }
+ .hot_sales h2{
+     padding: 0;
+     margin: 0;
+     font-size: 26px;
+ }
+ .hot_sales p:first-of-type{
+     font-size: 16px;
+     opacity: 0.5;
+     margin-bottom: 30px;
+ }
+ .swiper-button-prev.swiper-button-disabled{
+    display: none;
+}
+.swiper-button-next.swiper-button-disabled{
+    display: none;
+}
+.swiper-pagination {
+    display: none;
+}
+.swiper-button-next::after{
+    content: url("../../../Resources/Assets/img/Icon\ feather-right.svg");
+    display: block;
+}
+.swiper-button-prev::after{
+    content: url("../../../Resources/Assets/img/Icon\ feather-left.svg");
+    display: block;
+
+}

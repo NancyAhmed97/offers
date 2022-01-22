@@ -1,0 +1,66 @@
+.primary-color{
+    background-color: #2B1A04;
+}
+.pr{
+    padding-right: 75px;
+}
+.pl{
+    padding-left:75px;
+}
+input
+{
+    border: 1px solid #D3D3D3 !important;
+    height: 47px !important;
+    padding-left: 19px;
+    padding-right: 19px;
+    margin-top: 21px;
+}
+input:focus-visible
+{
+    
+    border: 1px solid #E2C164 !important;
+    height: 47px !important;
+    outline: none;
+}
+textarea{
+    border: 1px solid #D3D3D3 !important;
+    padding-left: 19px;
+    padding-right: 19px;  
+    margin-top: 21px;
+
+}
+textarea:focus-visible{
+    border: 1px solid #E2C164 !important;
+    outline: none;
+}
+input:focus-visible{
+    outline: none;
+    box-shadow: none;
+}
+button{
+    width: 180px;
+    height: 47px;
+    border: none;
+}
+.time{
+    background-color: #e2c164;
+    width: 116px;
+    font-size: 12px;
+    color: #fff;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .pr{
+        padding-right: 35px;
+    }
+    .pl{
+        padding-left:35px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .pr{
+        padding-right: 15px;
+    }
+    .pl{
+        padding-left:30px;
+    }
+}

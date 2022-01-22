@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "Helvetica Neue W23 for SKY";
+  src: local("Helvetica Neue W23 for SKY"),
+    url("../../../Resources/Assets/fonts/Helvetica Neue W23 for SKY Bd/Helvetica Neue W23 for SKY Bd.ttf")
+      format("truetype");
+}
+.shop_by_category h2 {
+  font-family: "Helvetica Neue W23 for SKY";
+  font-size: 26px;
+  font-weight: bold;
+}
+.shop_by_category p {
+  font-family: "Helvetica Neue W23 for SKY";
+  font-size: 16px;
+  color: rgba(26, 26, 24, 0.5);
+}
+.shop_by_category .container-fluid{
+  padding: 0;
+}
+.shop_by_category .shop_by_electronics_content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.shop_by_category .shop_by_electronics {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.shop_by_category .shop_by_electronics p {
+  margin: 0;
+}
+.shop_by_category .shop_by_electronics_content {
+  padding-top: 45px;
+}
+.shop_by_category .shop_by_electronics p img {
+  margin-left: 15px;
+}
+.shop_by_category .shop_by_electronics a {
+  text-decoration: none;
+  margin-top: 10px;
+}
+.shop_by_category .shop_by_electronics {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.shop_by_category .shop_by_school_content p {
+  margin: 0;
+}
+.shop_by_category .shop_by_school_content a {
+  text-decoration: none;
+}
+.shop_by_category .shop_by_school_content a p {
+  margin-top: 10px;
+}
+.shop_by_category .shop_by_school_content a img {
+  margin-left: 15px;
+}
+.shop_by_category .shop_by_school_content {
+  padding-left: 53px;
+  padding-top: 53px;
+}
+.shop_by_category .shop_by_school {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.shop_by_category .shop_by_toys {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.shop_by_category .shop_by_comanication_content {
+  margin-left: 34px;
+  padding-top: 34px;
+}
+.shop_by_category .shop_by_comanication_content p {
+  color: #0a4774;
+  margin: 0;
+}
+.shop_by_category .shop_by_comanication_content a {
+  text-decoration: none;
+}
+.shop_by_category .shop_by_toys_content {
+  padding-top: 51px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shop_by_category .shop_by_toys_content p {
+  color: #1a1a18;
+  margin: 0;
+}
+.shop_by_category .shop_by_toys_content a {
+  text-decoration: none;
+}
+@media only screen and (max-width: 768px) {
+  .shop_by_category .row{
+    margin: 0;
+}
+.shop_by_category .col-md-6{
+    padding: 0;
+}
+.shop_by_category .col-md-3{
+    padding: 0;
+}
+  .shop_by_category .shop_by_comanication {
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 15px !important;
+    height: 150px !important;
+  }
+  .shop_by_category .shop_by_school {
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 25px !important;
+    height: 150px !important;
+    
+  }
+  .shop_by_category .shop_by_school_content{
+    padding-left: 20px;  
+    padding-top: 20px;
+  }
+  .shop_by_category .shop_by_comanication_content {
+        margin-left: 20px;  
+    padding-top: 20px;
+  }
+  .shop_by_category .shop_by_electronics {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

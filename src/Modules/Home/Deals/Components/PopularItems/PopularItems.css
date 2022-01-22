@@ -1,0 +1,15 @@
+.title h2
+{
+    font-size: 20px;
+}
+.title ul li {
+    cursor: pointer;
+}
+.title ul li p{
+    color: #878786;
+    font-size: 14px;
+}
+.popular_items .active{
+    border-bottom: 2px solid #E2C164;
+    color: #1A1A18;
+}

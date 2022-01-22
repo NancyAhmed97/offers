@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+  <g id="Group_8149" data-name="Group 8149" transform="translate(-85 -442)">
+    <g id="Ellipse_584" data-name="Ellipse 584" transform="translate(85 442)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0.2">
+      <circle cx="26" cy="26" r="26" stroke="none"/>
+      <circle cx="26" cy="26" r="25.5" fill="none"/>
+    </g>
+    <g id="Icon_feather-mail" data-name="Icon feather-mail" transform="translate(97.487 453.589)">
+      <path id="Path_13192" data-name="Path 13192" d="M5.1,5H21.925a3.106,3.106,0,0,1,3.1,3.1V20.719a3.106,3.106,0,0,1-3.1,3.1H5.1a3.106,3.106,0,0,1-3.1-3.1V8.1A3.106,3.106,0,0,1,5.1,5ZM21.925,21.822a1.1,1.1,0,0,0,1.1-1.1V8.1a1.1,1.1,0,0,0-1.1-1.1H5.1A1.1,1.1,0,0,0,4,8.1V20.719a1.1,1.1,0,0,0,1.1,1.1Z" transform="translate(0 0)" fill="#e2c164"/>
+      <path id="Path_13193" data-name="Path 13193" d="M13.514,17.36a1,1,0,0,1-.573-.181L2.427,9.819A1,1,0,1,1,3.573,8.181l9.94,6.958,9.94-6.958A1,1,0,1,1,24.6,9.819l-10.514,7.36A1,1,0,0,1,13.514,17.36Z" transform="translate(0 -0.897)" fill="#e2c164"/>
+    </g>
+  </g>
+</svg>

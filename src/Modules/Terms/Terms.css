@@ -1,0 +1,55 @@
+.terms_Container{
+    margin-top: 65px;
+}
+.terms .terms_title h1{
+    font-size: 42px;
+    font-weight: bold;
+    }
+    .terms ul{
+        padding-left: 1rem;
+      
+        }
+        .terms ul li,.terms ul li p{
+            font-size: 16px;
+            color: #002543;
+            opacity: 0.5;
+        }
+    .terms .terms_content{
+        margin-bottom: 75px;
+    }
+    .terms .terms_content p{
+    font-size: 16;
+    color: #002543;
+    opacity: 0.5;
+    }
+    .terms .terms_title p{
+        font-size: 16px;
+        opacity: 0.5;
+        color: #1A1A18;
+    }
+    .terms .terms_content h5{
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 48px;
+    }
+    .terms .supTitle
+    {
+        font-weight: bold;
+    }
+    @media only screen and (max-width: 768px) {
+        .terms .terms_title h1{
+            font-size: 32px;
+     
+            }
+            .terms .terms_title p{
+                font-size: 15px;
+             
+            }
+            .terms .terms_content p{
+                font-size: 15;
+                }
+                .terms .terms_content h5{
+                    font-size: 15px;
+                    
+                }
+    }

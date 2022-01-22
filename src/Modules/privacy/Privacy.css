@@ -1,0 +1,38 @@
+.privacy .privacy_title h1{
+font-size: 42px;
+font-weight: bold;
+}
+.privacy .privacy_content{
+    margin-bottom: 75px;
+}
+.privacy .privacy_content p{
+font-size: 16;
+color: #002543;
+opacity: 0.5;
+}
+.privacy .privacy_title p{
+    font-size: 16px;
+    opacity: 0.5;
+    color: #1A1A18;
+}
+.privacy .privacy_content h5{
+    font-size: 16px;
+    font-weight: bold;
+}
+@media only screen and (max-width: 768px) {
+    .privacy .privacy_title h1{
+        font-size: 32px;
+ 
+        }
+        .privacy .privacy_title p{
+            font-size: 15px;
+         
+        }
+        .privacy .privacy_content p{
+            font-size: 15;
+            }
+            .privacy .privacy_content h5{
+                font-size: 15px;
+                
+            }
+}
