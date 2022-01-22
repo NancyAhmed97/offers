@@ -22,10 +22,13 @@
         .product .product_details {
           margin-bottom: 25px;
         }
-        .product .product_img {
+        /* .product .product_img {
           display: flex;
           justify-content: center;
-        }
+        } */
+        .product .product_img .product_img {
+      width: 100%;
+        } 
         .product .product_container .product_details p:first-of-type {
           font-size: 16px;
           padding-right: 0;

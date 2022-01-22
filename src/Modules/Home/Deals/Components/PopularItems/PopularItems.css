@@ -17,3 +17,6 @@
     text-decoration: none;
     color: #1A1A18;
 }
+.popular_items .product .like_icon{
+right: 7px !important;
+}

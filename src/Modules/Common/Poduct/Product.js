@@ -7,7 +7,7 @@ function Product({ img, title, price, rating }) {
     <div className="product">
       <div className="product_details">
         <div className="product_img">
-          <img src={img} alt={img} />
+          <img src={img} alt={img} className="product_img"/>
           <img src={likeIcon} alt="likeIcon" className="like_icon" />
         </div>
         <div className="contant">

@@ -46,7 +46,9 @@ function Blog() {
           {blog.map((blogDetails) => {
             return (
               <Col md={4} key={blogDetails.id}>
-         <Link to="/blogDetails">
+         <Link 
+  to={`/blogDetails/:${blogDetails.id}`}         
+         >
          <div className="blog_img">
                   <img
                     src={blogDetails.img}

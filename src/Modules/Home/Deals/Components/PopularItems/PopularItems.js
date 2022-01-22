@@ -17,48 +17,56 @@ function PopularItems() {
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:1
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:2
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:3
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:4
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:5
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:6
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:7
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:8
     },
   ];
   const productToys = [
@@ -67,48 +75,56 @@ function PopularItems() {
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:9
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:10
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:11
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:12
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:13
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:14
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:15
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:16
     },
   ];
   const productcommunications = [
@@ -117,48 +133,56 @@ function PopularItems() {
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:17
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:18
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:19
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:20
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:21
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:22
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:23
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:24
     },
   ];
   const productschoolSupplies = [
@@ -167,48 +191,56 @@ function PopularItems() {
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:25
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:26
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:27
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:28
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:29
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:30
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:31
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
+      id:32
     },
   ];
   return (
@@ -281,12 +313,16 @@ function PopularItems() {
                 {productElectronics.map((productDetails) => {
                   return (
                     <Col md={3}>
-                      <Product
+                  <Link 
+           to={`/blogDetails/:${productDetails.id}`} 
+          >
+          <Product
                         img={productDetails.img}
                         title={productDetails.title}
                         rating={productDetails.rating}
                         price={productDetails.price}
                       />
+          </Link>
                     </Col>
                   );
                 })}
@@ -297,12 +333,16 @@ function PopularItems() {
                 {productToys.map((productDetails) => {
                   return (
                     <Col md={3}>
-                      <Product
+                      <Link 
+           to={`/blogDetails/:${productDetails.id}`} 
+          >
+          <Product
                         img={productDetails.img}
                         title={productDetails.title}
                         rating={productDetails.rating}
                         price={productDetails.price}
                       />
+          </Link>
                     </Col>
                   );
                 })}
@@ -313,12 +353,16 @@ function PopularItems() {
                 {productcommunications.map((productDetails) => {
                   return (
                     <Col md={3}>
-                      <Product
+                       <Link 
+           to={`/blogDetails/:${productDetails.id}`} 
+          >
+          <Product
                         img={productDetails.img}
                         title={productDetails.title}
                         rating={productDetails.rating}
                         price={productDetails.price}
                       />
+          </Link>
                     </Col>
                   );
                 })}
@@ -329,7 +373,9 @@ function PopularItems() {
                 {productschoolSupplies.map((productDetails) => {
                   return (
                     <Col md={3}>
-          <Link to="/blogDetails">
+          <Link 
+           to={`/blogDetails/:${productDetails.id}`} 
+          >
           <Product
                         img={productDetails.img}
                         title={productDetails.title}
