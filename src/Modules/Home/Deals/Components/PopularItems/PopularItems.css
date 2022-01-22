@@ -23,6 +23,6 @@ right: 7px !important;
 @media only screen and (max-width: 768px) {
     .popular_items .title{
         display: flex;
-        flex-direction: column2;
+        flex-direction: column;
     }
 }
