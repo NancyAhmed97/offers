@@ -156,8 +156,8 @@ function DealsOfTheWeek() {
             breakpoint: 1024,
             settings: {
               dots: false,
-              infinite: true,
-              autoplay: true,
+              infinite: false,
+              autoplay: false,
               autoplaySpeed: 3000,
               pauseOnHover: true,
               slidesToShow: 1,
@@ -169,8 +169,8 @@ function DealsOfTheWeek() {
             breakpoint: 668,
             settings: {
               dots: false,
-              infinite: true,
-              autoplay: true,
+              infinite: false,
+              autoplay: false,
               autoplaySpeed: 3000,
               pauseOnHover: true,
               slidesToShow: 1,
@@ -183,8 +183,8 @@ function DealsOfTheWeek() {
             breakpoint: 480,
             settings: {
               dots: false,
-              infinite: true,
-              autoplay: true,
+              infinite: false,
+              autoplay: false,
               autoplaySpeed: 3000,
               pauseOnHover: true,
               slidesToShow: 1,
