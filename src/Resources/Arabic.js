@@ -13,6 +13,7 @@ export const ar = {
     hotSalesPragaph:"تسوق بأفضل الأسعار وحدد الأجواء الخارجية المثالية",
     popularItems:"العناصر الشائعة",
     dealsOfTheWeek:"عروض الأسبوع",
+    expires:"ينتهي في"
     },
   bestSeller:{
     bestSeller:"الأكثر مبيعا",

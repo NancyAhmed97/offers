@@ -22,7 +22,7 @@
 .deals_of_the_week .slick-next
 {
     position: relative;
-    bottom: 625px;
+    bottom: 690px;
     left: 273px;
 }
 .deals_of_the_week .slick-list{
@@ -45,7 +45,7 @@
 @media only screen and (max-width: 768px) {
     .deals_of_the_week .slick-next{
         position: relative;
-        bottom: 628px;
+        bottom: 708px;
         left: 273px;
     
     }

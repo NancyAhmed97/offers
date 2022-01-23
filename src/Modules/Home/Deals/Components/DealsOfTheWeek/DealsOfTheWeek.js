@@ -13,7 +13,10 @@ function DealsOfTheWeek() {
     const blog = [
         {
           id: 1,
-    
+          expiresDays: "01",
+          expiresHours:"07",
+          expiresMins:"29",
+          expiresSecs:"41",
           img: blogImg,
           price: "SAR 3,099.00",
           rating: 4,
@@ -25,7 +28,10 @@ function DealsOfTheWeek() {
         },
         {
           id: 1,
-    
+          expiresDays: "01",
+          expiresHours:"07",
+          expiresMins:"29",
+          expiresSecs:"41",
           img: blogImg,
           price: "SAR 3,099.00",
           rating: 4,
@@ -37,7 +43,10 @@ function DealsOfTheWeek() {
         },
         {
           id: 1,
-    
+          expiresDays: "01",
+          expiresHours:"07",
+          expiresMins:"29",
+          expiresSecs:"41",
           img: blogImg,
           price: "SAR 3,099.00",
           rating: 4,
@@ -49,7 +58,10 @@ function DealsOfTheWeek() {
         },
         {
           id: 1,
-    
+          expiresDays: "01",
+          expiresHours:"07",
+          expiresMins:"29",
+          expiresSecs:"41",
           img: blogImg,
           price: "SAR 3,099.00",
           rating: 4,
@@ -61,7 +73,10 @@ function DealsOfTheWeek() {
         },
         {
           id: 1,
-    
+          expiresDays: "01",
+          expiresHours:"07",
+          expiresMins:"29",
+          expiresSecs:"41",
           img: blogImg,
           price: "SAR 3,099.00",
           rating: 4,
@@ -73,7 +88,10 @@ function DealsOfTheWeek() {
         },
         {
           id: 1,
-    
+          expiresDays: "01",
+          expiresHours:"07",
+          expiresMins:"29",
+          expiresSecs:"41",
           img: blogImg,
           price: "SAR 3,099.00",
           rating: 4,
@@ -85,7 +103,10 @@ function DealsOfTheWeek() {
         },
         {
           id: 1,
-    
+          expiresDays: "01",
+          expiresHours:"07",
+          expiresMins:"29",
+          expiresSecs:"41",
           img: blogImg,
           price: "SAR 3,099.00",
           rating: 4,
@@ -97,7 +118,10 @@ function DealsOfTheWeek() {
         },
         {
           id: 1,
-    
+          expiresDays: "01",
+          expiresHours:"07",
+          expiresMins:"29",
+          expiresSecs:"41",
           img: blogImg,
           price: "SAR 3,099.00",
           rating: 4,
@@ -109,7 +133,10 @@ function DealsOfTheWeek() {
         },
         {
           id: 1,
-    
+          expiresDays: "01",
+          expiresHours:"07",
+          expiresMins:"29",
+          expiresSecs:"41",
           img: blogImg,
           price: "SAR 3,099.00",
           rating: 4,
@@ -209,6 +236,11 @@ function DealsOfTheWeek() {
                         title={productDetails.title}
                         rating={productDetails.rating}
                         price={productDetails.price}
+                        expiresDays={productDetails.expiresDays}
+                        expiresHours={productDetails.expiresHours}
+                        expiresMins={productDetails.expiresMins}
+                        expiresSecs={productDetails.expiresSecs}
+                        expires={true}
                       />
           </Link>
             </div>

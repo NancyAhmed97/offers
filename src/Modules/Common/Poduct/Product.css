@@ -16,7 +16,25 @@
         top: 7px;
         right: 35px;
     }
-  
+    .product .expirePeriod
+    {
+      display: flex;
+      flex-direction: row;
+    }
+  .product .number{
+    width: 42.32px;
+    height: 42.32px;
+    background-color: #ECEDE7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    margin-right: 15px !important;
+  }
+  .product .days,.product .hours ,.product .mins , .product .secs{
+    font-size:12px ;
+    color: #686464 !important;
+  }
     @media only screen and (max-width: 768px) {
     
         .product .product_details {
