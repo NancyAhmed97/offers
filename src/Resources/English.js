@@ -13,7 +13,8 @@ export const en = {
     hotSalesPragaph:"Shop the best prices and set your perfect outdoor vibe",
     popularItems:"Popular Items",
     dealsOfTheWeek:"Deals Of The Week",
-    expires:"Expires in"
+    expires:"Expires in",
+    bestPicks:"Best Picks",
   },
   bestSeller:{
     bestSeller:"Best Seller",

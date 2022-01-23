@@ -6,7 +6,12 @@
      margin: 0;
      font-size: 26px;
  }
- .hot_sales p:first-of-type{
+ .hot_sales a{
+    text-decoration: none;
+    color: black;
+    opacity: 1 !important;
+  }
+ .hot_sales .best_seller_pragrapg{
      font-size: 16px;
      opacity: 0.5;
      margin-bottom: 30px;
