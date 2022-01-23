@@ -1,4 +1,11 @@
 
+@font-face {
+    font-family: "HelveticaNeue";
+    font-weight: bold;
+    src: local("Helvetica Neue Bold"),
+    local("HelveticaNeue-Bold");
+}
+
 .contact_form{
     margin-bottom: 100px;
 }
