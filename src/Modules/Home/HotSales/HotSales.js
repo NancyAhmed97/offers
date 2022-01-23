@@ -16,6 +16,7 @@ import SwiperCore, {
   
 import "./HotSales.css"
 import Product from '../../Common/Poduct/Product';
+import { Link } from 'react-router-dom';
 function HotSales() {
     const { currentLocal } = useSelector((state) => state.currentLocal);
     SwiperCore.use([EffectFade,Navigation,Pagination]);
@@ -94,12 +95,16 @@ function HotSales() {
     {product.map((Blog)=>{
  return(
     <SwiperSlide>
+                            <Link 
+           to={`/blogDetails/:${Blog.id}`} 
+          >
     <Product
         img={Blog.img}
         title={Blog.title}
         rating={Blog.rating}
         price={Blog.price}
       />
+      </Link>
 </SwiperSlide>
  )
     })}
