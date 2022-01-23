@@ -5,7 +5,7 @@
     src: local("Helvetica Neue Bold"),
     local("HelveticaNeue-Bold");
 } */
-@import url('http://fonts.cdnfonts.com/css/helvetica-neue-9');
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
 .contact_form{
     margin-bottom: 100px;
 }
@@ -14,7 +14,7 @@
     margin-bottom: 55px;
 } 
 .contact_form .contact_title h1{
-    font-family: 'Helvetica Neue W23 for SKY';
+    font-family: 'Helvetica', sans-serif;
     font-size: 42px;
     font-weight: bold;
 text-transform: uppercase;
