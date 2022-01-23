@@ -1,11 +1,11 @@
 
-@font-face {
+/* @font-face {
     font-family: "HelveticaNeue";
     font-weight: bold;
     src: local("Helvetica Neue Bold"),
     local("HelveticaNeue-Bold");
-}
-
+} */
+@import url('http://fonts.cdnfonts.com/css/helvetica-neue-9');
 .contact_form{
     margin-bottom: 100px;
 }
