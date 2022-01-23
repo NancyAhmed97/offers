@@ -8,6 +8,8 @@
     color: #002543;
     opacity: 0.5;
     font-size: 14px;
+    font-family: "Helvetica Neue W23 for SKY";
+
 }
 .about_info .secont_about_container{
     display: flex;
@@ -34,6 +36,7 @@
 .about_info .secont_about_info p
 {
     color: #002543;
+    font-family: "Helvetica Neue W23 for SKY";
     opacity: 0.5;
     
 }

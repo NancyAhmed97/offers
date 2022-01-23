@@ -4,9 +4,16 @@
 .blog_details_info h2{
 font-size: 22px;
 margin-bottom: 30px;
+font-family: "Helvetica Neue W23 for SKY";
+
 }
 .blog_details_info .blog-details-conten p{
     padding-right: 68px;
+    font-family: 'Open Sans', sans-serif;
+font-size: 14px;
+color: #002543;
+opacity: 0.5;
+font-weight: 600;
 }
 @media only screen and (max-width: 768px) {
 .blog_details_info img{
