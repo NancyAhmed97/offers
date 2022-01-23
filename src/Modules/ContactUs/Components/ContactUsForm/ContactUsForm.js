@@ -75,7 +75,7 @@ function ContactUsForm() {
   };
     const { currentLocal } = useSelector((state) => state.currentLocal);
     console.log(alert);
-  return <div className='contact_form pr pl'>
+  return <div className={currentLocal.language==="English"?'contact_form pr pl':"ar_contact_form contact_form pr pl"}>
       <Container fluid className='m-0 p-0'>
           <Row className='p-0'>
         <div className='contact_title text-center'>

@@ -12,6 +12,16 @@
     font-weight: bold;
 text-transform: uppercase;
 } 
+/* .contact_form  input::placeholder {
+    color: #1A1A18;
+    opacity: 0.5;  
+      font-family: 'Helvetica Neue W23 for SKY';
+      font-size: 14px;
+  }
+   */
+  .ar_contact_form{
+      margin-right: 25px;
+  }
 .contact_form .contact_title p{
     font-family: 'Helvetica Neue W23 for SKY';
     font-size: 16px;
@@ -31,20 +41,33 @@ text-transform: uppercase;
 .contact_form .contact_info_container{
 margin-top: 75px;
 }
-.contact_form .contact_info h5{
+.contact_form .contact_info h5 ,.contact_form form h5{
     font-family: 'Helvetica Neue W23 for SKY';
     font-size: 16px;
+    font-weight: bold;
     color: #2B1A04;}
+.contact_form .contact_info p ,.contact_form form p{
+    font-family: 'Helvetica Neue W23 for SKY';
+    font-size: 14px;
+    color: #1A1A18;
+    opacity: 0.5
+}
 .contact_form ul li{
     list-style: none;
 }
 .contact_form ul li h4{
     font-size: 14px;
     color: #878786;
+    font-family: 'Helvetica Neue W23 for SKY';
+
 }
 .contact_form ul li p{
     font-size: 14px;
-    color: #1A1A18;
+    font-family: 'Helvetica Neue W23 for SKY';
+    color: #1A1A18 !important;
+    opacity: 1 !important;
+
+
 }
 .contact_form .touchContainer li:last-of-type{
     position: relative;

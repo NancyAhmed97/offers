@@ -4,7 +4,7 @@ import FooterAccissabilty from "./Components/FooterAccissabilty/FooterAccissabil
 import FooterLinks from "./Components/FooterLinks/FooterLinks";
 function Footer() {
   return (
-    <footer className="mt-5 pt-5">
+    <footer >
       <FooterAccissabilty />
       <FooterLinks />
     </footer>
