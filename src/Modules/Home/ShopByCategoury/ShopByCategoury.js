@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import "../../../Resources/Assets/fonts/Helvetica Neue W23 for SKY Bd/Helvetica Neue W23 for SKY Bd.ttf";
+// import "../../../Resources/Assets/fonts/ font-family: "Helvetica Neue W23 for SKY";  Bd/ font-family: "Helvetica Neue W23 for SKY";  Bd.ttf";
 import electoronics from "../../../Resources/Assets/img/Rectangle 1155.png";
 import toys from "../../../Resources/Assets/img/Rectangle 1153.png";
 import school from "../../../Resources/Assets/img/Rectangle 1154.png";

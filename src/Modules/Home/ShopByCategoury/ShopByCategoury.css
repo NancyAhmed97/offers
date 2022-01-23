@@ -1,16 +1,16 @@
-@font-face {
-  font-family: "Helvetica Neue W23 for SKY";
-  src: local("Helvetica Neue W23 for SKY"),
-    url("../../../Resources/Assets/fonts/Helvetica Neue W23 for SKY Bd/Helvetica Neue W23 for SKY Bd.ttf")
+/* @font-face {
+  font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
+  src: local(" font-family: "Helvetica Neue W23 for SKY"; "),
+    url("../../../Resources/Assets/fonts/Helvetica\ Neue\ W23\ for\ SKY\ Bd.ttf")
       format("truetype");
-}
+} */
 .shop_by_category h2 {
-  font-family: "Helvetica Neue W23 for SKY";
+  font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
   font-size: 26px;
   font-weight: bold;
 }
 .shop_by_category p {
-  font-family: "Helvetica Neue W23 for SKY";
+  font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
   font-size: 16px;
   color: rgba(26, 26, 24, 0.5);
 }

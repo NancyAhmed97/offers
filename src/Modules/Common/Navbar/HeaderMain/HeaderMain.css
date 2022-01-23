@@ -1,3 +1,8 @@
+/* @font-face {
+    font-family: "Helvetica Neue W23 for SKY Bd";
+    src: url("../../../../Resources//Assets/fonts/Helvetica\ Neue\ W23\ for\ SKY\ Bd/Helvetica\ Neue\ W23\ for\ SKY\ Bd.woff2") format("woff2"),
+         url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+  } */
 .header_main{
     background-color: #2B1A04;
     padding-bottom: 27px;
@@ -12,6 +17,8 @@
     color: #E2C164 !important;
     text-decoration: none;
     margin-top: 15px;
+             
+    /* background-image: url("../../../../Resources/Assets/img/Icon\ feather-left.svg"); */
 }
 .header_main .header_auth{
     color: #E2C164 !important;
