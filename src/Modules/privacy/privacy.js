@@ -1,11 +1,13 @@
 import React from 'react';
 import Footer from '../Common/Footer/Footer';
+import Navbar from '../Common/Navbar/Navba';
 import { useSelector } from "react-redux";
 import "./Privacy.css"
 function Privacy() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return <section className='privacy' >
-    <div className='privacy_Container pr pl'>
+    <Navbar />
+    <div className='privacy_Container pr pl mt-4'>
 <div className='privacy_title text-center'>
   <h1>{currentLocal.footer.privacy}</h1>
   <p>{currentLocal.privacy.titlePragraph}</p>

@@ -28,11 +28,15 @@ function FooterLinks() {
 </Col>
 <Col className='p-0 m-0' md={2}>
 <ul className="about_offer_menu">
-            <li className="menu_item text-white mb-4">
+            <li className="menu_item text-white mb-4"onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
               {currentLocal.footer.aboutOffer}
             </li>
             <li className="menu_child_item mb-3" >
-              <Link to="/aboutus" className="text-white">
+              <Link to="/aboutus" className="text-white"onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
                 {currentLocal.footer.aboutus}
               </Link>
             </li>
@@ -42,7 +46,9 @@ function FooterLinks() {
               </Link>
             </li>
             <li className="menu_child_item">
-              <Link to="/privacy" className="text-white">
+              <Link to="/privacy" className="text-white" onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
                 {currentLocal.footer.privacy}
               </Link>
             </li>
@@ -53,12 +59,16 @@ function FooterLinks() {
 <ul className="customer_care_menu">
             <li className="menu_item text-white mb-4">{currentLocal.footer.customer}</li>
             <li className="menu_child_item mb-3">
-              <Link to="/aboutus" className="text-white">
+              <Link to="/aboutus" className="text-white"onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
                 {currentLocal.footer.help}
               </Link>
             </li>
             <li className="menu_child_item mb-3">
-              <Link to="/terms" className="text-white">
+              <Link to="/terms" className="text-white"onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
                 {currentLocal.footer.terms}
               </Link>
             </li>
@@ -74,7 +84,9 @@ function FooterLinks() {
 <ul className="contact_us_menu p-0">
             <li className="menu_item text-white mb-4">{currentLocal.footer.getInTouch}</li>
             <li className="menu_child_item mb-3">
-              <Link to="/contactus" className="text-white">
+              <Link to="/contactus" className="text-white"      onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
             {currentLocal.footer.contect}
               </Link>
             </li>
