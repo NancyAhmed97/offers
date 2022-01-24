@@ -14,7 +14,7 @@
     margin-bottom: 55px;
 } 
 .contact_form .contact_title h1{
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Helvetica';
     font-size: 42px;
     font-weight: bold;
 text-transform: uppercase;
@@ -30,7 +30,7 @@ text-transform: uppercase;
       margin-right: 25px;
   }
 .contact_form .contact_title p{
-    font-family: 'Helvetica Neue W23 for SKY';
+    font-family: 'Helvetica';
     font-size: 16px;
     color: #1A1A18;
     opacity: 0.5;
@@ -49,12 +49,12 @@ text-transform: uppercase;
 margin-top: 75px;
 }
 .contact_form .contact_info h5 ,.contact_form form h5{
-    font-family: 'Helvetica Neue W23 for SKY';
+    font-family: 'Helvetica';
     font-size: 16px;
     font-weight: bold;
     color: #2B1A04;}
 .contact_form .contact_info p ,.contact_form form p{
-    font-family: 'Helvetica Neue W23 for SKY';
+    font-family: 'Helvetica';
     font-size: 14px;
     color: #1A1A18;
     opacity: 0.5
@@ -65,12 +65,11 @@ margin-top: 75px;
 .contact_form ul li h4{
     font-size: 14px;
     color: #878786;
-    font-family: 'Helvetica Neue W23 for SKY';
 
 }
 .contact_form ul li p{
     font-size: 14px;
-    font-family: 'Helvetica Neue W23 for SKY';
+    font-family: 'Helvetica';
     color: #1A1A18 !important;
     opacity: 1 !important;
 
