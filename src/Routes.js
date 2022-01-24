@@ -21,7 +21,7 @@ function Routes() {
           <Route  path="/aboutus" render={() => <Aboutus />} />
           <Route  path="/blogs" render={() => <Blogs />} />
           <Route  path="/blogDetails/:id" render={() => <BlogDetails />} />
-          <Route  path="/categoryDetails/:id" render={() => <CategouryDetails />} />
+          <Route  path="/CategouryDetails/:id" render={() => <CategouryDetails />} />
                   </Switch>
       )}
     />

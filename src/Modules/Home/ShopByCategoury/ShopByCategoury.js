@@ -31,7 +31,9 @@ function ShopByCategoury() {
                 <p className="text-white">
                   {currentLocal.shopByCategory.electronics}
                 </p>
-                <Link to="/productDetails">
+                <Link to={`/CategouryDetails/:${1}`} onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
                   <p className="text-white">
                     {currentLocal.shopByCategory.seeMore}
                     <img src={WhiteseeMore} alt="WhiteseeMore"   />
@@ -48,7 +50,9 @@ function ShopByCategoury() {
               >
                 <div className="shop_by_school_content">
                   <p className="text-white">{currentLocal.shopByCategory.schoolSupplies}</p>
-                  <Link to="/productDetails">
+                  <Link to={`/CategouryDetails/:${2}`} onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
                   <p className="text-white">{currentLocal.shopByCategory.seeMore}
                   <img src={WhiteseeMore} alt="WhiteseeMore"  />
                   </p>
@@ -61,11 +65,18 @@ function ShopByCategoury() {
                   backgroundImage: `url('${comanication}')`,
                   height: "220px",
                   marginTop: "51px",
+                  
                 }}
               >
                 <div className="shop_by_comanication_content">
                   <p>{currentLocal.shopByCategory.communications}</p>
-                  <Link to="/productDetails">
+                  <Link
+
+to={`/CategouryDetails/:${3}`} 
+onClick={() => {
+  window.scrollTo(0, 0);
+}}
+>
                   <p >{currentLocal.shopByCategory.seeMore}
                   <img src={blueSeeMore} alt="blueSeeMore" />
                   </p>
@@ -80,8 +91,12 @@ function ShopByCategoury() {
               style={{ backgroundImage: `url('${toys}')`, height: "491px" }}
             >
               <div className="shop_by_toys_content">
-                <p>{currentLocal.shopByCategory.toys}</p>
-                <Link to="/productDetails">
+                <p> {currentLocal.shopByCategory.toys} </p>
+                <Link to={`/CategouryDetails/:${4}`} 
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+>
                 <p>{currentLocal.shopByCategory.seeMore}
                 <img src={blackSeeMore} alt="blackSeeMore" />
                 </p>
