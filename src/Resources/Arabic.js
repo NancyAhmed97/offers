@@ -112,6 +112,8 @@ aboutus:{
 },
 blogDetails:{
   Sharepost:"مشاركة منشور",
+  mostViewed:"الأكثر مشاهدة",
+  productName:"أضف اسم المنتج هنا في هذه المساحة",
 
 },
 };

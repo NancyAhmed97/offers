@@ -112,6 +112,8 @@ missionPragraph:"To be a leading global company that provides everything the con
 },
 blogDetails:{
   Sharepost: "Share post",
+  mostViewed:"Most Viewed",
+  productName:"Add product name here in this space ",
 
 },
 };
