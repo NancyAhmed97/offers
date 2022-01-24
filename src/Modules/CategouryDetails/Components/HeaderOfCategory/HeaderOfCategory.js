@@ -40,8 +40,8 @@ function HeaderOfCategory() {
         {categoryId==="4"&&
       <>
       <div className='header_title text-center mb-5'>
-          <h2>{currentLocal.shopByCategory.communications}</h2>
-          <p>{currentLocal.shopByCategory.toys}</p>
+          <h2>{currentLocal.shopByCategory.toys}</h2>
+          <p>{currentLocal.home.hotSalesPragaph}</p>
       </div>
       <img src={electoronics} alt="communications" className='header_img w-100'/>
       </>
