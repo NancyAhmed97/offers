@@ -8,6 +8,7 @@ import Privacy from "./Modules/privacy/privacy"
 import Terms from "./Modules/Terms/Terms";
 import Blogs from "./Modules/Blogs/Blogs";
 import BlogDetails from "./Modules/BlogDetails/BlogDetails";
+import CategouryDetails from "./Modules/CategouryDetails/CategouryDetails";
 function Routes() {
   return (
     <Route
@@ -20,6 +21,7 @@ function Routes() {
           <Route  path="/aboutus" render={() => <Aboutus />} />
           <Route  path="/blogs" render={() => <Blogs />} />
           <Route  path="/blogDetails/:id" render={() => <BlogDetails />} />
+          <Route  path="/categoryDetails/:id" render={() => <CategouryDetails />} />
                   </Switch>
       )}
     />
