@@ -315,6 +315,9 @@ function PopularItems() {
                     <Col md={3}>
                   <Link 
            to={`/blogDetails/:${productDetails.id}`} 
+           onClick={() => {
+            window.scrollTo(0, 0);
+          }}
           >
           <Product
                         img={productDetails.img}
@@ -335,6 +338,9 @@ function PopularItems() {
                     <Col md={3}>
                       <Link 
            to={`/blogDetails/:${productDetails.id}`} 
+           onClick={() => {
+            window.scrollTo(0, 0);
+          }}
           >
           <Product
                         img={productDetails.img}
@@ -355,7 +361,10 @@ function PopularItems() {
                     <Col md={3}>
                        <Link 
            to={`/blogDetails/:${productDetails.id}`} 
-          >
+           onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+         >
           <Product
                         img={productDetails.img}
                         title={productDetails.title}
@@ -375,7 +384,10 @@ function PopularItems() {
                     <Col md={3}>
           <Link 
            to={`/blogDetails/:${productDetails.id}`} 
-          >
+           onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+         >
           <Product
                         img={productDetails.img}
                         title={productDetails.title}

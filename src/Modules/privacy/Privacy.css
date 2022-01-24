@@ -1,7 +1,10 @@
+
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+
 .privacy .privacy_title h1{
 font-size: 42px;
 font-weight: bold;
-font-family: "Helvetica Neue W23 for SKY";
+font-family: 'Helvetica';
 }
 .privacy .privacy_content{
     margin-bottom: 75px;
@@ -10,11 +13,11 @@ font-family: "Helvetica Neue W23 for SKY";
 font-size: 16;
 color: #002543;
 opacity: 0.5;
-font-family: 'Open Sans', sans-serif;
+font-family: 'Helvetica';
 }
 .privacy .privacy_title p{
  
-    font-family: 'Helvetica Neue W23 for SKY';
+    font-family: 'Helvetica';
     font-size: 16px;
     color: #1A1A18;
     opacity: 0.5;
@@ -22,7 +25,7 @@ font-family: 'Open Sans', sans-serif;
 .privacy .privacy_content h5{
     font-size: 16px;
     font-weight: bold;
-    font-family: "Helvetica Neue W23 for SKY";
+    font-family: 'Helvetica';
 }
 @media only screen and (max-width: 768px) {
     .privacy .privacy_title h1{

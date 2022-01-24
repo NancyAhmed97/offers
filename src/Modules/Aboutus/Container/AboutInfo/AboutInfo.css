@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+
 .about_info .about_img
 {
     width: 100%;
@@ -8,7 +10,7 @@
     color: #002543;
     opacity: 0.5;
     font-size: 14px;
-    font-family: "Helvetica Neue W23 for SKY";
+    font-family: 'Helvetica';
 
 }
 .about_info .secont_about_container{
@@ -36,7 +38,7 @@
 .about_info .secont_about_info p
 {
     color: #002543;
-    font-family: "Helvetica Neue W23 for SKY";
+    font-family: 'Helvetica';
     opacity: 0.5;
     
 }

@@ -15,6 +15,10 @@ export const en = {
     dealsOfTheWeek:"Deals Of The Week",
     expires:"Expires in",
     bestPicks:"Best Picks",
+    search:"search product",
+    login:"Login",
+    signup:"Sign up",
+    shopByCategories:"Shop By Categories",
   },
   bestSeller:{
     bestSeller:"Best Seller",

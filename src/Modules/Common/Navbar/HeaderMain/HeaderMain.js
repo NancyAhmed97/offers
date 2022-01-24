@@ -10,18 +10,21 @@ import { useSelector } from "react-redux";
 function HeaderMain() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <div className="header_main pr pl">
+        // <div className={currentLocal.language==="English"?'contact_form pr pl':"ar_contact_form contact_form pr pl"}>
+
+    <div className={currentLocal.language==="English"?"header_main pr pl":"header_main ar_header_main pr pl"}>
       <Container fluid className="m-0 p-0">'
       <Row className="p-0 m-0">
         <Col md={2} className="m-0 p-0">
         <div className="header_main_logo">
-            <img src={logo} alt="logo" />
-          </div>
+        <Link to="/">
+              <img src={logo} alt="footer_logo" />
+            </Link>          </div>
         </Col>
         <Col md={7} className="m-0 p-0">
         <div className="search position-relative">
          <form >
-         <input type="search" placeholder="Search Product" className="w-100"/>
+         <input type="search" placeholder={currentLocal.home.search} className="w-100"/>
          <button type="submit" className="search_icon">
               <img src={searchIcon} alt="searchIcon" />
             </button>
@@ -64,12 +67,7 @@ function HeaderMain() {
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            {/* <button type="submit" className="search_icon">
-              <img src={searchIcon} alt="searchIcon" />
-            </button>
-            <div className="search_By_Categoury">
-              <p className="m-0">All Ctegoury</p>
-            </div> */}
+      
          </form>
           </div>  
         </Col>
@@ -86,65 +84,12 @@ function HeaderMain() {
                   </li>
               </ul>
               <div className="header_auth text-white">
-            <Link to="/login" >Login</Link>/<Link to="/signup" >Sign up </Link>
+            <Link to="/login" >{currentLocal.home.login}</Link>/<Link to="/signup" >{currentLocal.home.signup} </Link>
           </div>
-        {/* <div >
-              <ul className="list_inline d-flex mx-4">
-                  <li className="shopping d-flex mx-3">
-                      <p className="count_items mx-2 mt-3">0</p>
-                      <img src={cart} alt="cart" />
-                  </li>
-                  <li className="wish_list d-flex">
-                  <p className="count_items mx-2 mt-3">0</p>
-                      <img src={heart} alt="heart" />
-                  </li>
-              </ul>
-          </div>
-          <div className="header_auth text-white">
-            <Link to="/login" >Login</Link>/<Link to="/signup" >Sign up </Link>
-          </div> */}
           </div>
         </Col>
       </Row>
       </Container>
-      {/* <div className="header_main_container">
-        <div className="header_main_right">
-          <div className="header_main_logo">
-            <img src={logo} alt="logo" />
-          </div>
-        </div>
-        <div className="header_main_center">
-          <div className="search position-relative">
-         <form >
-         <input type="search" placeholder="Search Product"/>
-            <button type="submit" className="search_icon">
-              <img src={searchIcon} alt="searchIcon" />
-            </button>
-            <div className="search_By_Categoury">
-              <p className="m-0">All Ctegoury</p>
-            </div>
-         </form>
-          </div>  
-        </div>
-        <div className="header_main_left">
-
-          <div>
-              <ul className="list_inline d-flex mx-4">
-                  <li className="shopping d-flex mx-3">
-                      <p className="count_items mx-2 mt-3">0</p>
-                      <img src={cart} alt="cart" />
-                  </li>
-                  <li className="wish_list d-flex">
-                  <p className="count_items mx-2 mt-3">0</p>
-                      <img src={heart} alt="heart" />
-                  </li>
-              </ul>
-          </div>
-          <div className="header_auth text-white">
-            <Link to="/login" >Login</Link>/<Link to="/signup" >Sign up </Link>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

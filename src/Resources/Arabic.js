@@ -14,7 +14,14 @@ export const ar = {
     popularItems:"العناصر الشائعة",
     dealsOfTheWeek:"عروض الأسبوع",
     expires:"ينتهي في",
-    bestPicks:"أفضل اللقطات"
+    bestPicks:"أفضل اللقطات",
+    search:"البحث عن المنتج",
+    login:"تسجيل دخول",
+    signup:"تسجيل",
+    shopByCategories:"تسوق حسب الفئات",
+
+
+
     },
   bestSeller:{
     bestSeller:"الأكثر مبيعا",

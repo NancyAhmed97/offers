@@ -230,6 +230,9 @@ function DealsOfTheWeek() {
             <div>
                            <Link 
            to={`/blogDetails/:${productDetails.id}`} 
+           onClick={() => {
+            window.scrollTo(0, 0);
+          }}
           >
           <Product
                         img={productDetails.img}

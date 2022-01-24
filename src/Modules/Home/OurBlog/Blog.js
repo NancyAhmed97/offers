@@ -48,7 +48,10 @@ function Blog() {
               <Col md={4} key={blogDetails.id}>
          <Link 
   to={`/blogDetails/:${blogDetails.id}`}         
-         >
+  onClick={() => {
+    window.scrollTo(0, 0);
+  }}
+        >
          <div className="blog_img">
                   <img
                     src={blogDetails.img}

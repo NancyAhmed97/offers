@@ -5,8 +5,11 @@ import firstPost from "../../../Resources/Assets/img/Group 5923.png";
 import Post from "../../../Resources/Assets/img/firstPost.png";
 import NextIcon from "../../../Resources/Assets/img/NextIcon";
 import "./LandingPage.css";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 function LandingPage() {
+  const { currentLocal } = useSelector((state) => state.currentLocal);
+
   const SamplePrevArrow = (props) => {
     const { className, style, onClick } = props;
 
@@ -102,7 +105,7 @@ function LandingPage() {
   ];
 
   return (
-    <div className="landing_page">
+    <div className={currentLocal.language==="English"?"landing_page":"landing_page ar_landing_page"}>
       <Slider {...settings} accessibility={false}>
         {content.map((content) => {
           return (

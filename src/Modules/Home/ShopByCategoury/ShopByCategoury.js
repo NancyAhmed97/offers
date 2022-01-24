@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-// import "../../../Resources/Assets/fonts/ font-family: "Helvetica Neue W23 for SKY";  Bd/ font-family: "Helvetica Neue W23 for SKY";  Bd.ttf";
+// import "../../../Resources/Assets/fonts/ font-family: "Helvetica Neue W23 for SKY";  Bd/ font-family: " Neue W23 for SKY";  Bd.ttf";
 import electoronics from "../../../Resources/Assets/img/Rectangle 1155.png";
 import toys from "../../../Resources/Assets/img/Rectangle 1153.png";
 import school from "../../../Resources/Assets/img/Rectangle 1154.png";
@@ -14,9 +14,9 @@ import { Link } from "react-router-dom";
 function ShopByCategoury() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <section className="shop_by_category pr pl">
-      <h2>Shop By Categories</h2>
-      <p>Shop the best prices and set your prefect outdoor vibe</p>
+    <section className={currentLocal.language==="English"?"shop_by_category pr pl":"shop_by_category ar_shop_by_category pr pl"}>
+      <h2>{currentLocal.home.shopByCategories}</h2>
+      <p>{currentLocal.blog.disc}</p>
       <Container fluid>
         <Row>
           <Col md={3}>

@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+
 .related_blog{
     margin-top: 55px;
     margin-bottom: 100px;
@@ -13,6 +15,8 @@
     color:#1A1A18;
     font-size:16px;
     font-weight: bold;
+    font-family: 'Helvetica';
+
 }
 .related_blog .paragrapg{
     color: #878786;
@@ -25,4 +29,8 @@
     .related_blog{
         margin-bottom: 20px;
     }
+    .related_blog .date
+{
+    width: 135px;
+}
 }

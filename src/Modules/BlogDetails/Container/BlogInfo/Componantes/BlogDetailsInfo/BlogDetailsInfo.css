@@ -1,10 +1,13 @@
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+
 .blog_details_info{
     margin-bottom: 42px;
 }
 .blog_details_info h2{
 font-size: 22px;
 margin-bottom: 30px;
-font-family: "Helvetica Neue W23 for SKY";
+font-family: 'Helvetica';
+font-weight: bold;
 
 }
 .blog_details_info .blog-details-conten p{

@@ -13,74 +13,58 @@
   position: absolute;
   right:5%;
 }
+.ar_landing_page .slick-next{
+  position: absolute;
+  left: 1300px !important;
+}
 .landing_page .slick-prev {
   position: absolute;
   left:8%;
+  z-index: 5555555555555555555;
+}
+
+.ar_landing_page .slick-prev {
+  position: absolute;
+  left:8% !important;
   z-index: 5555555555555555555;
 }
 .landing_page .slick-slider {
   width: 100% !important;
   margin: 0 auto;
 }
-@media (max-width: 768px) {
-  .landing_page .prevIcon {
-    transform: translate(3px, 0) !important;
-  }
-  /* .landing_page img {
-    width: 70% !important;
-    height: 143px;
-  } */
-  .landing_page .landing_pageImg {
-    margin-left: 6px !important;
-  }
-
-  /* .slick-next {
-    right: -10px !important;
-  }
-  .slick-prev {
-    left: -15px !important;
-  } */
-}
-.landing_page .landing_pageImg {
-  width: 60%;
-  background-color: #ffff;
-  border-radius: 15px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
-  margin-left: 70px;
-}
-
-.landing_page .slick-next {
-  font-size: 25px !important;
-}
-.carousel-indicators {
-  display: none !important;
-}
-
-.landing_page .borderLine:hover {
-  width: 135px;
-  background-color: #cda656;
-}
-.landing_page .imgContainer {
-  display: inline-block;
-}
-
-.landing_page img {
-  width: 100vw !important;
-  aspect-ratio: 0.5 / 1;
-  height: 450px;
-}
-/* .landing_page .slick-next{
-        display: none !important;
-    } */
 .landing_page .slick-prev:before {
   display: none;
 }
 .slick-next:before {
   display: none;
 }
-.landing_page .prevIcon {
-  transform: translate(-45px, 1px);
+
+@media only screen and (max-width: 768px) {
+  .landing_page img {
+    width: 100vw !important;
+    aspect-ratio: 0.5 / 1;
+    height: 250px !important;
+  }
+  .landing_page .prevIcon {
+    transform: translate(3px, 0) !important;
+  }
+
+  .landing_page .landing_pageImg {
+    margin-left: 6px !important;
+  }
+  .ar_landing_page .slick-next{
+    position: absolute;
+    left: 380px !important;
+  }
+  /* .ar_landing_page .slick-next{
+    position: relative !important;
+    left: 355px !important;
+    bottom: 218px;
+    z-index: 5555555555555555555555 !important;
+
+  } */
+.ar_landing_page .slick-next{
+
 }
-.landing_page .nextIcon {
-  transform: translate(14px, 1px);
+
 }

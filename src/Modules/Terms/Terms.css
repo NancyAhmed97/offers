@@ -1,10 +1,12 @@
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+
 .terms_Container{
     margin-top: 65px;
 }
 .terms .terms_title h1{
     font-size: 42px;
     font-weight: bold;
-    font-family: "Helvetica Neue W23 for SKY";
+    font-family: 'Helvetica';
 
     }
     .terms ul{
@@ -15,7 +17,7 @@
             font-size: 16px;
             color: #002543;
             opacity: 0.5;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Helvetica';
 
         }
     .terms .terms_content{
@@ -25,7 +27,7 @@
     font-size: 16;
     color: #002543;
     opacity: 0.5;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Helvetica';
 
     }
     .terms .terms_title p{
@@ -37,7 +39,7 @@
         font-size: 16px;
         font-weight: bold;
         margin-top: 48px;
-        font-family: "Helvetica Neue W23 for SKY";
+        font-family: 'Helvetica';
 
     }
     .terms .supTitle

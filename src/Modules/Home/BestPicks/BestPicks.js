@@ -83,7 +83,10 @@ function BestPicks() {
                 <Col md={4}>
                       <Link 
               to={`/blogDetails/:${productDetails.id}`} 
-             >
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
+            >
                   <Product
                     img={productDetails.img}
                     title={productDetails.title}
@@ -101,7 +104,10 @@ function BestPicks() {
             return (
               <Link 
               to={`/blogDetails/:${productDetails.id}`} 
-             >
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
+            >
               <Product
                 img={productDetails.img}
                 title={productDetails.title}

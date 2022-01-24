@@ -1,18 +1,18 @@
-/* @font-face {
-  font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
-  src: local(" font-family: "Helvetica Neue W23 for SKY"; "),
-    url("../../../Resources/Assets/fonts/Helvetica\ Neue\ W23\ for\ SKY\ Bd.ttf")
-      format("truetype");
-} */
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+
 .shop_by_category h2 {
   font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
   font-size: 26px;
   font-weight: bold;
+  font-family: 'Helvetica';
+
 }
 .shop_by_category p {
   font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
   font-size: 16px;
   color: rgba(26, 26, 24, 0.5);
+  font-family: 'Helvetica';
+
 }
 .shop_by_category .container-fluid{
   padding: 0;
@@ -29,11 +29,32 @@
 }
 .shop_by_category .shop_by_electronics p {
   margin: 0;
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-size: 24px;
+  margin-right: 25px !important;
+}
+.shop_by_category .shop_by_electronics a p {
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-size: 14px;
 }
 .shop_by_category .shop_by_electronics_content {
   padding-top: 45px;
 }
 .shop_by_category .shop_by_electronics p img {
+  margin-left: 15px;
+}
+.ar_shop_by_category .shop_by_electronics p img {
+  margin-right: 15px;
+}
+.shop_by_category .shop_by_school_content p img {
+  margin-left: 15px;
+}
+.shop_by_category .shop_by_toys p img {
+  margin-left: 15px;
+}
+.shop_by_category .shop_by_toys p img {
   margin-left: 15px;
 }
 .shop_by_category .shop_by_electronics a {
@@ -46,6 +67,14 @@
 }
 .shop_by_category .shop_by_school_content p {
   margin: 0;
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-size: 24px;
+}
+.shop_by_category .shop_by_school_content a p {
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-size: 14px;
 }
 .shop_by_category .shop_by_school_content a {
   text-decoration: none;
@@ -58,6 +87,10 @@
 }
 .shop_by_category .shop_by_school_content {
   padding-left: 53px;
+  padding-top: 53px;
+}
+.ar_shop_by_category .shop_by_school_content {
+  padding-right: 53px;
   padding-top: 53px;
 }
 .shop_by_category .shop_by_school {
@@ -73,9 +106,25 @@
   margin-left: 34px;
   padding-top: 34px;
 }
+.ar_shop_by_category .shop_by_comanication_content {
+  margin-right: 34px;
+  padding-top: 34px;
+}
+.shop_by_category .shop_by_comanication_content img{
+  margin-left: 15px;
+}
 .shop_by_category .shop_by_comanication_content p {
   color: #0a4774;
   margin: 0;
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-size: 24px;
+  margin-right: 25px !important;
+}
+.shop_by_category .shop_by_comanication_content a p {
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-size: 14px;
 }
 .shop_by_category .shop_by_comanication_content a {
   text-decoration: none;
@@ -90,11 +139,27 @@
 .shop_by_category .shop_by_toys_content p {
   color: #1a1a18;
   margin: 0;
+  font-family: 'Helvetica';
+font-weight: bold;
+font-size: 24px;
 }
 .shop_by_category .shop_by_toys_content a {
   text-decoration: none;
+
+}
+.shop_by_category .shop_by_toys_content a p{
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-size: 14px;
 }
 @media only screen and (max-width: 768px) {
+  .shop_by_category p {
+    font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
+    font-size: 15px;
+    color: rgba(26, 26, 24, 0.5);
+    font-family: 'Helvetica';
+  
+  }
   .shop_by_category .row{
     margin: 0;
 }
@@ -127,6 +192,27 @@
   }
   .shop_by_category .shop_by_electronics {
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
+    width: 94%;
+  }
+  .ar_shop_by_category .shop_by_electronics {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 92%;
+    margin-right: 25px;
+    margin-top: 25px;
+  }
+  .shop_by_category .shop_by_toys {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 94%;
+    margin-top: 25px;
+  }
+  .ar_shop_by_category .shop_by_toys {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 92%;
+    margin-right: 25px;
+    margin-top: 25px;
   }
 }

@@ -97,6 +97,9 @@ function HotSales() {
     <SwiperSlide>
                             <Link 
            to={`/blogDetails/:${Blog.id}`} 
+           onClick={() => {
+            window.scrollTo(0, 0);
+          }}
           >
     <Product
         img={Blog.img}

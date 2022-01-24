@@ -1,10 +1,4 @@
 
-/* @font-face {
-    font-family: "HelveticaNeue";
-    font-weight: bold;
-    src: local("Helvetica Neue Bold"),
-    local("HelveticaNeue-Bold");
-} */
 @import url('http://fonts.cdnfonts.com/css/helvetica-2');
 .contact_form{
     margin-bottom: 100px;
@@ -19,13 +13,6 @@
     font-weight: bold;
 text-transform: uppercase;
 } 
-/* .contact_form  input::placeholder {
-    color: #1A1A18;
-    opacity: 0.5;  
-      font-family: 'Helvetica Neue W23 for SKY';
-      font-size: 14px;
-  }
-   */
   .ar_contact_form{
       margin-right: 25px;
   }

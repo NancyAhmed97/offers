@@ -17,7 +17,7 @@ function TapBar() {
   const dispatch = useDispatch();
 
   return (
-    <div className="top_bar pr pl">
+    <div className={currentLocal.language==="English"?"top_bar pr pl":"top_bar pr pl ar_top_bar"}>
       <div className="top_bar_container">
         <div className="top_bar_left mt-1">
           <ul className="social_media">
