@@ -1,10 +1,13 @@
- .hot_sales{
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+.hot_sales{
      margin-top:70px ;
  }
  .hot_sales h2{
      padding: 0;
      margin: 0;
      font-size: 26px;
+     font-weight: bold;
+     font-family: 'Helvetica';
  }
  .hot_sales a{
     text-decoration: none;
@@ -12,8 +15,9 @@
     opacity: 1 !important;
   }
  .hot_sales .best_seller_pragrapg{
-     font-size: 16px;
-     opacity: 0.5;
+    font-size: 16px;
+    font-family: 'Helvetica';
+    color: rgba(26, 26, 24, 0.5);
      margin-bottom: 30px;
  }
  .swiper-button-prev.swiper-button-disabled{
@@ -33,4 +37,12 @@
     content: url("../../../Resources/Assets/img/Icon\ feather-left.svg");
     display: block;
 
+}
+@media only screen and (max-width: 768px) {
+    .hot_sales .best_seller_pragrapg{
+        font-size: 15px;
+        font-family: 'Helvetica';
+        color: rgba(26, 26, 24, 0.5);
+         margin-bottom: 30px;
+     }
 }
