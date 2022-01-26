@@ -10,7 +10,7 @@ function Blogs() {
   return <section className='blogs'>
     <Navba />
     <div className='contact_title text-center'>
-  <h1>{currentLocal.footer.contect}</h1>
+  <h1>{currentLocal.blog.blog}</h1>
   <p>{currentLocal.conactus.pragraph}</p>
 </div>
 <BlogsContainer />

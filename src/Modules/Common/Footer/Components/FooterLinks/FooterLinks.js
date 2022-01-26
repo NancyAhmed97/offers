@@ -17,7 +17,9 @@ function FooterLinks() {
 <Row className='p-0 m-0'>
 <Col className='p-0 m-0' md={3}>
 <div className="footer_logo">
-            <Link to="/">
+            <Link to="/" onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
               <img src={logo} alt="footer_logo" />
             </Link>
           </div>
@@ -41,7 +43,10 @@ function FooterLinks() {
               </Link>
             </li>
             <li className="menu_child_item mb-3">
-              <Link to="/aboutus" className="text-white">
+              <Link to="/aboutus" className="text-white"
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}>
 {currentLocal.footer.track}
               </Link>
             </li>
@@ -73,7 +78,9 @@ function FooterLinks() {
               </Link>
             </li>
             <li className="menu_child_item">
-              <Link to="/aboutus" className="text-white">
+              <Link to="/aboutus" className="text-white"onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
                 {currentLocal.footer.returns}
               </Link>
             </li>
@@ -91,12 +98,18 @@ function FooterLinks() {
               </Link>
             </li>
             <li className="menu_child_item mb-3">
-              <Link to="/blog" className="text-white">
+              <Link to="/blogs" className="text-white"onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
             {currentLocal.footer.blog}
               </Link>
             </li>
             <li className="menu_child_item">
-              <Link to="/aboutus" className="text-white">
+              <Link to="/aboutus" className="text-white"
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
+              >
                {currentLocal.footer.askSupport}
               </Link>
             </li>

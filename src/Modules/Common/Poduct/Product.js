@@ -3,7 +3,7 @@ import likeIcon from "../../../Resources/Assets/img/Group 5931.svg";
 import { useSelector } from "react-redux";
 import ReactStars from "react-rating-stars-component";
 import "./Product.css";
-function Product({ img, title, price, rating ,expires,expiresDays,expiresHours,expiresMins,expiresSecs}) {
+function Product({ img, title, price, rating ,expires,expiresDays,expiresHours,expiresMins,expiresSecs,date,desc}) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
     <div className="product">
@@ -13,7 +13,16 @@ function Product({ img, title, price, rating ,expires,expiresDays,expiresHours,e
           <img src={likeIcon} alt="likeIcon" className="like_icon" />
         </div>
         <div className="contant">
-          <p className="m-0">{title}</p>
+          {date&&
+          <p className="time">
+{date}
+               {/* {postBlog.created_at} */}
+             </p>
+          }
+          <p className="m-0 product_title">{title}</p>
+          {desc&&
+          <p className="product_desc">{desc}</p>
+          }
           {!expires&&
           <ReactStars
             count={5}
