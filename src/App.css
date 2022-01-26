@@ -48,6 +48,11 @@ button{
     font-size: 12px;
     color: #fff;
 }
+.dropdown-toggle:focus{
+    border: none;
+    outline: none;
+    box-shadow: 0 !important;
+}
 @media (min-width: 768px) and (max-width: 991px) {
     .pr{
         padding-right: 35px;

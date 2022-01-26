@@ -49,7 +49,9 @@
 .ar_header_main .wish_list img
 {
     width: 25px !important;
-
+}
+.header_main .btn-check:focus+.btn, .btn:focus{
+    box-shadow: none !important;
 }
 .ar_header_main .wish_list 
 {
