@@ -6,11 +6,11 @@ function Mission() {
   return <div className='mission pr pl'>
       <div className='mission_container text-center'>
       <div className='about_title'>
-    <h1>      vision & mission 
+    <h1>   {currentLocal.aboutus.visionMission}
 </h1>
     <div className='about_title_question_answer'>
-    <p className='about_title_question mb-2'>Our vision and mission </p>
-    <p className='about_title_answer'>To be a leading global company</p>
+    <p className='about_title_question mb-2'>{currentLocal.aboutus.vissionTitle} </p>
+    <p className='about_title_answer'>{currentLocal.aboutus.vissionPagraph}</p>
     </div>
 </div>
 <div className='mission_pragraph'>

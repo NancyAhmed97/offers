@@ -12,10 +12,10 @@ function AboutInfo() {
               <Col md={6} className='p-0 m-0'>
 <div className='about_container'>
 <div className='about_title'>
-    <h1>About us</h1>
+    <h1>{currentLocal.footer.aboutus}</h1>
     <div className='about_title_question_answer'>
-    <p className='about_title_question mb-2'>Who we are ?</p>
-    <p className='about_title_answer'>After years of success in providing high quality products and services</p>
+    <p className='about_title_question mb-2'>{currentLocal.aboutus.Whoweare}</p>
+    <p className='about_title_answer'>{currentLocal.aboutus.aboutTitle}</p>
     </div>
 </div>
 <div className='about_pragraph'>

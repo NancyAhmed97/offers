@@ -109,6 +109,11 @@ pragraphFive:"The idea behind the Over brand identity is inspired by offering pr
 pragraphSix:"Our company is proud of its alliance with major companies such as: Lebara - Virgin - Saudi Telecom - Salam - Hikvision - Kenai - Ferrari - Dodo - Hilocity - Lulu Caty - Head - Zebra - Tzablo - Beck - Akaf - Aldafh - Drush - Pioneer - Bruges - Al Aseel .",
 pragraphSeven:"The company has a strong presence in the field of marketing and distribution, as the distribution network covers sales channels for all markets and even individuals. The company is proud of having the trust and loyalty of the end consumer, and the company seeks to retain its customers for many years to come through the level of sales and after sales services.",
 missionPragraph:"To be a leading global company that provides everything the consumer needs. Of high quality products at competitive prices that satisfy all customers, while providing all convenient ways to purchase that suit everyone.  ",
+Whoweare:"Who we are ?",
+aboutTitle:"After years of success in providing high quality products and services",
+visionMission :"vision & mission ",
+vissionTitle:"Our vision and mission ",
+vissionPagraph:"To be a leading global company"
 },
 blogDetails:{
   Sharepost: "Share post",
