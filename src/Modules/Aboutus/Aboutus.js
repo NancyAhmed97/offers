@@ -11,7 +11,7 @@ function Aboutus() {
       <Navbar />
       <div className='about_title text-center mt-5'>
   <h1 className='m-0 p-0'>{currentLocal.footer.aboutus}</h1>
-  <p>{currentLocal.aboutus.pragraph}</p>
+  <p className='about_us_pragraph'>{currentLocal.aboutus.pragraph}</p>
 </div>
 <AboutInfo />
 <Mission />

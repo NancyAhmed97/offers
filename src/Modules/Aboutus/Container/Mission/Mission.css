@@ -1,23 +1,85 @@
 @import url('http://fonts.cdnfonts.com/css/helvetica-2');
 
 .mission{
-    display: flex;
-    justify-content: center;
     margin-top: 55px;
     margin-bottom: 64px;
 }
-.mission .mission_container{
+.mission .mission_pragraph{
+    display: flex;
+    justify-content: center;
+}
+.mission .mission_pragraph p{
     width: 635px;
 
 }
-.mission .mission_container{
-    width: 635px;
 
-}
-.mission .mission_container p{
+
+.mission .mission_container .mission_pragraph{
 font-size: 14px;
 color: #002543;
 font-family: 'Helvetica';
-
 opacity: 0.5;
+}
+.mission .about_title {
+    position: relative;
+}
+.mission .about_title h1{
+    color: #2B1A04;
+    opacity: 0.05;
+    font-size: 96px;
+    font-family: 'Helvetica';
+
+}
+
+.mission .about_title .about_title_question_answer .about_title_question{
+    color: #E2C164;
+    font-size: 14px;
+    font-family: 'Helvetica';
+
+}
+.mission .about_title .about_title_question_answer .about_title_answer{
+    color: #2B1A04;
+    font-size: 16px;
+    font-family: 'Helvetica';
+
+}
+.mission  .about_title_question_answer{
+    position: absolute;
+    top: 47px;
+    width: 386px;
+    opacity: 1 !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@media only screen and (max-width: 768px) {
+    .mission .about_title h1{
+        color: #2B1A04;
+        opacity: 0.05;
+        font-size: 36px;
+        font-family: 'Helvetica';
+    
+    }
+    .mission  .about_title_question_answer{
+        position: absolute;
+        top: 15px;
+        width: 220px;
+        opacity: 1 !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .mission .about_title .about_title_question_answer .about_title_answer{
+        color: #2B1A04;
+        font-size: 12px;
+        font-family: 'Helvetica';
+    
+    }
+    .mission .about_title .about_title_question_answer .about_title_question{
+    margin-bottom: 0px!important;
+    
+    }
 }

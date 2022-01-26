@@ -11,7 +11,15 @@ function AboutInfo() {
           <Row className='p-0 m-0'>
               <Col md={6} className='p-0 m-0'>
 <div className='about_container'>
-    <p className='p-0 m-0'>
+<div className='about_title'>
+    <h1>About us</h1>
+    <div className='about_title_question_answer'>
+    <p className='about_title_question mb-2'>Who we are ?</p>
+    <p className='about_title_answer'>After years of success in providing high quality products and services</p>
+    </div>
+</div>
+<div className='about_pragraph'>
+<p className='p-0 m-0'>
         {currentLocal.aboutus.pragraphOne}
     </p>
     <p className='p-0 m-0'>
@@ -26,6 +34,7 @@ function AboutInfo() {
     <p className='p-0 m-0'>
     {currentLocal.aboutus.pragraphFive}
     </p>
+</div>
 </div>
               </Col>
               <Col md={6} className='p-0 m-0'>
