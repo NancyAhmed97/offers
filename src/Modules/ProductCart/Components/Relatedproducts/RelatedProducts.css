@@ -1,0 +1,32 @@
+
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+.related_products{
+    margin-bottom: 65px;
+}
+.related_products .related_products_title{
+    width: 100%;
+    border-bottom: 1px solid #878786;
+    margin-bottom: 48px;
+    margin-top: 65px;
+}
+.related_products .related_products_title{
+font-size: 16px;
+font-weight: bold;
+font-family: 'Helvetica';
+color: #2B1A04;
+}
+.related_products .product{
+    margin-right: 20px;
+}
+.related_products .product_img{
+    width: 100%;
+}
+.related_products .product .like_icon {
+right: 0;
+}
+.related_products .product .product_title{
+    font-size: 16px;
+font-weight: bold;
+font-family: 'Helvetica';
+padding-right: 10px;
+}

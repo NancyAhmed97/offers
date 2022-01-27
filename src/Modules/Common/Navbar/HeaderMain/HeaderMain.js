@@ -74,10 +74,12 @@ function HeaderMain() {
         <Col md={3} className="m-0 p-0">
           <div className="w-100 d-flex mt-3">
           <ul className="list_inline d-flex m-0 p-0">
-                  <li className="shopping d-flex mx-3">
+             <Link to="/productcart">
+             <li className="shopping d-flex mx-3">
                       <p className="count_items mx-2 mt-3">0</p>
                       <img src={cart} alt="cart" />
                   </li>
+             </Link>
                   <li className="wish_list d-flex">
                   <p className="count_items mx-2 mt-3">0</p>
                       <img src={heart} alt="heart" />

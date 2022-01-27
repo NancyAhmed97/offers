@@ -121,4 +121,11 @@ blogDetails:{
   productName:"Add product name here in this space ",
 
 },
+productDetails:{
+  relatedProducts:"Related products",
+  Description:"Description",
+  Reviews:"Reviews",
+  descPragraph:"The Aspire 5 is a compact laptop in a thin case with a metal cover, a high-quality Full HD IPS display and a rich set of interfaces. Thanks to its powerful components, the laptop can handle resource-intensive tasks perfectly and is also suitable for most games.",
+  KeyFeatures:"Key Features:  "
+}
 };

@@ -9,6 +9,7 @@ import Terms from "./Modules/Terms/Terms";
 import Blogs from "./Modules/Blogs/Blogs";
 import BlogDetails from "./Modules/BlogDetails/BlogDetails";
 import CategouryDetails from "./Modules/CategouryDetails/CategouryDetails";
+import ProductCart from "./Modules/ProductCart/ProductCart";
 function Routes() {
   return (
     <Route
@@ -22,6 +23,7 @@ function Routes() {
           <Route  path="/blogs" render={() => <Blogs />} />
           <Route  path="/blogDetails/:id" render={() => <BlogDetails />} />
           <Route  path="/CategouryDetails/:id" render={() => <CategouryDetails />} />
+<Route path="/productcart" render={()=><ProductCart />} />
                   </Switch>
       )}
     />
