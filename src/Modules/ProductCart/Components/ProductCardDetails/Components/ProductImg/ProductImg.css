@@ -1,0 +1,14 @@
+.product_img .product_img_container .product_img_large_container img
+{height:578px;}
+.product_img .product_img_small_container  div{
+    margin-right: 25px;
+    cursor: pointer;
+}
+.product_img .product_img_small_container  div img{
+width: 107px;
+height: 107px;
+}
+@media only screen and (max-width: 768px) {
+    .product_img .product_img_container .product_img_large_container img
+{height:auto;}
+}

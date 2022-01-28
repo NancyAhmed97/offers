@@ -126,6 +126,12 @@ productDetails:{
   Description:"Description",
   Reviews:"Reviews",
   descPragraph:"The Aspire 5 is a compact laptop in a thin case with a metal cover, a high-quality Full HD IPS display and a rich set of interfaces. Thanks to its powerful components, the laptop can handle resource-intensive tasks perfectly and is also suitable for most games.",
-  KeyFeatures:"Key Features:  "
+  KeyFeatures:"Key Features:  ",
+  ShareProduct:"Share Product",
+  Categories:"Categories :",
+  productPragraph:"Place Over may share your personal information only within the Place Over Group, which includes the Place Over Group family and its subsidiaries, and of course any use of this information by the Place Over Group will comply with this policy, sometimes and after",
+  addToCart:"Add to cart",
+  saveToWishlist:"Save to wishlist",
+  InStock:"In Stock",
 }
 };
