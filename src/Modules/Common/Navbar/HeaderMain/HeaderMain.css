@@ -3,7 +3,6 @@
 .header_main{
     background-color: #2B1A04;
     padding-bottom: 27px;
-    padding-top: 13px;
 }
 .header_main a{
     text-decoration: none;
@@ -14,7 +13,7 @@
     justify-content: space-between;
 }
 .header_main .header_auth a{
-    color: #E2C164 !important;
+    color: #fff !important;
     text-decoration: none;
     margin-top: 15px;
     font-family: 'Helvetica';
@@ -24,7 +23,7 @@
              
 }
 .header_main .header_auth{
-    color: #E2C164 !important;
+    color: #fff !important;
     text-decoration: none;
     margin-top: 15px;
 }
