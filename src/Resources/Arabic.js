@@ -48,7 +48,7 @@ export const ar = {
  terms:"البنود و الظروف",
  returns:"عائدات",
  privacy:"سياسة خاصة",
- track:"ترتيب المسار",
+ track:"تتبع طلبك",
  blog:"مقالات",
   },
   privacy:{

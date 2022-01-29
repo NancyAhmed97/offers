@@ -108,7 +108,7 @@ function TapBar() {
               </Dropdown>
             </div>
        <div className="order">
-       <p className="text-white d-inline-block mx-3">تتبع طلبك</p>
+       <p className="text-white d-inline-block mx-3">{currentLocal.footer.track} </p>
           <img src={order} alt="order" />
        </div>
         </div>
