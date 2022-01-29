@@ -1,0 +1,108 @@
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+.categoy_filteration .user {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #b3e3ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+  }
+  .categoy_filteration .product .price{
+    font-size: 14px;
+    opacity: 0.5;
+    font-weight: bold;
+    font-family: 'Helvetica';
+
+  }
+  .categoy_filteration .product .price span{
+    font-size: 18px;
+    margin-left: 10px;
+    color: #E2C164;
+    font-weight: bold;
+    font-family: 'Helvetica';
+
+  }
+  .categoy_filteration .product_img{
+      width: 206px !important;
+      height: 269px;
+  }
+  .categoy_filteration .paginationBttns {
+    width: 100%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .categoy_filteration .paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid #F0F0F0;
+    cursor: pointer;
+    
+  }
+  
+  .categoy_filteration .product_title{
+      height:50px ;
+  }
+  .categoy_filteration .time{
+      margin-top: 10px;
+      padding-left: 7px;
+  }
+  .categoy_filteration .product_desc{
+      color: #707070;
+      font-weight: bold;
+      height: 75px;
+  }
+  .categoy_filteration .product .like_icon {
+right: 0px;
+  }
+  .categoy_filteration .paginationActive a {
+
+    color: #fff;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    background-color: #E2C164;
+
+  }
+  .categoy_filteration .paginationActive a:hover {
+
+    color: #fff;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    background-color: #E2C164;
+
+  }
+  .categoy_filteration .paginationBttns .previous::after{
+      content: "........";
+      display: inline-block;
+      margin-left: 7px;
+      margin-right: 7px;
+      color: #707070;
+
+  }
+  .categoy_filteration .paginationBttns .next::before{
+      content: "........";
+      display: inline-block;
+      margin-left: 7px;
+      margin-right: 7px;
+      color: #707070;
+  }
+  .categoy_filteration .paginationDisabled a {
+border: #E2C164 1px solid;
+width: 37px;
+height: 37px;
+border-radius: 50%;
+}
+ .categoy_filteration li.break{
+    display: none;
+ 
+  } 

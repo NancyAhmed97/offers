@@ -5,15 +5,12 @@ import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import leftArrow from "../../../../Resources/Assets/img/Icon feather-arrow-left.svg"
 import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-right.svg"
-// import leftArrow from "../../../../Resources/Assets/img/img/Icon feather-arrow-left.svg";
-// import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-right.svg";
 import axios from "axios";
 import "./BlogsContainer.css"
 import Product from '../../../Common/Poduct/Product';
 function BlogsContainer() {
   const [postsArr, setPostsArr] = useState([]);
   const [pageCount, setPageCount] = useState("");
-  // const postId = useSelector((state) => state);
   const { currentLocal } = useSelector((state) => state.currentLocal);
 useEffect(() => {
 axios({

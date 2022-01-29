@@ -1,13 +1,13 @@
 @import url('http://fonts.cdnfonts.com/css/helvetica-2');
-.product_desc{
+.product_des{
     margin-top: 65px;
 }
-.product_desc .product_desc_categoury{
+.product_des .product_des_categoury{
     display: flex;
     border-bottom: 1px solid #878786;
     margin-bottom: 30px;
 }
-.product_desc .product_desc_categoury p{
+.product_des .product_des_categoury p{
 margin-right: 40px;
 font-size: 16px;
 font-weight: bold;
@@ -17,7 +17,7 @@ opacity: 0.5;
 margin-bottom: 0;
 cursor: pointer;
 }
-.ar_product_desc .product_desc_categoury p{
+.ar_product_des .product_des_categoury p{
 margin-right: 0px;
 margin-left: 40px;
 font-size: 16px;
@@ -28,7 +28,7 @@ opacity: 0.5;
 margin-bottom: 0;
 cursor: pointer;
 }
-.product_desc .active{
+.product_des .active{
     margin-right: 40px;
     font-size: 16px;
 font-weight: bold;
@@ -39,35 +39,35 @@ margin-bottom: 0;
 cursor: pointer;
 
 }
-.product_desc .active::after{
+.product_des .active::after{
  content: url("../../../../Resources/Assets/img/Line\ 64.svg");
  display: block;
  height: 16px;
  
 }
-.product_desc .product_desc_container{
+.product_des .product_des_container{
     width: 750px;
 }
 
-.product_desc .product_desc_container p ,.product_desc ul li{
+.product_des .product_des_container p ,.product_des ul li{
 color: #2B1A04;
 font-size: 14px;
 font-family: 'Helvetica';
 
 }
-.product_desc ul li{
+.product_des ul li{
     list-style: none;
 }
-.product_desc ul li::before{
+.product_des ul li::before{
     content: "-";
     display: inline-block;
     margin-right: 5px;
 }
-.product_desc ul li{
+.product_des ul li{
     margin-bottom: 15px;
 }
 @media only screen and (max-width: 768px) {
-    .product_desc .product_desc_container{
+    .product_des .product_des_container{
         width: 100%;
         padding-right: 15px;
     }

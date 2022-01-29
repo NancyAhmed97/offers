@@ -4,7 +4,7 @@ import "./ProductDesc.css"
 function ProductDesc() {
     const { currentLocal } = useSelector((state) => state.currentLocal);
     const [activeState, setActiveState] = useState("desc");
-  return <div className={currentLocal.language==="English"?'product_desc pr pl':"product_desc ar_product_desc  pr pl"}>
+  return <div className={currentLocal.language==="English"?'product_des pr pl':"product_des ar_product_des  pr pl"}>
 <div className='product_desc_categoury'>
     <p id="desc" onClick={(e)=>{setActiveState(e.target.id)}} className={activeState==="desc"&&"active"}>{currentLocal.productDetails.Description}</p>
     <p id="reviwes" onClick={(e)=>{setActiveState(e.target.id)}} className={activeState==="reviwes"&&"active"}>{currentLocal.productDetails.Reviews}(450)</p>

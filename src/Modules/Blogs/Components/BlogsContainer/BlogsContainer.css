@@ -43,6 +43,7 @@
       color: #707070;
       font-weight: bold;
       height: 75px;
+      margin-top: 0 !important;
   }
   .blog_container .product .like_icon {
 right: 13px;
