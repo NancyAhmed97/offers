@@ -73,7 +73,7 @@ setAlert(true)
       }
   };
   return (
-    <div className="login_container pl pr">
+    <div className={currentLocal.language==="English"?"login_container pl ":"pr login_container ar_login_container"}>
   
                   <form onSubmit={sendData} >
                   <div className="errorMsg">
