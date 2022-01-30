@@ -183,5 +183,6 @@ export const en = {
     terms: " Terms And Conditions.",
     seePrivacy:
       "See Privacy And Cookie Policy For Information On How We Use The Information You Provided To Us.",
-  },
+  home:"Home"
+    },
 };

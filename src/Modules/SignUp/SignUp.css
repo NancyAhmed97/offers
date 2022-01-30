@@ -1,0 +1,51 @@
+.sign_up .path{
+    background-color: rgba(135, 135, 134, 0.05);
+    padding-top: 10px;
+    padding-bottom: 7px;
+}
+.sign_up .path img{
+    margin-left: 12px;
+}
+.sign_up .ar_path img{
+    margin-right: 20px;
+}
+.sign_up .path a{
+color:#0A0B0A;
+font-size: 13px;
+font-family: 'Open Sans', sans-serif;
+font-weight: bold;
+margin-left: 7px;
+}
+.sign_up .ar_path a{
+color:#0A0B0A;
+font-size: 13px;
+font-family: 'Open Sans', sans-serif;
+font-weight: bold;
+margin-right: 7px;
+}
+.sign_up .path .current_page{
+color:#0A0B0A;
+font-size: 13px;
+font-family: 'Open Sans', sans-serif;
+font-weight: bold;
+margin-left: 7px;
+}
+.sign_up .ar_path .current_page{
+color:#0A0B0A;
+font-size: 13px;
+font-family: 'Open Sans', sans-serif;
+font-weight: bold;
+margin-right: 7px;
+}
+.sign_up .path a::after{
+content: ">";
+display: inline-block;
+padding-left: 10px;
+
+}
+.sign_up .ar_path a::after{
+content: ">";
+display: inline-block;
+padding-right: 10px;
+
+}
