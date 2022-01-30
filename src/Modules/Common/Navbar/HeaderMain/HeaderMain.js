@@ -86,7 +86,7 @@ function HeaderMain() {
                   </li>
               </ul>
               <div className="header_auth text-white">
-            <Link to="/login" >{currentLocal.home.login}</Link>/<Link to="/signup" >{currentLocal.home.signup} </Link>
+            <Link to="/signup" >{currentLocal.home.login}</Link>/<Link to="/signup" >{currentLocal.home.signup} </Link>
           </div>
           </div>
         </Col>

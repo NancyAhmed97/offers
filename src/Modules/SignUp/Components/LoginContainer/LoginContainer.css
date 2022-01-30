@@ -1,0 +1,72 @@
+@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+.login_container{
+    margin-top: 40px;
+}
+.login_container form{
+    padding: 27px 29px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.login_container form h1{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Helvetica';
+}
+.login_container form label{
+    font-size: 13px;
+    font-family: 'Helvetica';
+    color: #1A1A18;
+}
+.login_container .forrget_password{
+    color: #E2C164;
+    font-size: 14px;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.login_container .Remember{
+    position: relative;
+    bottom: 19px;
+    left: 10px;
+    font-size: 14px;
+    font-family: 'Helvetica';
+    font-weight: bold;
+color: #1A1A18;
+}
+.login_container .ar_Remember{
+    position: relative;
+    bottom: 19px;
+    right: 10px;
+    font-size: 14px;
+    font-family: 'Helvetica';
+    font-weight: bold;
+color: #1A1A18;
+}
+.login_container button{
+    background-color: #E2C164;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 131px;
+    color: #1A1A18;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Helvetica';
+}
+@media only screen and (max-width: 768px) {
+    .login_container .radio_button{
+margin-top: 20px !important;
+    }
+    .login_container .forrget_password{
+        color: #E2C164;
+        font-size: 14px;
+        font-family: 'Helvetica';
+        font-weight: bold;
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+    }
+}

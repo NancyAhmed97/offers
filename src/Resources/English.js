@@ -133,5 +133,13 @@ productDetails:{
   addToCart:"Add to cart",
   saveToWishlist:"Save to wishlist",
   InStock:"In Stock",
+},auth:{
+  Signin:"Sign In",
+  email:"Email",
+  password:"Password",
+  RememberPassword:"Remember Password",
+  forgetPassword:"Lost My Password?",
+  login:"login",
+  alert: "Please fill your filed"
 }
 };

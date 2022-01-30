@@ -53,6 +53,22 @@ button{
     outline: none;
     box-shadow: 0 !important;
 }
+.dark_input{
+    background-color: #F3F3F3;
+    padding-left: 19px;
+    padding-right: 19px;
+    margin-top:5px;
+    height: 42px;
+    border: none !important;
+    border-radius: 4px;
+}
+.dark_input:focus-visible{
+    background-color: #F3F3F3;
+    border: none !important;
+    padding-left: 19px;
+    padding-right: 19px;
+    height: 42px;
+}
 @media (min-width: 768px) and (max-width: 991px) {
     .pr{
         padding-right: 35px;

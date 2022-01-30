@@ -10,6 +10,7 @@ import Blogs from "./Modules/Blogs/Blogs";
 import BlogDetails from "./Modules/BlogDetails/BlogDetails";
 import CategouryDetails from "./Modules/CategouryDetails/CategouryDetails";
 import ProductCart from "./Modules/ProductCart/ProductCart";
+import SignUp from "./Modules/SignUp/SignUp";
 function Routes() {
   return (
     <Route
@@ -24,6 +25,7 @@ function Routes() {
           <Route  path="/blogDetails/:id" render={() => <BlogDetails />} />
           <Route  path="/CategouryDetails/:id" render={() => <CategouryDetails />} />
 <Route path="/productcart" render={()=><ProductCart />} />
+<Route path="/signup" render={()=><SignUp />} />
                   </Switch>
       )}
     />

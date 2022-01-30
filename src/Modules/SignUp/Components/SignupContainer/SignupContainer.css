@@ -1,0 +1,9 @@
+.signup_container{
+    margin-top: 40px;
+
+}
+.signup_container form{
+    padding: 27px 29px;
+    background-color: #fff;
+    border-radius: 5px;
+}

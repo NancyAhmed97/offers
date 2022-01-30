@@ -132,6 +132,16 @@ productDetails:{
   addToCart:"أضف إلى السلة  ",
   saveToWishlist:"حفظ في قائمة الرغبات  ",
   InStock:"في المخزن  "
+},
+auth:{
+  Signin:"تسجيل الدخول",
+  email:"البريد الالكتروني",
+  password:"كلمة المرور",
+  RememberPassword: "تذكر كلمة المرور  ",
+  forgetPassword:"فقدت كلمة المرور الخاصة بي؟  ",
+  login:"تسجيل الدخول",
+  alert: "برجاء ملئ جميع الحقول",
+
 }
 };
 
