@@ -1,116 +1,119 @@
-@import url('http://fonts.cdnfonts.com/css/helvetica-2');
-.signup_container{
-    margin-top: 40px;
-margin-bottom: 77px;
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.signup_container {
+  margin-top: 40px;
+  margin-bottom: 77px;
 }
-.signup_container form{
-    padding: 27px 29px;
-    background-color: #fff;
-    border-radius: 5px;
-    width: 100%;
+.signup_container form {
+  padding: 27px 29px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 100%;
 }
-.signup_container form h1{
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Helvetica';
+.signup_container form h1 {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Helvetica";
 }
-.signup_container label{
-    font-size: 12px;
-    font-weight: bold;
-    font-family: 'Helvetica';
-
+.signup_container label {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "Helvetica";
 }
-.signup_container .last_name{
-    padding-right: 0 !important;
+.signup_container .last_name {
+  padding-right: 0 !important;
 }
-.ar_signup_container .last_name{
-    padding-left: 0 !important;
-    padding-right: 15px !important;
+.ar_signup_container .last_name {
+  padding-left: 0 !important;
+  padding-right: 15px !important;
 }
-.ar_signup_container .react-tel-input .flag-dropdown{
-position: absolute;
-left: 0;
+.ar_signup_container .react-tel-input .flag-dropdown {
+  position: absolute;
+  left: 0;
 }
 .ar_signup_container .react-tel-input .selected-flag .flag {
-left: 14px !important;
+  left: 14px !important;
 }
-.ar_signup_container .react-tel-input .selected-flag .arrow{
-    left: 0;
-    right: 20px  !important;
+.ar_signup_container .react-tel-input .selected-flag .arrow {
+  left: 0;
+  right: 20px !important;
 }
-.ar_signup_container .react-tel-input .country-list{
-    position: absolute;
-    left: 0;
+.ar_signup_container .react-tel-input .country-list {
+  position: absolute;
+  left: 0;
 }
-.signup_container .form-control{
-    background-color: #F3F3F3;
-    width: 100%;
-    border: none !important;
-   
-    height: 42px;
+.signup_container .form-control {
+  background-color: #f3f3f3;
+  width: 100%;
+  border: none !important;
+
+  height: 42px;
 }
-.signup_container .form-control:focus-visible{
-    background-color: #F3F3F3;
-    width: 100%;
-    border: none !important;
-   outline: none;
-    height: 42px;
+.signup_container .form-control:focus-visible {
+  background-color: #f3f3f3;
+  width: 100%;
+  border: none !important;
+  outline: none;
+  height: 42px;
 }
-.signup_container .Confirm_Password{
+.signup_container .Confirm_Password {
+  position: relative;
+  left: 10px;
+  top: 10px;
+  font-size: 14px;
+  font-family: "Helvetica";
+  font-weight: bold;
+  padding-right: 58px;
+}
+.ar_signup_container .Confirm_Password {
+  position: relative;
+  right: 10px;
+  top: 10px;
+  font-size: 14px;
+  font-family: "Helvetica";
+  font-weight: bold;
+  padding-left: 58px;
+  padding-right: 0px;
+}
+.signup_container .Confirm_Password span {
+  color: #e2c164;
+  margin-right: 5px;
+}
+.signup_container button {
+  background-color: #e2c164;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #1a1a18;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+@media only screen and (max-width: 768px) {
+  .signup_container {
+    margin-top: 40px;
+    margin-bottom: 77px;
+    padding-right: 0px !important;
+  }
+  .ar_signup_container {
+    margin-top: 40px;
+    margin-bottom: 77px;
+    padding-left: 0px !important;
+  }
+  .signup_container .last_name {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .signup_container .Confirm_Password {
     position: relative;
     left: 10px;
     top: 10px;
     font-size: 14px;
-    font-family: 'Helvetica';
-font-weight: bold;
-padding-right: 58px;
-}
-.ar_signup_container .Confirm_Password{
-    position: relative;
-    right: 10px;
-    top: 10px;
-    font-size: 14px;
-    font-family: 'Helvetica';
-font-weight: bold;
-padding-left: 58px;
-padding-right: 0px;
-}
-.signup_container .Confirm_Password span{
-color: #E2C164;
-margin-right: 5px;
-
-}
-.signup_container button{
-    background-color: #E2C164;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
-    padding-right: 20px;
-    padding-left: 20px;
-    color: #1A1A18;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: 'Helvetica';
-}
-@media only screen and (max-width: 768px) {
-    .signup_container{
-        margin-top: 40px;
-    margin-bottom: 77px;
-    padding-right: 0px !important;
-    }
-    .signup_container .last_name{
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-    }
-    .signup_container .Confirm_Password{
-        position: relative;
-        left: 10px;
-        top: 10px;
-        font-size: 14px;
-        font-family: 'Helvetica';
+    font-family: "Helvetica";
     font-weight: bold;
     padding-right: 0px;
-    }
+  }
 }
