@@ -183,6 +183,12 @@ export const en = {
     terms: " Terms And Conditions.",
     seePrivacy:
       "See Privacy And Cookie Policy For Information On How We Use The Information You Provided To Us.",
-  home:"Home"
-    },
+    home: "Home",
+  },
+  track: {
+    trackTitle: "Track Your Order",
+    trackPragraph:
+      "To track your order please enter your Order ID in the box below and press the Track button. This was given to you on your receipt and in the confirmation email you should have received",
+    orderId: "Order ID ",
+  },
 };
