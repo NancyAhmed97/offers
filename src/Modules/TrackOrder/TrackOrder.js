@@ -5,7 +5,7 @@ import homeIcon from "../../Resources/Assets/img/Icon awesome-home.svg";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./TravkOrder.css";
-import TrackOrderBox from "./Coponents/TrackOrderBox/TrackOrderBox";
+import TrackOrderBox from "./Coponents/orderId/OrderId";
 function TrackOrder() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (

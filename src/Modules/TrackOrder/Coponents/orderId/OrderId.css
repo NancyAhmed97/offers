@@ -1,5 +1,5 @@
 @import url("http://fonts.cdnfonts.com/css/helvetica-2");
-.track_order_box {
+.OrderId {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -8,13 +8,13 @@
   margin-bottom: 110px;
   flex-direction: column;
 }
-.track_order_box h1 {
+.OrderId h1 {
   font-size: 18px;
   color: #0a0b0a;
   font-weight: bold;
   font-family: "Helvetica";
 }
-.track_order_box .track_order_box_container {
+.OrderId .OrderId_container {
   background-color: #fff;
   width: 730px;
   text-align: center;
@@ -25,32 +25,32 @@
   padding-right: 90px;
   margin-top: 10px;
 }
-.track_order_box .track_order_box_container p {
+.OrderId .OrderId_container p {
   font-size: 14px;
   font-weight: bold;
   font-family: "Helvetica";
   margin-bottom: 10px;
 }
-.track_order_box .track_order_box_container label {
+.OrderId .OrderId_container label {
   text-align: left !important;
   width: 100%;
   font-size: 13px;
   font-weight: bold;
   font-family: "Helvetica";
 }
-.ar_track_order_box .track_order_box_container label {
+.ar_OrderId .OrderId_container label {
   text-align: right !important;
   width: 100%;
   font-size: 13px;
   font-weight: bold;
   font-family: "Helvetica";
 }
-.track_order_box .track_order_box_container .button{
+.OrderId .OrderId_container .button{
     display: flex;
     justify-content: center;
 
 }
-.track_order_box .track_order_box_container button {
+.OrderId .OrderId_container button {
   width: 160px;
   padding-left: 15px;
   padding-right: 15px;
@@ -66,11 +66,11 @@
   justify-content: space-between;
 
 }
-.ar_track_order_box .track_order_box_container button{
+.ar_OrderId .OrderId_container button{
     text-align: right !important;
 }
 @media only screen and (max-width: 768px) {
-    .track_order_box .track_order_box_container {
+    .OrderId .OrderId_container {
         width: 90%;
         padding-left: 40px;
         padding-right: 40px;

@@ -17,7 +17,6 @@ function SignupContainer() {
   const [phone, setPhone] = useState("");
   const [acceptTerms, setAcceptTerms] = useState("");
   const saveData = (e) => {
-    e.preventDefault();
     if (e.target.id === "email") {
       setEmail(e.target.value);
       // setDangerAlert(false)

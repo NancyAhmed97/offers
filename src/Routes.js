@@ -12,6 +12,8 @@ import CategouryDetails from "./Modules/CategouryDetails/CategouryDetails";
 import ProductCart from "./Modules/ProductCart/ProductCart";
 import SignUp from "./Modules/SignUp/SignUp";
 import TrackOrder from "./Modules/TrackOrder/TrackOrder";
+import TrackOrderProduct from "./Modules/TrackOrder/Coponents/TrackOrderContainer/TrackOrderContainer";
+import ForgetPassword from "./Modules/ForgetPassword/ForgetPassword";
 function Routes() {
   return (
     <Route
@@ -31,6 +33,8 @@ function Routes() {
           <Route path="/productcart" render={() => <ProductCart />} />
           <Route path="/signup" render={() => <SignUp />} />
           <Route path="/trackorder" render={() => <TrackOrder />} />
+          <Route path="/trackorderproducts" render={() => <TrackOrderProduct />} />
+          <Route path="/forgetpassword" render={() => <ForgetPassword />} />
         </Switch>
       )}
     />
