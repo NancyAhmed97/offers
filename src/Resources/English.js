@@ -194,5 +194,10 @@ export const en = {
   forrgetPassword:{
     title:"Forget password",
     send:"Send"
+  },
+  resetPassword:{
+    title:"Reset password",
+    passMatch: "password dosn't match",
+
   }
 };

@@ -160,6 +160,9 @@ track: {
 forrgetPassword:{
   title:"هل نسيت كلمة السر",
   send:"ارسال"
+},  resetPassword:{
+  title:"إعادة تعيين كلمة المرور",
+  passMatch:"كلمة المرور غير مطابقه",
 }
 };
 
