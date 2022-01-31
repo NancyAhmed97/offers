@@ -3,6 +3,7 @@ import { Alert, Col, Container, Row } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-left.svg";
 import leftArrow from "../../../../Resources/Assets/img/leftArrow.svg";
 import "./SignupContainer.css";
@@ -172,7 +173,7 @@ function SignupContainer() {
             </Col>
             <Col md={12} className="p-0 d-flex mt-3">
               <input
-                type="radio"
+                type="checkbox"
                 id="acceptTerms"
                 name="Remember"
                 value="1"
@@ -181,7 +182,15 @@ function SignupContainer() {
               />
               <label htmlFor="Confirm Password" className="Confirm_Password">
                 {currentLocal.auth.gree}
-                <span>{currentLocal.auth.terms}</span>
+                <Link
+                  to="/terms"
+                  className="text-decoration-none"
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  <span>{currentLocal.auth.terms}</span>
+                </Link>
                 {currentLocal.auth.seePrivacy}
               </label>
             </Col>

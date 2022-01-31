@@ -109,7 +109,7 @@ setAlert(true)
           <Row className="m-0 p-0">
             <Col md={8} className="m-0 p-0">
               <input
-                type="radio"
+                type="checkbox"
                 id="Remember"
                 name="Remember"
                 value="1"
