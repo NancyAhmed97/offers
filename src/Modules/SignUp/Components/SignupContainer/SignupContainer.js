@@ -9,6 +9,7 @@ import "./SignupContainer.css";
 function SignupContainer() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [alert, setAlert] = useState(false);
+  const [passState, setPassState] = useState(false);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -29,19 +30,15 @@ function SignupContainer() {
     } else if (e.target.id === "lastName") {
       setLastName(e.target.value);
       setAlert(false);
-    
     } else if (e.target.id === "phone") {
       setPhone(e.target.value);
       setAlert(false);
-    
-    } 
-    else if (e.target.id === "password") {
+    } else if (e.target.id === "password") {
       setPassword(e.target.value);
       setAlert(false);
     } else if (e.target.id === "ConfirmPassword") {
       setConfirmPassword(e.target.value);
       setAlert(false);
-    
     } else if (e.target.id === "acceptTerms") {
       setAcceptTerms(e.target.value);
       setAlert(false);
@@ -49,16 +46,29 @@ function SignupContainer() {
   };
   const sendData = (e) => {
     e.preventDefault();
-    if(!email||!firstName||!lastName||!password||!ConfirmPassword||!phone||!acceptTerms){
-      setAlert(true)
-    }else{
+    if (
+      !email ||
+      !firstName ||
+      !lastName ||
+      !password ||
+      !ConfirmPassword ||
+      !phone ||
+      !acceptTerms
+    ) {
+      setAlert(true);
+    } else {
       console.log("hi");
       console.log(acceptTerms);
     }
   };
-  console.log(email , firstName ,lastName,phone,password);
   return (
-    <div className={currentLocal.language==="English"?"signup_container pr":"pl signup_container ar_signup_container"}>
+    <div
+      className={
+        currentLocal.language === "English"
+          ? "signup_container pr"
+          : "pl signup_container ar_signup_container"
+      }
+    >
       <form onSubmit={sendData}>
         <div className="errorMsg">
           {alert && (
@@ -89,11 +99,11 @@ function SignupContainer() {
                 {currentLocal.auth.firstName}
               </label>
               <input
-                  className="dark_input w-100"
-                  type="text"
-                  id="firstName"
-                  onChange={saveData}
-                  value={firstName}
+                className="dark_input w-100"
+                type="text"
+                id="firstName"
+                onChange={saveData}
+                value={firstName}
               />
             </Col>
             <Col md={6} className="last_name">
@@ -109,10 +119,15 @@ function SignupContainer() {
               />
             </Col>
             <Col md={12} className="p-0">
-              <label htmlFor="phone" className="mt-3">{currentLocal.auth.phoneNumber}</label>
+              <label htmlFor="phone" className="mt-3">
+                {currentLocal.auth.phoneNumber}
+              </label>
               <PhoneInput
                 country={"eg"}
-                dropdownStyle={{ textAlign:currentLocal.language==="English"? "left":"center" }}
+                dropdownStyle={{
+                  textAlign:
+                    currentLocal.language === "English" ? "left" : "center",
+                }}
                 className="w-100 dark_input"
                 id="phone"
                 onChange={saveData}
@@ -120,7 +135,9 @@ function SignupContainer() {
               />
             </Col>
             <Col md={12} className="p-0">
-              <label htmlFor="password" className="mt-3">{currentLocal.auth.password}</label>
+              <label htmlFor="password" className="mt-3">
+                {currentLocal.auth.password}
+              </label>
               <input
                 className="dark_input w-100"
                 type="password"
@@ -130,17 +147,30 @@ function SignupContainer() {
               />
             </Col>
             <Col md={12} className="p-0">
-              <label htmlFor="Confirm Password" className="mt-3">{currentLocal.auth.ConfirmPassword}</label>
+              {passState && (
+                <p className="mt-3 passState">
+                  {currentLocal.resetPassword.passMatch}
+                </p>
+              )}
+              <label htmlFor="Confirm Password" className="mt-3">
+                {currentLocal.auth.ConfirmPassword}
+              </label>
               <input
                 className="dark_input w-100"
                 type="password"
-                id="Confirm Password"
+                id="ConfirmPassword"
                 onChange={saveData}
                 value={ConfirmPassword}
+                onBlur={() => {
+                  if (password !== ConfirmPassword) {
+                    setPassState(true);
+                  } else {
+                    setPassState(false);
+                  }
+                }}
               />
             </Col>
             <Col md={12} className="p-0 d-flex mt-3">
-      
               <input
                 type="radio"
                 id="acceptTerms"
@@ -149,29 +179,28 @@ function SignupContainer() {
                 onChange={saveData}
                 className="mt-0 radio_button"
               />
-                      <label htmlFor="Confirm Password" className="Confirm_Password">{currentLocal.auth.gree}
-              <span>{currentLocal.auth.terms}</span>
-              {currentLocal.auth.seePrivacy}
+              <label htmlFor="Confirm Password" className="Confirm_Password">
+                {currentLocal.auth.gree}
+                <span>{currentLocal.auth.terms}</span>
+                {currentLocal.auth.seePrivacy}
               </label>
             </Col>
             <Col md={12}>
-            <div className="button mt-5">
-        <button type="submit">
-            {currentLocal.language === "English" ? (
-              <>
-                {currentLocal.auth.signup}
-                <img src={rightArrow} alt="rightArrow" />
-              </>
-            ) : (
-              <>
-
-                {currentLocal.auth.signup}
-                <img src={leftArrow} alt="leftArrow" />
-
-              </>
-            )}
-          </button>
-        </div>
+              <div className="button mt-5">
+                <button type="submit">
+                  {currentLocal.language === "English" ? (
+                    <>
+                      {currentLocal.auth.signup}
+                      <img src={rightArrow} alt="rightArrow" />
+                    </>
+                  ) : (
+                    <>
+                      {currentLocal.auth.signup}
+                      <img src={leftArrow} alt="leftArrow" />
+                    </>
+                  )}
+                </button>
+              </div>
             </Col>
           </Row>
         </Container>
