@@ -55,6 +55,9 @@
   outline: none;
   height: 42px;
 }
+.signup_container input:focus{
+  box-shadow: none;
+}
 .signup_container .Confirm_Password {
   position: relative;
   left: 10px;

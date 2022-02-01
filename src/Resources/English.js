@@ -199,5 +199,17 @@ export const en = {
     title:"Reset password",
     passMatch: "password dosn't match",
 
+  },
+  billing:{
+    billingDetails:"Billing Details",
+    country  :"Country *",
+    city:"City *",
+    streetAddress:"Street Address *",
+    addressType:"Address Type *",
+    home:"Home" ,
+    work:"Work",
+    orderNotes :"Order Notes *",
+   readAndAgree:"I have read and agree to the website",
+   mobile:"Mobile Number"
   }
 };

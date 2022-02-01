@@ -27,6 +27,17 @@ textarea{
     padding-left: 19px;
     padding-right: 19px;  
     margin-top: 21px;
+    resize: none;
+
+}
+.dark_textarea{
+    background-color: #F3F3F3;
+    padding-left: 19px;
+    padding-right: 19px;
+    margin-top:5px;
+    height: 42px;
+    border: none !important;
+    border-radius: 4px;
 
 }
 textarea:focus-visible{

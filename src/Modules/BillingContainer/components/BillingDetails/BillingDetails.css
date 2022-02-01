@@ -1,0 +1,123 @@
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.billing_details h1 {
+  font-size: 18px;
+  color: #0a0b0a;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+.billing_details form {
+  padding: 27px 29px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.billing_details label {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+.billing_details input[type="radio"] {
+  width: 12px !important;
+  height: 12px !important;
+}
+.billing_details .billing_home {
+  margin-right: 50px;
+  margin-left: 7px;
+  margin-top: 15px;
+}
+.billing_details .billing_work {
+  margin-left: 7px;
+}
+.billing_details .form-control {
+  background-color: #f3f3f3;
+  width: 100%;
+  border: none !important;
+
+  height: 42px;
+}
+.billing_details input:focus {
+  box-shadow: none;
+}
+.billing_details .accept_terms {
+  position: relative;
+  left: 10px;
+  bottom: 18px;
+  font-size: 14px;
+  font-family: "Helvetica";
+  font-weight: bold;
+  padding-right: 58px;
+}
+.billing_details .accept_terms span {
+  color: #e2c164;
+  margin-right: 5px;
+}
+.billing_details textarea {
+  margin-top: 5px;
+  background-color: #f3f3f3;
+  padding-left: 19px;
+  padding-right: 19px;
+  border: none !important;
+  border-radius: 4px;
+  padding-top: 15px;
+}
+.billing_details textarea:focus {
+  margin-top: 5px;
+  background-color: #f3f3f3;
+  padding-left: 19px;
+  padding-right: 19px;
+  border: none !important;
+  border-radius: 4px;
+  padding-top: 15px;
+}
+.ar_billing_details .last_name {
+  padding-left: 0 !important;
+  padding-right: 15px !important;
+}
+.ar_billing_details .react-tel-input .flag-dropdown {
+  position: absolute;
+  left: 0;
+}
+.ar_billing_details .react-tel-input .selected-flag .flag {
+  left: 14px !important;
+}
+.ar_billing_details .react-tel-input .selected-flag .arrow {
+  left: 0;
+  right: 20px !important;
+}
+.ar_billing_details .react-tel-input .country-list {
+  position: absolute;
+  left: 0;
+}
+.ar_billing_details .accept_terms {
+  position: relative;
+  bottom: 18px;
+  right: 10px;
+  font-size: 14px;
+  font-family: "Helvetica";
+  font-weight: bold;
+  padding-left: 58px;
+  padding-right: 0px;
+}
+.ar_billing_details .billing_home {
+  margin-left: 50px;
+  margin-right: 7px;
+  margin-top: 15px;
+}
+@media only screen and (max-width: 768px) {
+    .billing_details h1{
+        padding-left: 10px;
+    }
+    .ar_billing_details h1{
+        padding-right: 10px;
+    }
+  .billing_details textarea {
+    width: 100%;
+  }
+  .billing_details .accept_terms {
+    position: relative;
+    left: 28px;
+    bottom: 39px;}
+  .ar_billing_details .accept_terms {
+    position: relative;
+    left: 28px;
+    bottom: 20px;}
+}

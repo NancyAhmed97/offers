@@ -163,6 +163,19 @@ forrgetPassword:{
 },  resetPassword:{
   title:"إعادة تعيين كلمة المرور",
   passMatch:"كلمة المرور غير مطابقه",
+},
+billing:{
+  billingDetails:"تفاصيل الفاتورة  ",
+  country  :"دولة  *",
+  city:"مدينة *  ",
+  streetAddress:"العنوان*",
+  addressType:"نوع العنوان",
+  home:"البيت" ,
+  work:"العمل",
+  orderNotes :"ترتيب ملاحظات *",
+ readAndAgree:"لقد قرأت ووافقت على الموقع ",
+ mobile:"رقم الهاتف"
+
 }
 };
 

@@ -15,6 +15,7 @@ import TrackOrder from "./Modules/TrackOrder/TrackOrder";
 import TrackOrderProduct from "./Modules/TrackOrder/Coponents/TrackOrderContainer/TrackOrderContainer";
 import ForgetPassword from "./Modules/ForgetPassword/ForgetPassword";
 import ResetPassword from "./Modules/ResetPassword/ResetPassword";
+import BillingContainer from "./Modules/BillingContainer/BillingContainer";
 function Routes() {
   return (
     <Route
@@ -36,6 +37,7 @@ function Routes() {
           <Route path="/trackorder" render={() => <TrackOrder />} />
           <Route path="/trackorderproducts" render={() => <TrackOrderProduct />} />
           <Route path="/forgetpassword" render={() => <ForgetPassword />} />
+          <Route path="/billing" render={() => <BillingContainer />} />
           <Route path="/Resetpaaword/:pram1/:parm2" render={() => <ResetPassword />} />
         </Switch>
       )}
