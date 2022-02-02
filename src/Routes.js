@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import Aboutus from "./Modules/Aboutus/Aboutus";
 import ContactUs from "./Modules/ContactUs/ContactUs";
 import Home from "./Modules/Home/Home";
-// import Privacy from "./Modules/privacy/Privacy";
 import Privacy from "./Modules/privacy/privacy";
 import Terms from "./Modules/Terms/Terms";
 import Blogs from "./Modules/Blogs/Blogs";
@@ -16,6 +15,9 @@ import TrackOrderProduct from "./Modules/TrackOrder/Coponents/TrackOrderContaine
 import ForgetPassword from "./Modules/ForgetPassword/ForgetPassword";
 import ResetPassword from "./Modules/ResetPassword/ResetPassword";
 import BillingContainer from "./Modules/BillingContainer/BillingContainer";
+import PaymentContainer from "./Modules/PaymentContainer/PaymentContainer";
+import CartContainer from "./Modules/CartContainer/CartContainer"; 
+import WishList from "./Modules/WishList/WishList"; 
 function Routes() {
   return (
     <Route
@@ -38,7 +40,10 @@ function Routes() {
           <Route path="/trackorderproducts" render={() => <TrackOrderProduct />} />
           <Route path="/forgetpassword" render={() => <ForgetPassword />} />
           <Route path="/billing" render={() => <BillingContainer />} />
+          <Route path="/payment" render={() => <PaymentContainer />} />
+          <Route path="/cart" render={() => <CartContainer />} />
           <Route path="/Resetpaaword/:pram1/:parm2" render={() => <ResetPassword />} />
+          <Route path="/wishlist" render={() => <WishList />} />
         </Switch>
       )}
     />

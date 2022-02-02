@@ -1,0 +1,9 @@
+.cart_container{
+    background-color: #F3F3F3;
+}
+/* @media only screen and (max-width: 768px) {
+    .cart_container .container-fluid{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+} */

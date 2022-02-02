@@ -1,0 +1,111 @@
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.your_order .your_order_container {
+  background-color: #fff;
+  padding: 24px;
+  border: 1px solid #e2c164;
+  border-radius: 5px;
+}
+.your_order h1 {
+  font-size: 18px;
+  color: #0a0b0a;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+.your_order .products div:first-child{
+  width: 140px;
+}
+.your_order .products div:first-child span{
+  font-size: 13px;
+  color: #0a0b0a;
+  font-family: "Helvetica";
+font-weight: bold;
+}
+.your_order .products div:first-child .count{
+  font-size: 13px;
+  color: #E2C164;
+  font-family: "Helvetica";
+font-weight: bold;
+margin-left: 10px;
+}
+.your_order .products .product_price{
+  font-size: 14px;
+  color: #0a0b0a;
+  font-family: "Helvetica";
+  font-weight: bold;
+}
+.your_order .product_count,
+.your_order .discount_container {
+  border-bottom: 1px solid rgba(135, 135, 134, 0.2);
+}
+.your_order .product_Subtotal {
+  border-top: 1px solid rgba(135, 135, 134, 0.2);
+}
+.your_order .product_count p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #0a0b0a;
+  opacity: 0.5;
+}
+.your_order .product_Subtotal {
+  border-bottom: 1px solid rgba(135, 135, 134, 0.2);
+}
+.your_order .product_Subtotal p:first-of-type {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #0a0b0a;
+  opacity: 0.5;
+}
+.your_order .product_Subtotal p:last-child {
+  font-size: 16px;
+  color: #0a0b0a;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+.your_order .billingPragraph p {
+  font-size: 12px;
+  color: #707070;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+.your_order .total p:first-of-type,
+.your_order .discount_container p:first-of-type,
+.your_order .vat_container p:first-of-type
+{
+  font-size: 14px;
+  color: #0a0b0a;
+  font-family: "Helvetica";
+  font-weight: bold;
+}
+.your_order .discount_container p:last-child {
+  color: #14ac14;
+  font-family: "Helvetica";
+  font-weight: bold;
+  font-size: 16px;
+}
+.your_order .total p:last-of-type,
+.your_order .vat_container p:last-of-type,
+.your_order .product_Subtotal p:last-child
+{
+  font-size: 16px;
+  color: #0a0b0a;
+  font-family: "Helvetica";
+  font-weight: bold;
+}
+.your_order .product_Subtotal{
+  padding-top: 16px;
+}
+.your_order button {
+  background-color: #e2c164;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 285px;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #1a1a18;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  margin-bottom: 25px;
+}

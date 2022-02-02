@@ -191,25 +191,65 @@ export const en = {
       "To track your order please enter your Order ID in the box below and press the Track button. This was given to you on your receipt and in the confirmation email you should have received",
     orderId: "Order ID ",
   },
-  forrgetPassword:{
-    title:"Forget password",
-    send:"Send"
+  forrgetPassword: {
+    title: "Forget password",
+    send: "Send",
   },
-  resetPassword:{
-    title:"Reset password",
+  resetPassword: {
+    title: "Reset password",
     passMatch: "password dosn't match",
-
   },
-  billing:{
-    billingDetails:"Billing Details",
-    country  :"Country *",
-    city:"City *",
-    streetAddress:"Street Address *",
-    addressType:"Address Type *",
-    home:"Home" ,
-    work:"Work",
-    orderNotes :"Order Notes *",
-   readAndAgree:"I have read and agree to the website",
-   mobile:"Mobile Number"
+  billing: {
+    billingDetails: "Billing Details",
+    country: "Country *",
+    city: "City *",
+    streetAddress: "Street Address *",
+    addressType: "Address Type *",
+    home: "Home",
+    work: "Work",
+    orderNotes: "Order Notes *",
+    readAndAgree: "I have read and agree to the website",
+    mobile: "Mobile Number",
+    continueToPayment:"continue to payment",
+    yourOrder:"Your Order",
+    Subtotal:"Subtotal",
+    billingPragraph:"Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our ",
+    discount:"Discount",
+    vat:"V.A.T"
+  },
+  payment: {
+    paymentDetails: "Payment Details",
+    payWithBankCards: "Pay With Bank Cards",
+    nameOnCard: "Name On Card",
+    cardNumber: "Card No.",
+    expiryDate: "Expiry Date",
+    cvv: "cvv",
+    madaGateway: "Pay With Mada Gateway",
+    applePay: "Pay With Apple Pay",
+    stcPay: "Pay With Stc Pay",
+    orderSummary: "Order Summary",
+    total: "Total",
+    deliveryAddress: "Delivery Address",
+    mobileNumber: "Mobile No.",
+    otherNotes: "Other Notes",
+    placeOrder: "Place Order",
+    name: "Name",
+  },
+  cart:{
+    cartDetails:"Cart Details",
+    product:"Product",
+    price:"Price",
+    quantity:"Quantity",
+    subtotal:"Subtotal",
+    Color :"Color ",
+    proceedToCheckout:"proceed to checkout",
+    couponCode:"Coupon code",
+    Apply:"Apply",
+    CartTotal:"Cart Total",
+    changeAddress:"Change Address",
+    node:"VAT notes Our company is proud of its alliance with major "
+  },
+  wishList:{
+    MYFAVORITES:"MY FAVORITES"
   }
 };

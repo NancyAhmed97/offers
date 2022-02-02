@@ -1,0 +1,35 @@
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.wish_list h1 {
+  font-size: 18px;
+  color: #0a0b0a;
+  font-weight: bold;
+  font-family: "Helvetica";
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(135, 135, 134, 0.20);
+}
+.wish_list h1 span{
+      font-size: 18px;
+  color: #0a0b0a;
+  opacity: 0.5;
+  font-weight: bold;
+ margin-left: 10px;
+  font-family: "Helvetica";
+}
+.wish_list .product_img{
+    width: 100%;
+}
+.wish_list .button button{
+    background-color: #e2c164;
+    border-radius: 4px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 285px;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: #1a1a18;
+    font-size: 16px;
+    font-family: "Helvetica";
+    margin-top: 15px;
+}

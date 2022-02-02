@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import PhoneInput from "react-phone-input-2";
 import { Link } from "react-router-dom";
@@ -37,7 +37,6 @@ function BillingDetails() {
     } else if (e.target.id === "email") {
       setEmail(e.target.value);
       setAlert(false);
- 
     } else if (e.target.id === "orderNode") {
       setOrderNode(e.target.value);
       setAlert(false);
@@ -56,15 +55,22 @@ function BillingDetails() {
       email,
       phone,
       orderNode,
-      acceptTerms
+      acceptTerms,
+      alert
     );
     console.log(AddressType);
   };
   return (
-    <div className={currentLocal.language === "English" ?"billing_details mt-4 mb-5":"billing_details mt-4 mb-5 ar_billing_details"}>
+    <div
+      className={
+        currentLocal.language === "English"
+          ? "billing_details mt-4 mb-5"
+          : "billing_details mt-4 mb-5 ar_billing_details"
+      }
+    >
       <h1>{currentLocal.billing.billingDetails}</h1>
       <form onSubmit={sendData}>
-        <div className="errorMsg">
+        {/* <div className="errorMsg">
           {alert && (
             <Alert
               className={currentLocal.language === "العربيه" && "text-right"}
@@ -73,7 +79,7 @@ function BillingDetails() {
               *{currentLocal.auth.alert}
             </Alert>
           )}
-        </div>
+        </div> */}
         <Container fluid className="p-0">
           <Row className="p-0">
             <Col md={6}>

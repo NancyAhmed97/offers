@@ -1,0 +1,98 @@
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.cart_details h1 {
+  font-size: 18px;
+  color: #0a0b0a;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+.cart_details .cart_details_container {
+  /* padding: 27px 29px; */
+  padding-top: 27px;
+  padding-bottom: 27px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.cart_details .cart_details_title {
+  border-bottom: 1px solid rgba(135, 135, 134, 0.2);
+}
+.cart_details .close_icone_container {
+  padding-right: 29px;
+}
+.cart_details .products {
+  border-bottom: 1px solid rgba(135, 135, 134, 0.2);
+}
+.cart_details .products:last-child {
+  border-bottom: none;
+}
+.cart_details .cart_details_title p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 18px;
+}
+.cart_details .product_container .Subtotal p {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  color: #2b1a04;
+}
+.cart_details .product_container .counter {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  color: #212529;
+  margin-top: 2px !important;
+}
+.cart_details .product_container .Price p {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  color: #212529;
+}
+.cart_details .product_img img {
+  width: 64px;
+}
+.cart_details .product_color {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+.cart_details .product_img_details {
+  margin-left: 45px;
+}
+.cart_details .product_img_details .product_img_name {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  margin-bottom: 5px !important;
+}
+.cart_details .product_img_details .color {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  opacity: 0.5;
+  margin-right: 7px;
+}
+.cart_details .product_img_details .product_color {
+  margin-right: 7px;
+  margin-top: 7px;
+}
+@media only screen and (max-width: 768px) {
+  .cart_details .cart_details_title p {
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+  }
+  .cart_details .cart_details_title .Price,
+  .cart_details .cart_details_title .Quantity {
+    display: flex;
+    justify-content: flex-start !important;
+  }
+  .cart_details .product_container{
+      padding: 0 !important;
+  }
+  .cart_details .products .Quantity{
+    display: flex;
+    justify-content: flex-start !important;
+  }
+
+}

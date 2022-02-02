@@ -6,7 +6,7 @@ import communications from "../../../../../Resources/Assets/img/smallMobile.png"
 import schoolSupplies from "../../../../../Resources/Assets/img/smallBook.png";
 import { useSelector } from "react-redux";
 import "./PopularItems.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Product from "../../../../Common/Poduct/Product";
 function PopularItems() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
@@ -17,56 +17,56 @@ function PopularItems() {
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:1
+      id: 1,
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:2
+      id: 2,
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:3
+      id: 3,
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:4
+      id: 4,
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:5
+      id: 5,
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:6
+      id: 6,
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:7
+      id: 7,
     },
     {
       img: electronics,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:8
+      id: 8,
     },
   ];
   const productToys = [
@@ -75,56 +75,56 @@ function PopularItems() {
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:9
+      id: 9,
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:10
+      id: 10,
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:11
+      id: 11,
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:12
+      id: 12,
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:13
+      id: 13,
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:14
+      id: 14,
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:15
+      id: 15,
     },
     {
       img: toysImg,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:16
+      id: 16,
     },
   ];
   const productcommunications = [
@@ -133,56 +133,56 @@ function PopularItems() {
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:17
+      id: 17,
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:18
+      id: 18,
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:19
+      id: 19,
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:20
+      id: 20,
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:21
+      id: 21,
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:22
+      id: 22,
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:23
+      id: 23,
     },
     {
       img: communications,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:24
+      id: 24,
     },
   ];
   const productschoolSupplies = [
@@ -191,56 +191,56 @@ function PopularItems() {
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:25
+      id: 25,
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:26
+      id: 26,
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:27
+      id: 27,
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:28
+      id: 28,
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:29
+      id: 29,
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:30
+      id: 30,
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:31
+      id: 31,
     },
     {
       img: schoolSupplies,
       title: "Add product name here in this space and edit it",
       rating: 4,
       price: "SAR 3,099.00",
-      id:32
+      id: 32,
     },
   ];
   return (
@@ -259,9 +259,7 @@ function PopularItems() {
             >
               <p
                 id="electronics"
-                className={
-                  categoryState === "electronics"&& "active"
-                }
+                className={categoryState === "electronics" && "active"}
               >
                 {currentLocal.shopByCategory.electronics}
               </p>
@@ -313,19 +311,19 @@ function PopularItems() {
                 {productElectronics.map((productDetails) => {
                   return (
                     <Col md={3}>
-                  <Link 
-           to={`/blogDetails/:${productDetails.id}`} 
-           onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-          >
-          <Product
-                        img={productDetails.img}
-                        title={productDetails.title}
-                        rating={productDetails.rating}
-                        price={productDetails.price}
-                      />
-          </Link>
+                      <Link
+                        to={`/blogDetails/:${productDetails.id}`}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                        }}
+                      >
+                        <Product
+                          img={productDetails.img}
+                          title={productDetails.title}
+                          rating={productDetails.rating}
+                          price={productDetails.price}
+                        />
+                      </Link>
                     </Col>
                   );
                 })}
@@ -336,19 +334,19 @@ function PopularItems() {
                 {productToys.map((productDetails) => {
                   return (
                     <Col md={3}>
-                      <Link 
-           to={`/blogDetails/:${productDetails.id}`} 
-           onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-          >
-          <Product
-                        img={productDetails.img}
-                        title={productDetails.title}
-                        rating={productDetails.rating}
-                        price={productDetails.price}
-                      />
-          </Link>
+                      <Link
+                        to={`/blogDetails/:${productDetails.id}`}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                        }}
+                      >
+                        <Product
+                          img={productDetails.img}
+                          title={productDetails.title}
+                          rating={productDetails.rating}
+                          price={productDetails.price}
+                        />
+                      </Link>
                     </Col>
                   );
                 })}
@@ -359,19 +357,19 @@ function PopularItems() {
                 {productcommunications.map((productDetails) => {
                   return (
                     <Col md={3}>
-                       <Link 
-           to={`/blogDetails/:${productDetails.id}`} 
-           onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-         >
-          <Product
-                        img={productDetails.img}
-                        title={productDetails.title}
-                        rating={productDetails.rating}
-                        price={productDetails.price}
-                      />
-          </Link>
+                      <Link
+                        to={`/blogDetails/:${productDetails.id}`}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                        }}
+                      >
+                        <Product
+                          img={productDetails.img}
+                          title={productDetails.title}
+                          rating={productDetails.rating}
+                          price={productDetails.price}
+                        />
+                      </Link>
                     </Col>
                   );
                 })}
@@ -382,19 +380,19 @@ function PopularItems() {
                 {productschoolSupplies.map((productDetails) => {
                   return (
                     <Col md={3}>
-          <Link 
-           to={`/blogDetails/:${productDetails.id}`} 
-           onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-         >
-          <Product
-                        img={productDetails.img}
-                        title={productDetails.title}
-                        rating={productDetails.rating}
-                        price={productDetails.price}
-                      />
-          </Link>
+                      <Link
+                        to={`/blogDetails/:${productDetails.id}`}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                        }}
+                      >
+                        <Product
+                          img={productDetails.img}
+                          title={productDetails.title}
+                          rating={productDetails.rating}
+                          price={productDetails.price}
+                        />
+                      </Link>
                     </Col>
                   );
                 })}

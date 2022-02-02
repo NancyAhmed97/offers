@@ -7,12 +7,8 @@ function Deals() {
   return <div className='deals pl pr mt-5 pt-3'>
 <Container className='m-0 p-0' fluid>
     <Row className='m-0 p-0'>
-        <Col md={3} className='m-0 p-0'>
-          <DealsOfTheWeek />
-        </Col>
-        <Col md={9} className='m-0 p-0'>
+       
           <PopularItems />
-        </Col>
     </Row>
 </Container>
 

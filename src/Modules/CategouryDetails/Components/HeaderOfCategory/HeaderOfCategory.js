@@ -1,6 +1,9 @@
 import React from 'react';
 import "./HeaderOfCategory.css"
 import electoronics from "../../../../Resources/Assets/img/electronicsHeader.png";
+import backSchoolConcept from "../../../../Resources/Assets/img/back-school-concept (1).png";
+import ToysCategory from "../../../../Resources/Assets/img/Toys-Category.png";
+import Commanication from "../../../../Resources/Assets/img/Commanication.png";
 import { useSelector } from "react-redux";
 function HeaderOfCategory() {
     const { currentLocal } = useSelector((state) => state.currentLocal);
@@ -25,7 +28,7 @@ function HeaderOfCategory() {
           <h2>{currentLocal.shopByCategory.schoolSupplies}</h2>
           <p>{currentLocal.home.hotSalesPragaph}</p>
       </div>
-      <img src={electoronics} alt="schoolSupplies" className='header_img w-100'/>
+      <img src={backSchoolConcept} alt="schoolSupplies" className='header_img w-100'/>
       </>
       }
         {categoryId==="3"&&
@@ -34,7 +37,7 @@ function HeaderOfCategory() {
           <h2>{currentLocal.shopByCategory.communications}</h2>
           <p>{currentLocal.home.hotSalesPragaph}</p>
       </div>
-      <img src={electoronics} alt="communications" className='header_img w-100'/>
+      <img src={Commanication} alt="communications" className='header_img w-100'/>
       </>
       }
         {categoryId==="4"&&
@@ -43,7 +46,7 @@ function HeaderOfCategory() {
           <h2>{currentLocal.shopByCategory.toys}</h2>
           <p>{currentLocal.home.hotSalesPragaph}</p>
       </div>
-      <img src={electoronics} alt="communications" className='header_img w-100'/>
+      <img src={ToysCategory} alt="communications" className='header_img w-100'/>
       </>
       }
   </div>;
