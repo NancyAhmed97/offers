@@ -6,6 +6,10 @@
     width: 687px;
     margin-bottom: 25px;
 }
+.ar_.shipment_details{
+  width: 701px !important;
+
+}
 .shipment_details h1 {
   font-size: 14px;
   color: #0a0b0a;
