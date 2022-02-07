@@ -4,11 +4,17 @@ import "./ShipmentDetails.css";
 function ShipmentDetails() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <div className="shipment_details">
+    <div
+      className={
+        currentLocal.language === "English"
+          ? "shipment_details"
+          : "shipment_details ar_shipment_details"
+      }
+    >
       <h1>{currentLocal.track.shipmentDetails}</h1>
       <table>
         <tr>
-          <th style={{width:"180px"}}>{currentLocal.track.Location}</th>
+          <th style={{ width: "180px" }}>{currentLocal.track.Location}</th>
           <th>{currentLocal.track.Status}</th>
           <th>{currentLocal.track.Timestamp}</th>
         </tr>
