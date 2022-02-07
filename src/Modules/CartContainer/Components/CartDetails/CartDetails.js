@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import closeIcon from "../../../../Resources/Assets/img/Group 8156.svg";
 import productImg from "../../../../Resources/Assets/img/Appleheadphones.png";
@@ -38,7 +37,7 @@ function CartDetails() {
     },
   ];
   const [counterNumber, setCounterNumber] = useState(0);
-console.log(setCounterNumber);
+  console.log(setCounterNumber);
   //   const increaseCount = () => {
   //     setCounterNumber(counterNumber + 1);
   //   };
@@ -49,10 +48,92 @@ console.log(setCounterNumber);
   //   };
 
   return (
-    <div className="cart_details mt-4 mb-5">
+    <div className={currentLocal.language==="English"?"cart_details mt-4 mb-5":"cart_details ar_cart_details mt-4 mb-5"}>
       <h1>{currentLocal.cart.cartDetails}</h1>
       <div className="cart_details_container">
-        <div className="cart_details_title">
+        <table>
+          <tr>
+            <th className="product_label">
+              <p className="mb-0">{currentLocal.cart.product}</p>
+            </th>
+            <th >
+              {" "}
+              <p className="mb-0 price_label">{currentLocal.cart.price}</p>
+            </th>
+            <th>
+              <p className="mb-0 quantity_label">{currentLocal.cart.quantity}</p>
+            </th>
+            <th>
+              {" "}
+              <p className="mb-0">{currentLocal.cart.subtotal}</p>
+            </th>
+          </tr>
+          {product.map((productItem, index) => {
+            return (
+              <tr key={productItem.id} className="prouduct_row">
+                <td>
+                  <div className="Product d-flex ">
+                    <div className="product_img">
+                      <img src={productImg} alt="productImg" />
+                    </div>
+                    <div className="product_img_details">
+                      <p className="product_img_name">{productItem.name}</p>
+                      <span className="color">{currentLocal.cart.Color}:</span>
+                      <div
+                        className="product_color d-inline-block"
+                        style={{ backgroundColor: productItem.color }}
+                      ></div>
+                      <div className="product_color d-inline-block">
+                        {productItem.color}
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p className="mb-0 Price">{productItem.price}</p>
+                </td>
+                <td>
+                  {" "}
+                  <div className="Quantity ">
+                    <div className="product_info_number_product_container d-flex justify-content-between w-50">
+                      <p
+                        className="p-0 m-0 decrease_container"
+                        // onClick={decreaseCount}
+                      >
+                        <img src={decrease} alt="decrease" className="mx-2" />
+                      </p>
+                      <p className="p-0 m-0 counter">{counterNumber}</p>
+                      <p
+                        className="p-0 m-0 increase_container"
+                        // onClick={(e) => {
+                        //   console.log(e.target.id);
+                        // }}
+                      >
+                        <img
+                          src={increase}
+                          alt="increase"
+                          id={productItem.id}
+                          className="mx-2"
+                        />
+                      </p>
+                    </div>
+                  </div>{" "}
+                </td>
+                <td className="Subtotal">
+                  {" "}
+                  <p className="mb-0 Subtotal">{productItem.Subtotal}</p>
+                  <img
+                          src={closeIcon}
+                          alt="closeIcon"
+                          id={productItem.id}
+                        />
+                </td>
+              </tr>
+            );
+          })}
+        </table>
+
+        {/* <div className="cart_details_title">
           <Container fluid>
             <Row>
               <Col md={5} className="p-0">
@@ -159,7 +240,7 @@ console.log(setCounterNumber);
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </div>
   );
