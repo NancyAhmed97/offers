@@ -19,6 +19,8 @@ export const ar = {
     login: "تسجيل دخول",
     signup: "تسجيل",
     shopByCategories: "تسوق حسب الفئات",
+    OfferSiteLinks:"Offer Site روابط ",
+    welcome:"مرحبا بكم في تقديم الموقع"
   },
   bestSeller: {
     bestSeller: "الأكثر مبيعا",
@@ -188,6 +190,22 @@ export const ar = {
     trackPragraph:
       "لتتبع طلبك ، يرجى إدخال معرف الطلب الخاص بك في المربع أدناه والضغط على زر التتبع. تم إعطاؤك هذا في إيصالك وفي رسالة التأكيد الإلكترونية التي من المفترض أن تكون قد تلقيتها",
     orderId: "رقم التعريف الخاص بالطلب",
+    shipmentDetails:"تفاصيل الشحنة",
+    Location:"موقع",
+    Status:"حالة",
+    Timestamp:"الطابع الزمني",
+    offerSiteStores:"تقدم مخازن الموقع",
+    orderPaced:"ترتيب وتيرة",
+    orderConfirmed:"تم تاكيد الطلب",
+    orderProcessing:"معالجة الطلب",
+    CurrentShipment:"شحنة الحالية",
+    Ordernumber:"رقم الطلب",
+    deliveryAddress:"عنوان التسليم",
+    trackpragraph:"سيتم استخدام بياناتك الشخصية لمعالجة طلبك ، جدة ، المملكة العربية السعودية",
+    OrderPlaced:"تم الطلب",
+    OutOfDelivery:"خارج الخدمة",
+    orderShipped:"تم شحن الطلب",
+    orderDelivered:"أجل تسليم"
   },
   forrgetPassword: {
     title: "هل نسيت كلمة السر",

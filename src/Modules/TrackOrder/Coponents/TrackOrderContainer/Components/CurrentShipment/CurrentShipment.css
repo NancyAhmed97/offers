@@ -1,0 +1,75 @@
+
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.current_shipment h1 {
+  font-size: 14px;
+  color: #0a0b0a;
+  font-weight: bold;
+  font-family: "Helvetica";
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+.css-zpcwqm-MuiStepConnector-root{
+  position: absolute;
+  top: 12px;
+  left: calc(-50% + -30px) !important;
+  right: calc(50% + 40px) !important;
+}
+.css-zpcwqm-MuiStepConnector-root .css-z7uhs0-MuiStepConnector-line{
+  border-top: 4px solid #E2C164;
+}
+.Mui-disabled .css-z7uhs0-MuiStepConnector-line{
+  border-top: 4px solid rgba(135, 135, 134, 0.15);
+}
+.Mui-disabled svg{
+  display: none;
+}
+.MuiStepLabel-alternativeLabel .css-vnkopk-MuiStepLabel-iconContainer::after{
+  content: url("../../../../../../Resources/Assets/img/Ellipse 596.svg");
+  position: relative;
+  top: 3px;
+}
+.MuiStepLabel-alternativeLabel svg{
+  display: none;
+}
+.Mui-disabled .MuiStepLabel-iconContainer::after{
+  content: url("../../../../../../Resources/Assets/img/Ellipse 598.svg");
+  position: relative;
+  top: 3px;
+}
+.MuiStepLabel-label,.Mui-disabled  {
+  font-family: "Helvetica";
+  font-size: 14px;
+  font-weight: bold !important;
+  color: #1A1A18 !important;
+
+}
+.MuiStepLabel-label{
+  width: 88px !important;
+}
+.MuiStepLabel-root{
+  width: 50px !important;
+}
+.css-n7tliy-MuiStep-root{
+  padding: 0 !important;
+}
+.css-16ubnlw-MuiStepLabel-labelContainer {
+width: auto !important;
+}
+.css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel{
+  position: absolute;
+top: -60px;
+left: -20px;
+}
+.MuiBox-root{
+  margin-bottom:40px;
+}
+@media only screen and (max-width: 768px) {
+  .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel{
+    position: absolute;
+  top: -60px;
+  left: 10px;
+  }
+  .current_shipment{
+    width: 100% !important;
+  }
+}

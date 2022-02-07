@@ -1,6 +1,5 @@
 import Routes from "./Routes";
 import { useSelector } from "react-redux";
-// import "antd/dist/antd.css";
 import "./App.css";
 function App() {
   const { currentLocal } = useSelector((state) => state.currentLocal);

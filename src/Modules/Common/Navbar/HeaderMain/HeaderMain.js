@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../../Resources/Assets/img/Logo.png";
+// import sideMenu from "../../../../Resources/Assets/img/Group 5911.png";
 import cart from "../../../../Resources/Assets/img/Icon feather-shopping-cart.svg";
 import heart from "../../../../Resources/Assets/img/Icon feather-heart.svg";
 import searchIcon from "../../../../Resources/Assets/img/Icon feather-search.svg";
@@ -9,6 +10,7 @@ import { Col, Container, Dropdown, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 function HeaderMain() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
+
   return (
     // <div className={currentLocal.language==="English"?'contact_form pr pl':"ar_contact_form contact_form pr pl"}>
 
@@ -20,10 +22,10 @@ function HeaderMain() {
       }
     >
       <Container fluid className="m-0 p-0">
-        '
+        
         <Row className="p-0 m-0">
           <Col md={2} className="m-0 p-0">
-            <div className="header_main_logo">
+            <div className="header_main_logo d-flex">
               <Link to="/">
                 <img src={logo} alt="footer_logo" />
               </Link>{" "}
@@ -96,10 +98,10 @@ function HeaderMain() {
                   </li>
                 </Link>
                 <Link to="/wishlist">
-                <li className="wish_list d-flex">
-                  <p className="count_items mx-2 mt-3">0</p>
-                  <img src={heart} alt="heart" />
-                </li>
+                  <li className="wish_list d-flex">
+                    <p className="count_items mx-2 mt-3">0</p>
+                    <img src={heart} alt="heart" />
+                  </li>
                 </Link>
               </ul>
               <div className="header_auth text-white">

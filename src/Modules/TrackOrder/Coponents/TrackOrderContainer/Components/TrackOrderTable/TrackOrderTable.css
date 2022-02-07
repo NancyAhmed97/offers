@@ -1,0 +1,95 @@
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.track_order_table {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #EBEBEB;
+}
+.track_order_table .product_img img {
+  width: 64px;
+}
+.track_order_table .product_color {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+.track_order_table .product_img_details {
+  margin-left: 25px;
+}
+.track_order_table .color {
+  color: #212529;
+  opacity: 0.5;
+  font-family: "Helvetica";
+  font-size: 14px;
+  margin-right: 7px;
+}
+.track_order_table .product_color {
+  margin-right: 7px;
+}
+.track_order_table .product_img_name {
+  font-family: "Helvetica";
+  font-size: 14px;
+  font-weight: bold;
+}
+.track_order_table .count{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #E2C164;
+  font-family: "Helvetica";
+  font-size: 14px;
+  font-weight: bold;
+}
+.track_order_table table{
+  position: relative;
+}
+.track_order_table .price{
+  position: absolute;
+  right: 15px;
+  color: #2B1A04;
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: bold;
+}
+.ar_track_order_table .price{
+  position: absolute;
+  left: 15px;
+  color: #2B1A04;
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: bold;
+}
+.track_order_table .trackpragraph{
+  color: #1A1A18;
+  font-family: "Helvetica";
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+.track_order_table .deliveryAddress{
+  color: #1A1A18;
+  opacity: 0.50;
+  font-family: "Helvetica";
+  font-size: 12px;
+  width: 115px;
+padding-bottom: 25px;
+padding-top: 20px;
+padding-bottom: 20px;
+
+
+}
+.track_order_table .Ordernumber{
+  font-family: "Helvetica";
+  font-size: 14px;
+  font-weight: bold;
+padding-top: 20px;
+padding-bottom: 20px;
+
+
+}
+@media only screen and (max-width: 768px) {
+  .track_order_Container .track_order .order_container {
+    width: 100% !important;
+  }
+}

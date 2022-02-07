@@ -19,6 +19,8 @@ export const en = {
     login: "Login",
     signup: "Sign up",
     shopByCategories: "Shop By Categories",
+    OfferSiteLinks:"Offer Site Links",
+    welcome:"welcome to offer site",
   },
   bestSeller: {
     bestSeller: "Best Seller",
@@ -190,6 +192,23 @@ export const en = {
     trackPragraph:
       "To track your order please enter your Order ID in the box below and press the Track button. This was given to you on your receipt and in the confirmation email you should have received",
     orderId: "Order ID ",
+    shipmentDetails:"Shipment Details",
+    Location:"Location",
+    Status:"Status",
+    Timestamp:"Timestamp",
+    offerSiteStores:"Offer Site Stores",
+    orderPaced:"Order Paced",
+    orderConfirmed:"Order Confirmed",
+    orderProcessing:"Order Processing",
+    CurrentShipment:"CURRENT SHIPMENT",
+    Ordernumber:"Order no",
+    deliveryAddress:"Delivery Address",
+    trackpragraph:"Your Personal Data Will Be Used To Process Your Order, Jeddah, Saudi",
+    OrderPlaced:"Order Placed",
+    OutOfDelivery:"Out Of Delivery",
+    orderShipped:"order shipped",
+    orderDelivered:"order Delivered"
+
   },
   forrgetPassword: {
     title: "Forget password",

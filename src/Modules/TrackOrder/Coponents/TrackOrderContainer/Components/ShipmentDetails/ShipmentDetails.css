@@ -1,0 +1,49 @@
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.shipment_details{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 687px;
+    margin-bottom: 25px;
+}
+.shipment_details h1 {
+  font-size: 14px;
+  color: #0a0b0a;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px;
+  }
+  .shipment_details table tr:first-child{
+      border-bottom:1px solid #dddddd ;
+  }
+  .shipment_details table tr:first-child th{
+    font-size: 12px;
+    color: #0a0b0a;
+    font-weight: bold;
+    font-family: "Helvetica";
+}
+.shipment_details table tr td{
+    font-size: 14px;
+    color: #0a0b0a;
+    font-weight: bold;
+    font-family: "Helvetica";
+}
+@media only screen and (max-width: 768px) {
+  .shipment_details{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+}

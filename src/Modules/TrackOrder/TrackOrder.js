@@ -26,7 +26,7 @@ function TrackOrder() {
           </p>
         </div>
       </div>
-<TrackOrderBox />
+      <TrackOrderBox />
       <Footer />
     </section>
   );

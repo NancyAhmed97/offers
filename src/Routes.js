@@ -18,6 +18,7 @@ import BillingContainer from "./Modules/BillingContainer/BillingContainer";
 import PaymentContainer from "./Modules/PaymentContainer/PaymentContainer";
 import CartContainer from "./Modules/CartContainer/CartContainer"; 
 import WishList from "./Modules/WishList/WishList"; 
+import ResponsiveDrawer from "./Modules/ResponsiveDrawer";
 function Routes() {
   return (
     <Route
@@ -43,6 +44,7 @@ function Routes() {
           <Route path="/payment" render={() => <PaymentContainer />} />
           <Route path="/cart" render={() => <CartContainer />} />
           <Route path="/Resetpaaword/:pram1/:parm2" render={() => <ResetPassword />} />
+          <Route path="/test" render={()=><ResponsiveDrawer />} />
           <Route path="/wishlist" render={() => <WishList />} />
         </Switch>
       )}
