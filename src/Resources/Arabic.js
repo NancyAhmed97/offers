@@ -22,7 +22,8 @@ export const ar = {
     OfferSiteLinks:"Offer Site روابط ",
     welcome:"مرحبا بكم في تقديم الموقع",
     customerService:"خدمة عملاء على مدار اليوم",
-    privacyAndPolicy:"الخصوصية والسياسة"
+    privacyAndPolicy:"الخصوصية والسياسة",
+    ourMainCategories:"فئاتنا الرئيسية    "
   },
   bestSeller: {
     bestSeller: "الأكثر مبيعا",

@@ -175,6 +175,53 @@ function HeaderMain() {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
+        <h5>{currentLocal.home.ourMainCategories}</h5>
+          <ul className="p-0">
+            <li className="list-unstyled mb-3">
+              {" "}
+              <Link
+                to="/aboutus"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {currentLocal.footer.aboutus}
+              </Link>
+            </li>
+            <li className="list-unstyled mb-3">
+              {" "}
+              <Link
+                to="/contactus"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {currentLocal.footer.contect}
+              </Link>
+            </li>
+            <li className="list-unstyled mb-3">
+              {" "}
+              <Link
+                to="/blogs"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {currentLocal.blog.blog}
+              </Link>
+            </li>
+            <li className="list-unstyled mb-3">
+              {" "}
+              <Link
+                to="/privacy"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {currentLocal.home.privacyAndPolicy}
+              </Link>
+            </li>
+          </ul>
           <h5>{currentLocal.home.OfferSiteLinks}</h5>
           <ul className="p-0">
             <li className="list-unstyled mb-3">

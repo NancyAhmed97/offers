@@ -22,7 +22,8 @@ export const en = {
     OfferSiteLinks: "Offer Site Links",
     welcome: "welcome to offer site",
     customerService: "24/7 customer service",
-    privacyAndPolicy:"Privacy And Policy"
+    privacyAndPolicy:"Privacy And Policy",
+    ourMainCategories:"Our Main Categories"
   },
   bestSeller: {
     bestSeller: "Best Seller",
