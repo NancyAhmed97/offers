@@ -70,10 +70,15 @@ function TapBar() {
             </li>
           </ul>
         </div>
-        <div className="top_bar_center" onClick={()=>{
-          // localStorage.setItem("startChat",true)
-        }}>
-          <p className="d-inline-block mx-3">24/7 customer service</p>
+        <div
+          className="top_bar_center"
+          onClick={() => {
+            // localStorage.setItem("startChat",true)
+          }}
+        >
+          <p className="d-inline-block mx-3">
+            {currentLocal.home.customerService}
+          </p>
           <img src={support} alt="support" />
         </div>
         <div className="top_bar_right">

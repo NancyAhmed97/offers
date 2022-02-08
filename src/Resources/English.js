@@ -21,6 +21,7 @@ export const en = {
     shopByCategories: "Shop By Categories",
     OfferSiteLinks:"Offer Site Links",
     welcome:"welcome to offer site",
+    customerService:"24/7 customer service",
   },
   bestSeller: {
     bestSeller: "Best Seller",

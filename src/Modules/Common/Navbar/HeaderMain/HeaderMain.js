@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../../Resources/Assets/img/Logo.png";
 // import sideMenu from "../../../../Resources/Assets/img/Group 5911.png";
@@ -8,9 +8,36 @@ import searchIcon from "../../../../Resources/Assets/img/Icon feather-search.svg
 import "./HeaderMain.css";
 import { Col, Container, Dropdown, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import axios from "axios";
 function HeaderMain() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
-
+  const [categories, setcategories] = useState([]);
+  const [categoryId, setcategoryId] = useState("");
+  const [searchText, setSearchText] = useState("");
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://offers.com.fig-leaf.net/api/v1/categories",
+    }).then((res) => {
+      console.log(res.data.data);
+      if (res.data.success === true) {
+        setcategories(res.data.data);
+      }
+    });
+  }, []);
+  const getData = (e) => {
+    e.preventDefault();
+    axios({
+      method: "get",
+      url: `https://offers.com.fig-leaf.net/api/v1/search?search=${searchText}&category_id=${categoryId}`,
+    }).then((res) => {
+      console.log(res.data.data);
+      if (res.data.success === true) {
+        // setcategories(res.data.data);
+      }
+    });
+  };
+  console.log(categories);
   return (
     // <div className={currentLocal.language==="English"?'contact_form pr pl':"ar_contact_form contact_form pr pl"}>
 
@@ -22,7 +49,6 @@ function HeaderMain() {
       }
     >
       <Container fluid className="m-0 p-0">
-        
         <Row className="p-0 m-0">
           <Col md={2} className="m-0 p-0">
             <div className="header_main_logo d-flex">
@@ -33,11 +59,15 @@ function HeaderMain() {
           </Col>
           <Col md={7} className="m-0 p-0">
             <div className="search position-relative">
-              <form>
+              <form onSubmit={getData}>
                 <input
                   type="search"
                   placeholder={currentLocal.home.search}
                   className="w-100"
+                  value={searchText}
+                  onChange={(e) => {
+                    setSearchText(e.target.value);
+                  }}
                 />
                 <button type="submit" className="search_icon">
                   <img src={searchIcon} alt="searchIcon" />
@@ -65,31 +95,42 @@ function HeaderMain() {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item
-                    // onClick={(e) => {
-                    //   dispatch(
-                    //     changeLocal(
-                    //       currentLocal.language === "English" ? "ar" : "en"
-                    //     )
-                    //   );
-                    // }}
-                    // id="Arabic"
-                    >
-                      Electrons
-                      {/* {currentLocal.language === "English"
-                      ?<>
-                      <img src={saudi_arabia} alt="saudi_arabia" className="ml-3" />
-                      <span className="mx-3">اللغه العربيه</span>
-                      </>
-                      : "English"} */}
-                    </Dropdown.Item>
+                    {categories.map((categoriesItem) => {
+                      console.log(categoriesItem);
+                      return (
+                        <Dropdown.Item
+                          // onClick={(e) => {
+                          //   dispatch(
+                          //     changeLocal(
+                          //       currentLocal.language === "English" ? "ar" : "en"
+                          //     )
+                          //   );
+                          // }}
+                          // id="Arabic"
+                          onClick={() => {
+                            setcategoryId(categoriesItem.id);
+                          }}
+                          key={categoriesItem.id}
+                        >
+                          {currentLocal.language === "English"
+                            ? categoriesItem.en_name
+                            : categoriesItem.ar_name}
+                          {/* {currentLocal.language === "English"
+                          ?<>
+                          <img src={saudi_arabia} alt="saudi_arabia" className="ml-3" />
+                          <span className="mx-3">اللغه العربيه</span>
+                          </>
+                          : "English"} */}
+                        </Dropdown.Item>
+                      );
+                    })}
                   </Dropdown.Menu>
                 </Dropdown>
               </form>
             </div>
           </Col>
           <Col md={3} className="m-0 p-0">
-            <div className="w-100 d-flex mt-3">
+            <div className="w-100 d-flex mt-3 authantication">
               <ul className="list_inline d-flex m-0 p-0">
                 <Link to="/cart">
                   <li className="shopping d-flex mx-3">
@@ -99,7 +140,7 @@ function HeaderMain() {
                 </Link>
                 <Link to="/wishlist">
                   <li className="wish_list d-flex">
-                    <p className="count_items mx-2 mt-3">0</p>
+                    <p className="count_items mt-3">0</p>
                     <img src={heart} alt="heart" />
                   </li>
                 </Link>

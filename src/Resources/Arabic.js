@@ -20,7 +20,8 @@ export const ar = {
     signup: "تسجيل",
     shopByCategories: "تسوق حسب الفئات",
     OfferSiteLinks:"Offer Site روابط ",
-    welcome:"مرحبا بكم في تقديم الموقع"
+    welcome:"مرحبا بكم في تقديم الموقع",
+    customerService:"خدمة عملاء على مدار اليوم"
   },
   bestSeller: {
     bestSeller: "الأكثر مبيعا",
