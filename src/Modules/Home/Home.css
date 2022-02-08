@@ -1,0 +1,14 @@
+.home .chatIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.home .chat{
+    position: fixed;
+    bottom: 20px;
+    right: 100px;
+    height: 323px;
+    background-color: #fff;
+    border-radius: 5px;
+}

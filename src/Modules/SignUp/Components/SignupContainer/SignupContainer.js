@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Alert, Col, Container, Row } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
@@ -16,32 +17,61 @@ function SignupContainer() {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
+  const [successAlert, setSuccessAlert] = useState("");
+  const [alertMsg, setAlertMsg] = useState("");
+  const [dangerAlert, setDangerAlert] = useState("");
+  const [countryId, setCountryId] = useState("");
   const [phone, setPhone] = useState("");
   const [acceptTerms, setAcceptTerms] = useState("");
+  console.log(countryId);
   const saveData = (e) => {
     if (e.target.id === "email") {
       setEmail(e.target.value);
-      // setDangerAlert(false)
-      // setSuccessAlert(false)
+      setDangerAlert(false);
+      setSuccessAlert(false);
       setAlert(false);
-      // setAlertMsg("")
+      setAlertMsg("");
     } else if (e.target.id === "firstName") {
       setFirstName(e.target.value);
+      setDangerAlert(false);
+      setSuccessAlert(false);
+      setAlert(false);
+      setAlertMsg("");
       setAlert(false);
     } else if (e.target.id === "lastName") {
       setLastName(e.target.value);
+      setDangerAlert(false);
+      setSuccessAlert(false);
+      setAlert(false);
+      setAlertMsg("");
       setAlert(false);
     } else if (e.target.id === "phone") {
       setPhone(e.target.value);
+      setDangerAlert(false);
+      setSuccessAlert(false);
+      setAlert(false);
+      setAlertMsg("");
       setAlert(false);
     } else if (e.target.id === "password") {
       setPassword(e.target.value);
+      setDangerAlert(false);
+      setSuccessAlert(false);
+      setAlert(false);
+      setAlertMsg("");
       setAlert(false);
     } else if (e.target.id === "ConfirmPassword") {
       setConfirmPassword(e.target.value);
+      setDangerAlert(false);
+      setSuccessAlert(false);
+      setAlert(false);
+      setAlertMsg("");
       setAlert(false);
     } else if (e.target.id === "acceptTerms") {
       setAcceptTerms(e.target.value);
+      setDangerAlert(false);
+      setSuccessAlert(false);
+      setAlert(false);
+      setAlertMsg("");
       setAlert(false);
     }
   };
@@ -58,8 +88,44 @@ function SignupContainer() {
     ) {
       setAlert(true);
     } else {
-      console.log("hi");
-      console.log(acceptTerms);
+      axios({
+        method: "post",
+        url: "https://offers.com.fig-leaf.net/api/v1/signup",
+        data: {
+          name: firstName,
+          surname: firstName + lastName,
+          email: email,
+          mobile: phone,
+          password: password,
+          country_id: "1",
+        },
+      })
+        .then((res) => {
+          console.log(res.data.success);
+          if (res.data.success === true) {
+            setSuccessAlert(true);
+            setAlertMsg(res.data.message);
+            window.scrollTo(0, 0);
+            setEmail("");
+            setLastName("");
+            setFirstName("");
+            setConfirmPassword("");
+            setPassword("");
+            setAcceptTerms("");
+            setTimeout(() => {
+              setSuccessAlert(false);
+              setAlertMsg("");
+            }, 3000);
+          }
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          if (error.response) {
+            setDangerAlert(true);
+            setAlertMsg(error.response.data.message);
+            window.scrollTo(0, 0);
+          }
+        });
     }
   };
   return (
@@ -71,13 +137,16 @@ function SignupContainer() {
       }
     >
       <form onSubmit={sendData}>
+        <Alert variant={successAlert ? "success " : dangerAlert && "danger"}>
+          {alertMsg}
+        </Alert>
         <div className="errorMsg">
           {alert && (
             <Alert
               className={currentLocal.language === "العربيه" && "text-right"}
               variant={"danger"}
             >
-              *{currentLocal.auth.alert}
+              *{currentLocal.contactus.alert}
             </Alert>
           )}
         </div>
@@ -131,9 +200,25 @@ function SignupContainer() {
                 }}
                 className="w-100 dark_input"
                 id="phone"
-                onChange={saveData}
+                onChange={(value, country) => {
+                  console.log(value, country.dialCode);
+                  setCountryId(country.dialCode);
+                  setPhone(value);
+                  setAlert(false);
+                }}
                 value={phone}
               />
+              {/* <PhoneInput
+                country={"eg"}
+                dropdownStyle={{
+                  textAlign:
+                    currentLocal.language === "English" ? "left" : "center",
+                }}
+                className="w-100 dark_input"
+                id="phone"
+                onChange={saveData}
+                value={phone}
+              /> */}
             </Col>
             <Col md={12} className="p-0">
               <label htmlFor="password" className="mt-3">

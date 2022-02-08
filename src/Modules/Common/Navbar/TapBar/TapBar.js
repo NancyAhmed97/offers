@@ -10,7 +10,6 @@ import saudi_arabia from "../../../../Resources/Assets/img/icons8_saudi_arabia_8
 import { Dropdown } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { changeLocal } from "../../../../Redux/Localization";
-
 import "./TapBar.css";
 import { Link } from "react-router-dom";
 function TapBar() {
@@ -71,7 +70,9 @@ function TapBar() {
             </li>
           </ul>
         </div>
-        <div className="top_bar_center">
+        <div className="top_bar_center" onClick={()=>{
+          // localStorage.setItem("startChat",true)
+        }}>
           <p className="d-inline-block mx-3">24/7 customer service</p>
           <img src={support} alt="support" />
         </div>
@@ -99,7 +100,15 @@ function TapBar() {
                       <span className="mx-3">اللغه العربيه</span>
                     </>
                   ) : (
-                    "English"
+                    <>
+                      <img
+                        src="https://media.flaticon.com/dist/min/img/flags/en.svg"
+                        alt="flag"
+                        className="american_flag"
+                      />
+
+                      <span className="mx-3">English</span>
+                    </>
                   )}{" "}
                 </div>
               </Dropdown.Toggle>
@@ -125,7 +134,15 @@ function TapBar() {
                       <span className="mx-3">اللغه العربيه</span>
                     </>
                   ) : (
-                    "English"
+                    <>
+                      <img
+                        src="https://media.flaticon.com/dist/min/img/flags/en.svg"
+                        alt="flag"
+                        className="american_flag"
+                      />
+
+                      <span className="mx-3">English</span>
+                    </>
                   )}
                 </Dropdown.Item>
               </Dropdown.Menu>
@@ -133,8 +150,8 @@ function TapBar() {
           </div>
           <div className="order">
             <Link
-                  to="/trackorder"
-                  className="text-decoration-none"
+              to="/trackorder"
+              className="text-decoration-none"
               onClick={() => {
                 window.scrollTo(0, 0);
               }}

@@ -56,7 +56,7 @@
   position: relative;
 }
 .cart_total input,
-input::-webkit-input-placeholder {
+.cart_total input::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: bold;
   font-family: "Helvetica";

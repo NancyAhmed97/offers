@@ -1,68 +1,66 @@
-
-@import url('http://fonts.cdnfonts.com/css/helvetica-2');
-.contact_form{
-    margin-bottom: 100px;
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.contact_form {
+  margin-bottom: 100px;
 }
-.contact_form .contact_title{
-    margin-top: 65px;
-    margin-bottom: 55px;
-} 
-.contact_form .contact_title h1{
-    font-family: 'Helvetica';
-    font-size: 42px;
-    font-weight: bold;
-text-transform: uppercase;
-} 
-  .ar_contact_form{
-      margin-right: 25px;
-  }
-.contact_form .contact_title p{
-    font-family: 'Helvetica';
-    font-size: 16px;
-    color: #1A1A18;
-    opacity: 0.5;
-   
-} 
-.contact_form button{
-    background-color: #E2C164;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    margin-top: 31px;
+.contact_form .contact_title {
+  margin-top: 65px;
+  margin-bottom: 55px;
 }
-.contact_form .contact_info_container{
-margin-top: 75px;
+.contact_form .contact_title h1 {
+  font-family: "Helvetica";
+  font-size: 42px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
-.contact_form .contact_info h5 ,.contact_form form h5{
-    font-family: 'Helvetica';
-    font-size: 16px;
-    font-weight: bold;
-    color: #2B1A04;}
-.contact_form .contact_info p ,.contact_form form p{
-    font-family: 'Helvetica';
-    font-size: 14px;
-    color: #1A1A18;
-    opacity: 0.5
+.ar_contact_form {
+  margin-right: 25px;
 }
-.contact_form ul li{
-    list-style: none;
+.contact_form .contact_title p {
+  font-family: "Helvetica";
+  font-size: 16px;
+  color: #1a1a18;
+  opacity: 0.5;
 }
-.contact_form ul li h4{
-    font-size: 14px;
-    color: #878786;
-
+.contact_form button {
+  background-color: #e2c164;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  margin-top: 31px;
 }
-.contact_form ul li p{
-    font-size: 14px;
-    font-family: 'Helvetica';
-    color: #1A1A18 !important;
-    opacity: 1 !important;
-
-
+.contact_form .contact_info_container {
+  margin-top: 75px;
 }
-.contact_form .touchContainer li:last-of-type{
-    position: relative;
-    top: 12px;
+.contact_form .contact_info h5,
+.contact_form form h5 {
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: bold;
+  color: #2b1a04;
+}
+.contact_form .contact_info p,
+.contact_form form p {
+  font-family: "Helvetica";
+  font-size: 14px;
+  color: #1a1a18;
+  opacity: 0.5;
+}
+.contact_form ul li {
+  list-style: none;
+}
+.contact_form ul li h4 {
+  font-size: 14px;
+  color: #878786;
+}
+.contact_form ul li p {
+  font-size: 14px;
+  font-family: "Helvetica";
+  color: #1a1a18 !important;
+  opacity: 1 !important;
+}
+.contact_form .touchContainer li:last-of-type {
+  position: relative;
+  top: 12px;
 }
