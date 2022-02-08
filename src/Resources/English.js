@@ -19,9 +19,10 @@ export const en = {
     login: "Login",
     signup: "Sign up",
     shopByCategories: "Shop By Categories",
-    OfferSiteLinks:"Offer Site Links",
-    welcome:"welcome to offer site",
-    customerService:"24/7 customer service",
+    OfferSiteLinks: "Offer Site Links",
+    welcome: "welcome to offer site",
+    customerService: "24/7 customer service",
+    privacyAndPolicy:"Privacy And Policy"
   },
   bestSeller: {
     bestSeller: "Best Seller",
@@ -193,23 +194,23 @@ export const en = {
     trackPragraph:
       "To track your order please enter your Order ID in the box below and press the Track button. This was given to you on your receipt and in the confirmation email you should have received",
     orderId: "Order ID ",
-    shipmentDetails:"Shipment Details",
-    Location:"Location",
-    Status:"Status",
-    Timestamp:"Timestamp",
-    offerSiteStores:"Offer Site Stores",
-    orderPaced:"Order Paced",
-    orderConfirmed:"Order Confirmed",
-    orderProcessing:"Order Processing",
-    CurrentShipment:"CURRENT SHIPMENT",
-    Ordernumber:"Order no",
-    deliveryAddress:"Delivery Address",
-    trackpragraph:"Your Personal Data Will Be Used To Process Your Order, Jeddah, Saudi",
-    OrderPlaced:"Order Placed",
-    OutOfDelivery:"Out Of Delivery",
-    orderShipped:"order shipped",
-    orderDelivered:"order Delivered"
-
+    shipmentDetails: "Shipment Details",
+    Location: "Location",
+    Status: "Status",
+    Timestamp: "Timestamp",
+    offerSiteStores: "Offer Site Stores",
+    orderPaced: "Order Paced",
+    orderConfirmed: "Order Confirmed",
+    orderProcessing: "Order Processing",
+    CurrentShipment: "CURRENT SHIPMENT",
+    Ordernumber: "Order no",
+    deliveryAddress: "Delivery Address",
+    trackpragraph:
+      "Your Personal Data Will Be Used To Process Your Order, Jeddah, Saudi",
+    OrderPlaced: "Order Placed",
+    OutOfDelivery: "Out Of Delivery",
+    orderShipped: "order shipped",
+    orderDelivered: "order Delivered",
   },
   forrgetPassword: {
     title: "Forget password",
@@ -230,12 +231,13 @@ export const en = {
     orderNotes: "Order Notes *",
     readAndAgree: "I have read and agree to the website",
     mobile: "Mobile Number",
-    continueToPayment:"continue to payment",
-    yourOrder:"Your Order",
-    Subtotal:"Subtotal",
-    billingPragraph:"Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our ",
-    discount:"Discount",
-    vat:"V.A.T"
+    continueToPayment: "continue to payment",
+    yourOrder: "Your Order",
+    Subtotal: "Subtotal",
+    billingPragraph:
+      "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our ",
+    discount: "Discount",
+    vat: "V.A.T",
   },
   payment: {
     paymentDetails: "Payment Details",
@@ -255,21 +257,21 @@ export const en = {
     placeOrder: "Place Order",
     name: "Name",
   },
-  cart:{
-    cartDetails:"Cart Details",
-    product:"Product",
-    price:"Price",
-    quantity:"Quantity",
-    subtotal:"Subtotal",
-    Color :"Color ",
-    proceedToCheckout:"proceed to checkout",
-    couponCode:"Coupon code",
-    Apply:"Apply",
-    CartTotal:"Cart Total",
-    changeAddress:"Change Address",
-    node:"VAT notes Our company is proud of its alliance with major "
+  cart: {
+    cartDetails: "Cart Details",
+    product: "Product",
+    price: "Price",
+    quantity: "Quantity",
+    subtotal: "Subtotal",
+    Color: "Color ",
+    proceedToCheckout: "proceed to checkout",
+    couponCode: "Coupon code",
+    Apply: "Apply",
+    CartTotal: "Cart Total",
+    changeAddress: "Change Address",
+    node: "VAT notes Our company is proud of its alliance with major ",
   },
-  wishList:{
-    MYFAVORITES:"MY FAVORITES"
-  }
+  wishList: {
+    MYFAVORITES: "MY FAVORITES",
+  },
 };

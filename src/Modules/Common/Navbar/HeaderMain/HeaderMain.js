@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../../Resources/Assets/img/Logo.png";
-// import sideMenu from "../../../../Resources/Assets/img/Group 5911.png";
+import smallLogo from "../../../../Resources/Assets/img/Group 5929.png";
+import sideMenu from "../../../../Resources/Assets/img/Group 5911.svg";
 import cart from "../../../../Resources/Assets/img/Icon feather-shopping-cart.svg";
 import heart from "../../../../Resources/Assets/img/Icon feather-heart.svg";
 import searchIcon from "../../../../Resources/Assets/img/Icon feather-search.svg";
 import "./HeaderMain.css";
-import { Col, Container, Dropdown, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Col, Container, Dropdown, Offcanvas, Row } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { changeLocal } from "../../../../Redux/Localization";
 import axios from "axios";
 function HeaderMain() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [categories, setcategories] = useState([]);
   const [categoryId, setcategoryId] = useState("");
   const [searchText, setSearchText] = useState("");
+  const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   useEffect(() => {
     axios({
       method: "get",
@@ -52,6 +58,12 @@ function HeaderMain() {
         <Row className="p-0 m-0">
           <Col md={2} className="m-0 p-0">
             <div className="header_main_logo d-flex">
+              <img
+                src={sideMenu}
+                alt="sideMenu"
+                onClick={handleShow}
+                className="mx-3 sideMenu"
+              />
               <Link to="/">
                 <img src={logo} alt="footer_logo" />
               </Link>{" "}
@@ -153,6 +165,83 @@ function HeaderMain() {
           </Col>
         </Row>
       </Container>
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title >
+            <Link to="/">
+              <img src={smallLogo} alt="smallLogo" />
+            </Link>
+            <span className="p-3">{currentLocal.home.welcome}</span>
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <h5>{currentLocal.home.OfferSiteLinks}</h5>
+          <ul className="p-0">
+            <li className="list-unstyled mb-3">
+              {" "}
+              <Link
+                to="/aboutus"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {currentLocal.footer.aboutus}
+              </Link>
+            </li>
+            <li className="list-unstyled mb-3">
+              {" "}
+              <Link
+                to="/contactus"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {currentLocal.footer.contect}
+              </Link>
+            </li>
+            <li className="list-unstyled mb-3">
+              {" "}
+              <Link
+                to="/blogs"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {currentLocal.blog.blog}
+              </Link>
+            </li>
+            <li className="list-unstyled mb-3">
+              {" "}
+              <Link
+                to="/privacy"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {currentLocal.home.privacyAndPolicy}
+              </Link>
+            </li>
+          </ul>
+          <div className="langouage">
+            <p>
+              <span
+                onClick={(e) => {
+                  dispatch(changeLocal("en"));
+                }}
+              >
+                Eng |
+              </span>
+              <span
+                onClick={(e) => {
+                  dispatch(changeLocal("ar"));
+                }}
+              >
+                العربية
+              </span>
+            </p>
+          </div>
+        </Offcanvas.Body>
+      </Offcanvas>
     </div>
   );
 }

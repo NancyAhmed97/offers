@@ -21,7 +21,8 @@ export const ar = {
     shopByCategories: "تسوق حسب الفئات",
     OfferSiteLinks:"Offer Site روابط ",
     welcome:"مرحبا بكم في تقديم الموقع",
-    customerService:"خدمة عملاء على مدار اليوم"
+    customerService:"خدمة عملاء على مدار اليوم",
+    privacyAndPolicy:"الخصوصية والسياسة"
   },
   bestSeller: {
     bestSeller: "الأكثر مبيعا",

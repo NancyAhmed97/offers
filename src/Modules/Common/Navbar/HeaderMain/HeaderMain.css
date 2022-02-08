@@ -7,6 +7,9 @@
 .header_main a {
   text-decoration: none;
 }
+.header_main .sideMenu {
+  cursor: pointer;
+}
 .header_main .header_main_container {
   display: flex;
   flex-direction: row;
@@ -25,7 +28,7 @@
   text-decoration: none;
   margin-top: 15px;
 }
-.header_main  .authantication{
+.header_main .authantication {
   display: flex !important;
   justify-content: space-between !important;
 }
@@ -112,19 +115,58 @@
 
   background-color: rgba(60, 37, 8, 0.87);
 }
-.ant-drawer .ant-drawer-content {
-  width: 75% !important;
+
+.offcanvas-start {
+  width: 325px;
 }
- .ant-drawer-title{
-    display: flex;
+.offcanvas-header {
+  border-bottom: 1px solid rgba(112, 112, 112, 0.10);
+  margin: 25px;
 }
-.ant-drawer-title p{
-position: absolute;
-top: 30px;
-left: 80px;
-font-family: "Helvetica";
-font-size: 14px;
-font-weight: bold;
+.offcanvas-title span {
+  position: absolute;
+  top: 30px;
+  left: 80px;
+  font-family: "Helvetica";
+  font-size: 15px;
+  font-weight: bold;
+}
+.btn-close {
+  display: none !important;
+}
+.offcanvas-body {
+  padding: 25px;
+}
+.offcanvas-body h5 {
+  color: #e2c164;
+  font-family: "Helvetica";
+  font-size: 15px;
+  font-weight: bold;
+}
+.offcanvas-body ul li a {
+  color: #1a1a18;
+  font-family: "Helvetica";
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.offcanvas-body .langouage {
+  display: flex;
+  height: 59%;
+  align-items: flex-end;
+}
+.offcanvas-body .langouage span:first-of-type {
+  color: #878786;
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: bold;
+}
+.offcanvas-body .langouage span:last-of-type {
+  color: #1a1a18;
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
 }
 @media only screen and (max-width: 768px) {
   input {
