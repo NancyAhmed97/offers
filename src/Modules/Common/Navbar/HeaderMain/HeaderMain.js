@@ -164,7 +164,7 @@ function HeaderMain() {
             <Col md={3} className="m-0 p-0">
               <div className="w-100 d-flex mt-3 authantication">
                 <ul className="list_inline d-flex m-0 p-0">
-                  <Link to="/cart">
+                  <Link to={authState !== 0?"/cart":"/signup"}>
                     <li className="shopping d-flex mx-3">
                       <p className="count_items mx-2 mt-3">0</p>
                       <img src={cart} alt="cart" />

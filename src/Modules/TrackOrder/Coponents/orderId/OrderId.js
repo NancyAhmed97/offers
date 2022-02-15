@@ -2,13 +2,13 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Alert } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-left.svg";
 import leftArrow from "../../../../Resources/Assets/img/leftArrow.svg";
 import "./OrderId.css";
 function TrackOrderBox() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
-  const history = useHistory();
+  // const history = useHistory();
   const [orderId, setOrderId] = useState("");
   const [alert, setAlert] = useState(false);
   var { auth } = useSelector((state) => state);
