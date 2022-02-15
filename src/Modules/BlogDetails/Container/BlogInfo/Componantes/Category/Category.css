@@ -1,4 +1,23 @@
-.category{
+.category .filteration_by_category_container {
+  height: auto;
+  width: auto;
+  min-height: 50px;
+  padding-right: 13px;
+  padding-left: 13px;
+  margin-right: 10px;
+  border: 1px solid #7f92a1;
+  margin-top: 10px;
+  display: flex;
+align-items: center;
+}
+.category .filteration_by_category .filteration_by_category_container:hover {
+
+  border: 1px solid #e2c164;
+  background-color: #e2c164;
+  cursor: pointer;
+  color: #fff;
+}
+/* .category{
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -72,4 +91,4 @@
     margin-right: 0;
 
 }
-}
+} */

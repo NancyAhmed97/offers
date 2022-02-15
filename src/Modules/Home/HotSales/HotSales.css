@@ -1,48 +1,94 @@
-@import url('http://fonts.cdnfonts.com/css/helvetica-2');
-.hot_sales{
-     margin-top:70px ;
- }
- .hot_sales h2{
-     padding: 0;
-     margin: 0;
-     font-size: 26px;
-     font-weight: bold;
-     font-family: 'Helvetica';
- }
- .hot_sales a{
-    text-decoration: none;
-    color: black;
-    opacity: 1 !important;
-  }
- .hot_sales .best_seller_pragrapg{
-    font-size: 16px;
-    font-family: 'Helvetica';
-    color: rgba(26, 26, 24, 0.5);
-     margin-bottom: 30px;
- }
- .swiper-button-prev.swiper-button-disabled{
-    display: none;
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.hot_sales {
+  margin-top: 70px;
 }
-.swiper-button-next.swiper-button-disabled{
-    display: none;
+.hot_sales h2 {
+  padding: 0;
+  margin: 0;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+.hot_sales a {
+  text-decoration: none;
+  color: black;
+  opacity: 1 !important;
+}
+.hot_sales .best_seller_pragrapg {
+  font-size: 16px;
+  font-family: "Helvetica";
+  color: rgba(26, 26, 24, 0.5);
+  margin-bottom: 30px;
+}
+.hot_sales .product{
+  position: relative;
+}
+.hot_sales .product .product_img {
+  width: 90%;
+  height: 263px;
+}
+.hot_sales .product .product_title {
+  color: #1a1a18;
+  font-size: 16px;
+  font-family: "Helvetica";
+  font-weight: bold;
+}
+.hot_sales .product .curency {
+    color: #1a1a18;
+    opacity: 0.5;
+    font-family: "Helvetica";
+    font-size: 14px;
+}
+.hot_sales .product .price_text{
+    color: #e2c164;
+    font-family: "Helvetica";
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.swiper-button-prev.swiper-button-disabled {
+  display: none;
+}
+.swiper-button-next.swiper-button-disabled {
+  display: none;
 }
 .swiper-pagination {
-    display: none;
+  display: none;
 }
-.swiper-button-next::after{
-    content: url("../../../Resources/Assets/img/Icon\ feather-right.svg");
-    display: block;
+.swiper-button-next::after {
+  content: url("../../../Resources/Assets/img/Icon\ feather-right.svg");
+  display: block;
 }
-.swiper-button-prev::after{
-    content: url("../../../Resources/Assets/img/Icon\ feather-left.svg");
-    display: block;
+.swiper-button-prev::after {
+  content: url("../../../Resources/Assets/img/Icon\ feather-left.svg");
+  display: block;
+}
 
+
+.hot_sales .likedIcone{
+position: relative;
 }
+.hot_sales .likedIcone img:first-of-type{
+  width: 42px !important;
+  height: 42px;
+} 
+.hot_sales .likedIcone img:last-of-type{
+  position: absolute;
+  left: 11px;
+  top: 9px;
+} .hot_sales .icons{
+  position: absolute;
+  top: 10px;
+  left: 64%;
+}
+
+
+
 @media only screen and (max-width: 768px) {
-    .hot_sales .best_seller_pragrapg{
-        font-size: 15px;
-        font-family: 'Helvetica';
-        color: rgba(26, 26, 24, 0.5);
-         margin-bottom: 30px;
-     }
+  .hot_sales .best_seller_pragrapg {
+    font-size: 15px;
+    font-family: "Helvetica";
+    color: rgba(26, 26, 24, 0.5);
+    margin-bottom: 30px;
+  }
 }

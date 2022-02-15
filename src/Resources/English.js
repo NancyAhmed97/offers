@@ -6,6 +6,11 @@ export const en = {
     toys: "Toys",
     communications: "Communications",
     seeMore: "See More",
+    PriceRange:"Price range",
+    ResetFilter:"Reset Filter",
+    filterBy:"Filter by",
+    showAllCategories:"Show all categories"
+
   },
   home: {
     category: "All Categories ",
@@ -17,6 +22,7 @@ export const en = {
     bestPicks: "Best Picks",
     search: "search product",
     login: "Login",
+    logout:"Logout",
     signup: "Sign up",
     shopByCategories: "Shop By Categories",
     OfferSiteLinks: "Offer Site Links",

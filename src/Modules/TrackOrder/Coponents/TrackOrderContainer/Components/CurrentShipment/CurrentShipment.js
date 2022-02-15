@@ -29,7 +29,6 @@ function CurrentShipment() {
       <Box sx={{ width: "100%" }}>
         <Stepper activeStep={2} alternativeLabel>
           {steps.map((label) => {
-            console.log(label);
             return (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>

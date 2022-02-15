@@ -32,13 +32,8 @@
   display: flex !important;
   justify-content: space-between !important;
 }
-.ar_header_main a:first-of-type {
-  margin-right: 16px;
-  margin-left: 7px;
-}
-.ar_header_main a:last-of-type {
-  margin-right: 7px;
-}
+
+
 .header_main .count_items {
   width: 25px;
   height: 25px;
@@ -120,7 +115,7 @@
   width: 325px;
 }
 .offcanvas-header {
-  border-bottom: 1px solid rgba(112, 112, 112, 0.10);
+  border-bottom: 1px solid rgba(112, 112, 112, 0.1);
   margin: 25px;
 }
 .offcanvas-title span {
@@ -168,16 +163,76 @@
   font-weight: bold;
   margin-left: 10px;
 }
+.header_main_container .searchResult {
+  background-color: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 699.406px !important;
+  position: absolute;
+  top: 138px;
+  left: 275px;
+  z-index: 5555555555;
+}
+.ar_header_main_container .searchResult {
+  background-color: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 699.406px !important;
+  position: absolute;
+  top: 138px;
+  right: 275px;
+  z-index: 5555555555;
+}
+.header_main_container .searchResult a {
+  text-decoration: none;
+}
+.header_main_container .searchResultItem img {
+  width: 100px;
+  height: auto;
+}
+.header_main_container .description p:first-child {
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: bold;
+  color: #1a1a18;
+}
+.header_main_container .crancy {
+  color: #1a1a18;
+  opacity: 0.5;
+  font-family: "Helvetica";
+  font-size: 14px;
+  font-weight: bold;
+}
+.header_main_container .price {
+  color: #e2c164;
+  font-family: "Helvetica";
+  font-size: 14px;
+  font-weight: bold;
+}
 @media only screen and (max-width: 768px) {
   input {
     border-radius: 0 !important;
   }
-  .header_main .dropdown-toggle {
+  .ar_header_main .dropdown-toggle {
     border-top-left-radius: 20px !important;
     border-bottom-left-radius: 20px !important;
+    width: 122px;
+  }
+  .ar_header_main .dropdown-menu {
+    min-width: 122px;
   }
   .header_main .search_icon {
     border-top-right-radius: 20px !important;
     border-bottom-right-radius: 20px !important;
+  }
+  .ar_header_main_container .searchResult {
+    width: 331.406px !important;
+    position: absolute;
+    top: 304px;
+    right: 15px;
+    z-index: 5555555555;
+  }
+  .ar_header_main input {
+    padding-left: 122px;
   }
 }

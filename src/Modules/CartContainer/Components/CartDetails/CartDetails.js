@@ -7,7 +7,7 @@ import decrease from "../../../../Resources/Assets/img/Group 8204.png";
 import "./CartDetails.css";
 function CartDetails() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
-  const product = [
+  const [product, setProduct] = useState( [
     {
       id: "0",
       img: productImg,
@@ -35,7 +35,13 @@ function CartDetails() {
       count: "2",
       Subtotal: "680 SAR",
     },
-  ];
+  ])
+  const DeletItem = (id) => {
+    console.log();
+    // const x = product.filter((product) => product.id === id);
+    // console.log(x);
+  };
+
   const [counterNumber, setCounterNumber] = useState(0);
   console.log(setCounterNumber);
   //   const increaseCount = () => {
@@ -48,7 +54,13 @@ function CartDetails() {
   //   };
 
   return (
-    <div className={currentLocal.language==="English"?"cart_details mt-4 mb-5":"cart_details ar_cart_details mt-4 mb-5"}>
+    <div
+      className={
+        currentLocal.language === "English"
+          ? "cart_details mt-4 mb-5"
+          : "cart_details ar_cart_details mt-4 mb-5"
+      }
+    >
       <h1>{currentLocal.cart.cartDetails}</h1>
       <div className="cart_details_container">
         <table>
@@ -56,12 +68,14 @@ function CartDetails() {
             <th className="product_label">
               <p className="mb-0">{currentLocal.cart.product}</p>
             </th>
-            <th >
+            <th>
               {" "}
               <p className="mb-0 price_label">{currentLocal.cart.price}</p>
             </th>
             <th>
-              <p className="mb-0 quantity_label">{currentLocal.cart.quantity}</p>
+              <p className="mb-0 quantity_label">
+                {currentLocal.cart.quantity}
+              </p>
             </th>
             <th>
               {" "}
@@ -123,10 +137,16 @@ function CartDetails() {
                   {" "}
                   <p className="mb-0 Subtotal">{productItem.Subtotal}</p>
                   <img
-                          src={closeIcon}
-                          alt="closeIcon"
-                          id={productItem.id}
-                        />
+                    src={closeIcon}
+                    alt="closeIcon"
+                    id={productItem.id}
+                    onClick={(e)=>{
+                      console.log(productItem);
+                      const x= product.filter((product) => product.id !== e.target.id);
+                      console.log(x);
+                      setProduct(x)
+                    }}
+                  />
                 </td>
               </tr>
             );

@@ -1,18 +1,14 @@
 import React from "react";
 import Slider from "react-slick";
 import PrevIcon from "../../../Resources/Assets/img/PrevIcon";
-import firstPost from "../../../Resources/Assets/img/Group 5923.png";
-import Post from "../../../Resources/Assets/img/firstPost.png";
 import NextIcon from "../../../Resources/Assets/img/NextIcon";
 import "./LandingPage.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-function LandingPage() {
+function LandingPage({ sliders }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
-
   const SamplePrevArrow = (props) => {
     const { className, style, onClick } = props;
-
     return (
       <div onClick={onClick} className={className} style={{ ...style }}>
         <PrevIcon />
@@ -83,35 +79,26 @@ function LandingPage() {
       },
     ],
   };
-  const content = [
-    {
-      img: firstPost,
-    },
-    {
-      img: Post,
-    },
-    {
-      img: firstPost,
-    },
-    {
-      img: Post,
-    },
-    {
-      img: firstPost,
-    },
-    {
-      img: Post,
-    },
-  ];
+
 
   return (
-    <div className={currentLocal.language==="English"?"landing_page":"landing_page ar_landing_page"}>
+    <div
+      className={
+        currentLocal.language === "English"
+          ? "landing_page"
+          : "landing_page ar_landing_page"
+      }
+    >
       <Slider {...settings} accessibility={false}>
-        {content.map((content) => {
+        {sliders.map((slider, index) => {
+          const url = "https://offers.com.fig-leaf.net";
           return (
-            <div>
+            <div key={index}>
               <Link to="/buynow">
-                <img alt="" src={content.img} />
+                <img
+                  alt=""
+                  src={sliders !== undefined && url + slider.image}
+                />
               </Link>
             </div>
           );

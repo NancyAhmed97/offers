@@ -16,9 +16,10 @@ import ForgetPassword from "./Modules/ForgetPassword/ForgetPassword";
 import ResetPassword from "./Modules/ResetPassword/ResetPassword";
 import BillingContainer from "./Modules/BillingContainer/BillingContainer";
 import PaymentContainer from "./Modules/PaymentContainer/PaymentContainer";
-import CartContainer from "./Modules/CartContainer/CartContainer"; 
-import WishList from "./Modules/WishList/WishList"; 
+import CartContainer from "./Modules/CartContainer/CartContainer";
+import WishList from "./Modules/WishList/WishList";
 import ResponsiveDrawer from "./Modules/ResponsiveDrawer";
+import Auction from "./Modules/Auction/Auction";
 function Routes() {
   return (
     <Route
@@ -29,23 +30,30 @@ function Routes() {
           <Route path="/privacy" render={() => <Privacy />} />
           <Route path="/contactus" render={() => <ContactUs />} />
           <Route path="/aboutus" render={() => <Aboutus />} />
-          <Route path="/blogs" render={() => <Blogs />} />
+          <Route path={"/blogs"||"/blogs/:id"} render={() => <Blogs />} />
           <Route path="/blogDetails/:id" render={() => <BlogDetails />} />
           <Route
             path="/CategouryDetails/:id"
             render={() => <CategouryDetails />}
           />
-          <Route path="/productcart" render={() => <ProductCart />} />
+          <Route path="/productcart/:id" render={() => <ProductCart />} />
           <Route path="/signup" render={() => <SignUp />} />
           <Route path="/trackorder" render={() => <TrackOrder />} />
-          <Route path="/trackorderproducts" render={() => <TrackOrderProduct />} />
+          <Route
+            path="/trackorderproducts"
+            render={() => <TrackOrderProduct />}
+          />
           <Route path="/forgetpassword" render={() => <ForgetPassword />} />
           <Route path="/billing" render={() => <BillingContainer />} />
           <Route path="/payment" render={() => <PaymentContainer />} />
           <Route path="/cart" render={() => <CartContainer />} />
-          <Route path="/Resetpaaword/:pram1/:parm2" render={() => <ResetPassword />} />
-          <Route path="/test" render={()=><ResponsiveDrawer />} />
+          <Route
+            path="/Resetpaaword/:pram1/:parm2"
+            render={() => <ResetPassword />}
+          />
+          <Route path="/test" render={() => <ResponsiveDrawer />} />
           <Route path="/wishlist" render={() => <WishList />} />
+          <Route path="/auction" render={() => <Auction />} />
         </Switch>
       )}
     />

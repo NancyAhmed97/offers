@@ -1,3 +1,6 @@
 .OffersComponent{
 padding-top: 50px;
 }
+.OffersComponent img{
+    height: 350px;
+}

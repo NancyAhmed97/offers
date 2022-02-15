@@ -14,7 +14,13 @@ import { Link } from "react-router-dom";
 function ShopByCategoury() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <section className={currentLocal.language==="English"?"shop_by_category pr pl":"shop_by_category ar_shop_by_category pr pl"}>
+    <section
+      className={
+        currentLocal.language === "English"
+          ? "shop_by_category pr pl"
+          : "shop_by_category ar_shop_by_category pr pl"
+      }
+    >
       <h2>{currentLocal.home.shopByCategories}</h2>
       <p>{currentLocal.blog.disc}</p>
       <Container fluid>
@@ -31,12 +37,25 @@ function ShopByCategoury() {
                 <p className="text-white">
                   {currentLocal.shopByCategory.electronics}
                 </p>
-                <Link to={`/CategouryDetails/:${1}`} onClick={() => {
-                      window.scrollTo(0, 0);
-                    }}>
+                <Link
+                  to={`/CategouryDetails/:${1}`}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                  }}
+                >
                   <p className="text-white">
+                    {currentLocal.language==="English"?
+                    <>
                     {currentLocal.shopByCategory.seeMore}
-                    <img src={WhiteseeMore} alt="WhiteseeMore"   />
+                    <img src={WhiteseeMore} alt="WhiteseeMore" />
+                    </>
+                    :
+                    <>
+                    <img src={WhiteseeMore} alt="WhiteseeMore" />
+                    {currentLocal.shopByCategory.seeMore}
+
+                    </>
+                }
                   </p>
                 </Link>
               </div>
@@ -46,16 +65,32 @@ function ShopByCategoury() {
             <div>
               <div
                 className="shop_by_school"
-                style={{ backgroundImage: `url('${school}')`, height: "220px" }}
+                style={{ backgroundImage: `url('${school}')`, height: "235px" }}
               >
                 <div className="shop_by_school_content">
-                  <p className="text-white">{currentLocal.shopByCategory.schoolSupplies}</p>
-                  <Link to={`/CategouryDetails/:${2}`} onClick={() => {
-                      window.scrollTo(0, 0);
-                    }}>
-                  <p className="text-white">{currentLocal.shopByCategory.seeMore}
-                  <img src={WhiteseeMore} alt="WhiteseeMore"  />
+                  <p className="text-white">
+                    {currentLocal.shopByCategory.schoolSupplies}
                   </p>
+                  <Link
+                    to={`/CategouryDetails/:${2}`}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    <p className="text-white">
+                      {currentLocal.language === "English" ? (
+                        <>
+                          {currentLocal.shopByCategory.seeMore}
+                          <img src={WhiteseeMore} alt="WhiteseeMore" />
+                        </>
+                      ) : (
+                        <>
+                          <img src={WhiteseeMore} alt="WhiteseeMore" />
+
+                          {currentLocal.shopByCategory.seeMore}
+                        </>
+                      )}
+                    </p>
                   </Link>
                 </div>
               </div>
@@ -63,23 +98,31 @@ function ShopByCategoury() {
                 className="shop_by_comanication"
                 style={{
                   backgroundImage: `url('${comanication}')`,
-                  height: "220px",
-                  marginTop: "51px",
-                  
+                  height: "235px",
+                  marginTop: "21px",
                 }}
               >
                 <div className="shop_by_comanication_content">
                   <p>{currentLocal.shopByCategory.communications}</p>
                   <Link
-
-to={`/CategouryDetails/:${3}`} 
-onClick={() => {
-  window.scrollTo(0, 0);
-}}
->
-                  <p >{currentLocal.shopByCategory.seeMore}
-                  <img src={blueSeeMore} alt="blueSeeMore" />
-                  </p>
+                    to={`/CategouryDetails/:${3}`}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    <p>
+                      {currentLocal.language === "English" ? (
+                        <>
+                          {currentLocal.shopByCategory.seeMore}
+                          <img src={blueSeeMore} alt="blueSeeMore" />
+                        </>
+                      ) : (
+                        <>
+                          <img src={blueSeeMore} alt="blueSeeMore" />{" "}
+                          {currentLocal.shopByCategory.seeMore}
+                        </>
+                      )}
+                    </p>
                   </Link>
                 </div>
               </div>
@@ -92,14 +135,25 @@ onClick={() => {
             >
               <div className="shop_by_toys_content">
                 <p> {currentLocal.shopByCategory.toys} </p>
-                <Link to={`/CategouryDetails/:${4}`} 
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
->
-                <p>{currentLocal.shopByCategory.seeMore}
-                <img src={blackSeeMore} alt="blackSeeMore" />
-                </p>
+                <Link
+                  to={`/CategouryDetails/:${4}`}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  <p>
+                    {currentLocal.language === "English" ? (
+                      <>
+                        {currentLocal.shopByCategory.seeMore}
+                        <img src={blackSeeMore} alt="blackSeeMore" />
+                      </>
+                    ) : (
+                      <>
+                        <img src={blackSeeMore} alt="blackSeeMore" />
+                        {currentLocal.shopByCategory.seeMore}
+                      </>
+                    )}
+                  </p>
                 </Link>
               </div>
             </div>

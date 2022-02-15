@@ -1,32 +1,70 @@
-
-@import url('http://fonts.cdnfonts.com/css/helvetica-2');
-.related_products{
-    margin-bottom: 65px;
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.related_products {
+  margin-bottom: 65px;
 }
-.related_products .related_products_title{
-    width: 100%;
-    border-bottom: 1px solid #878786;
-    margin-bottom: 48px;
-    margin-top: 65px;
+.related_products .related_products_title {
+  width: 100%;
+  border-bottom: 1px solid #878786;
+  margin-bottom: 48px;
+  margin-top: 65px;
 }
-.related_products .related_products_title{
-font-size: 16px;
-font-weight: bold;
-font-family: 'Helvetica';
-color: #2B1A04;
+.related_products .related_products_title {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  color: #2b1a04;
 }
-.related_products .product{
-    margin-right: 20px;
+.related_products .product {
+  margin-right: 20px;
+  position: relative;
 }
-.related_products .product_img{
-    width: 100%;
+.related_products .product_img {
+  width: 100%;
 }
 .related_products .product .like_icon {
-right: 0;
+  right: 0;
 }
-.related_products .product .product_title{
-    font-size: 16px;
-font-weight: bold;
-font-family: 'Helvetica';
-padding-right: 10px;
+.related_products .product .product_title {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  padding-right: 10px;
+}
+.related_products .product .product_img {
+  width: 159px;
+  height: 208px;
+}
+.related_products .likedIcone {
+  position: relative;
+}
+.related_products .icons {
+  position: absolute;
+  top: 5px;
+  left: 55%;
+}
+.related_products .product .curency {
+  color: #1a1a18 !important;
+  opacity: 0.5;
+  font-family: "Helvetica";
+  font-size: 14px;
+}
+.related_products .product .price_text {
+  color: #e2c164 !important;
+  font-family: "Helvetica";
+  font-size: 17px;
+  font-weight: bold;
+}
+.related_products .product .product_title {
+  color: #1a1a18 !important;
+}
+@media only screen and (max-width: 768px) {
+  .related_products .product .product_img {
+    width: 100%;
+    height: 100%;
+  }
+  .related_products .icons {
+    position: absolute;
+    top: 5px;
+    left: 77%;
+}
 }

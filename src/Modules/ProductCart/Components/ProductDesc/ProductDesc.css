@@ -1,74 +1,75 @@
-@import url('http://fonts.cdnfonts.com/css/helvetica-2');
-.product_des{
-    margin-top: 65px;
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.product_des {
+  margin-top: 65px;
 }
-.product_des .product_des_categoury{
-    display: flex;
-    border-bottom: 1px solid #878786;
-    margin-bottom: 30px;
+.product_des .product_des_categoury {
+  display: flex;
+  border-bottom: 1px solid #878786;
+  margin-bottom: 30px;
 }
-.product_des .product_des_categoury p{
-margin-right: 40px;
-font-size: 16px;
-font-weight: bold;
-font-family: 'Helvetica';
-color: #2B1A04;
-opacity: 0.5;
-margin-bottom: 0;
-cursor: pointer;
+.product_des .product_des_categoury p {
+  margin-right: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  color: #2b1a04;
+  opacity: 0.5;
+  margin-bottom: 0;
+  cursor: pointer;
 }
-.ar_product_des .product_des_categoury p{
-margin-right: 0px;
-margin-left: 40px;
-font-size: 16px;
-font-weight: bold;
-font-family: 'Helvetica';
-color: #2B1A04;
-opacity: 0.5;
-margin-bottom: 0;
-cursor: pointer;
+.ar_product_des .product_des_categoury p {
+  margin-right: 0px;
+  margin-left: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  color: #2b1a04;
+  opacity: 0.5;
+  margin-bottom: 0;
+  cursor: pointer;
 }
-.product_des .active{
-    margin-right: 40px;
-    font-size: 16px;
-font-weight: bold;
-font-family: 'Helvetica';
-color: #2B1A04 !important;
-opacity: 1 !important;
-margin-bottom: 0;
-cursor: pointer;
+.product_des #desc {
+  margin-right: 40px !important;
+}
+.product_des .active {
+  font-size: 16px;
+  margin-right: 40px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  color: #2b1a04 !important;
+  opacity: 1 !important;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.product_des .active::after {
+  content: url("../../../../Resources/Assets/img/Line\ 64.svg");
+  display: block;
+  height: 16px;
+}
+.product_des .product_des_container {
+  width: 750px;
+}
 
+.product_des .product_des_container p,
+.product_des ul li {
+  color: #2b1a04;
+  font-size: 14px;
+  font-family: "Helvetica";
 }
-.product_des .active::after{
- content: url("../../../../Resources/Assets/img/Line\ 64.svg");
- display: block;
- height: 16px;
- 
+.product_des ul li {
+  list-style: none;
 }
-.product_des .product_des_container{
-    width: 750px;
+.product_des ul li::before {
+  content: "-";
+  display: inline-block;
+  margin-right: 5px;
 }
-
-.product_des .product_des_container p ,.product_des ul li{
-color: #2B1A04;
-font-size: 14px;
-font-family: 'Helvetica';
-
-}
-.product_des ul li{
-    list-style: none;
-}
-.product_des ul li::before{
-    content: "-";
-    display: inline-block;
-    margin-right: 5px;
-}
-.product_des ul li{
-    margin-bottom: 15px;
+.product_des ul li {
+  margin-bottom: 15px;
 }
 @media only screen and (max-width: 768px) {
-    .product_des .product_des_container{
-        width: 100%;
-        padding-right: 15px;
-    }
+  .product_des .product_des_container {
+    width: 100%;
+    padding-right: 15px;
+  }
 }

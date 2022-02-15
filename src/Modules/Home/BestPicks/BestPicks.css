@@ -1,29 +1,71 @@
-.best_picks{
-    margin-top:70px ;
+.best_picks {
+  margin-top: 70px;
+}
+.best_picks .product .product_img img:first-of-type {
+  width: 100%;
+  height: 263px;
 }
 .best_picks h2 {
-    font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
-    font-size: 26px;
-    font-weight: bold;
-  }
-  .best_picks .best_picks_pragrapg {
-    font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
-    font-size: 16px;
-    color: rgba(26, 26, 24, 0.5);
-  }
-  .best_picks .product_details_container
-  {
+  font-family: " font-family: " Helvetica Neue W23 for SKY "; ";
+  font-size: 26px;
+  font-weight: bold;
+}
+.best_picks .best_picks_pragrapg {
+  font-family: " font-family: " Helvetica Neue W23 for SKY "; ";
+  font-size: 16px;
+  color: rgba(26, 26, 24, 0.5);
+}
+.best_picks .product_details_container {
+  display: flex;
+  flex-direction: row;
+}
+.best_picks a {
+  text-decoration: none;
+  color: black;
+}
+.best_picks .contant .product_title {
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 7px;
+}
+.best_picks .contant .curency {
+  color: #1a1a18;
+  opacity: 0.5;
+  font-family: "Helvetica";
+  font-size: 14px;
+}
+.best_picks .contant .price_text {
+  color: #e2c164;
+  font-family: "Helvetica";
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.best_picks .likedIcone {
+  position: relative;
+}
+.best_picks .likedIcone img:first-of-type {
+  width: 42px !important;
+  height: 42px;
+}
+.best_picks .likedIcone img:last-of-type {
+  position: absolute;
+  left: 11px;
+  top: 9px;
+}
+.best_picks .icons {
+  position: absolute;
+  top: 10px;
+  left: 88%;
+}
+
+.best_picks .product {
+  position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .best_picks .product_details_container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
-  .best_picks a{
-    text-decoration: none;
-    color: black;
-  }
-  @media only screen and (max-width: 768px) {
-    .best_picks .product_details_container
-    {
-      display: flex;
-      flex-direction: column;
-    }
-  }
+}

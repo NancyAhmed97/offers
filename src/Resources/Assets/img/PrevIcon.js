@@ -1,9 +1,9 @@
 import React from "react";
 
 function PrevIcon() {
-	return (
-		<div   className="prevIcon">
-			  <svg
+  return (
+    <div className="prevIcon">
+      <svg
         xmlns="http://www.w3.org/2000/svg"
         width="12.564"
         height="42.024"
@@ -16,13 +16,13 @@ function PrevIcon() {
           transform="translate(-12 -7)"
           fill="none"
           stroke="#fff"
-          stroke-linecap="round"
+          strokeLinecap="round"
           stroke-linejoin="round"
-          stroke-width="3"
+          strokeWidth="3"
         />
       </svg>
-		</div>
-	);
+    </div>
+  );
 }
 
 export default PrevIcon;

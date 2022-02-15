@@ -1,54 +1,61 @@
-@import url('http://fonts.cdnfonts.com/css/helvetica-2');
-.most_viewed  .most_viewed_title{
-color: #2B1A04;
-font-family: 'Helvetica';
-font-weight: bold;
-font-size: 16px;
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.most_viewed .most_viewed_title {
+  color: #2b1a04;
+  font-family: "Helvetica";
+  font-weight: bold;
+  font-size: 16px;
 }
-.most_viewed  .most_viewed_title::after{
-content: url("../../../../Resources/Assets/img/Path\ 13200.svg");
-display: block;
-position: relative;
-bottom: 10px;
+.most_viewed .most_viewed_title::after {
+  content: url("../../../../Resources/Assets/img/Path\ 13200.svg");
+  display: block;
+  position: relative;
+  bottom: 10px;
 }
-.most_viewed .like_icon{
-    display: none;
+.most_viewed .like_icon {
+  display: none;
 }
-.most_viewed .most_viewed_img{
-    margin-right: 22px;
+.most_viewed .most_viewed_img {
+  margin-right: 22px;
+  width: 95px;
+  height: 62px;
 }
-.ar_most_viewed .most_viewed_img{
-    margin-left: 22px;
-    margin-right: 0;
+.most_viewed .most_viewed_img img {
+  width: 100%;
 }
-.most_viewed .most_viewed_info{
-    padding-right: 28px;
-    
+.ar_most_viewed .most_viewed_img {
+  margin-left: 22px;
+  margin-right: 0;
 }
-.ar_most_viewed .most_viewed_info{
-    padding-left: 28px;
-    
+.most_viewed .most_viewed_info {
+  padding-right: 28px;
 }
-.most_viewed .most_viewed_info p{
-    font-family: 'Helvetica';
-    font-weight: bold;
-    font-size: 14px;
-line-height: 16px;
-margin-bottom: 7px;
+.ar_most_viewed .most_viewed_info {
+  padding-left: 28px;
 }
-.most_viewed .most_viewed_info h6{
-    color: #E2C164;
-    font-size: 12px;
-    font-family: 'Helvetica';
-    font-weight: bold;
-
+.most_viewed .most_viewed_info p {
+  font-family: "Helvetica";
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 7px;
+  color: #1a1a18 !important;
+}
+.most_viewed .most_viewed_info h6 {
+  color: #e2c164 !important;
+  font-size: 12px;
+  font-family: "Helvetica";
+  font-weight: bold;
 }
 @media only screen and (max-width: 768px) {
-    .most_viewed .most_viewed_info p{
-        font-family: 'Helvetica';
-        font-weight: bold;
-        font-size: 12px;
-        margin-bottom: 17px;
-
-    }
+  .most_viewed .most_viewed_info p {
+    font-family: "Helvetica";
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 17px;
+  }
+  .most_viewed .most_viewed_img {
+    margin-right: 22px;
+    width: 100%;
+    height: auto;
+  }
 }

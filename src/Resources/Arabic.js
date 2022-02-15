@@ -6,6 +6,10 @@ export const ar = {
     toys: "الالعاب",
     communications: "التواصل",
     seeMore: "انظر المزيد",
+    ResetFilter:"إعادة تعيين",
+    PriceRange:"نطاق السعر",
+    filterBy:"مصنف بواسطة",
+    showAllCategories:"عرض كل الفئات"
   },
   home: {
     category: "جميع الفئات",
@@ -18,6 +22,7 @@ export const ar = {
     search: "البحث عن المنتج",
     login: "تسجيل دخول",
     signup: "تسجيل",
+    logout:"تسجيل خروج ",
     shopByCategories: "تسوق حسب الفئات",
     OfferSiteLinks:"Offer Site روابط ",
     welcome:"مرحبا بكم في تقديم الموقع",

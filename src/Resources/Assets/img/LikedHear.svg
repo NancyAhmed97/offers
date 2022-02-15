@@ -1,0 +1,34 @@
+   <svg
+        data-v-c5f7b2ec=""
+        width="20"
+        height="20"
+        viewBox="0 0 48 48"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          id="Icons/Wishlist-Active"
+          stroke="none"
+          stroke-width="1"
+          fill="none"
+          fill-rule="evenodd"
+        >
+          <path
+            fill="#E94E09"
+            stroke="#E94E09"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M40.1352866,9.96563877 C36.3156687,6.01145374 30.1234611,6.01145374 26.30552,9.96563877 L24,12.3534317 L21.69448,9.96563877 C17.8748621,6.01145374 11.6826545,6.01145374 7.86471341,9.96563877 C4.04509553,13.9215604 4.04509553,20.3347379 7.86471341,24.2889229 L24,41 L40.1352866,24.2889229 C43.9549045,20.3347379 43.9549045,13.9198238 40.1352866,9.96563877 Z"
+          ></path>{" "}
+          <rect
+            id="Rectangle"
+            fill-opacity="0"
+            fill="#D8D8D8"
+            x="0"
+            y="0"
+            width="60"
+            height="60"
+          ></rect>
+        </g>
+      </svg>
