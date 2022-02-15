@@ -90,6 +90,21 @@ button{
     padding-right: 19px;
     height: 42px;
 }
+.chatIcon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  .chat{
+      position: fixed;
+      bottom: 20px;
+      right: 100px;
+      height: 323px;
+      background-color: #fff;
+      border-radius: 5px;
+  }
+  
 @media (min-width: 768px) and (max-width: 991px) {
     .pr{
         padding-right: 35px;

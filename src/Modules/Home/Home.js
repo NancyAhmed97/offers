@@ -10,14 +10,10 @@ import ShopByCategoury from "./ShopByCategoury/ShopByCategoury";
 import HotSales from "./HotSales/HotSales";
 import BestPicks from "./BestPicks/BestPicks";
 import Deals from "./Deals/Deals";
-import chatIcon from "../../Resources/Assets/img/Group 8204.svg";
-
-import chatHeader from "../../Resources/Assets/img/Group 8205.png";
 import "./Home.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
 function Home() {
-  const [openChat, setOpenChat] = useState(false);
   var { auth } = useSelector((state) => state);
   // const [msg, setMsg] = useState("");
   // const [submitState, setSubmitState] = useState(false);
@@ -76,35 +72,8 @@ function Home() {
       <Blog bolgs={bolgs} />
       <Footer />
 
-      <img
-        src={chatIcon}
-        alt="chatIcon"
-        className="chatIcon"
-        onClick={() => {
-          setOpenChat(!openChat);
-        }}
-      />
-      {openChat && (
-        <div className="chat">
-          <img src={chatHeader} alt="chatHeader" />
-          {/* <div className="msgContainer">{submitState && msg}</div> */}
-          {/* <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSubmitState(!submitState);
-              array.push(...msg,msg)
-              console.log(array);
-            }}
-          >
-            <input
-              value={msg}
-              onChange={(e) => {
-                setMsg(e.target.value);
-              }}
-            />
-          </form> */}
-        </div>
-      )}
+
+  
     </section>
   );
 }

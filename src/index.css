@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* .eapp-whatsapp-chat-root-layout-component, .eapp-whatsapp-chat-root-layout-component *{
+  display: none !important;
+} */
+/* .eapp-whatsapp-chat-root-layout-component a{
+  display: none !important;
+} */
+.Window__WindowComponent-sc-1wwhwms-1 div:last-child a{
+  display:none !important;
+}
+.iOLagG{
+  padding: 0 !important;
+}
+.kbtpkx {
+  padding: 50px 20px 50px 10px !important;
+}
+.dqGZdt {
+position: relative !important;
+top: 30px !important;
+z-index: 5555555;
+left: 15px !important;
+}
+.Header__Name-sc-5nh99s-2{
+  color: #fff !important;
+}
+.ePlAIy{
+  color: #fff !important;
+}
+.llytOC{
+  fill: #fff !important;
+}

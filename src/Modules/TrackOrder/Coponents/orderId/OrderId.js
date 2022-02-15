@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Alert } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -10,6 +11,7 @@ function TrackOrderBox() {
   const history = useHistory();
   const [orderId, setOrderId] = useState("");
   const [alert, setAlert] = useState(false);
+  var { auth } = useSelector((state) => state);
   const saveData = (e) => {
     if (e.target.id === "orderId") {
       setOrderId(e.target.value);
@@ -21,11 +23,24 @@ function TrackOrderBox() {
     if (!orderId) {
       setAlert(true);
     } else {
-      history.push("/trackorderproducts");
-      window.scrollTo(0, 0);
+      axios({
+        method: "post",
+        url: `https://offers.com.fig-leaf.net/api/v1/search_for_order`,
+        headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+        data: {
+          order_number: orderId,
+        },
+      }).then((res) => {
+        if (res.data.success === true) {
+          console.log(res);
+        } else {
+          console.log(res);
+        }
+      });
+      // history.push("/trackorderproducts");
+      // window.scrollTo(0, 0);
     }
   };
-  console.log(orderId);
   return (
     <div
       className={
