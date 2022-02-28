@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import Footer from "../Common/Footer/Footer";
 import Navbar from "../Common/Navbar/Navba";
 import Product from "../Common/Poduct/Product";
-import productImg from "../../Resources/Assets/img/poscomercializacion-350x500.png";
-import secondproductImg from "../../Resources/Assets/img/img_pic_1605860884_0.png";
 import "./WishList.css";
 import { Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
@@ -25,6 +23,8 @@ function WishList() {
       }
     });
   }, [auth]);
+
+  console.log(favorites);
   return (
     <section className="wish_list ">
       <Navbar />
@@ -40,7 +40,7 @@ function WishList() {
                 const url = "https://offers.com.fig-leaf.net";
 
                 return (
-                  <Col md={3}className="mb-4">
+                  <Col md={3}className="mb-5">
                     <Product
                       img={url + productDetails.image}
                       title={
@@ -53,11 +53,11 @@ function WishList() {
                       is_favorite={productDetails.is_favorite}
 
                     />
-                    <div className="button">
-                      <button className="w-100">
+                    {/* <div className="button">
+                      <button className="w-100" onClick={addToCart}>
                         {currentLocal.productDetails.addToCart}
                       </button>
-                    </div>
+                    </div> */}
                   </Col>
                 );
               })}

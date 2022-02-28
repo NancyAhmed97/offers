@@ -21,14 +21,15 @@ function HeaderMain() {
   const [searchResult, setSearchResult] = useState([]);
   const [categoryId, setcategoryId] = useState("");
   const [searchText, setSearchText] = useState("");
-  // const [errorState, setErrorState] = useState(false);
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const [favCount, setFavCount] = useState("");
+  const [cartCount, setCartCount] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const url = "https://offers.com.fig-leaf.net";
-  console.log(auth);
   useEffect(() => {
+    console.log(auth.authorization.access_token);
     axios({
       method: "get",
       url: "https://offers.com.fig-leaf.net/api/v1/categories",
@@ -38,19 +39,38 @@ function HeaderMain() {
         // setErrorState(false)
       }
     });
-  }, []);
-  const louaut=()=>{
+    axios({
+      method: "get",
+      url: `https://offers.com.fig-leaf.net/api/v1/favorites`,
+      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+    }).then((res) => {
+      // console.log(res);
+      // console.log(res.data.data.items);
+      setFavCount(res.data.data.items.length);
+    });
+    axios({
+      method: "get",
+      url: `https://offers.com.fig-leaf.net/api/v1/cart`,
+      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+    }).then((res) => {
+      if (res.data.success === true) {
+        // console.log(res.data.data.cart.products.length);
+        setCartCount(res.data.data.cart.products.length);
+      }
+    });
+  }, [auth]);
+  const louaut = () => {
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/logout`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
-
     }).then((res) => {
       if (res.data.success === true) {
-        console.log(res.data);
+        // console.log(res.data);
         dispatch(logout({}));
       }
-    });  }
+    });
+  };
   const getData = (e) => {
     setSearchText(e.target.value);
     if (categoryId) {
@@ -164,28 +184,28 @@ function HeaderMain() {
             <Col md={3} className="m-0 p-0">
               <div className="w-100 d-flex mt-3 authantication">
                 <ul className="list_inline d-flex m-0 p-0">
-                  <Link to={authState !== 0?"/cart":"/signup"}>
+                  <Link to={ "/cart"} >
                     <li className="shopping d-flex mx-3">
-                      <p className="count_items mx-2 mt-3">0</p>
+                      <p className="count_items  mt-3">{authState !== 0?cartCount:0}</p>
                       <img src={cart} alt="cart" />
                     </li>
                   </Link>
-                  <Link to={authState !== 0?"/wishlist":"/signup"}>
+                  <Link to={"/wishlist"}>
                     <li className="wish_list d-flex">
-                      <p className="count_items mt-3">0</p>
+                      <p className="count_items mt-3">{authState !== 0?favCount:0}</p>
                       <img src={heart} alt="heart" />
                     </li>
                   </Link>
                 </ul>
                 <div className="header_auth text-white">
-                  {authState!==0?
-                  <span onClick={louaut}>
-                 {currentLocal.home.logout}/
-                  </span>
-                  :
-                  <Link to="/signup"> {currentLocal.home.login}/
-                  </Link>}
-                  <Link to="/signup">{currentLocal.home.signup} </Link>
+                  {authState !== 0 ? (
+                    <span onClick={louaut}>{currentLocal.home.logout}</span>
+                  ) : (
+                    <Link to="/signup"> {currentLocal.home.login}</Link>
+                  )}
+                  {authState === 0 && (
+                    <Link to="/signup">/{currentLocal.home.signup} </Link>
+                  )}
                 </div>
               </div>
             </Col>
@@ -320,7 +340,7 @@ function HeaderMain() {
         <div className="searchResult px-3 p-3">
           {searchResult.map((searchResultItem) => {
             return (
-              <Link to="/productcart">
+              <Link  to={`/productcart/:${searchResultItem.id !== undefined &&searchResultItem.id}`}>
                 <div className="searchResultItem mb-3 d-flex">
                   <div className="img">
                     <img

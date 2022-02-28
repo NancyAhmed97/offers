@@ -80,7 +80,6 @@ function LandingPage({ sliders }) {
     ],
   };
 
-
   return (
     <div
       className={
@@ -91,14 +90,18 @@ function LandingPage({ sliders }) {
     >
       <Slider {...settings} accessibility={false}>
         {sliders.map((slider, index) => {
+          console.log(slider);
           const url = "https://offers.com.fig-leaf.net";
           return (
             <div key={index}>
-              <Link to="/buynow">
-                <img
-                  alt=""
-                  src={sliders !== undefined && url + slider.image}
-                />
+              <Link
+                to={`/productcart/:${slider.id}`}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+                className="text-decoration-none"
+              >
+                <img alt="" src={sliders !== undefined && url + slider.image} />
               </Link>
             </div>
           );

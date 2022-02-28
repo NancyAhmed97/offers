@@ -1,31 +1,53 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-left.svg";
 import leftArrow from "../../../../Resources/Assets/img/leftArrow.svg";
 import "./YourOrder.css";
-function YourOrder() {
+function YourOrder({ alertState }) {
+  const history = useHistory();
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const product = [
     {
       id: "0",
       name: "Add product name here in this space and edit it",
       count: "x1",
-      price:"3,560 SAR"
+      price: "3,560 SAR",
     },
     {
       id: "1",
       name: "Add product name here in this space and edit it",
       count: "x1",
-      price:"3,560 SAR"
+      price: "3,560 SAR",
     },
     {
       id: "2",
       name: "Add product name here in this space and edit it",
       count: "x1",
-      price:"3,560 SAR"
+      price: "3,560 SAR",
     },
   ];
+  const passData = () => {
+    if (
+      !localStorage.getItem("firstName") ||
+      !localStorage.getItem("lastName")||
+      !localStorage.getItem("streetAddress")||
+      !localStorage.getItem("email") ||
+      !localStorage.getItem("mobile") ||
+      !localStorage.getItem("AddressType")||
+      !localStorage.getItem("acceptTerms")||
+      !localStorage.getItem("orderNode")
+    ) {
+      alertState(true);
+      window.scrollTo(0, 0);
+
+    } else {
+      alertState(false);
+      history.push("/payment");
+      window.scrollTo(0, 0);
+
+    }
+  };
   return (
     <div className="your_order mt-4">
       <div className="your_order_container">
@@ -34,16 +56,16 @@ function YourOrder() {
           <p>3 Products</p>
           <p>{currentLocal.billing.Subtotal}</p>
         </div>
-          {product.map((productItem) => {
+        {product.map((productItem) => {
           console.log(productItem);
           return (
             <div
               key={productItem.id}
               className="products d-flex justify-content-between mt-2"
             >
-              <div >
-              <span>{productItem.name}</span>
-              <span className="count">{productItem.count}</span>
+              <div>
+                <span>{productItem.name}</span>
+                <span className="count">{productItem.count}</span>
               </div>
               <div className="product_price mt-4">{productItem.price}</div>
             </div>
@@ -53,7 +75,7 @@ function YourOrder() {
           <p>{currentLocal.billing.Subtotal}</p>
           <p>3,560SAR</p>
         </div>
-  
+
         <div className="vat_container d-flex justify-content-between mt-2">
           <p>{currentLocal.billing.vat}</p>
           <p>150 SAR</p>
@@ -71,7 +93,7 @@ function YourOrder() {
         </div>
       </div>
       <div className="button mt-4">
-        <Link to="/payment" className="text-decoration-none">
+        <Link onClick={passData} className="text-decoration-none">
           <button>
             {currentLocal.language === "English" ? (
               <>

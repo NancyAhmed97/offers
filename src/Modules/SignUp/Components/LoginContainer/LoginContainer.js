@@ -50,7 +50,7 @@ function LoginContainer() {
         data: {
           email: email,
           password: password,
-          remember_me: remember,
+          remember_me: remember?remember:0,
         },
       })
         .then((res) => {

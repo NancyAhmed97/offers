@@ -164,6 +164,7 @@ export const en = {
   },
   productDetails: {
     relatedProducts: "Related products",
+    ColorName:"Color Name",
     Description: "Description",
     Reviews: "Reviews",
     descPragraph:
@@ -244,7 +245,7 @@ export const en = {
     billingPragraph:
       "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our ",
     discount: "Discount",
-    vat: "V.A.T",
+    tax: "Value tax",
   },
   payment: {
     paymentDetails: "Payment Details",

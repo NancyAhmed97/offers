@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Alert, Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import PhoneInput from "react-phone-input-2";
 import { Link } from "react-router-dom";
 import "react-phone-input-2/lib/style.css";
 import "./BillingDetails.css";
-function BillingDetails() {
+function BillingDetails({ alert }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,51 +14,34 @@ function BillingDetails() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
-  const [AddressType, setAddressType] = useState("");
-  const [orderNode, setOrderNode] = useState("");
-  const [acceptTerms, setAcceptTerms] = useState("");
-  const [alert, setAlert] = useState(false);
+
+
+  // const alertState=alert
   const saveData = (e) => {
     if (e.target.id === "firstName") {
       setFirstName(e.target.value);
-      setAlert(false);
+      localStorage.setItem("firstName", e.target.value);
     } else if (e.target.id === "lastName") {
       setLastName(e.target.value);
-      setAlert(false);
+      localStorage.setItem("lastName", e.target.value);
     } else if (e.target.id === "country") {
       setCountry(e.target.value);
-      setAlert(false);
+      localStorage.setItem("country", e.target.value);
     } else if (e.target.id === "city") {
+      localStorage.setItem("city", e.target.value);
       setCity(e.target.value);
-      setAlert(false);
     } else if (e.target.id === "streetAddress") {
       setStreetAddress(e.target.value);
-      setAlert(false);
+      localStorage.setItem("streetAddress", e.target.value);
     } else if (e.target.id === "email") {
       setEmail(e.target.value);
-      setAlert(false);
+      localStorage.setItem("email", e.target.value);
     } else if (e.target.id === "orderNode") {
-      setOrderNode(e.target.value);
-      setAlert(false);
+      localStorage.setItem("orderNode", e.target.value);
     } else if (e.target.id === "acceptTerms") {
-      setAcceptTerms(e.target.value);
-      setAlert(false);
+      localStorage.setItem("acceptTerms", e.target.value);
+
     }
-  };
-  const sendData = (e) => {
-    e.preventDefault();
-    console.log(
-      firstName,
-      lastName,
-      country,
-      city,
-      email,
-      phone,
-      orderNode,
-      acceptTerms,
-      alert
-    );
-    console.log(AddressType);
   };
   return (
     <div
@@ -69,8 +52,8 @@ function BillingDetails() {
       }
     >
       <h1>{currentLocal.billing.billingDetails}</h1>
-      <form onSubmit={sendData}>
-        {/* <div className="errorMsg">
+      <form>
+        <div className="errorMsg">
           {alert && (
             <Alert
               className={currentLocal.language === "العربيه" && "text-right"}
@@ -79,7 +62,7 @@ function BillingDetails() {
               *{currentLocal.auth.alert}
             </Alert>
           )}
-        </div> */}
+        </div>
         <Container fluid className="p-0">
           <Row className="p-0">
             <Col md={6}>
@@ -153,10 +136,10 @@ function BillingDetails() {
                   type="radio"
                   id="AddressType "
                   onChange={(e) => {
-                    setAddressType(e.target.value);
-                    setAlert(false);
+                    // setAddressType(e.target.value);
+                    localStorage.setItem("AddressType", e.target.value);
                   }}
-                  value="1"
+                  value="home"
                   name="addressType"
                 />{" "}
                 <label className="billing_home">
@@ -167,10 +150,11 @@ function BillingDetails() {
                   type="radio"
                   id="AddressType "
                   onChange={(e) => {
-                    setAddressType(e.target.value);
-                    setAlert(false);
+                    // setAddressType(e.target.value);
+                    // localStorage.removeItem("alert");
+                    localStorage.setItem("AddressType", e.target.value);
                   }}
-                  value="2"
+                  value="work"
                   name="addressType"
                 />{" "}
                 <label className="billing_work">
@@ -190,9 +174,18 @@ function BillingDetails() {
                 }}
                 className="w-100 dark_input"
                 id="phone"
-                onChange={(e) => {
+                onChange={(e, country) => {
+                  console.log(e, country.dialCode, country);
+                  localStorage.setItem(
+                    "countryPhoneId",
+                    country.dialCode ? country.dialCode : "20"
+                  );
+                  localStorage.setItem(
+                    "mobile",
+                    e.slice(country.dialCode.length)
+                  );
                   setPhone(e);
-                  setAlert(false);
+                  // localStorage.removeItem("alert");
                 }}
                 value={phone}
               />

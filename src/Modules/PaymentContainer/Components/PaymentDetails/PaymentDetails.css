@@ -6,16 +6,30 @@
   font-family: "Helvetica";
 }
 
-.payment_details form {
-  padding: 27px 29px;
+.payment_details .bank_card_form,
+.payment_details .mda_form,
+.payment_details .apple_form,
+.payment_details .stc_form {
+  padding: 0px 29px;
   background-color: #fff;
   border-radius: 5px;
-  margin-bottom: 20px;
+}
+.payment_details .bank_card_form{
+  padding: 27px 29px;
 }
 .payment_details label {
   font-size: 12px;
   font-weight: bold;
   font-family: "Helvetica";
+  position: relative;
+  left: 5px;
+}
+.payment_details .payment_label {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  position: relative;
+  bottom: 20px;
 }
 .payment_details .checkbox_label {
   position: absolute;
@@ -30,9 +44,10 @@
   font-size: 14px !important;
 }
 .payment_details .payment_check_container {
-  border-bottom: 1px solid #878786;
+  border-top: 1px solid #878786;
+  padding-top: 15px;
 }
-.payment_details .payment_type{
+.payment_details .payment_type {
   padding: 27px 29px;
   background-color: #fff;
   border-radius: 5px;

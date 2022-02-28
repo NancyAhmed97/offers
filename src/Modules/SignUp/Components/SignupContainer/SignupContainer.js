@@ -97,7 +97,7 @@ function SignupContainer() {
           email: email,
           mobile: phone,
           password: password,
-          country_id: "1",
+          phone_code:countryId ,
         },
       })
         .then((res) => {
@@ -112,17 +112,11 @@ function SignupContainer() {
             setConfirmPassword("");
             setPassword("");
             setAcceptTerms("");
-            setTimeout(() => {
-              setSuccessAlert(false);
-              setAlertMsg("");
-            }, 3000);
           }
         })
         .catch((error) => {
           console.log(error.response.data);
           if (error.response) {
-            setDangerAlert(true);
-            setAlertMsg(error.response.data.message);
             window.scrollTo(0, 0);
           }
         });

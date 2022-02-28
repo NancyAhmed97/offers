@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useSelector } from "react-redux";
 import ReactStars from "react-rating-stars-component";
@@ -25,6 +25,7 @@ function Product({
   is_favorite,
 }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
+  const [liked, setLiked] = useState(false);
   const history = useHistory();
   var { auth } = useSelector((state) => state);
   var authState = Object.keys(auth.authorization).length;
@@ -35,8 +36,11 @@ function Product({
         url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
         headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
       }).then((res) => {
-      
-        window.location.reload();
+        console.log(res);
+        console.log(res.data);
+        console.log(res.data.data);
+        setLiked(!liked);
+        // window.location.reload();
       });
     } else {
       history.push("/signup");
@@ -113,7 +117,23 @@ function Product({
               </>
             )}
             <div className="icons" id={id}>
-              {is_favorite !== undefined && !is_favorite ? (
+              {/* {liked && (
+                <div className="likedIcone" onClick={likeProduct}>
+                  <img
+                    src={background}
+                    alt="background"
+                    className="background"
+                    id={id}
+                  />
+                  <img
+                    src={LikedHear}
+                    alt="LikedHear"
+                    className="LikedHear"
+                    id={id}
+                  />
+                </div>
+              )} */}
+              {/* { !is_favorite ? (
                 <img
                   src={likeIcon}
                   alt="likeIcon"
@@ -136,7 +156,32 @@ function Product({
                     id={id}
                   />
                 </div>
-              )}
+              )} */}
+              {
+                (is_favorite ||liked)?
+                       <div className="likedIcone" onClick={likeProduct}>
+                  <img
+                    src={background}
+                    alt="background"
+                    className="background"
+                    id={id}
+                  />
+                  <img
+                    src={LikedHear}
+                    alt="LikedHear"
+                    className="LikedHear"
+                    id={id}
+                  />
+                </div>
+                :
+                <img
+                src={likeIcon}
+                alt="likeIcon"
+                className="like_icon"
+                onClick={likeProduct}
+                id={id}
+              />
+              }
             </div>
           </div>
         </div>

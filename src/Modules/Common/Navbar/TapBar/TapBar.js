@@ -14,8 +14,6 @@ import "./TapBar.css";
 import { Link } from "react-router-dom";
 function TapBar() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
-  var { auth } = useSelector((state) => state);
-  var authState = Object.keys(auth.authorization).length;
   const dispatch = useDispatch();
 
   return (
@@ -157,7 +155,7 @@ function TapBar() {
           </div>
           <div className="order">
             <Link
-              to={authState!==0?"/trackorder":"/signup"}
+              to={"/trackorder"}
               className="text-decoration-none"
               onClick={() => {
                 window.scrollTo(0, 0);

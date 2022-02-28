@@ -5,18 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* .eapp-whatsapp-chat-root-layout-component, .eapp-whatsapp-chat-root-layout-component *{
-  display: none !important;
-} */
-/* .eapp-whatsapp-chat-root-layout-component a{
-  display: none !important;
-} */
+
 .Window__WindowComponent-sc-1wwhwms-1 div:last-child a{
   display:none !important;
 }
@@ -27,10 +23,11 @@ code {
   padding: 50px 20px 50px 10px !important;
 }
 .dqGZdt {
-position: relative !important;
+position: absolute !important;
 top: 30px !important;
 z-index: 5555555;
-left: 15px !important;
+left: 50px !important;
+background-color: red !important;
 }
 .Header__Name-sc-5nh99s-2{
   color: #fff !important;
@@ -41,3 +38,17 @@ left: 15px !important;
 .llytOC{
   fill: #fff !important;
 }
+@media only screen and (max-width: 768px) {
+  .hGBhFY{
+    position: fixed;
+    right: 56px !important;
+  }
+  .dqGZdt {
+    position: absolute !important;
+    top: 30px !important;
+    z-index: 5555555;
+    left: 50px !important;
+    background-color: red !important;
+    }
+}
+

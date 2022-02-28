@@ -7,20 +7,25 @@ import ProductCardDetails from "./Components/ProductCardDetails/ProductCardDetai
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 function ProductCart() {
   const location = useLocation();
   const searchInPath = location.pathname.indexOf(":");
   const id = location.pathname.slice(searchInPath + 1);
+  console.log(`https://offers.com.fig-leaf.net/api/v1/product/${id}`);
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
   const [reviews, setReviews] = useState("");
+  var { auth } = useSelector((state) => state);
+
   useEffect(() => {
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/product/${id}`,
+      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       if (res.data.success === true) {
-        console.log(res);
+        console.log(res.data.data);
         console.log(res.data.data.reviews);
         console.log(res.data.data.related_products);
         setProduct(res.data.data.product);
@@ -28,7 +33,7 @@ function ProductCart() {
         setReviews(res.data.data.reviews)
       }
     });
-  }, [id]);
+  }, [id,auth.authorization.access_token]);
   return (
     <section>
       <Navbar />

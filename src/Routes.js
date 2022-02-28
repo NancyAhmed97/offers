@@ -20,7 +20,10 @@ import CartContainer from "./Modules/CartContainer/CartContainer";
 import WishList from "./Modules/WishList/WishList";
 import ResponsiveDrawer from "./Modules/ResponsiveDrawer";
 import Auction from "./Modules/Auction/Auction";
+import { useSelector } from "react-redux";
 function Routes() {
+  var { auth } = useSelector((state) => state);
+  var authState = Object.keys(auth.authorization).length;
   return (
     <Route
       render={({ location }) => (
@@ -38,7 +41,7 @@ function Routes() {
           />
           <Route path="/productcart/:id" render={() => <ProductCart />} />
           <Route path="/signup" render={() => <SignUp />} />
-          <Route path="/trackorder" render={() => <TrackOrder />} />
+          <Route path="/trackorder" render={() => authState !== 0 ? <TrackOrder />:<SignUp />} />
           <Route
             path="/trackorderproducts"
             render={() => <TrackOrderProduct />}
@@ -46,13 +49,13 @@ function Routes() {
           <Route path="/forgetpassword" render={() => <ForgetPassword />} />
           <Route path="/billing" render={() => <BillingContainer />} />
           <Route path="/payment" render={() => <PaymentContainer />} />
-          <Route path="/cart" render={() => <CartContainer />} />
+          <Route path="/cart" render={() => authState !== 0 ? <CartContainer />:<SignUp />}/>
           <Route
             path="/Resetpaaword/:pram1/:parm2"
             render={() => <ResetPassword />}
           />
           <Route path="/test" render={() => <ResponsiveDrawer />} />
-          <Route path="/wishlist" render={() => <WishList />} />
+          <Route path="/wishlist" render={() => authState !== 0 ? <WishList />:<SignUp />} />
           <Route path="/auction" render={() => <Auction />} />
         </Switch>
       )}

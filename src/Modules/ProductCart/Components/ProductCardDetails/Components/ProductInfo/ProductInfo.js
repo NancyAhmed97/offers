@@ -5,21 +5,66 @@ import { useSelector } from "react-redux";
 import LightLinkidin from "../../../../../../Resources/Assets/img/LightLinkidin";
 import increase from "../../../../../../Resources/Assets/img/Group 8140.svg";
 import decrease from "../../../../../../Resources/Assets/img/Line 60.svg";
-import wishList from "../../../../../../Resources/Assets/img/Group 8142.svg";
+import likeIcon from "../../../../../../Resources/Assets/img/Group 5931.svg";
+import background from "../../../../../../Resources/Assets/img/Ellipse 129.svg";
+import LikedHear from "../../../../../../Resources/Assets/img/LikedHear.svg";
+import redCheck from "../../../../../../Resources/Assets/img/redCheck.svg";
 import ReactStars from "react-rating-stars-component";
 import "./ProductInfo.css";
+import axios from "axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function ProductInfo({ product, reviews }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
+  const history = useHistory();
+  var { auth } = useSelector((state) => state);
+  var authState = Object.keys(auth.authorization).length;
   const [counterNumber, setCounterNumber] = useState(0);
+  const [colorId, setColorId] = useState("");
   const increaseCount = () => {
     setCounterNumber(counterNumber + 1);
   };
+  // console.log(product);
+  // console.log(product.is_favorite);
   const decreaseCount = () => {
     if (counterNumber !== 0) {
       setCounterNumber(counterNumber - 1);
     }
   };
-  console.log(counterNumber);
+  const addToCart = () => {
+    axios({
+      method: "post",
+      url: `https://offers.com.fig-leaf.net/api/v1/add_to_cart`,
+      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+      data: {
+        product_id: product.id,
+        quantity: counterNumber,
+        color_id: colorId?colorId:23,
+      },
+    }).then((res) => {
+      if (res.data.success === true) {
+        // console.log(res.data);
+      }
+    });
+  };
+  const [liked, setLiked] = useState(false);
+  const likeProduct = (e) => {
+    if (authState !== 0) {
+      axios({
+        method: "get",
+        url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
+        headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+      }).then((res) => {
+        // console.log(res);
+        // console.log(res.data);
+        // console.log(res.data.data);
+        setLiked(!liked);
+        // window.location.reload();
+      });
+    } else {
+      history.push("/signup");
+      window.scrollTo(0, 0);
+    }
+  };
   return (
     <div
       className={
@@ -69,6 +114,32 @@ function ProductInfo({ product, reviews }) {
             <span>{product.price}</span>
           </p>
         </div>
+        <div className="colors d-flex">
+          <div className="ColorName d-flex">
+            <img src={redCheck} alt={redCheck} />
+            <p className="mb-0 mx-2">{currentLocal.productDetails.ColorName}</p>
+          </div>
+          {product.colors !== undefined &&
+            product.colors.map((productColor) => {
+              // console.log(productColor);
+              return (
+                <div
+                  className="product_coolor mx-2 d-flex"
+                  key={productColor.id}
+                  onClick={() => {
+                    // console.log(productColor.id);
+                    setColorId(productColor.id);
+                  }}
+                >
+                  <p
+                    className="bg-color mb-0"
+                    style={{ backgroundColor: productColor.color }}
+                  ></p>
+                  <p className="mb-0 mx-2">{productColor.name}tggtgtgttg</p>
+                </div>
+              );
+            })}
+        </div>
       </div>
       <div className="product_info_order">
         <div className="product_info_number_product d-flex">
@@ -82,13 +153,38 @@ function ProductInfo({ product, reviews }) {
             </p>
           </div>
           <div className="product_info_add_cart">
-            <div className="product_info_add_cart_button">
+            <div className="product_info_add_cart_button" onClick={addToCart}>
               {currentLocal.productDetails.addToCart}
             </div>
           </div>
-          <div className="product_info_add_wish_list">
-            <img src={wishList} alt="wishList" />
-            <p className="m-0 d-inline-block">
+          <div className="product_info_add_wish_list d-flex">
+            <div className="icons" id={product.id}>
+              {product.is_favorite || liked ? (
+                <div className="likedIcone" onClick={likeProduct}>
+                  <img
+                    src={background}
+                    alt="background"
+                    className="background"
+                    id={product.id}
+                  />
+                  <img
+                    src={LikedHear}
+                    alt="LikedHear"
+                    className="LikedHear"
+                    id={product.id}
+                  />
+                </div>
+              ) : (
+                <img
+                  src={likeIcon}
+                  alt="likeIcon"
+                  className="like_icon"
+                  onClick={likeProduct}
+                  id={product.id}
+                />
+              )}
+            </div>
+            <p className="m-0 d-inline-block mt-3">
               {currentLocal.productDetails.saveToWishlist}
             </p>
           </div>

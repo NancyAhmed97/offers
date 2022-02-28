@@ -36,7 +36,6 @@ function Home() {
         console.log(res.data);
         setBlogs(res.data.data.blogs);
         setSliders(res.data.data.sliders);
-        // console.log(res.data.data.blogs);
         setHotSales(res.data.data.hot_sales);
         setBestPicks(res.data.data.best_picks);
         setBanner(res.data.data.banners);

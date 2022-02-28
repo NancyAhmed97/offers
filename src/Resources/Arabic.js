@@ -161,6 +161,7 @@ export const ar = {
   },
   productDetails: {
     relatedProducts: "منتجات ذات صله",
+    ColorName:"اسم اللون",
     Description: "الوصف",
     Reviews: "الاراء",
     descPragraph:
@@ -239,7 +240,7 @@ export const ar = {
     continueToPayment: "تواصل الدفع",
     Subtotal: "المجموع الفرعي",
     discount: "خصم",
-    vat: "V.A.T",
+    tax: "القيمة الضريبية",
   },
   payment: {
     paymentDetails: "بيانات الدفع",
@@ -276,4 +277,5 @@ export const ar = {
   wishList: {
     MYFAVORITES: "المفضلة ",
   },
+
 };
