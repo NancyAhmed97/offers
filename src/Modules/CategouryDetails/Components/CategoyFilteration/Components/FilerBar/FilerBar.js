@@ -18,8 +18,7 @@ function FilerBar({ filterItem, id }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  var x =
-    filterItem.length !== 0 && filterItem.find((element) => (element.id = id));
+
   return (
     <div className="filer_bar">
       <p className="filter">{currentLocal.shopByCategory.filterBy}</p>

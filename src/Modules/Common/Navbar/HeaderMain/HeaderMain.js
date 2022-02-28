@@ -6,6 +6,7 @@ import sideMenu from "../../../../Resources/Assets/img/Group 5911.svg";
 import cart from "../../../../Resources/Assets/img/Icon feather-shopping-cart.svg";
 import heart from "../../../../Resources/Assets/img/Icon feather-heart.svg";
 import searchIcon from "../../../../Resources/Assets/img/Icon feather-search.svg";
+import menuArrow from "../../../../Resources/Assets/img/menuArrow.svg";
 import "./HeaderMain.css";
 import { Col, Container, Dropdown, Offcanvas, Row } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
@@ -183,15 +184,19 @@ function HeaderMain() {
             <Col md={3} className="m-0 p-0">
               <div className="w-100 d-flex mt-3 authantication">
                 <ul className="list_inline d-flex m-0 p-0">
-                  <Link to={ "/cart"} >
+                  <Link to={"/cart"}>
                     <li className="shopping d-flex mx-3">
-                      <p className="count_items  mt-3">{authState !== 0?cartCount:0}</p>
+                      <p className="count_items  mt-3">
+                        {authState !== 0 ? cartCount : 0}
+                      </p>
                       <img src={cart} alt="cart" />
                     </li>
                   </Link>
                   <Link to={"/wishlist"}>
                     <li className="wish_list d-flex">
-                      <p className="count_items mt-3">{authState !== 0?favCount:0}</p>
+                      <p className="count_items mt-3">
+                        {authState !== 0 ? favCount : 0}
+                      </p>
                       <img src={heart} alt="heart" />
                     </li>
                   </Link>
@@ -221,52 +226,14 @@ function HeaderMain() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <h5>{currentLocal.home.ourMainCategories}</h5>
-            <ul className="p-0">
-              <li className="list-unstyled mb-3">
-                {" "}
-                <Link
-                  to="/aboutus"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.footer.aboutus}
-                </Link>
-              </li>
-              <li className="list-unstyled mb-3">
-                {" "}
-                <Link
-                  to="/contactus"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.footer.contect}
-                </Link>
-              </li>
-              <li className="list-unstyled mb-3">
-                {" "}
-                <Link
-                  to="/blogs"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.blog.blog}
-                </Link>
-              </li>
-              <li className="list-unstyled mb-3">
-                {" "}
-                <Link
-                  to="/privacy"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.home.privacyAndPolicy}
-                </Link>
-              </li>
-            </ul>
+            {categories.map((categoriesItem) => {
+              return (
+                <div className="sidenavRow" >
+                  <div>{categoriesItem.en_name}</div>
+                  <img src={menuArrow} alt="menuArrow" />
+                </div>
+              );
+            })}
             <h5>{currentLocal.home.OfferSiteLinks}</h5>
             <ul className="p-0">
               <li className="list-unstyled mb-3">
@@ -339,7 +306,11 @@ function HeaderMain() {
         <div className="searchResult px-3 p-3">
           {searchResult.map((searchResultItem) => {
             return (
-              <Link  to={`/productcart/:${searchResultItem.id !== undefined &&searchResultItem.id}`}>
+              <Link
+                to={`/productcart/:${
+                  searchResultItem.id !== undefined && searchResultItem.id
+                }`}
+              >
                 <div className="searchResultItem mb-3 d-flex">
                   <div className="img">
                     <img

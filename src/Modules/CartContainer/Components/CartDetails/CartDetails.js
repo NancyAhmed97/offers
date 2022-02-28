@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import closeIcon from "../../../../Resources/Assets/img/Group 8156.svg";
+// import closeIcon from "../../../../Resources/Assets/img/Group 8156.svg";
 import increase from "../../../../Resources/Assets/img/Group 8203.png";
 import decrease from "../../../../Resources/Assets/img/Group 8204.png";
 import "./CartDetails.css";
@@ -14,20 +14,20 @@ function CartDetails({ products }) {
   );
   const [product, setProduct] = useState(productItems);
 
-  const deleteProduct = (e) => {
-    axios({
-      method: "post",
-      url: `https://offers.com.fig-leaf.net/api/v1/remove_cart_product`,
-      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
-      data: {
-        cart_product_id: e.target.id,
-      },
-    }).then((res) => {
-      if (res.data.success === true) {
-        setProduct(res.data.data.cart.products);
-      }
-    });
-  };
+  // const deleteProduct = (e) => {
+  //   axios({
+  //     method: "post",
+  //     url: `https://offers.com.fig-leaf.net/api/v1/remove_cart_product`,
+  //     headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+  //     data: {
+  //       cart_product_id: e.target.id,
+  //     },
+  //   }).then((res) => {
+  //     if (res.data.success === true) {
+  //       setProduct(res.data.data.cart.products);
+  //     }
+  //   });
+  // };
   const decreaseFun = (id) => {
     let i = productItems.findIndex((item) => item.id === id);
     axios({

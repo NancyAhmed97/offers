@@ -178,6 +178,13 @@ margin-right: 7px;
   left: 437px;
   z-index: 5555555555;
 }
+ .sidenavRow {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 15px 25px 15px 25px;
+  cursor: pointer;
+}
 .ar_header_main_container .searchResult {
   background-color: #fff;
   border-bottom-left-radius: 5px;

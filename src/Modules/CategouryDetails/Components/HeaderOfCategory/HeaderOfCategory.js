@@ -9,7 +9,7 @@ function HeaderOfCategory() {
     const { currentLocal } = useSelector((state) => state.currentLocal);
     const categoryPath=window.location.href.lastIndexOf(":")
   const  categoryId=window.location.href.slice(categoryPath+1)
-  return <div className='header_of_category pt-5 pb-4 pl pr'>
+  return <div className='header_of_category pt-5  pl pr'>
       {categoryId==="1"&&
       <>
       <div className='header_title text-center mb-5'>
