@@ -4,7 +4,6 @@ import "./ProductDesc.css";
 function ProductDesc({reviews}) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [activeState, setActiveState] = useState("desc");
-  console.log(reviews&&reviews.items);
   return (
     <div
       className={

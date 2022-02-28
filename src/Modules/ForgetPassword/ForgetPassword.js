@@ -37,7 +37,6 @@ function ForgetPassword() {
 			setSuccessAlert(true);
 			setAlertMsg(res.data.message);
 			setEmail("")
-      console.log(res.data.message);
 		}
       }).catch((error) => {
         if (error) {

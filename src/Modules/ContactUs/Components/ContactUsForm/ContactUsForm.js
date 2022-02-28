@@ -42,7 +42,6 @@ function ContactUsForm() {
     if (!name || !msg || !email) {
       setAlert(true);
     } else {
-      console.log("hi");
       axios({
         method: "post",
         url: "https://offers.com.fig-leaf.net/api/v1/contact",
@@ -54,7 +53,6 @@ function ContactUsForm() {
         },
       })
         .then((res) => {
-          console.log(res.data.data);
           if (res.data.success === true) {
             setSuccessAlert(true);
             setAlertMsg(res.data.message);

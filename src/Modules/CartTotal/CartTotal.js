@@ -6,7 +6,6 @@ import leftArrow from "../../Resources/Assets/img/leftArrow.svg";
 import "./CartTotal.css";
 function CartTotal({total}) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
-  console.log(total);
   return (
     <div className={currentLocal.language==="English"?"cart_total mt-4 ":"cart_total ar_cart_total mt-4 "}>
         <div className="cart_total_conatiner">

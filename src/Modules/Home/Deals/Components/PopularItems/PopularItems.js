@@ -5,7 +5,6 @@ import "./PopularItems.css";
 import Product from "../../../../Common/Poduct/Product";
 function PopularItems({ popular }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
-  console.log(popular);
   return (
     <div className="popular_items">
       <div className="title d-flex justify-content-between">

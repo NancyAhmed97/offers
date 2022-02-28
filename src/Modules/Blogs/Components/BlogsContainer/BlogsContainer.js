@@ -15,11 +15,8 @@ function BlogsContainer() {
   const [pageCount, setPageCount] = useState("");
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const location = useLocation();
-  console.log(location.pathname);
   const searchInPath = location.pathname.indexOf("/:");
   const id = location.pathname.slice(searchInPath + 2);
-  console.log(searchInPath > 0);
-  console.log(id);
   useEffect(() => {
     axios({
       method: "get",
@@ -28,7 +25,6 @@ function BlogsContainer() {
           ? `https://offers.com.fig-leaf.net/api/v1/blogs?field_id=${id}`
           : `https://offers.com.fig-leaf.net/api/v1/blogs`,
     }).then((res) => {
-      console.log(res.data.data);
       setPostsArr(res.data.data.items);
       setPageCount(res.data.data.pagination.last_page);
       

@@ -23,7 +23,6 @@ function SignupContainer() {
   const [countryId, setCountryId] = useState("");
   const [phone, setPhone] = useState("");
   const [acceptTerms, setAcceptTerms] = useState("");
-  console.log(countryId);
   const saveData = (e) => {
     if (e.target.id === "email") {
       setEmail(e.target.value);
@@ -101,7 +100,6 @@ function SignupContainer() {
         },
       })
         .then((res) => {
-          console.log(res.data.success);
           if (res.data.success === true) {
             setSuccessAlert(true);
             setAlertMsg(res.data.message);
@@ -115,7 +113,6 @@ function SignupContainer() {
           }
         })
         .catch((error) => {
-          console.log(error.response.data);
           if (error.response) {
             window.scrollTo(0, 0);
           }
@@ -195,7 +192,6 @@ function SignupContainer() {
                 className="w-100 dark_input"
                 id="phone"
                 onChange={(value, country) => {
-                  console.log(value, country.dialCode);
                   setCountryId(country.dialCode);
                   setPhone(value);
                   setAlert(false);

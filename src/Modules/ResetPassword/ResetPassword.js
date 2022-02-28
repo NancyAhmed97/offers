@@ -58,7 +58,6 @@ function ResetPassword() {
       });
     }
   };
-  console.log(alert);
   return (
     <section
       className={
@@ -107,7 +106,6 @@ function ResetPassword() {
             onChange={saveData}
             value={confirmPassword}
             onBlur={() => {
-              console.log("hi");
               if (password !== confirmPassword) {
                 setPassState(true);
               } else {

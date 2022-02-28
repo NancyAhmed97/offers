@@ -175,7 +175,6 @@ function BillingDetails({ alert }) {
                 className="w-100 dark_input"
                 id="phone"
                 onChange={(e, country) => {
-                  console.log(e, country.dialCode, country);
                   localStorage.setItem(
                     "countryPhoneId",
                     country.dialCode ? country.dialCode : "20"

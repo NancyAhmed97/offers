@@ -90,7 +90,6 @@ function LandingPage({ sliders }) {
     >
       <Slider {...settings} accessibility={false}>
         {sliders.map((slider, index) => {
-          console.log(slider);
           const url = "https://offers.com.fig-leaf.net";
           return (
             <div key={index}>

@@ -13,10 +13,8 @@ function CartDetails({ products }) {
     (state) => state.product.Product.cart.products
   );
   const [product, setProduct] = useState(productItems);
-  console.log(productItems);
 
   const deleteProduct = (e) => {
-    console.log("remove_cart_product");
     axios({
       method: "post",
       url: `https://offers.com.fig-leaf.net/api/v1/remove_cart_product`,
@@ -31,10 +29,7 @@ function CartDetails({ products }) {
     });
   };
   const decreaseFun = (id) => {
-    console.log(id);
     let i = productItems.findIndex((item) => item.id === id);
-    console.log(i);
-    console.log(productItems[i].color.id);
     axios({
       method: "post",
       url: `https://offers.com.fig-leaf.net/api/v1/update_cart_product`,
@@ -51,10 +46,7 @@ function CartDetails({ products }) {
     });
   };
   const increaseFun = (id) => {
-    console.log(id);
     let i = productItems.findIndex((item) => item.id === id);
-    console.log(productItems[i].quantity);
-    console.log(productItems[i].quantity+1);
     axios({
       method: "post",
       url: `https://offers.com.fig-leaf.net/api/v1/update_cart_product`,
@@ -70,7 +62,6 @@ function CartDetails({ products }) {
       }
     });
   };
-  console.log(product);
   return (
     <>
     <h1 className="cartDetails_title">{currentLocal.cart.cartDetails}</h1>
@@ -105,7 +96,6 @@ function CartDetails({ products }) {
           </Row>
           {product.length !== 0 &&
             product.map((productItem) => {
-              console.log(productItem.color.color);
               const url = "https://offers.com.fig-leaf.net";
               return (
                 <Row className="p-0 mt-4 product_row" key={productItem.id}>

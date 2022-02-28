@@ -57,7 +57,6 @@ function YourOrder({ alertState }) {
           <p>{currentLocal.billing.Subtotal}</p>
         </div>
         {product.map((productItem) => {
-          console.log(productItem);
           return (
             <div
               key={productItem.id}

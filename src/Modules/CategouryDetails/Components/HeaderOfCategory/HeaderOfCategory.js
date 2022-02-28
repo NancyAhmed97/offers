@@ -9,9 +9,6 @@ function HeaderOfCategory() {
     const { currentLocal } = useSelector((state) => state.currentLocal);
     const categoryPath=window.location.href.lastIndexOf(":")
   const  categoryId=window.location.href.slice(categoryPath+1)
-    if(categoryId==="1"){
-        console.log("hi 1");
-    }
   return <div className='header_of_category pt-5 pb-4 pl pr'>
       {categoryId==="1"&&
       <>

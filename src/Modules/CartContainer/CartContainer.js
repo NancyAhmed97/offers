@@ -20,14 +20,12 @@ function CartContainer() {
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       if (res.data.success === true) {
-        console.log(res.data.data.cart.products);
         setTotal(res.data.data.cart)
         setProducts(res.data.data.cart.products);
         dispatch(productItem(res.data.data));
 
       }
     });
-    console.log("ghg");
     // axios({
     //   method: "get",
     //   url: `https://offers.com.fig-leaf.net/api/v1/clear_cart`,

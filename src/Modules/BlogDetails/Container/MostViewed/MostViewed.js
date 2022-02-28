@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import MostViewedimg from "../../../../Resources/Assets/img/MostViewed.png";
 import "./MostViewed.css";
 function MostViewed({ mostViewed }) {
-  console.log(mostViewed);
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const product = [
     {

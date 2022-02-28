@@ -54,7 +54,6 @@ function LoginContainer() {
         },
       })
         .then((res) => {
-          console.log(res.data.data);
           if (res.data.success === true) {
             setSuccessAlert(true);
             setAlertMsg(res.data.message);

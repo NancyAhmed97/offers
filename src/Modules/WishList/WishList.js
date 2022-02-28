@@ -18,13 +18,11 @@ function WishList() {
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       if (res.data.success === true) {
-        console.log(res.data.data.items);
         setFavrites(res.data.data.items);
       }
     });
   }, [auth]);
 
-  console.log(favorites);
   return (
     <section className="wish_list ">
       <Navbar />

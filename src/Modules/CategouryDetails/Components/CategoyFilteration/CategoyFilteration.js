@@ -60,7 +60,6 @@ function CategoyFilteration() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log(id);
   return (
     <div className="categoy_filteration pl pr">
       <Box sx={{ width: "100%" }}>

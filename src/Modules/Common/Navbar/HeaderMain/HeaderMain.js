@@ -29,7 +29,6 @@ function HeaderMain() {
   const handleShow = () => setShow(true);
   const url = "https://offers.com.fig-leaf.net";
   useEffect(() => {
-    console.log(auth.authorization.access_token);
     axios({
       method: "get",
       url: "https://offers.com.fig-leaf.net/api/v1/categories",

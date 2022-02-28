@@ -127,7 +127,6 @@ function PaymentDetails({
                     expiryMonth.getMonth().toString().length === 1
                       ? "0" + month
                       : month;
-                  console.log(result);
 
                   expiryMonthToParent(result);
                   const d = new Date(startDate);

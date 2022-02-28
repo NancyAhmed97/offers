@@ -56,7 +56,6 @@ function OrderSummery({
         },
       }).then((res) => {
         if (res.data.success === true) {
-          console.log(res.data);
           localStorage.removeItem("firstName");
           localStorage.removeItem("lastName");
           localStorage.removeItem("email");

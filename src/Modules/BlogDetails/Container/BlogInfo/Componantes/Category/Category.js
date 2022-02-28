@@ -19,7 +19,6 @@ function Category({ blog, fields }) {
                 <Row className="p-0 m=0">
                   {fields &&
                     fields.map((field) => {
-                      console.log(field);
                       return (
                         <Col md={2} className="p-0">
                           <div

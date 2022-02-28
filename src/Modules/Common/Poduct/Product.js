@@ -36,9 +36,7 @@ function Product({
         url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
         headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
       }).then((res) => {
-        console.log(res);
-        console.log(res.data);
-        console.log(res.data.data);
+      
         setLiked(!liked);
         // window.location.reload();
       });

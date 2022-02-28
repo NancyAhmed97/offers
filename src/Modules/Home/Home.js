@@ -33,7 +33,6 @@ function Home() {
 
     }).then((res) => {
       if (res.data.success === true) {
-        console.log(res.data);
         setBlogs(res.data.data.blogs);
         setSliders(res.data.data.sliders);
         setHotSales(res.data.data.hot_sales);
