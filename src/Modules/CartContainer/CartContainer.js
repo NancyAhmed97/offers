@@ -7,7 +7,6 @@ import CartDetails from "./Components/CartDetails/CartDetails";
 import CartTotal from "../CartTotal/CartTotal";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { productItem } from "../../Redux/Product";
 function CartContainer() {
   var { auth } = useSelector((state) => state);
   const [products, setProducts] = useState([]);

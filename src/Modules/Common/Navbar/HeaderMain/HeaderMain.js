@@ -99,8 +99,6 @@ function HeaderMain() {
       }
     }
   };
-  const x = searchResult.splice(0, 4);
-  console.log(x);
   return (
     // <div className={currentLocal.language==="English"?'contact_form pr pl':"ar_contact_form contact_form pr pl"}>
     <div
@@ -243,7 +241,6 @@ function HeaderMain() {
               <>
                 <h5>{currentLocal.home.ourMainCategories}</h5>
                 {categories.map((categoriesItem) => {
-                  console.log(categoriesItem.sub_categories);
                   return (
                     <div
                       id={
@@ -254,7 +251,6 @@ function HeaderMain() {
                       className="d-flex w-100 justify-content-between my-3"
                       onClick={(e) => {
                         setSubCategouryId(e.target.id);
-                        console.log(e.target);
                         setShowSubCategoury(true);
                       }}
                     >
