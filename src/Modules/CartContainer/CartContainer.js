@@ -22,7 +22,7 @@ function CartContainer() {
       if (res.data.success === true) {
         setTotal(res.data.data.cart)
         setProducts(res.data.data.cart.products);
-        dispatch(productItem(res.data.data));
+        // dispatch(productItem(res.data.data));
 
       }
     });

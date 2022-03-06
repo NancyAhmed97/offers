@@ -9,7 +9,7 @@ import "./FooterAccissabilty.css";
 function FooterAccissabilty() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <div className="footer_accissabilty">
+    <div className="footer_accissabilty ">
       <Container fluid className="pl pr">
         <Row>
           <Col md={3}>

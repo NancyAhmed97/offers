@@ -6,13 +6,13 @@ import "./Blog.css";
 function Blog({ bolgs }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <section className="blog pr pl">
+    <section className="blog pr pl mb-5">
       <h2>{currentLocal.blog.blog}</h2>
       <p>{currentLocal.blog.disc}</p>
       <Container fluid className="p-0">
         <Row>
           {bolgs.map((blogDetails) => {
-            const url = "https://offers.com.fig-leaf.net";
+            // const url = "https://offers.com.fig-leaf.net";
             return (
               <Col md={4} key={blogDetails.id}>
                 <Link
@@ -23,7 +23,7 @@ function Blog({ bolgs }) {
                 >
                   <div className="blog_img">
                     <img
-                      src={url + blogDetails.image}
+                      src={blogDetails.image}
                       className="w-100"
                       alt="blogDetails"
                     />

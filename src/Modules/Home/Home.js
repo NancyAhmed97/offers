@@ -59,7 +59,7 @@ function Home() {
   return (
     <section className="position-relative home">
       <Navbar />
-      <LandingPage sliders={sliders} />
+      <LandingPage sliders={sliders}  />
       <ShopByCategoury />
       <HotSales hotSales={hotSales}  />
       <BestPicks bestPicks={bestPicks} />
@@ -67,7 +67,7 @@ function Home() {
       <Deals popular={popular} />
       <BestSeller besSeller={besSeller} />
       <SalesComponent banner={banner} />
-      <Blog bolgs={bolgs} />
+      <Blog bolgs={bolgs}  />
       <Footer />
 
 

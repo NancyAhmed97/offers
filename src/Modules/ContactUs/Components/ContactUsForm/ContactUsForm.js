@@ -99,7 +99,7 @@ function ContactUsForm() {
                     <li className="d-inline-block">
                       <img src={call} alt="location" />
                     </li>
-                    <li className="d-inline-block mx-2 ">
+                    <li className="d-inline-block mx-5 ">
                       <h4 className="m-0 p-0">
                         {currentLocal.conactus.callHelping}
                       </h4>
@@ -112,7 +112,7 @@ function ContactUsForm() {
                     <li className="d-inline-block">
                       <img src={msgIcon} alt="location" />
                     </li>
-                    <li className="d-inline-block mx-4 ">
+                    <li className="d-inline-block mx-5 ">
                       <h4 className="m-0 p-0">
                         {" "}
                         {currentLocal.conactus.mailInfotitle}
@@ -126,7 +126,7 @@ function ContactUsForm() {
                     <li className="d-inline-block">
                       <img src={location} alt="location" />
                     </li>
-                    <li className="d-inline-block mx-4 ">
+                    <li className="d-inline-block mx-5 ">
                       <h4 className="m-0 p-0">
                         {" "}
                         {currentLocal.conactus.addresstitle}

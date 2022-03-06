@@ -8,9 +8,25 @@ import masterCardLogo from "../../../../../Resources/Assets/img/Group 5945.png";
 import nadaLogo from "../../../../../Resources/Assets/img/Group 5947.png";
 import payLogo from "../../../../../Resources/Assets/img/Group 5948.png";
 import stcLogo from "../../../../../Resources/Assets/img/Group 5950.png";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
 import "./FooterLinks.css";
 function FooterLinks() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div
@@ -89,17 +105,28 @@ function FooterLinks() {
               <li className="menu_item text-white mb-4">
                 {currentLocal.footer.customer}
               </li>
-              <li className="menu_child_item mb-3">
-                <Link
-                  to="/aboutus"
-                  className="text-white"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.footer.help}
-                </Link>
+              <li
+                className="menu_child_item mb-3 text-white"
+                onClick={handleClickOpen}
+              >
+                {currentLocal.footer.help}
               </li>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title"></DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-description">
+                    Help
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>Disagree</Button>
+                </DialogActions>
+              </Dialog>
               <li className="menu_child_item mb-3">
                 <Link
                   to="/terms"
@@ -111,17 +138,28 @@ function FooterLinks() {
                   {currentLocal.footer.terms}
                 </Link>
               </li>
-              <li className="menu_child_item">
-                <Link
-                  to="/aboutus"
-                  className="text-white"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.footer.returns}
-                </Link>
+              <li
+                className="menu_child_item text-white"
+                onClick={handleClickOpen}
+              >
+                {currentLocal.footer.returns}
               </li>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title"></DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-description">
+                    return
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>Disagree</Button>
+                </DialogActions>
+              </Dialog>
             </ul>
           </Col>
           <Col className=" m-0 p-0 " md={2} style={{ paddingBottom: "25px" }}>
@@ -151,17 +189,28 @@ function FooterLinks() {
                   {currentLocal.footer.blog}
                 </Link>
               </li>
-              <li className="menu_child_item">
-                <Link
-                  to="/aboutus"
-                  className="text-white"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.footer.askSupport}
-                </Link>
+              <li
+                className="menu_child_item text-white"
+                onClick={handleClickOpen}
+              >
+                {currentLocal.footer.askSupport}
               </li>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title"></DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-description">
+                    ask support{" "}
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>Disagree</Button>
+                </DialogActions>
+              </Dialog>
             </ul>
           </Col>
 

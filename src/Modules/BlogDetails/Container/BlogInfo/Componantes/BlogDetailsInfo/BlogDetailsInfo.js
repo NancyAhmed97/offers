@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import "./BlogDetailsInfo.css";
 function BlogDetailsInfo({ blog }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
-  const url = "https://offers.com.fig-leaf.net";
+  // const url = "https://offers.com.fig-leaf.net";
 
   return (
     <div className="blog_details_info">
@@ -12,7 +12,7 @@ function BlogDetailsInfo({ blog }) {
         {currentLocal.language === "English" ? blog.en_title : blog.ar_title}
       </h2>
       <div className="blogDetailImg mb-4">
-        <img src={url+blog.image} alt="blogDetailImg" />
+        <img src={blog.image} alt="blogDetailImg" />
       </div>
       <div className="blog-details-conten mb-4">
         <p>

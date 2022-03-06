@@ -6,14 +6,23 @@ import sideMenu from "../../../../Resources/Assets/img/Group 5911.svg";
 import cart from "../../../../Resources/Assets/img/Icon feather-shopping-cart.svg";
 import heart from "../../../../Resources/Assets/img/Icon feather-heart.svg";
 import searchIcon from "../../../../Resources/Assets/img/Icon feather-search.svg";
+import categouryArrow from "../../../../Resources/Assets/img/categouryArrow.svg";
 import menuArrow from "../../../../Resources/Assets/img/menuArrow.svg";
 import "./HeaderMain.css";
-import { Col, Container, Dropdown, Offcanvas, Row } from "react-bootstrap";
+import {
+  Col,
+  Collapse,
+  Container,
+  Dropdown,
+  Offcanvas,
+  Row,
+} from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { changeLocal } from "../../../../Redux/Localization";
 import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import { logout } from "../../../../Redux/Authorization";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 function HeaderMain() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
@@ -24,9 +33,12 @@ function HeaderMain() {
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const [showSubCategoury, setShowSubCategoury] = useState(false);
+  const [subCategouryId, setSubCategouryId] = useState(false);
   const [favCount, setFavCount] = useState("");
   const [cartCount, setCartCount] = useState("");
   const handleClose = () => setShow(false);
+  const [open, setOpen] = useState(false);
   const handleShow = () => setShow(true);
   const url = "https://offers.com.fig-leaf.net";
   useEffect(() => {
@@ -87,6 +99,8 @@ function HeaderMain() {
       }
     }
   };
+  const x = searchResult.splice(0, 4);
+  console.log(x);
   return (
     // <div className={currentLocal.language==="English"?'contact_form pr pl':"ar_contact_form contact_form pr pl"}>
     <div
@@ -225,62 +239,112 @@ function HeaderMain() {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <h5>{currentLocal.home.ourMainCategories}</h5>
-            {categories.map((categoriesItem) => {
-              return (
-                <div className="sidenavRow" >
-                  <div>{categoriesItem.en_name}</div>
-                  <img src={menuArrow} alt="menuArrow" />
-                </div>
-              );
-            })}
-            <h5>{currentLocal.home.OfferSiteLinks}</h5>
-            <ul className="p-0">
-              <li className="list-unstyled mb-3">
-                {" "}
-                <Link
-                  to="/aboutus"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.footer.aboutus}
-                </Link>
-              </li>
-              <li className="list-unstyled mb-3">
-                {" "}
-                <Link
-                  to="/contactus"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.footer.contect}
-                </Link>
-              </li>
-              <li className="list-unstyled mb-3">
-                {" "}
-                <Link
-                  to="/blogs"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.blog.blog}
-                </Link>
-              </li>
-              <li className="list-unstyled mb-3">
-                {" "}
-                <Link
-                  to="/privacy"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {currentLocal.home.privacyAndPolicy}
-                </Link>
-              </li>
-            </ul>
+            {!showSubCategoury && (
+              <>
+                <h5>{currentLocal.home.ourMainCategories}</h5>
+                {categories.map((categoriesItem) => {
+                  console.log(categoriesItem.sub_categories);
+                  return (
+                    <div
+                      id={
+                        currentLocal.language === "English"
+                          ? categoriesItem.en_name
+                          : categoriesItem.ar_name
+                      }
+                      className="d-flex w-100 justify-content-between my-3"
+                      onClick={(e) => {
+                        setSubCategouryId(e.target.id);
+                        console.log(e.target);
+                        setShowSubCategoury(true);
+                      }}
+                    >
+                      <div
+                        id={
+                          currentLocal.language === "English"
+                            ? categoriesItem.en_name
+                            : categoriesItem.ar_name
+                        }
+                        className="categouryId"
+                      >
+                        {currentLocal.language === "English"
+                          ? categoriesItem.en_name
+                          : categoriesItem.ar_name}
+                      </div>
+                      <img
+                        id={
+                          currentLocal.language === "English"
+                            ? categoriesItem.en_name
+                            : categoriesItem.ar_name
+                        }
+                        src={menuArrow}
+                        alt="menuArrow"
+                      />
+                    </div>
+                  );
+                })}
+                <h5>{currentLocal.home.OfferSiteLinks}</h5>
+                <ul className="p-0">
+                  <li className="list-unstyled mb-3">
+                    {" "}
+                    <Link
+                      to="/aboutus"
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      {currentLocal.footer.aboutus}
+                    </Link>
+                  </li>
+                  <li className="list-unstyled mb-3">
+                    {" "}
+                    <Link
+                      to="/contactus"
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      {currentLocal.footer.contect}
+                    </Link>
+                  </li>
+                  <li className="list-unstyled mb-3">
+                    {" "}
+                    <Link
+                      to="/blogs"
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      {currentLocal.blog.blog}
+                    </Link>
+                  </li>
+                  <li className="list-unstyled mb-3">
+                    {" "}
+                    <Link
+                      to="/privacy"
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      {currentLocal.home.privacyAndPolicy}
+                    </Link>
+                  </li>
+                </ul>
+              </>
+            )}
+            {showSubCategoury && (
+              <div
+                onClick={() => {
+                  setShowSubCategoury(false);
+                }}
+                className="showSubCategoury"
+              >
+                <div className="d-flex py-4">
+                  <img src={categouryArrow} alt="menuArrow" />
+
+                  <div className="subCategouryId">{subCategouryId}</div>
+                </div>{" "}
+              </div>
+            )}
             <div className="langouage">
               <p>
                 <span
@@ -304,7 +368,7 @@ function HeaderMain() {
       </div>
       {searchResult.length !== 0 && (
         <div className="searchResult px-3 p-3">
-          {searchResult.map((searchResultItem) => {
+          {searchResult.splice(0.4).map((searchResultItem) => {
             return (
               <Link
                 to={`/productcart/:${
@@ -341,8 +405,78 @@ function HeaderMain() {
               </Link>
             );
           })}
+          <div
+            onClick={() => {
+              setOpen(!open);
+            }}
+            aria-controls="example-collapse-text"
+            aria-expanded={open}
+          >
+            <ArrowDropDownIcon />
+          </div>
+          <Collapse in={open}>
+            <div id="example-collapse-text">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life
+              accusamus terry richardson ad squid. Nihil anim keffiyeh
+              helvetica, craft beer labore wes anderson cred nesciunt sapiente
+              ea proident.
+            </div>
+          </Collapse>
         </div>
       )}
+      {/* <Accordion className="py-5">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          {searchResult.splice(0.4).map((searchResultItem) => {
+            return (
+              <Typography className="d-flex flex-column py-3">
+                <Link
+                  to={`/productcart/:${
+                    searchResultItem.id !== undefined && searchResultItem.id
+                  }`}
+                >
+                  <div className="searchResultItem mb-3 d-flex">
+                    <div className="img">
+                      <img
+                        src={url + searchResultItem.image}
+                        alt="searchResultItem"
+                      />
+                    </div>
+                    <div className="description mx-4">
+                      <p className="mb-0">
+                        {currentLocal.language === "English"
+                          ? searchResultItem.en_name
+                          : searchResultItem.ar_name}
+                      </p>
+                      <ReactStars
+                        count={5}
+                        value={searchResultItem.rate}
+                        size={24}
+                        color2={"#FABB27"}
+                        edit={false}
+                        id="stars"
+                      />
+                      <p>
+                        <span className="crancy">SAR</span>
+                        <span className="price"> {searchResultItem.price}</span>
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              </Typography>
+            );
+          })}
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion> */}
     </div>
   );
 }

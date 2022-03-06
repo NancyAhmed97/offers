@@ -58,6 +58,13 @@ font-size: 14px;
   position: relative;
   bottom: 25px;
 } */
+ .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+  width: 40% !important;
+  height: 40% !important;
+}
+.footer_links li{
+  cursor: pointer;
+}
 @media only screen and (max-width: 768px) {
   .footer_links .customer_care_menu li ,.footer_links .about_offer_menu li , .footer_links .contact_us_menu li {
     text-align: left;

@@ -221,6 +221,24 @@ margin-right: 7px;
   font-size: 14px;
   font-weight: bold;
 }
+.css-o4b71y-MuiAccordionSummary-content{
+  display: flex;
+  flex-direction: column;
+}
+ .subCategouryId{
+  margin-left: 19px;
+  font-family: "Helvetica";
+  font-size: 16px;
+font-weight: bold;
+color: #E2C164;
+cursor: pointer;
+}
+.categouryId{
+  font-family: "Helvetica";
+  font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+}
 @media only screen and (max-width: 768px) {
   input {
     border-radius: 0 !important;
