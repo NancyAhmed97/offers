@@ -43,7 +43,7 @@ function Routes() {
           <Route path="/signup" render={() => <SignUp />} />
           <Route path="/trackorder" render={() => authState !== 0 ? <TrackOrder />:<SignUp />} />
           <Route
-            path="/trackorderproducts"
+            path="/trackorderproducts/:id"
             render={() => <TrackOrderProduct />}
           />
           <Route path="/forgetpassword" render={() => <ForgetPassword />} />
@@ -56,7 +56,7 @@ function Routes() {
           />
           <Route path="/test" render={() => <ResponsiveDrawer />} />
           <Route path="/wishlist" render={() => authState !== 0 ? <WishList />:<SignUp />} />
-          <Route path="/auction" render={() => <Auction />} />
+          <Route path="/auction/:id" render={() => <Auction />} />
         </Switch>
       )}
     />

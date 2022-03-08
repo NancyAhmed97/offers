@@ -17,53 +17,38 @@ function BestPicks({ bestPicks }) {
                 const url = "https://offers.com.fig-leaf.net";
                 return (
                   <Col md={4} key={index}>
-                    {/* <Link
-                      to={`/blogDetails/:${productDetails.id}`}
-                      onClick={() => {
-                        window.scrollTo(0, 0);
-                      }}
-                    > */}
-                      <Product
-                        img={url + productDetails.image}
-                        title={
-                          currentLocal.language === "English"
-                            ? productDetails.en_name
-                            : productDetails.ar_name
-                        }
-                        rating={productDetails.rate}
-                        price={productDetails.price}
-                        id={productDetails.id}
-                        is_favorite={productDetails.is_favorite}
-    
-                      />
-                     
-                    {/* </Link> */}
+                    <Product
+                      img={url + productDetails.image}
+                      title={
+                        currentLocal.language === "English"
+                          ? productDetails.en_name
+                          : productDetails.ar_name
+                      }
+                      rating={productDetails.rate}
+                      price={productDetails.price}
+                      id={productDetails.id}
+                      is_favorite={productDetails.is_favorite}
+                    />
                   </Col>
                 );
               })}
           </Row>
         </Container>
-        <div className="product_details_container">
+        <div className="product_details_container mt-3">
           {bestPicks.items !== undefined &&
             bestPicks.items.slice(3).map((productDetails, index) => {
+              const url = "https://offers.com.fig-leaf.net";
+              console.log(url + productDetails.image);
               return (
-                // <Link
-                //   to={`/blogDetails/:${productDetails.id}`}
-                //   onClick={() => {
-                //     window.scrollTo(0, 0);
-                //   }}
-                //   key={index}
-                // >
-                  <Product
-                    img={productDetails.img}
-                    title={productDetails.title}
-                    rating={productDetails.rating}
-                    price={productDetails.price}
-                    id={productDetails.id}
-                    is_favorite={productDetails.is_favorite}
-
-                  />
-                // </Link>
+                <Product
+                  img={url + productDetails.image}
+                  title={productDetails.title}
+                  rating={productDetails.rate}
+                  price={productDetails.price}
+                  id={productDetails.id}
+                  is_favorite={productDetails.is_favorite}
+                  key={index}
+                />
               );
             })}
         </div>

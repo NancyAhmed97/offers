@@ -50,6 +50,15 @@
   font-size: 16px;
   font-weight: bold;
 }
+.track_order_table .currancy{
+  position: absolute;
+  top: 4px;
+  left: 45px;
+  color: #2B1A04;
+  font-family: "Helvetica";
+  font-size: 12px;
+  font-weight: bold;
+}
 .ar_track_order_table .price{
   position: absolute;
   left: 15px;
@@ -63,19 +72,23 @@
   font-family: "Helvetica";
   font-size: 14px;
   font-weight: bold;
-  padding-top: 20px;
   padding-bottom: 20px;
+
+}
+.track_order_table .order_number{
+  color: #1A1A18;
+  font-family: "Helvetica";
+  font-size: 12px;
+  font-weight: bold;
+  /* width: 115px; */
 
 }
 .track_order_table .deliveryAddress{
   color: #1A1A18;
   opacity: 0.50;
   font-family: "Helvetica";
-  font-size: 12px;
+  font-size: 13px;
   width: 115px;
-padding-bottom: 25px;
-padding-top: 20px;
-padding-bottom: 20px;
 
 
 }
@@ -85,11 +98,12 @@ padding-bottom: 20px;
   font-weight: bold;
 padding-top: 20px;
 padding-bottom: 20px;
-
-
 }
 @media only screen and (max-width: 768px) {
   .track_order_Container .track_order .order_container {
     width: 100% !important;
+  }
+  .track_order_table {
+  margin: 0 15px;
   }
 }

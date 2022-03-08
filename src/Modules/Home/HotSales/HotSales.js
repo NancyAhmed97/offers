@@ -13,7 +13,8 @@ function HotSales({ hotSales }) {
   SwiperCore.use([EffectFade, Navigation, Pagination]);
 
   return (
-    <div className="hot_sales pr pl">
+    <div className={currentLocal.language === "English"?
+    "hot_sales pr pl":"ar_hot_sales hot_sales pr pl"}>
       <h2>{currentLocal.home.hotSales}</h2>
       <p className="best_seller_pragrapg">
         {currentLocal.home.hotSalesPragaph}

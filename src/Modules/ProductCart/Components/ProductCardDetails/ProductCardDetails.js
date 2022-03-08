@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import ProductImg from "./Components/ProductImg/ProductImg";
 import ProductInfo from "./Components/ProductInfo/ProductInfo";
-function ProductCardDetails({ product ,reviews }) {
+function ProductCardDetails({ product, reviews, activeState }) {
   return (
     <div className="product_card_details pr pl mt-5">
       <Container fluid className="m-0 p-0">
@@ -11,7 +11,11 @@ function ProductCardDetails({ product ,reviews }) {
             <ProductImg image={product.image} />
           </Col>
           <Col className="p-0" md={7}>
-            <ProductInfo  product={product} reviews={reviews}/>
+            <ProductInfo
+              product={product}
+              reviews={reviews}
+              activeState={activeState}
+            />
           </Col>
         </Row>
       </Container>

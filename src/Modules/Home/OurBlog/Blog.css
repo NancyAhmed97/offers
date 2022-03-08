@@ -16,6 +16,11 @@
   font-weight: bold;
   padding-right: 75px;
 }
+.ar_blog h5{
+  padding-left: 75px;
+  padding-right:0px;
+
+}
 .blog .paragrapg {
   color: #878786;
   font-size: 14px;

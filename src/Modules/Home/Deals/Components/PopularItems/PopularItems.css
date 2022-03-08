@@ -1,87 +1,133 @@
 .popular_items h2 {
-    font-family: " font-family: " Helvetica Neue W23 for SKY "; ";
-    font-size: 26px;
-    font-weight: bold;
-  }
+  font-family: " font-family: " Helvetica Neue W23 for SKY "; ";
+  font-size: 26px;
+  font-weight: bold;
+}
 .popular_items .title ul li {
-    cursor: pointer;
+  cursor: pointer;
 }
-.popular_items .title ul li p{
-    color: #878786;
-    font-size: 14px;
+.popular_items .title ul li p {
+  color: #878786;
+  font-size: 14px;
 }
-.popular_items .active{
-    border-bottom: 2px solid #E2C164;
-    color: #1A1A18;
+.popular_items .active {
+  border-bottom: 2px solid #e2c164;
+  color: #1a1a18;
 }
-.popular_items a{
-    text-decoration: none;
-    color: #1A1A18;
+.popular_items a {
+  text-decoration: none;
+  color: #1a1a18;
 }
-.popular_items .product .like_icon{
-right: 7px !important;
+.popular_items .product .like_icon {
+  right: 7px !important;
 }
-.popular_items .product .product_img{
-    width: 206px;
-    height: 269px;
-    margin-right: 15px;
+.popular_items .product .product_img {
+  width: 206px;
+  height: 269px;
+  margin-right: 15px;
+}
+.ar_popular_items .product .product_img {
+  width: 206px;
+  height: 269px;
+  margin-right: 0px;
 }
 .popular_items .product_container {
-    display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-  }
-  .popular_items .product_ood .product_details
-{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+.popular_items .product_ood .product_details {
   display: flex;
   flex-direction: column-reverse;
 }
-.popular_items .product .price_text{
-    color: #e2c164;
-    font-family: "Helvetica";
-    font-size: 17px;
-    font-weight: bold;
+.popular_items .product .price_text {
+  color: #e2c164;
+  font-family: "Helvetica";
+  font-size: 17px;
+  font-weight: bold;
 }
 .popular_items .product .curency {
-    color: #1a1a18;
-    opacity: 0.5;
-    font-family: "Helvetica";
-    font-size: 14px;
+  color: #1a1a18;
+  opacity: 0.5;
+  font-family: "Helvetica";
+  font-size: 14px;
 }
 .popular_items .product .product_title {
-    color: #1a1a18;
-    font-size: 16px;
-    font-family: "Helvetica";
-    font-weight: bold;
-  }
-  .popular_items .likedIcone {
-    position: relative;
-  }
-  .popular_items .likedIcone img:first-of-type {
-    width: 42px !important;
-    height: 42px;
-  }
-  .popular_items .likedIcone img:last-of-type {
-    position: absolute;
-    left: 11px;
-    top: 9px;
-  }
+  color: #1a1a18;
+  font-size: 16px;
+  font-family: "Helvetica";
+  font-weight: bold;
+}
+.popular_items .likedIcone {
+  position: relative;
+}
+.popular_items .likedIcone img:first-of-type {
+  width: 42px !important;
+  height: 42px;
+}
+.popular_items .likedIcone img:last-of-type {
+  position: absolute;
+  left: 11px;
+  top: 9px;
+}
+.popular_items .icons {
+  position: absolute;
+  top: 10px;
+  left: 70%;
+}
+.ar_popular_items .icons {
+  position: absolute;
+  top: 10px;
+  left: 79%;
+}
+.popular_items .product {
+  position: relative;
+}
+
+@media only screen and (max-width: 768px) {
   .popular_items .icons {
     position: absolute;
-    top: 10px;
-    left: 70%;
+    top: 25px;
+    left: 83%;
+  }
+  .ar_popular_items .icons {
+    position: absolute;
+    top: 25px;
+    left: 85%;
+  }
+  .popular_items {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .popular_items .title {
+    display: flex;
+    flex-direction: column;
+  }
+  .popular_items .title ul li {
+    margin-right: 4px !important;
+    margin-left: 4px !important;
+  }
+  .popular_items .product_container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0px;
+  }
+  .popular_items .popular_items_container {
+    display: flex;
+    flex-direction: column !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .popular_items .popular_items_container .product_img {
+    width: 100%;
+  }
+  .popular_items .row {
+    padding-right: 0 !important;
+  }
+  .popular_items .product .product_details {
+    margin-top: 15px !important;
   }
   .popular_items .product {
-    position: relative;
+    width: 100%;
   }
-  
-@media only screen and (max-width: 768px) {
-    .popular_items .title{
-        display: flex;
-        flex-direction: column;
-    }
-    .popular_items .title ul li{
-        margin-right: 4px !important;
-        margin-left: 4px !important;
-    }
 }

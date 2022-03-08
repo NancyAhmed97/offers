@@ -43,9 +43,9 @@
 .shop_by_category .shop_by_electronics p img {
   margin-left: 15px;
 }
-.ar_shop_by_category .shop_by_electronics p img {
+/* .ar_shop_by_category .shop_by_electronics p img {
   margin-right: 15px;
-}
+} */
 .shop_by_category .shop_by_school_content p img {
   margin-left: 15px;
 }
@@ -159,6 +159,14 @@ font-size: 24px;
   font-size: 14px;
 }
 @media only screen and (max-width: 768px) {
+  /* .ar_shop_by_category .shop_by_comanication_content p {
+    color: #0a4774;
+    margin: 0;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: 24px;
+    margin-right: 50px !important;
+  } */
   .shop_by_category p {
     font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
     font-size: 15px;
@@ -180,6 +188,7 @@ font-size: 24px;
     background-size: contain;
     margin-top: 15px !important;
     height: 150px !important;
+    width: 100%;
   }
   .shop_by_category .shop_by_school {
     background-repeat: no-repeat;
@@ -205,8 +214,7 @@ font-size: 24px;
     background-repeat: no-repeat;
     background-size: 100%;
     width: 92%;
-    margin-right: 25px;
-    margin-top: 25px;
+    position: static;
   }
   .shop_by_category .shop_by_toys {
     background-repeat: no-repeat;
@@ -218,7 +226,24 @@ font-size: 24px;
     background-repeat: no-repeat;
     background-size: 100%;
     width: 92%;
-    margin-right: 25px;
-    margin-top: 25px;
+   
+  }
+  .shop_by_category .shop_by_toys {
+    width: 100%;
+  }
+  .shop_by_category .shop_by_electronics {
+    width: 100%;
+  }
+  .ar_shop_by_category .shop_by_school_content {
+    padding-right: 53px;
+    padding-top: 10px;
+    position: absolute;
+    right: 45%;
+  }
+  .ar_shop_by_category .shop_by_comanication_content{
+    padding-right: 53px;
+    padding-top: 10px;
+    position: absolute;
+    right: 37%;
   }
 }

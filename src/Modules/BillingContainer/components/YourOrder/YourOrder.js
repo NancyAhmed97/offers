@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-left.svg";
@@ -6,46 +7,40 @@ import leftArrow from "../../../../Resources/Assets/img/leftArrow.svg";
 import "./YourOrder.css";
 function YourOrder({ alertState }) {
   const history = useHistory();
+  var { auth } = useSelector((state) => state);
   const { currentLocal } = useSelector((state) => state.currentLocal);
-  const product = [
-    {
-      id: "0",
-      name: "Add product name here in this space and edit it",
-      count: "x1",
-      price: "3,560 SAR",
-    },
-    {
-      id: "1",
-      name: "Add product name here in this space and edit it",
-      count: "x1",
-      price: "3,560 SAR",
-    },
-    {
-      id: "2",
-      name: "Add product name here in this space and edit it",
-      count: "x1",
-      price: "3,560 SAR",
-    },
-  ];
+  const [orderProduct, setOrderProduct] = useState([]);
+  const [totalPrice, setTotalPrice] = useState("");
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `https://offers.com.fig-leaf.net/api/v1/cart`,
+      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+    }).then((res) => {
+      if (res.data.success === true) {
+        setOrderProduct(res.data.data.cart.products);
+        setTotalPrice(res.data.data.cart.price);
+      }
+    });
+  }, [auth]);
+
   const passData = () => {
     if (
       !localStorage.getItem("firstName") ||
-      !localStorage.getItem("lastName")||
-      !localStorage.getItem("streetAddress")||
+      !localStorage.getItem("lastName") ||
+      !localStorage.getItem("streetAddress") ||
       !localStorage.getItem("email") ||
       !localStorage.getItem("mobile") ||
-      !localStorage.getItem("AddressType")||
-      !localStorage.getItem("acceptTerms")||
+      !localStorage.getItem("AddressType") ||
+      !localStorage.getItem("acceptTerms") ||
       !localStorage.getItem("orderNode")
     ) {
       alertState(true);
       window.scrollTo(0, 0);
-
     } else {
       alertState(false);
       history.push("/payment");
       window.scrollTo(0, 0);
-
     }
   };
   return (
@@ -53,23 +48,32 @@ function YourOrder({ alertState }) {
       <div className="your_order_container">
         <h1>{currentLocal.billing.yourOrder}</h1>
         <div className="product_count d-flex justify-content-between">
-          <p>3 Products</p>
+          <p>{orderProduct && orderProduct.length} Products</p>
           <p>{currentLocal.billing.Subtotal}</p>
         </div>
-        {product.map((productItem) => {
-          return (
-            <div
-              key={productItem.id}
-              className="products d-flex justify-content-between mt-2"
-            >
-              <div>
-                <span>{productItem.name}</span>
-                <span className="count">{productItem.count}</span>
+        {orderProduct &&
+          orderProduct.map((productItem) => {
+            console.log(productItem.product);
+            console.log(productItem);
+            return (
+              <div
+                key={productItem.product.id}
+                className="products d-flex justify-content-between mt-2"
+              >
+                <div>
+                  <span>
+                    {currentLocal.language === "English"
+                      ? productItem.product.en_name
+                      : productItem.product.ar_name}
+                  </span>
+                  <span className="count">x{productItem.quantity}</span>
+                </div>
+                <div className="product_price ">
+                  {productItem.total_price} SAR
+                </div>
               </div>
-              <div className="product_price mt-4">{productItem.price}</div>
-            </div>
-          );
-        })}
+            );
+          })}
         <div className="product_Subtotal d-flex justify-content-between mt-2">
           <p>{currentLocal.billing.Subtotal}</p>
           <p>3,560SAR</p>
@@ -77,15 +81,15 @@ function YourOrder({ alertState }) {
 
         <div className="vat_container d-flex justify-content-between mt-2">
           <p>{currentLocal.billing.vat}</p>
-          <p>150 SAR</p>
+          {/* <p>150 SAR</p> */}
         </div>
-        <div className="discount_container d-flex justify-content-between mt-1">
+        {/* <div className="discount_container d-flex justify-content-between mt-1">
           <p>{currentLocal.billing.discount}</p>
           <p>-150 SAR</p>
-        </div>
+        </div> */}
         <div className="total d-flex justify-content-between mt-2">
           <p>{currentLocal.payment.total}</p>
-          <p>3,560SAR</p>
+          <p>{totalPrice}SAR</p>
         </div>
         <div className="d-flex justify-content-center billingPragraph mt-4">
           <p>{currentLocal.billing.billingPragraph}</p>

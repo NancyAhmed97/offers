@@ -6,7 +6,9 @@ import "./Blog.css";
 function Blog({ bolgs }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <section className="blog pr pl mb-5">
+    <section className=    {currentLocal.language === "English"
+    ?"blog pr pl mb-5"
+    : "blog ar_blog pr pl mb-5"}>
       <h2>{currentLocal.blog.blog}</h2>
       <p>{currentLocal.blog.disc}</p>
       <Container fluid className="p-0">

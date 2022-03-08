@@ -34,11 +34,12 @@ function HeaderMain() {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [showSubCategoury, setShowSubCategoury] = useState(false);
+  const [SubCategoury, setSubCategoury] = useState([]);
   const [subCategouryId, setSubCategouryId] = useState(false);
   const [favCount, setFavCount] = useState("");
   const [cartCount, setCartCount] = useState("");
   const handleClose = () => setShow(false);
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const handleShow = () => setShow(true);
   const url = "https://offers.com.fig-leaf.net";
   useEffect(() => {
@@ -56,8 +57,6 @@ function HeaderMain() {
       url: `https://offers.com.fig-leaf.net/api/v1/favorites`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
-      // console.log(res);
-      // console.log(res.data.data.items);
       setFavCount(res.data.data.items.length);
     });
     axios({
@@ -66,7 +65,6 @@ function HeaderMain() {
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       if (res.data.success === true) {
-        // console.log(res.data.data.cart.products.length);
         setCartCount(res.data.data.cart.products.length);
       }
     });
@@ -78,7 +76,6 @@ function HeaderMain() {
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       if (res.data.success === true) {
-        // console.log(res.data);
         dispatch(logout({}));
       }
     });
@@ -163,14 +160,6 @@ function HeaderMain() {
                       {categories.map((categoriesItem) => {
                         return (
                           <Dropdown.Item
-                            // onClick={(e) => {
-                            //   dispatch(
-                            //     changeLocal(
-                            //       currentLocal.language === "English" ? "ar" : "en"
-                            //     )
-                            //   );
-                            // }}
-                            // id="Arabic"
                             onClick={() => {
                               setcategoryId(categoriesItem.id);
                             }}
@@ -252,7 +241,18 @@ function HeaderMain() {
                       onClick={(e) => {
                         setSubCategouryId(e.target.id);
                         setShowSubCategoury(true);
+                        axios({
+                          method: "get",
+                          url: `https://offers.com.fig-leaf.net/api/v1/sub_categories/${categoriesItem.id}`,
+                          headers: {
+                            Authorization: `Bearer ${auth.authorization.access_token}`,
+                          },
+                        }).then((res) => {
+                          setSubCategoury(res.data.data);
+                        });
                       }}
+                      style={{ cursor: "pointer" }}
+                      key={categoriesItem.id}
                     >
                       <div
                         id={
@@ -328,18 +328,35 @@ function HeaderMain() {
               </>
             )}
             {showSubCategoury && (
-              <div
-                onClick={() => {
-                  setShowSubCategoury(false);
-                }}
-                className="showSubCategoury"
-              >
-                <div className="d-flex py-4">
-                  <img src={categouryArrow} alt="menuArrow" />
-
-                  <div className="subCategouryId">{subCategouryId}</div>
-                </div>{" "}
-              </div>
+              <>
+                <div
+                  onClick={() => {
+                    setShowSubCategoury(false);
+                    setSubCategoury([])
+                  }}
+                  style={{ cursor: "pointer" }}
+                  className="showSubCategoury"
+                >
+                  <div className="d-flex py-4">
+                    <img src={categouryArrow} alt="menuArrow" />
+                    <div className="subCategouryId">{subCategouryId}</div>
+                  </div>{" "}
+                </div>
+                {SubCategoury &&
+                  SubCategoury.map((supCategoriesItem) => {
+                    return (
+                      <div className="d-flex  justify-content-between">
+                        <div className="categouryId">
+                          {" "}
+                          {currentLocal.language === "English"
+                            ? supCategoriesItem.en_name
+                            : supCategoriesItem.ar_name}
+                        </div>
+                        <img src={menuArrow} alt="menuArrow" />
+                      </div>
+                    );
+                  })}
+              </>
             )}
             <div className="langouage">
               <p>
@@ -370,6 +387,7 @@ function HeaderMain() {
                 to={`/productcart/:${
                   searchResultItem.id !== undefined && searchResultItem.id
                 }`}
+                key={searchResult.id}
               >
                 <div className="searchResultItem mb-3 d-flex">
                   <div className="img">
@@ -401,7 +419,7 @@ function HeaderMain() {
               </Link>
             );
           })}
-          <div
+          {/* <div
             onClick={() => {
               setOpen(!open);
             }}
@@ -417,7 +435,7 @@ function HeaderMain() {
               helvetica, craft beer labore wes anderson cred nesciunt sapiente
               ea proident.
             </div>
-          </Collapse>
+          </Collapse> */}
         </div>
       )}
       {/* <Accordion className="py-5">

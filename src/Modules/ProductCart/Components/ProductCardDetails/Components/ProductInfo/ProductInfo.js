@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FaceBook from "../../../../../../Resources/Assets/img/LightFacebook";
 import Twitter from "../../../../../../Resources/Assets/img/Lighttwitter";
 import { useSelector } from "react-redux";
@@ -10,21 +10,68 @@ import background from "../../../../../../Resources/Assets/img/Ellipse 129.svg";
 import LikedHear from "../../../../../../Resources/Assets/img/LikedHear.svg";
 import redCheck from "../../../../../../Resources/Assets/img/redCheck.svg";
 import ReactStars from "react-rating-stars-component";
+import { useLocation } from "react-router-dom";
 import "./ProductInfo.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-function ProductInfo({ product, reviews }) {
+import { Col, Container, Row } from "react-bootstrap";
+function ProductInfo({ product, activeState }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
+  const location = useLocation();
   const history = useHistory();
   var { auth } = useSelector((state) => state);
   var authState = Object.keys(auth.authorization).length;
   const [counterNumber, setCounterNumber] = useState(0);
+  const [liked, setLiked] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [bitNumber, setBitNumber] = useState("");
   const [colorId, setColorId] = useState("");
+  const [bitPrices, setBitPrices] = useState([]);
+  const searchInPath = location.pathname.indexOf(":");
+  const id = location.pathname.slice(searchInPath + 1);
+  useEffect(() => {
+    console.log(activeState.activeState);
+    axios({
+      method: "get",
+      url: `https://offers.com.fig-leaf.net/api/v1/auction_prices/${id}`,
+      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+    }).then((res) => {
+      console.log(res.data);
+      setBitPrices(res.data.data.items);
+    });
+  }, []);
+  const saveData = (e) => {
+    if (e.target.id === "bitNumber") {
+      setBitNumber(e.target.value);
+    }
+  };
+  const sendData = (e) => {
+    e.preventDefault();
+    if (bitNumber) {
+      axios({
+        method: "post",
+        url: `https://offers.com.fig-leaf.net/api/v1/new_price`,
+        headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+        data: {
+          price: bitNumber,
+          product_id: id,
+        },
+      })
+        .then((res) => {
+          console.log(res.data);
+          console.log(res.data.data);
+          if (res.data.success === true) {
+            window.location.reload(false);
+          }
+        })
+        .catch((error) => {
+          setErrorMsg(error.response.data.message);
+        });
+    }
+  };
   const increaseCount = () => {
     setCounterNumber(counterNumber + 1);
   };
-  // console.log(product);
-  // console.log(product.is_favorite);
   const decreaseCount = () => {
     if (counterNumber !== 0) {
       setCounterNumber(counterNumber - 1);
@@ -38,7 +85,7 @@ function ProductInfo({ product, reviews }) {
       data: {
         product_id: product.id,
         quantity: counterNumber,
-        color_id: colorId?colorId:23,
+        color_id: colorId ? colorId : 23,
       },
     }).then((res) => {
       if (res.data.success === true) {
@@ -46,7 +93,6 @@ function ProductInfo({ product, reviews }) {
       }
     });
   };
-  const [liked, setLiked] = useState(false);
   const likeProduct = (e) => {
     if (authState !== 0) {
       axios({
@@ -65,6 +111,7 @@ function ProductInfo({ product, reviews }) {
       window.scrollTo(0, 0);
     }
   };
+  console.log(bitNumber);
   return (
     <div
       className={
@@ -101,6 +148,7 @@ function ProductInfo({ product, reviews }) {
             <span>540 Rating</span>
           </p>
         </div>
+
         <div className="stock">
           {product.in_stock !== "0" && (
             <div className="mb-0 stock_container">
@@ -114,6 +162,55 @@ function ProductInfo({ product, reviews }) {
             <span>{product.price}</span>
           </p>
         </div>
+        {activeState.activeState === "true" && (
+          <div className="auction_price_input mb-4">
+            <form onSubmit={sendData}>
+              <Container fluid className="p-0">
+                {" "}
+                <p>{errorMsg&&errorMsg}</p>{" "}
+                <Row>
+                  <Col md={7}>
+                    <input
+                      className="w-100 m-0"
+                      type="number"
+                      id="bitNumber"
+                      onChange={saveData}
+                      value={bitNumber}
+                    />
+                  </Col>
+                  <Col md={5}>
+                    <div className="bit_button w-100 ">
+                      <button type="submit" className=" text-center bit_btn">
+                        Bit
+                      </button>
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+            </form>
+            <Container fluid className="p-0 mt-3">
+              <Row>
+                <Col md={4}>
+                  <p className="bitPrices">{currentLocal.bit.bitPrices}:</p>
+                </Col>
+                <Col md={8}>
+                  {bitPrices &&
+                    bitPrices.map((price, index) => {
+                      console.log(price);
+                      return (
+                        <div className="prices" key={index}>
+                          <p className="price_container">
+                            SAR
+                            <span>{price.price}</span>
+                          </p>
+                        </div>
+                      );
+                    })}
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        )}
         <div className="colors d-flex">
           <div className="ColorName d-flex">
             <img src={redCheck} alt={redCheck} />
@@ -152,11 +249,20 @@ function ProductInfo({ product, reviews }) {
               <img src={increase} alt="increase" />
             </p>
           </div>
+          {!activeState&&
           <div className="product_info_add_cart">
             <div className="product_info_add_cart_button" onClick={addToCart}>
               {currentLocal.productDetails.addToCart}
             </div>
           </div>
+            }
+              {activeState&&
+          <div className="product_info_add_cart" style={{display:"none"}}>
+            <div className="product_info_add_cart_button" onClick={addToCart}>
+              {currentLocal.productDetails.addToCart}
+            </div>
+          </div>
+            }
           <div className="product_info_add_wish_list d-flex">
             <div className="icons" id={product.id}>
               {product.is_favorite || liked ? (

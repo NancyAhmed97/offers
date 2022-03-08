@@ -282,4 +282,7 @@ export const en = {
   wishList: {
     MYFAVORITES: "MY FAVORITES",
   },
+  bit:{
+    bitPrices:"Bit prices"
+  }
 };

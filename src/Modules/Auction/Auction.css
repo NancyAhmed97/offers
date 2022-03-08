@@ -1,0 +1,32 @@
+.auction .product_card_details {
+  margin-bottom: 50px;
+}
+.auction .product_des {
+  display: none;
+}
+.auction .related_products {
+  display: none;
+}
+/* .auction .price_container {
+  display: none;
+} */
+.auction .ColorName {
+  display: none !important;
+}
+.auction .product_info .product_info_order {
+  margin-top: 10px !important;
+}
+.auction .stock_container {
+  display: none !important;
+}
+.auction .product_info .product_info_number_product_container {
+  display: none;
+}
+.auction .product_info_add_wish_list {
+  display: none !important;
+}
+.auction .product_info .product_info_add_cart {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

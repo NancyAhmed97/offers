@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-function ProductCart() {
+function ProductCart(activeState) {
   const location = useLocation();
   const searchInPath = location.pathname.indexOf(":");
   const id = location.pathname.slice(searchInPath + 1);
@@ -16,7 +16,6 @@ function ProductCart() {
   const [related, setRelated] = useState([]);
   const [reviews, setReviews] = useState("");
   var { auth } = useSelector((state) => state);
-
   useEffect(() => {
     axios({
       method: "get",
@@ -24,17 +23,20 @@ function ProductCart() {
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       if (res.data.success === true) {
-   
         setProduct(res.data.data.product);
         setRelated(res.data.data.related_products);
-        setReviews(res.data.data.reviews)
+        setReviews(res.data.data.reviews);
       }
     });
-  }, [id,auth.authorization.access_token]);
+  }, [id, auth.authorization.access_token]);
   return (
     <section>
       <Navbar />
-      <ProductCardDetails product={product} reviews={reviews} />
+      <ProductCardDetails
+        product={product}
+        reviews={reviews}
+        activeState={activeState}
+      />
       <ProductDesc reviews={reviews} />
       <RelatedProducts related={related} />
       <Footer />

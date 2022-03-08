@@ -5,13 +5,17 @@ import { useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-left.svg";
 import leftArrow from "../../../../Resources/Assets/img/leftArrow.svg";
+import { useHistory } from "react-router-dom";
 import "./OrderId.css";
 function TrackOrderBox() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   // const history = useHistory();
   const [orderId, setOrderId] = useState("");
+  const [alertMsg, setAlertMsg] = useState("");
   const [alert, setAlert] = useState(false);
+  const [dangerAlert, setDangerAlert] = useState(false);
   var { auth } = useSelector((state) => state);
+  const History = useHistory();
   const saveData = (e) => {
     if (e.target.id === "orderId") {
       setOrderId(e.target.value);
@@ -30,13 +34,17 @@ function TrackOrderBox() {
         data: {
           order_number: orderId,
         },
-      }).then((res) => {
-        if (res.data.success === true) {
+      })
+        .then((res) => {
           console.log(res);
-        } else {
-          console.log(res);
-        }
-      });
+          if (res.data.success === true) {
+            History.push(`/trackorderproducts/:${res.data.data.id}`);
+          }
+        })
+        .catch((err) => {
+          setAlertMsg(err.response.data.message);
+          setDangerAlert(true);
+        });
       // history.push("/trackorderproducts");
       // window.scrollTo(0, 0);
     }
@@ -50,6 +58,7 @@ function TrackOrderBox() {
       <h1>{currentLocal.track.trackTitle}</h1>
       <div className="OrderId_container">
         <div className="errorMsg">
+          {dangerAlert && <Alert variant={"danger "}>{alertMsg}</Alert>}
           {alert && (
             <Alert
               className={currentLocal.language === "العربيه" && "text-right"}

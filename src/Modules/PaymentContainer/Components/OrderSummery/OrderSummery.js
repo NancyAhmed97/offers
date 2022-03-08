@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-left.svg";
 import leftArrow from "../../../../Resources/Assets/img/leftArrow.svg";
@@ -18,6 +18,7 @@ function OrderSummery({
 }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
+  const [orderNumber, setOrderNumber] = useState("")
   // const [setuccessAlert, setSuccessAlert] = useState("");
   // const [alertMsg, setAlertMsg] = useState("");
   // const [dangerAlert, setDangerAlert] = useState(""); 
@@ -56,6 +57,7 @@ function OrderSummery({
         },
       }).then((res) => {
         if (res.data.success === true) {
+          setOrderNumber(res.data.data.order_number);
           localStorage.removeItem("firstName");
           localStorage.removeItem("lastName");
           localStorage.removeItem("email");

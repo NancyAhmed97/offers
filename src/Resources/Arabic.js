@@ -277,5 +277,8 @@ export const ar = {
   wishList: {
     MYFAVORITES: "المفضلة ",
   },
+  bit:{
+    bitPrices:"أسعار المنافسة"
+  }
 
 };

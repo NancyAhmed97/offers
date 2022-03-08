@@ -9,7 +9,7 @@ import "./FooterAccissabilty.css";
 function FooterAccissabilty() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <div className="footer_accissabilty ">
+    <div className={ currentLocal.language === "English"?"footer_accissabilty":"ar_footer_accissabilty footer_accissabilty"}>
       <Container fluid className="pl pr">
         <Row>
           <Col md={3}>

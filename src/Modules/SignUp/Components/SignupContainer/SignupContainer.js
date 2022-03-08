@@ -198,17 +198,7 @@ function SignupContainer() {
                 }}
                 value={phone}
               />
-              {/* <PhoneInput
-                country={"eg"}
-                dropdownStyle={{
-                  textAlign:
-                    currentLocal.language === "English" ? "left" : "center",
-                }}
-                className="w-100 dark_input"
-                id="phone"
-                onChange={saveData}
-                value={phone}
-              /> */}
+
             </Col>
             <Col md={12} className="p-0">
               <label htmlFor="password" className="mt-3">
@@ -217,10 +207,7 @@ function SignupContainer() {
               <input
                 className="dark_input w-100"
                 type="password"
-                id="password"
-                onChange={saveData}
-                value={password}
-              />
+d              />
             </Col>
             <Col md={12} className="p-0">
               {passState && (

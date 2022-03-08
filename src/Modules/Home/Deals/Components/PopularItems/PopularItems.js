@@ -6,7 +6,11 @@ import Product from "../../../../Common/Poduct/Product";
 function PopularItems({ popular }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <div className="popular_items">
+    <div className=
+    {
+      currentLocal.language === "English"?"popular_items":"ar_popular_items popular_items"
+    }
+    >
       <div className="title d-flex justify-content-between">
         <div>
           <h2>{currentLocal.home.popularItems}</h2>
@@ -15,7 +19,7 @@ function PopularItems({ popular }) {
       <div className="fulter_by_categoury">
         <Container fluid className="m-0 p-0">
           <Row className="m-0 p-0">
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between popular_items_container">
               {popular.items !== undefined &&
                 popular.items.slice(0, 5).map((productDetails, index) => {
                   const url = "https://offers.com.fig-leaf.net";
@@ -31,11 +35,12 @@ function PopularItems({ popular }) {
                       price={productDetails.price}
                       id={productDetails.id}
                       is_favorite={productDetails.is_favorite}
+                      key={index}
                     />
                   );
                 })}
             </div>
-            <div className="d-flex justify-content-between mt-4">
+            <div className="d-flex justify-content-between mt-4 popular_items_container">
               {" "}
               {popular.items !== undefined &&
                 popular.items.slice(5).map((productDetails, index) => {
@@ -52,6 +57,7 @@ function PopularItems({ popular }) {
                       price={productDetails.price}
                       id={productDetails.id}
                       is_favorite={productDetails.is_favorite}
+                      key={index}
                     />
                   );
                 })}

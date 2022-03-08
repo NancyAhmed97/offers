@@ -45,12 +45,27 @@
   font-size: 16px;
   font-weight: bold;
 }
+.product_info .prices p {
+  color: #1a1a18;
+  opacity: 0.5 !important;
+  font-size: 12px;
+  font-weight: bold;
+}
 .product_info .price p span {
   color: rgba(226, 193, 1, 1) !important;
   opacity: 1 !important;
   font-size: 26px;
   font-weight: bold;
   margin-left: 15px;
+}
+.product_info .prices p span {
+  color: rgba(226, 193, 1, 1) !important;
+  opacity: 1 !important;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 7px;
+  position: relative;
+  top: 2px;
 }
 .product_info .product_info_container h1 {
   font-size: 22px;
@@ -93,6 +108,12 @@
   cursor: pointer;
   margin-right: 50px;
 }
+.product_info .bit_btn {
+  background-color: #e2c164 !important;
+  border-radius: 4px !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+}
 .ar_product_info .product_info_add_cart_button {
   width: 250px;
   background-color: #e2c164;
@@ -120,6 +141,11 @@
 .product_info .product_info_category_name {
   color: #878786;
   margin-top: 25px;
+}
+.product_info .bitPrices {
+  color: #878786;
+  font-size: 16px !important;
+  font-family: "Open Sans", sans-serif;
 }
 .product_info .product_info_category_name span {
   color: #e2c164;
@@ -161,26 +187,26 @@
   border: 1px solid #dc2727;
 }
 .product_info .ColorName p {
-  color: #1A1A18 !important;
+  color: #1a1a18 !important;
   font-size: 12px;
   font-weight: bold;
-  opacity:0.99;
+  opacity: 0.99;
 }
-.product_info .product_coolor{
-    padding: 12px;
-    width: fit-content;
-    border: 1px solid #878786;
-    cursor: pointer;
+.product_info .product_coolor {
+  padding: 12px;
+  width: fit-content;
+  border: 1px solid #878786;
+  cursor: pointer;
 }
-.product_info  .bg-color{
-    width: 15px !important;
-    height: 15px !important;
-    border-radius: 50%;
+.product_info .bg-color {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50%;
 }
 @media only screen and (max-width: 768px) {
-    .product_info .product_coolor{
+  .product_info .product_coolor {
     margin-top: 10px;
-    }
+  }
   .product_info {
     margin-left: 0px;
   }
@@ -197,8 +223,8 @@
     margin-top: 15px;
   }
   .product_info .colors {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
   .product_info .product_info_add_wish_list {
     margin-top: 15px;

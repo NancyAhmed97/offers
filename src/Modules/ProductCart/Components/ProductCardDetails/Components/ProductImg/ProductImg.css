@@ -33,9 +33,9 @@
 .product_img .swiper-slide-active {
   height: 500px !important;
 }
-.swiper-wrapper {
+/* .swiper-wrapper {
   height:500px !important;
-}
+} */
 .swiper-free-mode  .swiper-wrapper  {
   height: 107px !important;
 }

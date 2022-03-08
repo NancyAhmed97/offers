@@ -20,7 +20,7 @@
   color: rgba(26, 26, 24, 0.5);
   margin-bottom: 30px;
 }
-.hot_sales .product{
+.hot_sales .product {
   position: relative;
 }
 .hot_sales .product .product_img {
@@ -34,16 +34,16 @@
   font-weight: bold;
 }
 .hot_sales .product .curency {
-    color: #1a1a18;
-    opacity: 0.5;
-    font-family: "Helvetica";
-    font-size: 14px;
+  color: #1a1a18;
+  opacity: 0.5;
+  font-family: "Helvetica";
+  font-size: 14px;
 }
-.hot_sales .product .price_text{
-    color: #e2c164;
-    font-family: "Helvetica";
-    font-size: 17px;
-    font-weight: bold;
+.hot_sales .product .price_text {
+  color: #e2c164;
+  font-family: "Helvetica";
+  font-size: 17px;
+  font-weight: bold;
 }
 
 .swiper-button-prev.swiper-button-disabled {
@@ -64,31 +64,46 @@
   display: block;
 }
 
-
-.hot_sales .likedIcone{
-position: relative;
+.hot_sales .likedIcone {
+  position: relative;
 }
-.hot_sales .likedIcone img:first-of-type{
+.hot_sales .likedIcone img:first-of-type {
   width: 42px !important;
   height: 42px;
-} 
-.hot_sales .likedIcone img:last-of-type{
+}
+.hot_sales .likedIcone img:last-of-type {
   position: absolute;
   left: 11px;
   top: 9px;
-} .hot_sales .icons{
+}
+.hot_sales .icons {
   position: absolute;
   top: 10px;
   left: 64%;
 }
-
-
-
+.ar_hot_sales .icons{
+  position: absolute;
+  top: 10px;
+  left: 80%;
+}
 @media only screen and (max-width: 768px) {
   .hot_sales .best_seller_pragrapg {
     font-size: 15px;
     font-family: "Helvetica";
     color: rgba(26, 26, 24, 0.5);
     margin-bottom: 30px;
+  }
+  .swiper-button-next::after {
+    position: absolute;
+    bottom: 60px;
+  }
+  .swiper-button-prev::after {
+    position: absolute;
+    bottom: 60px;
+  }
+  .ar_hot_sales .icons{
+    position: absolute;
+    top: 10px;
+  left: 86%;
   }
 }

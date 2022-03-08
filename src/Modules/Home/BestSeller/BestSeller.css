@@ -1,17 +1,17 @@
 .best_seller {
-  margin-top: 100px;
+  margin-top: 65px;
 }
 .best_seller h2 {
-font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
+  font-family: " font-family: " Helvetica Neue W23 for SKY "; ";
   font-size: 26px;
   font-weight: bold;
 }
 .best_seller .best_seller_pragrapg {
-  font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
+  font-family: " font-family: " Helvetica Neue W23 for SKY "; ";
   font-size: 16px;
   color: rgba(26, 26, 24, 0.5);
 }
-.best_seller a{
+.best_seller a {
   text-decoration: none;
   color: black;
 }
@@ -21,12 +21,11 @@ font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
   /* margin-top: 50px; */
   justify-content: space-between;
 }
-.best_seller .product_ood .product_details
-{
+.best_seller .product_ood .product_details {
   display: flex;
   flex-direction: column-reverse;
 }
-.best_seller .product .product_img{
+.best_seller .product .product_img {
   width: 206px;
   height: 269px;
 }
@@ -37,16 +36,16 @@ font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
   font-weight: bold;
 }
 .best_seller .product .curency {
-    color: #1a1a18;
-    opacity: 0.5;
-    font-family: "Helvetica";
-    font-size: 14px;
+  color: #1a1a18;
+  opacity: 0.5;
+  font-family: "Helvetica";
+  font-size: 14px;
 }
-.best_seller .product .price_text{
-    color: #e2c164;
-    font-family: "Helvetica";
-    font-size: 17px;
-    font-weight: bold;
+.best_seller .product .price_text {
+  color: #e2c164;
+  font-family: "Helvetica";
+  font-size: 17px;
+  font-weight: bold;
 }
 .best_seller .likedIcone {
   position: relative;
@@ -65,7 +64,7 @@ font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
   top: 10px;
   left: 77%;
 }
-.best_seller .product_ood .icons{
+.best_seller .product_ood .icons {
   position: absolute;
   top: 90px;
   left: 77%;
@@ -74,6 +73,12 @@ font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
   position: relative;
 }
 @media only screen and (max-width: 768px) {
+  .best_seller {
+    margin-top: 30px;
+  }
+  .best_seller .product .product_img {
+    width: 100%;
+  }
   .best_seller .product_container {
     display: flex;
     flex-direction: column;
@@ -92,17 +97,26 @@ font-family: " font-family: "Helvetica Neue W23 for SKY"; ";
     padding-right: 0;
     margin: 0 !important;
     padding-bottom: 0 !important;
-    text-align: center;
+    /* text-align: center; */
   }
   .best_seller .product_container .product_details p:last-of-type {
     font-size: 16px;
     padding-right: 0;
     margin: 0 !important;
     padding-bottom: 0 !important;
-    text-align: center;
   }
   .best_seller #stars {
     display: flex !important;
-    justify-content: center !important;
+    /* justify-content: center !important; */
+  }
+  .best_seller .icons {
+    position: absolute;
+    top: 10px;
+    left: 86%;
+  }
+  .best_seller .product_ood .icons {
+    position: absolute;
+    top: 100px;
+    left: 86%;
   }
 }
