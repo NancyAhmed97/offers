@@ -5,18 +5,33 @@ import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import leftArrow from "../../../../../../Resources/Assets/img/Icon feather-arrow-left.svg";
 import rightArrow from "../../../../../../Resources/Assets/img/Icon feather-arrow-right.svg";
+import DropdownArrow from "../../../../../../Resources/Assets/img/Icon awesome-caret-down.svg";
 import axios from "axios";
 import Product from "../../../../../Common/Poduct/Product";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
 import "./CategoryProduct.css";
 function CategoryProduct() {
   const [postsArr, setPostsArr] = useState([]);
   const [pageCount, setPageCount] = useState("");
+  const [total, setTotal] = useState("");
+  const [currentPage, setCurrentPage] = useState("");
+  const [perPage, setPerPage] = useState("");
   const { currentLocal } = useSelector((state) => state.currentLocal);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const open = Boolean(anchorEl);
   useEffect(() => {
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/blogs`,
     }).then((res) => {
+      setPerPage(res.data.data.pagination.per_page);
+      setCurrentPage(res.data.data.pagination.current_page);
+      setTotal(res.data.data.pagination.total);
       setPostsArr(res.data.data.items);
       setPageCount(res.data.data.pagination.last_page);
     });
@@ -45,8 +60,75 @@ function CategoryProduct() {
       setPostsArr(res.data.data.items);
     });
   };
+  const handleClickListItem = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleMenuItemClick = (event, index) => {
+    setSelectedIndex(index);
+    setAnchorEl(null);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const options = ["recent", "minimum_price", "fast_payment"];
   return (
     <div className="category_product">
+      <div className="d-flex justify-content-between w-100 px-5 py-2">
+        <div className="d-flex">
+          <p className="showing">{currentLocal.shopByCategory.Showing}:</p>
+          <p className="mb-0 pagination mx-2">
+            {currentPage } - {perPage} out of {total}
+            {currentLocal.shopByCategory.products}
+          </p>
+        </div>
+        <div className="d-flex sort_by_container">
+          <span className="sort_by  mx-2">
+            {currentLocal.shopByCategory.sortBy}
+          </span>
+          <div className="d-flex sort_by_drop_down justify-content-between">
+            <List
+              component="nav"
+              aria-label="Device settings "
+              sx={{ bgcolor: "background.paper" }}
+            >
+              <ListItem
+                button
+                id="lock-button"
+                aria-haspopup="listbox"
+                aria-controls="lock-menu"
+                aria-label="when device is locked"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClickListItem}
+              >
+                <ListItemText secondary={options[selectedIndex]} />
+                <img src={DropdownArrow} alt="DropdownArrow" />
+              </ListItem>
+            </List>
+            <Menu
+              id="lock-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "lock-button",
+                role: "listbox",
+              }}
+            >
+              {options.map((option, index) => (
+                <MenuItem
+                  key={option}
+                  // disabled={index === 0}
+                  selected={index === selectedIndex}
+                  onClick={(event) => handleMenuItemClick(event, index)}
+                >
+                  {option}
+                </MenuItem>
+              ))}
+            </Menu>
+          </div>
+        </div>
+      </div>
       <Container>
         <Row>{displayUsers}</Row>
       </Container>

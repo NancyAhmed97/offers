@@ -6,10 +6,13 @@ export const ar = {
     toys: "الالعاب",
     communications: "التواصل",
     seeMore: "انظر المزيد",
-    ResetFilter:"إعادة تعيين",
-    PriceRange:"نطاق السعر",
-    filterBy:"مصنف بواسطة",
-    showAllCategories:"عرض كل الفئات"
+    ResetFilter: "إعادة تعيين",
+    PriceRange: "نطاق السعر",
+    filterBy: "مصنف بواسطة",
+    showAllCategories: "عرض كل الفئات",
+    sortBy: "صنف حسب",
+    Showing: "العرض",
+    products:"منتجات"
   },
   home: {
     category: "جميع الفئات",
@@ -22,13 +25,13 @@ export const ar = {
     search: "البحث عن المنتج",
     login: "تسجيل دخول",
     signup: "تسجيل",
-    logout:"تسجيل خروج ",
+    logout: "تسجيل خروج ",
     shopByCategories: "تسوق حسب الفئات",
-    OfferSiteLinks:"Offer Site روابط ",
-    welcome:"مرحبا بكم في تقديم الموقع",
-    customerService:"خدمة عملاء على مدار اليوم",
-    privacyAndPolicy:"الخصوصية والسياسة",
-    ourMainCategories:"فئاتنا الرئيسية    "
+    OfferSiteLinks: "Offer Site روابط ",
+    welcome: "مرحبا بكم في تقديم الموقع",
+    customerService: "خدمة عملاء على مدار اليوم",
+    privacyAndPolicy: "الخصوصية والسياسة",
+    ourMainCategories: "فئاتنا الرئيسية    ",
   },
   bestSeller: {
     bestSeller: "الأكثر مبيعا",
@@ -161,7 +164,7 @@ export const ar = {
   },
   productDetails: {
     relatedProducts: "منتجات ذات صله",
-    ColorName:"اسم اللون",
+    ColorName: "اسم اللون",
     Description: "الوصف",
     Reviews: "الاراء",
     descPragraph:
@@ -199,22 +202,23 @@ export const ar = {
     trackPragraph:
       "لتتبع طلبك ، يرجى إدخال معرف الطلب الخاص بك في المربع أدناه والضغط على زر التتبع. تم إعطاؤك هذا في إيصالك وفي رسالة التأكيد الإلكترونية التي من المفترض أن تكون قد تلقيتها",
     orderId: "رقم التعريف الخاص بالطلب",
-    shipmentDetails:"تفاصيل الشحنة",
-    Location:"موقع",
-    Status:"حالة",
-    Timestamp:"الطابع الزمني",
-    offerSiteStores:"تقدم مخازن الموقع",
-    orderPaced:"ترتيب وتيرة",
-    orderConfirmed:"تم تاكيد الطلب",
-    orderProcessing:"معالجة الطلب",
-    CurrentShipment:"شحنة الحالية",
-    Ordernumber:"رقم الطلب",
-    deliveryAddress:"عنوان التسليم",
-    trackpragraph:"سيتم استخدام بياناتك الشخصية لمعالجة طلبك ، جدة ، المملكة العربية السعودية",
-    OrderPlaced:"تم الطلب",
-    OutOfDelivery:"خارج الخدمة",
-    orderShipped:"تم شحن الطلب",
-    orderDelivered:"أجل تسليم"
+    shipmentDetails: "تفاصيل الشحنة",
+    Location: "موقع",
+    Status: "حالة",
+    Timestamp: "الطابع الزمني",
+    offerSiteStores: "تقدم مخازن الموقع",
+    orderPaced: "ترتيب وتيرة",
+    orderConfirmed: "تم تاكيد الطلب",
+    orderProcessing: "معالجة الطلب",
+    CurrentShipment: "شحنة الحالية",
+    Ordernumber: "رقم الطلب",
+    deliveryAddress: "عنوان التسليم",
+    trackpragraph:
+      "سيتم استخدام بياناتك الشخصية لمعالجة طلبك ، جدة ، المملكة العربية السعودية",
+    OrderPlaced: "تم الطلب",
+    OutOfDelivery: "خارج الخدمة",
+    orderShipped: "تم شحن الطلب",
+    orderDelivered: "أجل تسليم",
   },
   forrgetPassword: {
     title: "هل نسيت كلمة السر",
@@ -277,8 +281,8 @@ export const ar = {
   wishList: {
     MYFAVORITES: "المفضلة ",
   },
-  bit:{
-    bitPrices:"أسعار المنافسة"
-  }
-
+  bit: {
+    bitPrices: "أسعار المنافسة",
+    startingBid: "تبدأ المنافسه",
+  },
 };

@@ -165,3 +165,26 @@ color: #e2c164 !important;
 .categoy_filteration li.break {
   display: none;
 }
+.categoy_filteration .categoury_name{
+  color: #E2C164;
+  font-family: "Helvetica";
+  font-size: 14px;
+font-weight: bold;
+}
+.categoy_filteration .sub_categoury_name{
+  font-family: "Helvetica";
+  font-size: 13px;
+  font-weight: bold;
+}
+ .MuiSlider-valueLabelLabel , .css-1kz0hui-MuiSlider-valueLabel{
+  display: none !important;
+}
+.css-eg0mwd-MuiSlider-thumb:hover, .css-eg0mwd-MuiSlider-thumb.Mui-focusVisible {
+  box-shadow: none !important;
+}
+.filer_bar .intial_price ,.filer_bar .final_price{
+  color: #575757;
+  font-weight: bold;
+  font-family: "Helvetica";
+  font-size: 14px;
+ }

@@ -23,23 +23,24 @@ function ProductInfo({ product, activeState }) {
   var authState = Object.keys(auth.authorization).length;
   const [counterNumber, setCounterNumber] = useState(0);
   const [liked, setLiked] = useState(false);
+  const [style, setStyle] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [bitNumber, setBitNumber] = useState("");
   const [colorId, setColorId] = useState("");
+  // const [heightBitPrice, setHeightBitPrice] = useState("");
   const [bitPrices, setBitPrices] = useState([]);
   const searchInPath = location.pathname.indexOf(":");
   const id = location.pathname.slice(searchInPath + 1);
   useEffect(() => {
-    console.log(activeState.activeState);
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/auction_prices/${id}`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
-      console.log(res.data);
       setBitPrices(res.data.data.items);
+      // setHeightBitPrice(res.data.data.items[0].price);
     });
-  }, []);
+  }, [activeState.activeState, id, auth.authorization.access_token]);
   const saveData = (e) => {
     if (e.target.id === "bitNumber") {
       setBitNumber(e.target.value);
@@ -58,8 +59,6 @@ function ProductInfo({ product, activeState }) {
         },
       })
         .then((res) => {
-          console.log(res.data);
-          console.log(res.data.data);
           if (res.data.success === true) {
             window.location.reload(false);
           }
@@ -85,11 +84,10 @@ function ProductInfo({ product, activeState }) {
       data: {
         product_id: product.id,
         quantity: counterNumber,
-        color_id: colorId ? colorId : 23,
+        color_id: colorId && colorId,
       },
     }).then((res) => {
       if (res.data.success === true) {
-        // console.log(res.data);
       }
     });
   };
@@ -100,18 +98,14 @@ function ProductInfo({ product, activeState }) {
         url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
         headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
       }).then((res) => {
-        // console.log(res);
-        // console.log(res.data);
-        // console.log(res.data.data);
         setLiked(!liked);
-        // window.location.reload();
       });
     } else {
       history.push("/signup");
       window.scrollTo(0, 0);
     }
   };
-  console.log(bitNumber);
+  console.log(colorId);
   return (
     <div
       className={
@@ -167,7 +161,7 @@ function ProductInfo({ product, activeState }) {
             <form onSubmit={sendData}>
               <Container fluid className="p-0">
                 {" "}
-                <p>{errorMsg&&errorMsg}</p>{" "}
+                <p>{errorMsg && errorMsg}</p>{" "}
                 <Row>
                   <Col md={7}>
                     <input
@@ -189,6 +183,9 @@ function ProductInfo({ product, activeState }) {
               </Container>
             </form>
             <Container fluid className="p-0 mt-3">
+              {/* <p className="heightBitPrice">
+                {currentLocal.bit.startingBid} : SAR {heightBitPrice}
+              </p> */}
               <Row>
                 <Col md={4}>
                   <p className="bitPrices">{currentLocal.bit.bitPrices}:</p>
@@ -196,7 +193,6 @@ function ProductInfo({ product, activeState }) {
                 <Col md={8}>
                   {bitPrices &&
                     bitPrices.map((price, index) => {
-                      console.log(price);
                       return (
                         <div className="prices" key={index}>
                           <p className="price_container">
@@ -211,31 +207,42 @@ function ProductInfo({ product, activeState }) {
             </Container>
           </div>
         )}
+
         <div className="colors d-flex">
           <div className="ColorName d-flex">
             <img src={redCheck} alt={redCheck} />
             <p className="mb-0 mx-2">{currentLocal.productDetails.ColorName}</p>
           </div>
-          {product.colors !== undefined &&
-            product.colors.map((productColor) => {
-              // console.log(productColor);
-              return (
-                <div
-                  className="product_coolor mx-2 d-flex"
-                  key={productColor.id}
-                  onClick={() => {
-                    // console.log(productColor.id);
-                    setColorId(productColor.id);
-                  }}
-                >
-                  <p
-                    className="bg-color mb-0"
-                    style={{ backgroundColor: productColor.color }}
-                  ></p>
-                  <p className="mb-0 mx-2">{productColor.name}tggtgtgttg</p>
-                </div>
-              );
-            })}
+          <Container fluid className="p-0">
+            <Row>
+              {product.colors !== undefined &&
+                product.colors.map((productColor) => {
+                  return (
+                    <Col md={3} className="mt-2">
+                      <div
+                        className={style?"style_product_color":"product_coolor mx-2 d-flex"}
+                        key={productColor.id}
+                        onClick={() => {
+                          setColorId(productColor.id);
+                          setStyle(true);
+                        }}
+                      >
+                        <p
+                          className="bg-color mb-0"
+                          style={{ backgroundColor: productColor.color }}
+                        ></p>
+                        <p className="mb-0 mx-2">
+                          {currentLocal.language === "English"
+                            ? productColor.en_name
+                            : productColor.ar_name}
+                          {productColor.name}
+                        </p>
+                      </div>
+                    </Col>
+                  );
+                })}
+            </Row>
+          </Container>
         </div>
       </div>
       <div className="product_info_order">
@@ -249,20 +256,20 @@ function ProductInfo({ product, activeState }) {
               <img src={increase} alt="increase" />
             </p>
           </div>
-          {!activeState&&
-          <div className="product_info_add_cart">
-            <div className="product_info_add_cart_button" onClick={addToCart}>
-              {currentLocal.productDetails.addToCart}
+          {activeState !== true && (
+            <div className="product_info_add_cart">
+              <div className="product_info_add_cart_button" onClick={addToCart}>
+                {currentLocal.productDetails.addToCart}
+              </div>
             </div>
-          </div>
-            }
-              {activeState&&
-          <div className="product_info_add_cart" style={{display:"none"}}>
-            <div className="product_info_add_cart_button" onClick={addToCart}>
-              {currentLocal.productDetails.addToCart}
+          )}
+          {activeState && (
+            <div className="product_info_add_cart" style={{ display: "none" }}>
+              <div className="product_info_add_cart_button" onClick={addToCart}>
+                {currentLocal.productDetails.addToCart}
+              </div>
             </div>
-          </div>
-            }
+          )}
           <div className="product_info_add_wish_list d-flex">
             <div className="icons" id={product.id}>
               {product.is_favorite || liked ? (
@@ -290,7 +297,7 @@ function ProductInfo({ product, activeState }) {
                 />
               )}
             </div>
-            <p className="m-0 d-inline-block mt-3">
+            <p className="m-0 d-inline-block mt-2">
               {currentLocal.productDetails.saveToWishlist}
             </p>
           </div>

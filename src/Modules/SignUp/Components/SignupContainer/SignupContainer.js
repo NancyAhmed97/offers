@@ -1,3 +1,4 @@
+import { Password } from "@mui/icons-material";
 import axios from "axios";
 import React, { useState } from "react";
 import { Alert, Col, Container, Row } from "react-bootstrap";
@@ -119,6 +120,8 @@ function SignupContainer() {
         });
     }
   };
+  console.log(Password);
+  console.log(ConfirmPassword);
   return (
     <div
       className={
@@ -207,6 +210,9 @@ function SignupContainer() {
               <input
                 className="dark_input w-100"
                 type="password"
+                id="password"
+                onChange={saveData}
+                value={password}
 d              />
             </Col>
             <Col md={12} className="p-0">

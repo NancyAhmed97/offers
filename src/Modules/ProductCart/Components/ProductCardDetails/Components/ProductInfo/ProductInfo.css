@@ -183,14 +183,21 @@
 .product_info .ColorName {
   padding: 14px;
   background-color: rgba(220, 39, 39, 0.12);
-  width: fit-content;
+  width: 150px;
+  height: 38px;
   border: 1px solid #dc2727;
+  margin-right: 20px;
+  position: relative;
+  margin-top: 8px;
 }
 .product_info .ColorName p {
   color: #1a1a18 !important;
   font-size: 12px;
   font-weight: bold;
   opacity: 0.99;
+  position: absolute;
+  top: 22%;
+  left: 18px;
 }
 .product_info .product_coolor {
   padding: 12px;
@@ -202,6 +209,10 @@
   width: 15px !important;
   height: 15px !important;
   border-radius: 50%;
+}
+.product_info .heightBitPrice {
+  font-weight: bold;
+  font-size: 17px !important;
 }
 @media only screen and (max-width: 768px) {
   .product_info .product_coolor {

@@ -9,20 +9,13 @@ import searchIcon from "../../../../Resources/Assets/img/Icon feather-search.svg
 import categouryArrow from "../../../../Resources/Assets/img/categouryArrow.svg";
 import menuArrow from "../../../../Resources/Assets/img/menuArrow.svg";
 import "./HeaderMain.css";
-import {
-  Col,
-  Collapse,
-  Container,
-  Dropdown,
-  Offcanvas,
-  Row,
-} from "react-bootstrap";
+import { Col, Container, Dropdown, Offcanvas, Row } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { changeLocal } from "../../../../Redux/Localization";
 import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import { logout } from "../../../../Redux/Authorization";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 function HeaderMain() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
@@ -332,7 +325,7 @@ function HeaderMain() {
                 <div
                   onClick={() => {
                     setShowSubCategoury(false);
-                    setSubCategoury([])
+                    setSubCategoury([]);
                   }}
                   style={{ cursor: "pointer" }}
                   className="showSubCategoury"

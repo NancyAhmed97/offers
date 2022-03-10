@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Nav, Row, Tab } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import CategoryProduct from "./Components/CategoryProduct/CategoryProduct";
 import FilerBar from "./Components/FilerBar/FilerBar";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import "./CategoyFilteration.css";
 function CategoyFilteration() {
-  const [filterItem, setFilterItem] = useState([]);
-  // const [id, setId] = useState("");
-  const [subProduct, setSubProduct] = useState([]);
-  const [productId, setProductId] = useState("");
   const { currentLocal } = useSelector((state) => state.currentLocal);
+  const [filterItem, setFilterItem] = useState([]);
+  const [subProduct, setSubProduct] = useState([]);
+  const [selected, setSelectes] = useState("");
+  var { auth } = useSelector((state) => state);
   useEffect(() => {
     axios({
       method: "get",
@@ -18,66 +19,59 @@ function CategoyFilteration() {
     }).then((res) => {
       if (res.data.success === true) {
         setFilterItem(res.data.data);
-        res.data.data.forEach((filter) => {
-          setProductId(filter.id);
-          setSubProduct(filter.sub_categories);
-        });
       }
     });
-  }, []);
-
+  }, [ currentLocal.language]);
+  const getSubCategoury = (tabs, id) => {
+    setSelectes(tabs);
+    axios({
+      method: "get",
+      url: `https://offers.com.fig-leaf.net/api/v1/sub_categories/${id}`,
+      headers: {
+        Authorization: `Bearer ${auth.authorization.access_token}`,
+      },
+    }).then((res) => {
+      setSubProduct(res.data.data);
+    });
+  };
   return (
     <div className="categoy_filteration pl pr">
-      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-        <Nav variant="pills" className="flex-row mb-5 mt-4">
-          {filterItem &&
-            filterItem.map((filterProduct, index) => {
-              console.log("filterProduct.id",filterProduct.id);
-              return (
-                <Nav.Item>
-                  <Nav.Link eventKey={filterProduct.id}>
-                    {currentLocal.language === "English"
-                      ? filterProduct.en_name
-                      : filterProduct.ar_name}
-                  </Nav.Link>
-                </Nav.Item>
-              );
-            })}
-        </Nav>
-        <Container fluid classNameName="p-0 m-0">
-          <Row classNameName="p-0 m-0">
-            <Col className="p-0" md={2}>
-              <Tab.Content>
-                {subProduct &&
-                  subProduct.map((subProductItem, index) => {
-                    console.log("productId",productId);
-                    return (
-                      <Tab.Pane eventKey={productId}>
-                        {currentLocal.language === "English"
-                          ? subProductItem.en_name
-                          : subProductItem.ar_name}
-                      </Tab.Pane>
-                    );
-                  })}{" "}
-              </Tab.Content>
-              <FilerBar filterItem={filterItem}  />
-            </Col>
-            <Col className="p-0" md={10}>
+      <div className="head_categoury d-flex">
+        {filterItem &&
+          filterItem.map((item) => {
+            const name =
+              currentLocal.language === "English" ? item.en_name : item.ar_name;
+            const active = selected === name ? "active" : "";
+            return (
+              <div
+                className={"head_categoury_item " + active}
+                onClick={() =>
+                  getSubCategoury(
+                    currentLocal.language === "English"
+                      ? item.en_name
+                      : item.ar_name,
+                    item.id
+                  )
+                }
+                id={item.id}
+              >
+                {currentLocal.language === "English"
+                  ? item.en_name
+                  : item.ar_name}
+              </div>
+            );
+          })}
+      </div>
+      <Container fluid classNameName="p-0 m-0">
+        <Row classNameName="p-0 m-0">
+          <Col className="p-0" md={2}>
+            <FilerBar subProduct={subProduct} selected={selected} />
+          </Col>
+          <Col className="p-0" md={10}>
               <CategoryProduct />
             </Col>
-          </Row>
-        </Container>{" "}
-      </Tab.Container>
-      {/* <Container fluid classNameName='p-0 m-0'>
-          <Row classNameName='p-0 m-0'>
-              <Col className='p-0' md={2}>
-                  <FilerBar filterItem={filterItem} />
-              </Col>
-              <Col className='p-0' md={10}>
-                  <CategoryProduct  />
-              </Col>
-          </Row>
-      </Container> */}
+        </Row>
+      </Container>{" "}
     </div>
   );
 }

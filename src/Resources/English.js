@@ -9,7 +9,10 @@ export const en = {
     PriceRange:"Price range",
     ResetFilter:"Reset Filter",
     filterBy:"Filter by",
-    showAllCategories:"Show all categories"
+    showAllCategories:"Show all categories",
+    sortBy:"sort by",
+    Showing:"Showing",
+    products:"Products"
 
   },
   home: {
@@ -283,6 +286,7 @@ export const en = {
     MYFAVORITES: "MY FAVORITES",
   },
   bit:{
-    bitPrices:"Bit prices"
+    bitPrices:"Bit prices",
+    startingBid:"Starting bid"
   }
 };

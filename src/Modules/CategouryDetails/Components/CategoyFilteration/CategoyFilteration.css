@@ -1,0 +1,22 @@
+.categoy_filteration {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.categoy_filteration .head_categoury {
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(135, 135, 134, 0.3);
+}
+.categoy_filteration .head_categoury_item {
+  color: #2b1a04;
+  font-size: 15px;
+  font-family: "Helvetica";
+  font-weight: bold;
+  padding-right: 20px;
+  cursor: pointer;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e2c164;
+  margin-right: 35px;
+}
+.categoy_filteration .active {
+  color: red;
+}
