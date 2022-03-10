@@ -15,20 +15,30 @@
   font-weight: bold;
   font-size: 14px;
   font-family: "Helvetica";
-  margin-top: 12px;
+  /* margin-top: 12px; */
+  position: relative;
+  bottom: 5px;
 }
 .sort_by_container .sort_by_drop_down {
   width: 150px;
 }
 .css-822hb5-MuiList-root {
   display: flex;
+  padding-top: 0 !important;
+  position: relative;
+  bottom: 7px;
 }
 .MuiList-padding {
   width: 100%;
 }
 .category_product .pagination {
-  margin-top: 12px;
+  /* margin-top: 12px; */
   font-weight: bold;
   font-size: 14px;
   font-family: "Helvetica";
+  position: relative;
+  bottom: 5px;
+}
+.css-tlelie-MuiListItemText-root{
+  margin-top: 0 !important;
 }
