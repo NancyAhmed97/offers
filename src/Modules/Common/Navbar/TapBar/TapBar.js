@@ -73,7 +73,6 @@ function TapBar() {
         <div
           className="top_bar_center"
           onClick={() => {
-            // localStorage.setItem("startChat",true)
           }}
         >
           <p className="d-inline-block mx-3">

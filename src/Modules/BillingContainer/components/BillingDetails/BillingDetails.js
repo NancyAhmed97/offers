@@ -150,8 +150,6 @@ function BillingDetails({ alert }) {
                   type="radio"
                   id="AddressType "
                   onChange={(e) => {
-                    // setAddressType(e.target.value);
-                    // localStorage.removeItem("alert");
                     localStorage.setItem("AddressType", e.target.value);
                   }}
                   value="work"

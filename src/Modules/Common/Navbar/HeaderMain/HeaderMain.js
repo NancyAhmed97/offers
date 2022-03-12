@@ -16,7 +16,8 @@ import { changeLocal } from "../../../../Redux/Localization";
 import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import { logout } from "../../../../Redux/Authorization";
-// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 function HeaderMain() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
@@ -34,6 +35,7 @@ function HeaderMain() {
   const [favCount, setFavCount] = useState("");
   const [categoriesItemId, setCategoriesItemId] = useState("");
   const [cartCount, setCartCount] = useState("");
+  const [showAllCategoury, setShowAllCategoury] = useState(false);
   const handleClose = () => setShow(false);
   // const [open, setOpen] = useState(false);
   const handleShow = () => setShow(true);
@@ -73,6 +75,18 @@ function HeaderMain() {
     }).then((res) => {
       if (res.data.success === true) {
         dispatch(logout({}));
+        localStorage.deleteItem("firstName");
+        localStorage.deleteItem("lastName");
+        localStorage.deleteItem("country");
+        localStorage.deleteItem("city");
+        localStorage.deleteItem("streetAddress");
+        localStorage.deleteItem("email");
+        localStorage.deleteItem("orderNode");
+        localStorage.deleteItem("acceptTerms");
+        localStorage.deleteItem("AddressType");
+        localStorage.deleteItem("countryPhoneId");
+        localStorage.deleteItem("mobile");
+        localStorage.deleteItem("finalPrice");
       }
     });
   };
@@ -92,6 +106,7 @@ function HeaderMain() {
       }
     }
   };
+
   return (
     // <div className={currentLocal.language==="English"?'contact_form pr pl':"ar_contact_form contact_form pr pl"}>
     <div
@@ -200,7 +215,9 @@ function HeaderMain() {
                 </ul>
                 <div className="header_auth text-white">
                   {authState !== 0 ? (
-                    <span onClick={louaut}>{currentLocal.home.logout}</span>
+                    <span onClick={louaut} style={{ cursor: "pointer" }}>
+                      {currentLocal.home.logout}
+                    </span>
                   ) : (
                     <Link to="/signup"> {currentLocal.home.login}</Link>
                   )}
@@ -237,7 +254,7 @@ function HeaderMain() {
                       onClick={(e) => {
                         setSubCategouryId(e.target.id);
                         setShowSubCategoury(true);
-                        setCategoriesItemId(categoriesItem.id)
+                        setCategoriesItemId(categoriesItem.id);
                         axios({
                           method: "get",
                           url: `https://offers.com.fig-leaf.net/api/v1/sub_categories/${categoriesItem.id}`,
@@ -334,20 +351,25 @@ function HeaderMain() {
                   style={{ cursor: "pointer" }}
                   className="showSubCategoury"
                 >
-                  <div className="d-flex py-4" >
+                  <div className="d-flex py-4">
                     <img src={categouryArrow} alt="menuArrow" />
-                    <div className="subCategouryId" onClick={()=>{
-                    }}>{subCategouryId}</div>
+                    <div className="subCategouryId" onClick={() => {}}>
+                      {subCategouryId}
+                    </div>
                   </div>{" "}
                 </div>
                 {SubCategoury &&
-                  SubCategoury.map((supCategoriesItem,index) => {
+                  SubCategoury.map((supCategoriesItem, index) => {
                     return (
-                      <div className="d-flex  justify-content-between" onClick={()=>{
-                        history.push(`/CategouryDetails/:${categoriesItemId}`);
-                        window.location.reload(false);
-                      }}
-                      key={index}
+                      <div
+                        className="d-flex  justify-content-between"
+                        onClick={() => {
+                          history.push(
+                            `/CategouryDetails/:${categoriesItemId}`
+                          );
+                          window.location.reload(false);
+                        }}
+                        key={index}
                       >
                         <div className="categouryId">
                           {" "}
@@ -384,7 +406,8 @@ function HeaderMain() {
       </div>
       {searchResult.length !== 0 && (
         <div className="searchResult px-3 p-3">
-          {searchResult.slice(0.4).map((searchResultItem) => {
+          {searchResult.slice(0, 4).map((searchResultItem) => {
+            console.log(searchResultItem);
             return (
               <Link
                 to={`/productcart/:${
@@ -422,78 +445,76 @@ function HeaderMain() {
               </Link>
             );
           })}
-          {/* <div
-            onClick={() => {
-              setOpen(!open);
-            }}
-            aria-controls="example-collapse-text"
-            aria-expanded={open}
-          >
-            <ArrowDropDownIcon />
-          </div>
-          <Collapse in={open}>
-            <div id="example-collapse-text">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life
-              accusamus terry richardson ad squid. Nihil anim keffiyeh
-              helvetica, craft beer labore wes anderson cred nesciunt sapiente
-              ea proident.
+          {!showAllCategoury && (
+            <div
+              className="text-center drop_down_arrow  mb-2"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                setShowAllCategoury(true);
+              }}
+            >
+              <ArrowDropDownIcon />
             </div>
-          </Collapse> */}
+          )}
+          {showAllCategoury && (
+            <>
+              {searchResult.slice(5).map((searchResultItem) => {
+                console.log(searchResultItem);
+                return (
+                  <Link
+                    to={`/productcart/:${
+                      searchResultItem.id !== undefined && searchResultItem.id
+                    }`}
+                    key={searchResult.id}
+                  >
+                    <div className="searchResultItem mb-3 d-flex">
+                      <div className="img">
+                        <img
+                          src={url + searchResultItem.image}
+                          alt="searchResultItem"
+                        />
+                      </div>
+                      <div className="description mx-4">
+                        <p className="mb-0">
+                          {currentLocal.language === "English"
+                            ? searchResultItem.en_name
+                            : searchResultItem.ar_name}
+                        </p>
+                        <ReactStars
+                          count={5}
+                          value={searchResultItem.rate}
+                          size={24}
+                          color2={"#FABB27"}
+                          edit={false}
+                          id="stars"
+                        />
+                        <p>
+                          <span className="crancy">SAR</span>
+                          <span className="price">
+                            {" "}
+                            {searchResultItem.price}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+              {showAllCategoury && (
+                <div
+                  className="text-center drop_down_arrow  mb-2"
+                  onClick={() => {
+                    setShowAllCategoury(false);
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  <ArrowDropUpIcon />
+                </div>
+              )}
+            </>
+          )}
         </div>
       )}
-      {/* <Accordion className="py-5">
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          {searchResult.splice(0.4).map((searchResultItem) => {
-            return (
-              <Typography className="d-flex flex-column py-3">
-                <Link
-                  to={`/productcart/:${
-                    searchResultItem.id !== undefined && searchResultItem.id
-                  }`}
-                >
-                  <div className="searchResultItem mb-3 d-flex">
-                    <div className="img">
-                      <img
-                        src={url + searchResultItem.image}
-                        alt="searchResultItem"
-                      />
-                    </div>
-                    <div className="description mx-4">
-                      <p className="mb-0">
-                        {currentLocal.language === "English"
-                          ? searchResultItem.en_name
-                          : searchResultItem.ar_name}
-                      </p>
-                      <ReactStars
-                        count={5}
-                        value={searchResultItem.rate}
-                        size={24}
-                        color2={"#FABB27"}
-                        edit={false}
-                        id="stars"
-                      />
-                      <p>
-                        <span className="crancy">SAR</span>
-                        <span className="price"> {searchResultItem.price}</span>
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </Typography>
-            );
-          })}
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion> */}
     </div>
   );
 }

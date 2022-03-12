@@ -175,6 +175,7 @@ margin-right: 7px;
   width: 537.406px !important;
   position: absolute;
   top: 140px;
+  box-shadow: 0px 3px rgb(78 127 137 / 40%);
   left: 437px;
   z-index: 5555555555;
 }
@@ -193,6 +194,7 @@ margin-right: 7px;
   position: absolute;
   top: 138px;
   right: 273px;
+  box-shadow: 0px 3px rgb(78 127 137 / 40%);
   z-index: 5555555555;
 }
 .header_main_container .searchResult a {
@@ -233,6 +235,10 @@ font-weight: bold;
 color: #E2C164;
 cursor: pointer;
 }
+.header_main .css-i4bv87-MuiSvgIcon-root{
+width: 35px !important;
+height: 35px !important;
+}
 .categouryId{
   font-family: "Helvetica";
   font-size: 16px;
@@ -261,6 +267,7 @@ cursor: pointer;
     top: 304px;
     right: 15px;
     z-index: 5555555555;
+    box-shadow: 0px 3px rgb(78 127 137 / 40%);
   }
   .ar_header_main input {
     padding-left: 122px;
