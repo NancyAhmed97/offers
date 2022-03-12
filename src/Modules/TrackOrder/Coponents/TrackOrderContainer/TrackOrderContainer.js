@@ -34,7 +34,7 @@ function TrackOrderProduct() {
         <div className="track_order">
           <div className="order_container">
             <TrackOrderTable />
-            {/* <CurrentShipment /> */}
+            <CurrentShipment />
             {/* <ShipmentDetails /> */}
           </div>
         </div>

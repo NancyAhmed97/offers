@@ -10,6 +10,8 @@ import ShopByCategoury from "./ShopByCategoury/ShopByCategoury";
 import HotSales from "./HotSales/HotSales";
 import BestPicks from "./BestPicks/BestPicks";
 import Deals from "./Deals/Deals";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 import "./Home.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -24,16 +26,16 @@ function Home() {
   const [popular, setPopular] = useState([]);
   const [besSeller, setBestSeller] = useState([]);
   const [bolgs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
   // const array=[]
   useEffect(() => {
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/home`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
-
     }).then((res) => {
       if (res.data.success === true) {
-        console.log(res.data.data.banners);
+        setLoading(true);
         setBlogs(res.data.data.blogs);
         setSliders(res.data.data.sliders);
         setHotSales(res.data.data.hot_sales);
@@ -59,20 +61,29 @@ function Home() {
 
   return (
     <section className="position-relative home">
-      <Navbar />
-      <LandingPage sliders={sliders}  />
-      <ShopByCategoury />
-      <HotSales hotSales={hotSales}  />
-      <BestPicks bestPicks={bestPicks} />
-      <OffersComponent banner={banner} />
-      <Deals popular={popular} />
-      <BestSeller besSeller={besSeller} />
-      <SalesComponent banner={banner} />
-      <Blog bolgs={bolgs}  />
-      <Footer />
-
-
-  
+      {loading ? (
+        <>
+          {" "}
+          <Navbar />
+          <LandingPage sliders={sliders} />
+          <ShopByCategoury />
+          <HotSales hotSales={hotSales} />
+          <BestPicks bestPicks={bestPicks} />
+          <OffersComponent banner={banner} />
+          <Deals popular={popular} />
+          <BestSeller besSeller={besSeller} />
+          <SalesComponent banner={banner} />
+          <Blog bolgs={bolgs} />
+          <Footer />
+        </>
+      ) : (
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      )}
     </section>
   );
 }

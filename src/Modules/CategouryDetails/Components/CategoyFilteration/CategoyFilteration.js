@@ -8,9 +8,8 @@ import "./CategoyFilteration.css";
 function CategoyFilteration() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [filterItem, setFilterItem] = useState([]);
-  const [subProduct, setSubProduct] = useState([]);
   const [selected, setSelectes] = useState("");
-  var { auth } = useSelector((state) => state);
+  const [id, setId] = useState("");
   useEffect(() => {
     axios({
       method: "get",
@@ -18,22 +17,21 @@ function CategoyFilteration() {
       // headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       if (res.data.success === true) {
+        setSelectes(
+          currentLocal.language === "English"
+            ? res.data.data[0].en_name
+            : res.data.data[0].ar_name
+        );
         setFilterItem(res.data.data);
+        setId(res.data.data[0].id);
       }
     });
-  }, [ currentLocal.language]);
-  const getSubCategoury = (tabs, id) => {
+  }, [currentLocal.language]);
+  const getSubCategoury = (tabs, itemId) => {
+    setId(itemId);
     setSelectes(tabs);
-    axios({
-      method: "get",
-      url: `https://offers.com.fig-leaf.net/api/v1/sub_categories/${id}`,
-      headers: {
-        Authorization: `Bearer ${auth.authorization.access_token}`,
-      },
-    }).then((res) => {
-      setSubProduct(res.data.data);
-    });
   };
+  localStorage.setItem("id", id);
   return (
     <div className="categoy_filteration pl pr">
       <div className="head_categoury d-flex">
@@ -65,12 +63,13 @@ function CategoyFilteration() {
       <Container fluid classNameName="p-0 m-0">
         <Row classNameName="p-0 m-0">
           <Col className="p-0" md={2}>
-            <FilerBar subProduct={subProduct} selected={selected} />
+            <FilerBar id={id} selected={selected} />
           </Col>
           <Col className="p-0" md={10}>
-              <CategoryProduct />
-            </Col>
-        </Row>
+            <CategoryProduct />
+          </Col>
+        </Row>{" "}
+        -
       </Container>{" "}
     </div>
   );

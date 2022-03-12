@@ -10,6 +10,7 @@ import categouryArrow from "../../../../Resources/Assets/img/categouryArrow.svg"
 import menuArrow from "../../../../Resources/Assets/img/menuArrow.svg";
 import "./HeaderMain.css";
 import { Col, Container, Dropdown, Offcanvas, Row } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { changeLocal } from "../../../../Redux/Localization";
 import axios from "axios";
@@ -25,11 +26,13 @@ function HeaderMain() {
   const [categoryId, setcategoryId] = useState("");
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
   const [show, setShow] = useState(false);
   const [showSubCategoury, setShowSubCategoury] = useState(false);
   const [SubCategoury, setSubCategoury] = useState([]);
   const [subCategouryId, setSubCategouryId] = useState(false);
   const [favCount, setFavCount] = useState("");
+  const [categoriesItemId, setCategoriesItemId] = useState("");
   const [cartCount, setCartCount] = useState("");
   const handleClose = () => setShow(false);
   // const [open, setOpen] = useState(false);
@@ -234,6 +237,7 @@ function HeaderMain() {
                       onClick={(e) => {
                         setSubCategouryId(e.target.id);
                         setShowSubCategoury(true);
+                        setCategoriesItemId(categoriesItem.id)
                         axios({
                           method: "get",
                           url: `https://offers.com.fig-leaf.net/api/v1/sub_categories/${categoriesItem.id}`,
@@ -330,15 +334,20 @@ function HeaderMain() {
                   style={{ cursor: "pointer" }}
                   className="showSubCategoury"
                 >
-                  <div className="d-flex py-4">
+                  <div className="d-flex py-4" >
                     <img src={categouryArrow} alt="menuArrow" />
-                    <div className="subCategouryId">{subCategouryId}</div>
+                    <div className="subCategouryId" onClick={()=>{
+                    }}>{subCategouryId}</div>
                   </div>{" "}
                 </div>
                 {SubCategoury &&
-                  SubCategoury.map((supCategoriesItem) => {
+                  SubCategoury.map((supCategoriesItem,index) => {
                     return (
-                      <div className="d-flex  justify-content-between">
+                      <div className="d-flex  justify-content-between" onClick={()=>{
+                        history.push(`/CategouryDetails/:${categoriesItemId}`);
+                      }}
+                      key={index}
+                      >
                         <div className="categouryId">
                           {" "}
                           {currentLocal.language === "English"
@@ -374,7 +383,7 @@ function HeaderMain() {
       </div>
       {searchResult.length !== 0 && (
         <div className="searchResult px-3 p-3">
-          {searchResult.splice(0.4).map((searchResultItem) => {
+          {searchResult.slice(0.4).map((searchResultItem) => {
             return (
               <Link
                 to={`/productcart/:${

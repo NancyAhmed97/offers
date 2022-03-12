@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import leftArrow from "../../../../Resources/Assets/img/Icon feather-arrow-left.svg";
+import leftArrow from "../../../../Resources/Assets/img/categoryRightArrow.svg";
 import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-right.svg";
 import axios from "axios";
 import "./BlogsContainer.css";
@@ -17,6 +17,10 @@ function BlogsContainer() {
   const location = useLocation();
   const searchInPath = location.pathname.indexOf("/:");
   const id = location.pathname.slice(searchInPath + 2);
+  const [pageNumber, setPageNumber] = useState(0);
+  const usersPerPage = 12;
+  const pagesVisited = pageNumber * usersPerPage;
+  
   useEffect(() => {
     axios({
       method: "get",
@@ -27,47 +31,42 @@ function BlogsContainer() {
     }).then((res) => {
       setPostsArr(res.data.data.items);
       setPageCount(res.data.data.pagination.last_page);
-      
     });
-  }, [id,searchInPath]);
-  var displayUsers = postsArr.map((user) => {
-    return (
-      <Col lg="4" md="6">
-        <Link
-          to={`/blogDetails/:${user.id}`}
-          onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-          className="text-decoration-none"
-        >
-          <Product
-            img={user.image}
-            title={
-              currentLocal.language === "English"
-                ? user.en_title
-                : user.ar_title
-            }
-            key={user.id}
-            date={user.created_at}
-            id={user.id}
-            desc={
-              currentLocal.language === "English"
-                ? user.en_short_description
-                : user.ar_short_description
-            }
-            is_favorite={false}
-          />
-        </Link>
-      </Col>
-    );
-  });
+  }, [id, searchInPath]);
+  var displayUsers = postsArr
+    .slice(pagesVisited, pagesVisited + usersPerPage)
+    .map((user) => {
+      return (
+        <Col lg="4" md="6">
+          <Link
+            to={`/blogDetails/:${user.id}`}
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
+            className="text-decoration-none"
+          >
+            <Product
+              img={user.image}
+              title={
+                currentLocal.language === "English"
+                  ? user.en_title
+                  : user.ar_title
+              }
+              key={user.id}
+              date={user.created_at}
+              id={user.id}
+              desc={
+                currentLocal.language === "English"
+                  ? user.en_short_description
+                  : user.ar_short_description
+              }
+            />
+          </Link>
+        </Col>
+      );
+    });
   const changePage = ({ selected }) => {
-    axios({
-      method: "get",
-      url: `https://tascerp.com/api/v1/blogs?page=${selected + 1}`,
-    }).then((res) => {
-      setPostsArr(res.data.data.items);
-    });
+    setPageNumber(selected);
   };
 
   return (

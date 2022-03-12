@@ -15,7 +15,7 @@ import "./ProductInfo.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Col, Container, Row } from "react-bootstrap";
-function ProductInfo({ product, activeState }) {
+function ProductInfo({ product, activeState,reviews }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const location = useLocation();
   const history = useHistory();
@@ -23,10 +23,11 @@ function ProductInfo({ product, activeState }) {
   var authState = Object.keys(auth.authorization).length;
   const [counterNumber, setCounterNumber] = useState(0);
   const [liked, setLiked] = useState(false);
-  const [style, setStyle] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [bitNumber, setBitNumber] = useState("");
+  const [auctionEndTime, setauctionEndTime] = useState("");
   const [colorId, setColorId] = useState("");
+  const [selected, setSelectes] = useState("");
   // const [heightBitPrice, setHeightBitPrice] = useState("");
   const [bitPrices, setBitPrices] = useState([]);
   const searchInPath = location.pathname.indexOf(":");
@@ -37,10 +38,16 @@ function ProductInfo({ product, activeState }) {
       url: `https://offers.com.fig-leaf.net/api/v1/auction_prices/${id}`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
-      setBitPrices(res.data.data.items);
-      // setHeightBitPrice(res.data.data.items[0].price);
+      setBitPrices(res.data.data.items.splice(0, 5));
     });
-  }, [activeState.activeState, id, auth.authorization.access_token]);
+    axios({
+      method: "get",
+      url: `https://offers.com.fig-leaf.net/api/v1/product/${id}`,
+      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+    }).then((res) => {
+      setauctionEndTime(res.data.data.product.auction_end_time);
+    });
+  }, [auth.authorization.access_token,id]);
   const saveData = (e) => {
     if (e.target.id === "bitNumber") {
       setBitNumber(e.target.value);
@@ -105,7 +112,6 @@ function ProductInfo({ product, activeState }) {
       window.scrollTo(0, 0);
     }
   };
-  console.log(colorId);
   return (
     <div
       className={
@@ -150,64 +156,77 @@ function ProductInfo({ product, activeState }) {
             </div>
           )}
         </div>
-        <div className="price mt-4">
+        <div className="price mt-2">
           <p className="price_container">
             SAR
             <span>{product.price}</span>
           </p>
         </div>
         {activeState.activeState === "true" && (
-          <div className="auction_price_input mb-4">
-            <form onSubmit={sendData}>
-              <Container fluid className="p-0">
-                {" "}
-                <p>{errorMsg && errorMsg}</p>{" "}
+          <>
+            <div className="auction_end">
+              <span className="bitPrices">
+                {currentLocal.bit.auctionEnd} :{" "}
+              </span>
+              <span className="auction_end_date">
+                {auctionEndTime && auctionEndTime}
+              </span>
+            </div>
+            <div className="auction_price_input mb-3">
+              <form onSubmit={sendData}>
+                <Container fluid className="p-0">
+                  {" "}
+                  <p>{errorMsg && errorMsg}</p>{" "}
+                  <Row>
+                    <Col md={7}>
+                      <input
+                        className="w-100 m-0"
+                        type="number"
+                        id="bitNumber"
+                        onChange={saveData}
+                        value={bitNumber}
+                      />
+                    </Col>
+                    <Col md={5}>
+                      <div className="bit_button w-100 py-3">
+                        <button type="submit" className=" text-center bit_btn">
+                          {currentLocal.bit.bit}
+                        </button>
+                      </div>
+                    </Col>
+                  </Row>
+                </Container>
+              </form>
+              <Container fluid className="p-0 mt-3">
+                {/* <p className="heightBitPrice">
+                {currentLocal.bit.startingBid} : SAR {heightBitPrice}
+              </p> */}
                 <Row>
-                  <Col md={7}>
-                    <input
-                      className="w-100 m-0"
-                      type="number"
-                      id="bitNumber"
-                      onChange={saveData}
-                      value={bitNumber}
-                    />
+                  <Col md={4}>
+                    <p className="bitPrices">{currentLocal.bit.bitPrices}:</p>
                   </Col>
-                  <Col md={5}>
-                    <div className="bit_button w-100 ">
-                      <button type="submit" className=" text-center bit_btn">
-                        Bit
-                      </button>
-                    </div>
+                  <Col md={8}>
+                    {bitPrices &&
+                      bitPrices.map((price, index) => {
+                        return (
+                          <div className="prices" key={index}>
+                            <p className="price_container">
+                              SAR
+                              <span>{price.price}</span>
+                            </p>
+                          </div>
+                        );
+                      })}
                   </Col>
                 </Row>
               </Container>
-            </form>
-            <Container fluid className="p-0 mt-3">
-              {/* <p className="heightBitPrice">
-                {currentLocal.bit.startingBid} : SAR {heightBitPrice}
-              </p> */}
-              <Row>
-                <Col md={4}>
-                  <p className="bitPrices">{currentLocal.bit.bitPrices}:</p>
-                </Col>
-                <Col md={8}>
-                  {bitPrices &&
-                    bitPrices.map((price, index) => {
-                      return (
-                        <div className="prices" key={index}>
-                          <p className="price_container">
-                            SAR
-                            <span>{price.price}</span>
-                          </p>
-                        </div>
-                      );
-                    })}
-                </Col>
-              </Row>
-            </Container>
-          </div>
+            </div>
+          </>
         )}
 
+        <p className="mb-0 slecet_color">
+          {currentLocal.productDetails.selectColor}
+        </p>
         <div className="colors d-flex">
           <div className="ColorName d-flex">
             <img src={redCheck} alt={redCheck} />
@@ -217,14 +236,23 @@ function ProductInfo({ product, activeState }) {
             <Row>
               {product.colors !== undefined &&
                 product.colors.map((productColor) => {
+                  const name =
+                    currentLocal.language === "English"
+                      ? productColor.en_name
+                      : productColor.ar_name;
+                  const active = selected === name ? "active" : "";
                   return (
                     <Col md={3} className="mt-2">
                       <div
-                        className={style?"style_product_color":"product_coolor mx-2 d-flex"}
+                        className={"product_coolor mx-2 d-flex " + active}
                         key={productColor.id}
                         onClick={() => {
                           setColorId(productColor.id);
-                          setStyle(true);
+                          setSelectes(
+                            currentLocal.language === "English"
+                              ? productColor.en_name
+                              : productColor.ar_name
+                          );
                         }}
                       >
                         <p
@@ -256,20 +284,22 @@ function ProductInfo({ product, activeState }) {
               <img src={increase} alt="increase" />
             </p>
           </div>
-          {activeState !== true && (
+          {!activeState.activeState && (
             <div className="product_info_add_cart">
               <div className="product_info_add_cart_button" onClick={addToCart}>
                 {currentLocal.productDetails.addToCart}
               </div>
             </div>
           )}
-          {activeState && (
-            <div className="product_info_add_cart" style={{ display: "none" }}>
+          {activeState && product.is_selected_for_auction && (
+            <div className="product_info_add_cart">
               <div className="product_info_add_cart_button" onClick={addToCart}>
                 {currentLocal.productDetails.addToCart}
               </div>
             </div>
           )}
+          {/* </>
+          )} */}
           <div className="product_info_add_wish_list d-flex">
             <div className="icons" id={product.id}>
               {product.is_favorite || liked ? (
@@ -353,5 +383,4 @@ function ProductInfo({ product, activeState }) {
     </div>
   );
 }
-
 export default ProductInfo;

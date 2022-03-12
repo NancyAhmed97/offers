@@ -1,5 +1,5 @@
 @import url("http://fonts.cdnfonts.com/css/helvetica-2");
-.filer_bar{
+.filer_bar {
   margin-right: 25px;
 }
 .categoy_filteration .user {
@@ -39,13 +39,14 @@
   font-size: 14px;
   padding-left: 7px;
 }
-.categoy_filteration .css-15v22id-MuiAccordionDetails-root{
+.categoy_filteration .css-15v22id-MuiAccordionDetails-root {
   padding: 0 !important;
 }
-.categoy_filteration .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded{
+.categoy_filteration
+  .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
   padding: 0 !important;
 }
-.categoy_filteration .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root{
+.categoy_filteration .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
   padding: 0 !important;
 }
 .categoy_filteration .product .price {
@@ -61,31 +62,31 @@
   font-weight: bold;
   font-family: "Helvetica";
 }
-.categoy_filteration .css-1v5z18m{
+.categoy_filteration .css-1v5z18m {
   width: 100% !important;
 }
 .categoy_filteration .css-187mznn-MuiSlider-root {
-color: #e2c164 !important;
+  color: #e2c164 !important;
 }
-.categoy_filteration .reset{
-  color: #E2C164;
+.categoy_filteration .reset {
+  color: #e2c164;
   font-weight: bold;
   font-family: "Helvetica";
   font-size: 14px;
 }
-.categoy_filteration .filter{
-  color: #E2C164;
+.categoy_filteration .filter {
+  color: #e2c164;
   font-weight: bold;
   font-family: "Helvetica";
   font-size: 16px;
 }
-.categoy_filteration .show{
+.categoy_filteration .show {
   color: #000000;
   font-weight: bold;
   font-family: "Helvetica";
   font-size: 14px;
 }
-.categoy_filteration .price_range{
+.categoy_filteration .price_range {
   color: #575757;
   font-weight: bold;
   font-family: "Helvetica";
@@ -109,7 +110,10 @@ color: #e2c164 !important;
   padding: 10px;
   margin: 8px;
   border-radius: 5px;
-  border: 1px solid #f0f0f0;
+  border: #e2c164 1px solid;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -122,6 +126,7 @@ color: #e2c164 !important;
 }
 .categoy_filteration .product_desc {
   color: #707070;
+
   font-weight: bold;
   height: 75px;
 }
@@ -165,26 +170,55 @@ color: #e2c164 !important;
 .categoy_filteration li.break {
   display: none;
 }
-.categoy_filteration .categoury_name{
-  color: #E2C164;
+.categoy_filteration .category {
+  min-height: 150px;
+}
+.categoy_filteration .categoury_name {
+  color: #e2c164;
   font-family: "Helvetica";
   font-size: 14px;
-font-weight: bold;
+  font-weight: bold;
+  cursor: pointer;
 }
-.categoy_filteration .sub_categoury_name{
+.categoy_filteration .sub_categoury_name {
   font-family: "Helvetica";
   font-size: 13px;
   font-weight: bold;
 }
- .MuiSlider-valueLabelLabel , .css-1kz0hui-MuiSlider-valueLabel{
+.MuiSlider-valueLabelLabel,
+.css-1kz0hui-MuiSlider-valueLabel {
   display: none !important;
 }
-.css-eg0mwd-MuiSlider-thumb:hover, .css-eg0mwd-MuiSlider-thumb.Mui-focusVisible {
+.css-eg0mwd-MuiSlider-thumb:hover,
+.css-eg0mwd-MuiSlider-thumb.Mui-focusVisible {
   box-shadow: none !important;
 }
-.filer_bar .intial_price ,.filer_bar .final_price{
+.filer_bar .intial_price,
+.filer_bar .final_price {
   color: #575757;
   font-weight: bold;
   font-family: "Helvetica";
   font-size: 14px;
- }
+}
+.MuiAccordionSummary-content {
+  margin: 0 !important;
+}
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+  min-height: 0 !important;
+}
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+  min-height: 0 !important;
+}
+.MuiTypography-body1 {
+  color: #606060 !important;
+  padding-left: 10px;
+}
+#panel1a-header p {
+  color: #e2c164 !important;
+  padding-left: 0;
+}
+@media only screen and (max-width: 768px) {
+  .categoy_filteration .category {
+    min-height: 100px;
+  }
+}

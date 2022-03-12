@@ -90,3 +90,9 @@
 .blog_container li.break {
   display: none;
 }
+.blog_container  .likedIcone{
+  position: relative;
+}
+.blog_container .icons {
+display: none;
+}

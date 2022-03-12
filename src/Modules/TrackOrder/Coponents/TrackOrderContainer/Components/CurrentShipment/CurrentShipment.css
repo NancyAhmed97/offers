@@ -1,75 +1,135 @@
-
 @import url("http://fonts.cdnfonts.com/css/helvetica-2");
 .current_shipment h1 {
-  font-size: 14px;
+  font-size: 12px;
   color: #0a0b0a;
   font-weight: bold;
   font-family: "Helvetica";
   margin-top: 30px;
   margin-bottom: 70px;
+  
 }
-.css-zpcwqm-MuiStepConnector-root{
+.current_shipment .MuiTypography-body1 {
+  font-size: 12px;
+  color: #0a0b0a !important;
+  font-weight: bold;
+  font-family: "Helvetica";
+  margin-top: 18px;
+  margin-bottom: 70px;
+}
+.css-zpcwqm-MuiStepConnector-root {
   position: absolute;
   top: 12px;
   left: calc(-50% + -30px) !important;
   right: calc(50% + 40px) !important;
 }
-.css-zpcwqm-MuiStepConnector-root .css-z7uhs0-MuiStepConnector-line{
-  border-top: 4px solid #E2C164;
+.ar_current_shipment .css-zpcwqm-MuiStepConnector-root {
+  position: absolute;
+  top: 12px;
+  right: calc(-50% + -30px) !important;
+  left: calc(50% + 40px) !important;
 }
-.Mui-disabled .css-z7uhs0-MuiStepConnector-line{
+.css-zpcwqm-MuiStepConnector-root .css-z7uhs0-MuiStepConnector-line {
+  border-top: 4px solid #e2c164;
+}
+.Mui-disabled .css-z7uhs0-MuiStepConnector-line {
   border-top: 4px solid rgba(135, 135, 134, 0.15);
 }
-.Mui-disabled svg{
+.Mui-disabled svg {
   display: none;
 }
-.MuiStepLabel-alternativeLabel .css-vnkopk-MuiStepLabel-iconContainer::after{
+.Mui-disabled svg {
+  display: none;
+}
+.MuiStepLabel-alternativeLabel .css-vnkopk-MuiStepLabel-iconContainer::after {
   content: url("../../../../../../Resources/Assets/img/Ellipse 596.svg");
   position: relative;
   top: 3px;
 }
-.MuiStepLabel-alternativeLabel svg{
+.MuiStepLabel-alternativeLabel svg {
   display: none;
 }
-.Mui-disabled .MuiStepLabel-iconContainer::after{
+.Mui-disabled .MuiStepLabel-iconContainer::after {
   content: url("../../../../../../Resources/Assets/img/Ellipse 598.svg");
   position: relative;
   top: 3px;
 }
-.MuiStepLabel-label,.Mui-disabled  {
+.MuiStepLabel-label,
+.Mui-disabled {
   font-family: "Helvetica";
   font-size: 14px;
   font-weight: bold !important;
-  color: #1A1A18 !important;
-
+  color: #1a1a18 !important;
 }
-.MuiStepLabel-label{
+
+.MuiStepLabel-label {
   width: 88px !important;
 }
-.MuiStepLabel-root{
+.MuiStepLabel-root {
   width: 50px !important;
 }
-.css-n7tliy-MuiStep-root{
+.css-n7tliy-MuiStep-root {
   padding: 0 !important;
 }
 .css-16ubnlw-MuiStepLabel-labelContainer {
-width: auto !important;
+  width: auto !important;
 }
-.css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel{
+.css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
   position: absolute;
-top: -60px;
-left: -20px;
+  top: -60px;
+  left: -20px;
 }
-.MuiBox-root{
-  margin-bottom:40px;
+.ar_current_shipment .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+  position: absolute;
+  top: -40px;
+  right: -20px;
+}
+.css-8t49rw-MuiStepConnector-line {
+  min-height: 16px !important;
+  position: absolute;
+  top: -20px;
+  right: 7px;
 }
 @media only screen and (max-width: 768px) {
-  .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel{
-    position: absolute;
-  top: -60px;
-  left: 10px;
+  .current_shipment h1 {
+    font-size: 14px;
+    color: #0a0b0a;
+    font-weight: bold;
+    font-family: "Helvetica";
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 25px;
   }
-  .current_shipment{
-    width: 100% !important;
+ .css-ff5l4u-MuiStepConnector-root {
+    margin-left: 12px;
+    position: absolute;
+    top: 5px !important;
+    left: calc(-13% + 20px) !important;
+    right: calc(23% + 20px) !important;
+  }
+  .css-8t49rw-MuiStepConnector-line {
+    height: 30px;
+  }
+
+  .MuiStepLabel-label {
+    width: 160px !important;
+  }
+  .MuiStepLabel-root {
+    width: 100px !important;
+  }
+  .css-n7tliy-MuiStep-root {
+    padding: 0 !important;
+  }
+  .css-16ubnlw-MuiStepLabel-labelContainer {
+    width: 100px !important;
+  }
+  .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+    position: absolute;
+    top: -2px;
+    left: 50px;
+  }
+  .ar_current_shipment .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+    position: absolute;
+    top: -7px;
+    right: 25px;
   }
 }

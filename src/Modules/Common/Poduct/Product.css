@@ -10,11 +10,7 @@
 .product .product_img {
   position: relative;
 }
-/* .product .like_icon {
-  position: absolute;
-  top: 7px;
-  right: 2%;
-} */
+
 
 .product .expirePeriod {
   display: flex;

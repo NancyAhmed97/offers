@@ -14,14 +14,14 @@ function OrderSummery({
   alertState,
   SuccessAlert,
   AlertMsg,
-  DangerAlert
+  DangerAlert,
 }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
-  const [orderNumber, setOrderNumber] = useState("")
+  const [orderNumber, setOrderNumber] = useState("");
   // const [setuccessAlert, setSuccessAlert] = useState("");
   // const [alertMsg, setAlertMsg] = useState("");
-  // const [dangerAlert, setDangerAlert] = useState(""); 
+  // const [dangerAlert, setDangerAlert] = useState("");
 
   const sendOrder = () => {
     if (
@@ -58,19 +58,12 @@ function OrderSummery({
       }).then((res) => {
         if (res.data.success === true) {
           setOrderNumber(res.data.data.order_number);
-          localStorage.removeItem("firstName");
-          localStorage.removeItem("lastName");
-          localStorage.removeItem("email");
-          localStorage.removeItem("streetAddress");
-          localStorage.removeItem("AddressType");
-          localStorage.removeItem("countryPhoneId");
           alertState(false);
           SuccessAlert(true);
-         AlertMsg(res.data.message);
-
-        }else{
-        DangerAlert(true);
-         AlertMsg(res.data.message);
+          AlertMsg(res.data.message);
+        } else {
+          DangerAlert(true);
+          AlertMsg(res.data.message);
         }
       });
     }
@@ -78,35 +71,45 @@ function OrderSummery({
   return (
     <div className="order_summery mt-4">
       <div className="order_summery_container">
+        {orderNumber && (
+          <div>
+            <p className="order_text">
+              Please save the Code to can track your order{" "}
+              <span className="orderNumbers">{orderNumber}</span>
+            </p>
+          </div>
+        )}
         <h1>{currentLocal.payment.orderSummary}</h1>
         <div className="total d-flex justify-content-between mt-2">
           <p>{currentLocal.payment.total}</p>
-          <p className="total_price">3,560SAR</p>
+          <p className="total_price">
+            {localStorage.getItem("finalPrice")} SAR
+          </p>
         </div>
         <div className="order_name  mt-2">
           <p className="mb-0">{currentLocal.payment.name}</p>
-          <p className="name ">Muhammed Elbehiri</p>
+          <p className="name ">{localStorage.getItem("firstName")}</p>
         </div>
         <div className="order_delivery_address  mt-2">
           <p className="mb-0">{currentLocal.payment.deliveryAddress}</p>
           <p className="deliveryAddress ">
-            Your Personal Data Will Be Used To Process Your Order, Jeddah, Saudi{" "}
+            {localStorage.getItem("streetAddress")}{" "}
           </p>
         </div>
         <div className="order_mobileNumber  mt-2">
           <p className="mb-0">{currentLocal.payment.mobileNumber}</p>
-          <p className="mobileNumber ">+966 052 6545483 </p>
+          <p className="mobileNumber ">
+            +{localStorage.getItem("countryPhoneId")}
+            {localStorage.getItem("mobile")}{" "}
+          </p>
         </div>
         <div className="order_email  mt-2">
           <p className="mb-0">{currentLocal.conactus.mailInfotitle}</p>
-          <p className="email ">Mike.Miller@Mail.Com</p>
+          <p className="email ">{localStorage.getItem("email")}</p>
         </div>
         <div className="order_other_notes  mt-2">
           <p className="mb-0">{currentLocal.payment.otherNotes}</p>
-          <p className="otherNotes mb-0">
-            Your Personal Data Will Be Used To Process Your Order, Support Your
-            Experience Throughout This Website, And{" "}
-          </p>
+          <p className="otherNotes mb-0">{localStorage.getItem("orderNode")}</p>
         </div>
       </div>
       <div className="button mt-4">

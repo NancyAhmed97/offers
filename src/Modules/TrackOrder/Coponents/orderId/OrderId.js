@@ -36,7 +36,6 @@ function TrackOrderBox() {
         },
       })
         .then((res) => {
-          console.log(res);
           if (res.data.success === true) {
             History.push(`/trackorderproducts/:${res.data.data.id}`);
           }

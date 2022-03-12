@@ -60,7 +60,7 @@
 .track_order_Container .track_order .order_container {
   width: 730px;
   background-color: #f5f5f5;
-  /* padding-left: 30px; */
   margin-bottom: 35px;
   border-radius: 5px;
+  padding-bottom: 25px;
 }

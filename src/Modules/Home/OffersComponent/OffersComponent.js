@@ -6,7 +6,6 @@ function OffersComponent({ banner }) {
   const url = "https://offers.com.fig-leaf.net";
   const history = useHistory();
   const AuctionFunction = () => {
-    console.log("hii");
     if (banner.middle_banner_redirect) {
       history.push(`/auction/:${banner.middle_banner_redirect.id}`);
       window.scrollTo(0, 0);

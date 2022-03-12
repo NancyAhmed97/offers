@@ -166,6 +166,7 @@ export const en = {
     productName: "Add product name here in this space ",
   },
   productDetails: {
+    selectColor:"select color",
     relatedProducts: "Related products",
     ColorName:"Color Name",
     Description: "Description",
@@ -248,7 +249,7 @@ export const en = {
     billingPragraph:
       "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our ",
     discount: "Discount",
-    tax: "Value tax",
+    tax: "V.A.T",
   },
   payment: {
     paymentDetails: "Payment Details",
@@ -287,6 +288,14 @@ export const en = {
   },
   bit:{
     bitPrices:"Bit prices",
-    startingBid:"Starting bid"
+    startingBid:"Starting bid",
+    auctionEnd:"auction end",
+    bit:"Bit"
+  },
+  rating:{
+    feedback:"Feedback",
+    feedbackParagraph:"share your experience with community , to help us make better decision.",
+    textArea:"what was it like working with this sales?",
+    rating:"share your experience"
   }
 };

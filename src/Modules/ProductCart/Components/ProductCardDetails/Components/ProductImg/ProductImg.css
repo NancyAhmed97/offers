@@ -92,3 +92,6 @@ swiper-slide-visible .product_img .swiper {
 .product_img .swiper-button-next {
   display: none;
 }
+.product_img .swiper-slide-active{
+  height: 650px !important;
+}

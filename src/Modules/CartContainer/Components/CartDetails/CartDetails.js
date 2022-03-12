@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import closeIcon from "../../../../Resources/Assets/img/Group 8156.svg";
 import increase from "../../../../Resources/Assets/img/Group 8203.png";
 import decrease from "../../../../Resources/Assets/img/Group 8204.png";
+
 import "./CartDetails.css";
 function CartDetails() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
@@ -131,18 +132,26 @@ function CartDetails() {
                               ? productItem.product.en_name
                               : productItem.product.ar_name}
                           </p>
-                          <span className="color">
-                            {currentLocal.cart.Color}:
-                          </span>
-                          <div
-                            className="product_color d-inline-block"
-                            style={{ backgroundColor: productItem.color.color }}
-                          ></div>
-                          <div className="product_color d-inline-block">
-                            {currentLocal.language === "English"
-                              ? productItem.color.en_name
-                              : productItem.color.ar_name}
-                          </div>
+                          {productItem.color && (
+                            <>
+                              <span className="color">
+                                {currentLocal.cart.Color}:
+                              </span>
+                              <div
+                                className="product_color d-inline-block"
+                                style={{
+                                  backgroundColor:
+                                    productItem.color.color &&
+                                    productItem.color.color,
+                                }}
+                              ></div>
+                              <div className="product_color d-inline-block">
+                                {currentLocal.language === "English"
+                                  ? productItem.color.en_name
+                                  : productItem.color.ar_name}
+                              </div>
+                            </>
+                          )}
                         </div>
                         <p className="mb-0 Price ">
                           {productItem.product.price} SAR
@@ -159,6 +168,7 @@ function CartDetails() {
                               onClick={() => {
                                 decreaseFun(productItem.id);
                               }}
+                              style={{ cursor: "pointer" }}
                             >
                               <img
                                 src={decrease}
@@ -175,6 +185,7 @@ function CartDetails() {
                               onClick={() => {
                                 increaseFun(productItem.id);
                               }}
+                              style={{ cursor: "pointer" }}
                             >
                               <img
                                 src={increase}
@@ -191,12 +202,13 @@ function CartDetails() {
                       </div>
                     </Col>
                     <Col xs={1} md={2}>
-                      <div className="w-100 r delete_product">
+                      <div className="w-100  delete_product">
                         <img
                           src={closeIcon}
                           alt="closeIcon"
                           id={productItem.id}
                           onClick={deleteProduct}
+                          style={{ cursor: "pointer" }}
                         />
                       </div>
                     </Col>

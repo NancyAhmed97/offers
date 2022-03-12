@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import ReactStars from "react-rating-stars-component";
 import { useSelector } from "react-redux";
 import "./ProductDesc.css";
-function ProductDesc({reviews}) {
+function ProductDesc({ reviews }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [activeState, setActiveState] = useState("desc");
   return (
@@ -12,13 +14,14 @@ function ProductDesc({reviews}) {
           : "product_des ar_product_des  pr pl"
       }
     >
-      <div className="product_desc_categoury d-flex mb-5">
+      <div className="product_desc_categoury d-flex mb-4">
         <p
           id="desc"
           onClick={(e) => {
             setActiveState(e.target.id);
           }}
           className={activeState === "desc" && "active desc"}
+          style={{ cursor: "pointer" }}
         >
           {currentLocal.productDetails.Description}
         </p>
@@ -28,8 +31,10 @@ function ProductDesc({reviews}) {
             setActiveState(e.target.id);
           }}
           className={activeState === "reviwes" && "reviwes active"}
+          style={{ cursor: "pointer" }}
         >
-          {currentLocal.productDetails.Reviews}(450)
+          {currentLocal.productDetails.Reviews} (
+          {reviews && reviews.items.length})
         </p>
       </div>
       {activeState === "desc" && (
@@ -48,7 +53,32 @@ function ProductDesc({reviews}) {
         </div>
       )}
       {activeState === "reviwes" && (
-        <div className="product_reviwes_container">hi product_reviwes</div>
+        <div className="product_reviwes_container">
+          <Container fluid>
+            {reviews &&
+              reviews.items.map((review) => {
+                return (
+                  <Row className="my-3">
+                    <Col md={2} className="px-0">
+                      <p className="name">{review.user}</p>
+                      <p className="date">{review.created_at}</p>
+                    </Col>
+                    <Col md={10} className="px-0">
+                      <ReactStars
+                        count={5}
+                        value={review.rate}
+                        size={24}
+                        color2={"#FABB27"}
+                        edit={false}
+                        id="stars"
+                      />
+                      <p>{review.comment}</p>
+                    </Col>
+                  </Row>
+                );
+              })}
+          </Container>
+        </div>
       )}
     </div>
   );

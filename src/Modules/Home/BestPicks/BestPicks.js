@@ -38,7 +38,6 @@ function BestPicks({ bestPicks }) {
           {bestPicks.items !== undefined &&
             bestPicks.items.slice(3).map((productDetails, index) => {
               const url = "https://offers.com.fig-leaf.net";
-              console.log(url + productDetails.image);
               return (
                 <Product
                   img={url + productDetails.image}

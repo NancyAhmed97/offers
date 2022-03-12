@@ -11,6 +11,8 @@ function YourOrder({ alertState }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [orderProduct, setOrderProduct] = useState([]);
   const [totalPrice, setTotalPrice] = useState("");
+  const [taxes, setTaxes] = useState("");
+  const [finalPrice, setFinalPrice] = useState("");
   useEffect(() => {
     axios({
       method: "get",
@@ -18,6 +20,8 @@ function YourOrder({ alertState }) {
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       if (res.data.success === true) {
+        setFinalPrice(res.data.data.cart.final_price_with_tax);
+        setTaxes(res.data.data.cart.tax_value);
         setOrderProduct(res.data.data.cart.products);
         setTotalPrice(res.data.data.cart.price);
       }
@@ -25,6 +29,7 @@ function YourOrder({ alertState }) {
   }, [auth]);
 
   const passData = () => {
+    localStorage.setItem("finalPrice", finalPrice);
     if (
       !localStorage.getItem("firstName") ||
       !localStorage.getItem("lastName") ||
@@ -53,8 +58,6 @@ function YourOrder({ alertState }) {
         </div>
         {orderProduct &&
           orderProduct.map((productItem) => {
-            console.log(productItem.product);
-            console.log(productItem);
             return (
               <div
                 key={productItem.product.id}
@@ -76,12 +79,12 @@ function YourOrder({ alertState }) {
           })}
         <div className="product_Subtotal d-flex justify-content-between mt-2">
           <p>{currentLocal.billing.Subtotal}</p>
-          <p>3,560SAR</p>
+          <p>{totalPrice} SAR</p>
         </div>
 
         <div className="vat_container d-flex justify-content-between mt-2">
-          <p>{currentLocal.billing.vat}</p>
-          {/* <p>150 SAR</p> */}
+          <p>{currentLocal.billing.tax}</p>
+          <p>{taxes} SAR</p>
         </div>
         {/* <div className="discount_container d-flex justify-content-between mt-1">
           <p>{currentLocal.billing.discount}</p>
@@ -89,7 +92,7 @@ function YourOrder({ alertState }) {
         </div> */}
         <div className="total d-flex justify-content-between mt-2">
           <p>{currentLocal.payment.total}</p>
-          <p>{totalPrice}SAR</p>
+          <p>{finalPrice}SAR</p>
         </div>
         <div className="d-flex justify-content-center billingPragraph mt-4">
           <p>{currentLocal.billing.billingPragraph}</p>

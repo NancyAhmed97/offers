@@ -12,7 +12,7 @@ export const ar = {
     showAllCategories: "عرض كل الفئات",
     sortBy: "صنف حسب",
     Showing: "العرض",
-    products:"منتجات"
+    products: "منتجات",
   },
   home: {
     category: "جميع الفئات",
@@ -163,6 +163,7 @@ export const ar = {
     productName: "أضف اسم المنتج هنا في هذه المساحة",
   },
   productDetails: {
+    selectColor:"إختر لون",
     relatedProducts: "منتجات ذات صله",
     ColorName: "اسم اللون",
     Description: "الوصف",
@@ -282,7 +283,16 @@ export const ar = {
     MYFAVORITES: "المفضلة ",
   },
   bit: {
-    bitPrices: "أسعار المنافسة",
-    startingBid: "تبدأ المنافسه",
+    bitPrices: "أسعار المزاد",
+    startingBid: "تبدأ المزاد",
+    auctionEnd:"موعد انتهاء المزاد",
+    bit:"زايد"
+  },
+  rating: {
+    feedback: "ردود الفعل",
+    feedbackParagraph:
+      "شارك تجربتك مع المجتمع ، لمساعدتنا على اتخاذ قرار أفضل.",
+    textArea: "كيف كان شكل العمل مع هذه المبيعات؟",
+    rating:"شارك تجربتك "
   },
 };

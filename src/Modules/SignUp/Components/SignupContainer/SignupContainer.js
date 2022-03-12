@@ -120,8 +120,6 @@ function SignupContainer() {
         });
     }
   };
-  console.log(Password);
-  console.log(ConfirmPassword);
   return (
     <div
       className={

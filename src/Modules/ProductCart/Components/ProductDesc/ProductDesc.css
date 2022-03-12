@@ -67,6 +67,21 @@
 .product_des ul li {
   margin-bottom: 15px;
 }
+
+.product_des .date {
+  background-color: #e2c164;
+  width: 116px;
+  font-size: 12px;
+  color: #fff;
+  padding-left: 5px;
+}
+.product_des .name {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Helvetica";
+font-weight: bold;
+opacity: 0.5;
+}
 @media only screen and (max-width: 768px) {
   .product_des .product_des_container {
     width: 100%;

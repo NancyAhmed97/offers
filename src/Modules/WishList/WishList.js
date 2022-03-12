@@ -5,11 +5,14 @@ import Navbar from "../Common/Navbar/Navba";
 import Product from "../Common/Poduct/Product";
 import "./WishList.css";
 import { Col, Container, Row } from "react-bootstrap";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 function WishList() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
   const [favorites, setFavrites] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     axios({
@@ -19,12 +22,16 @@ function WishList() {
     }).then((res) => {
       if (res.data.success === true) {
         setFavrites(res.data.data.items);
+        setLoading(true);
       }
     });
   }, [auth]);
 
   return (
     <section className="wish_list ">
+           {loading ? (
+        <>
+          
       <Navbar />
       <div className="wish_list_container pl pr mt-4 mb-5">
         <h1>
@@ -63,6 +70,15 @@ function WishList() {
         </Container>
       </div>
       <Footer />
+      </>
+      ) : (
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      )}
     </section>
   );
 }

@@ -25,7 +25,6 @@ function PaymentDetails({
   const [nameOnCard, setNameOnCard] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [cvv, setCvv] = useState("");
-  console.log(setuccessAlert);
   const sentPaymentType = (e) => {
     sendDataToParent(e.target.value);
   };
@@ -52,9 +51,6 @@ function PaymentDetails({
     >
       <h1 className="my-4 px-2">{currentLocal.payment.paymentDetails}</h1>
       <form>
-        {/* <Alert variant={setuccessAlert ? "success " : DangerAlert && "danger"}>
-          {alertMsg}
-        </Alert> */}
         <div className="errorMsg">
           {alert && (
             <Alert

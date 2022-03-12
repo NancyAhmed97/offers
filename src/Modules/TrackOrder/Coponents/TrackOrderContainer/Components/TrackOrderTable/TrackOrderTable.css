@@ -2,7 +2,7 @@
 .track_order_table {
   background-color: #fff;
   padding: 20px;
-  border-bottom: 1px solid #EBEBEB;
+  border-bottom: 1px solid #ebebeb;
 }
 .track_order_table .product_img img {
   width: 64px;
@@ -30,80 +30,102 @@
   font-size: 14px;
   font-weight: bold;
 }
-.track_order_table .count{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.track_order_table .count {
+
   color: #E2C164;
-  font-family: "Helvetica";
-  font-size: 14px;
-  font-weight: bold;
-}
-.track_order_table table{
-  position: relative;
-}
-.track_order_table .price{
-  position: absolute;
-  right: 15px;
-  color: #2B1A04;
   font-family: "Helvetica";
   font-size: 16px;
   font-weight: bold;
 }
-.track_order_table .currancy{
+.track_order_table table {
+  position: relative;
+}
+.track_order_table .price {
+  color: #2b1a04;
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content:flex-end;
+  padding-right: 20px;
+
+}
+.track_order_table .currancy {
   position: absolute;
   top: 4px;
   left: 45px;
-  color: #2B1A04;
+  color: #2b1a04;
   font-family: "Helvetica";
   font-size: 12px;
   font-weight: bold;
 }
-.ar_track_order_table .price{
-  position: absolute;
-  left: 15px;
-  color: #2B1A04;
+.ar_track_order_table .price {
+ 
+  color: #2b1a04;
   font-family: "Helvetica";
   font-size: 16px;
   font-weight: bold;
+  margin-left: 25px;
 }
-.track_order_table .trackpragraph{
-  color: #1A1A18;
+.track_order_table .trackpragraph {
+  color: #1a1a18;
   font-family: "Helvetica";
   font-size: 14px;
   font-weight: bold;
   padding-bottom: 20px;
-
 }
-.track_order_table .order_number{
-  color: #1A1A18;
+.track_order_table .order_number {
+  color: #1a1a18;
   font-family: "Helvetica";
   font-size: 12px;
   font-weight: bold;
   /* width: 115px; */
-
 }
-.track_order_table .deliveryAddress{
-  color: #1A1A18;
-  opacity: 0.50;
+.track_order_table .deliveryAddress {
+  color: #1a1a18;
+  opacity: 0.5;
   font-family: "Helvetica";
   font-size: 13px;
   width: 115px;
-
-
+  display: flex;
+  justify-content: flex-end;
 }
-.track_order_table .Ordernumber{
+.ar_track_order_table .deliveryAddress {
+  color: #1a1a18;
+  opacity: 0.5;
+  font-family: "Helvetica";
+  font-size: 13px;
+  width: 115px;
+  display: flex;
+  justify-content: flex-end;
+}
+.track_order_table .Ordernumber {
   font-family: "Helvetica";
   font-size: 14px;
   font-weight: bold;
-padding-top: 20px;
-padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 @media only screen and (max-width: 768px) {
   .track_order_Container .track_order .order_container {
     width: 100% !important;
+    padding-bottom: 25px;
   }
   .track_order_table {
-  margin: 0 15px;
+    margin: 0 15px;
+  }
+  .track_order_table .cart_details_container .product_color{
+    display: inline-block !important;
+    margin: 0 !important;
+  }
+  .track_order_table .color{
+    margin: 0 !important;
+
+  }
+  .track_order_table .product_img_name{
+    margin: 0 !important;
+  }
+  .track_order_table .price{
+    font-size: 11px;
   }
 }

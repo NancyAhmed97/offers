@@ -16,13 +16,15 @@
 .order_summery .total {
   border-bottom: 1px solid rgba(135, 135, 134, 0.2);
 }
-.order_summery .total p:first-child {
+.order_summery .total p:first-child,
+.order_summery .order_text {
   font-size: 14px;
   color: #0a0b0a;
   font-weight: bold;
   font-family: "Helvetica";
 }
-.order_summery .total_price {
+.order_summery .total_price,
+.order_summery .orderNumbers {
   font-size: 16px;
   color: #e2c164;
   font-weight: bold;
@@ -32,8 +34,7 @@
 .order_delivery_address p:first-child,
 .order_mobileNumber p:first-child,
 .order_email p:first-of-type,
-.order_other_notes p:first-of-type
-{
+.order_other_notes p:first-of-type {
   color: #1a1a18;
   opacity: 0.5;
   font-family: "Helvetica";
@@ -42,26 +43,25 @@
 .order_name p:last-child,
 .order_delivery_address p:last-child,
 .order_mobileNumber p:last-child,
-.order_email p:last-child ,
-.order_other_notes p:last-child
-{
+.order_email p:last-child,
+.order_other_notes p:last-child {
   color: #1a1a18;
   font-family: "Helvetica";
   font-size: 13px;
   font-weight: bold;
 }
-.order_summery button{
-    background-color: #e2c164;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 285px;
-    padding-right: 20px;
-    padding-left: 20px;
-    color: #1a1a18;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: "Helvetica";
-    margin-bottom: 25px;
+.order_summery button {
+  background-color: #e2c164;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 285px;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #1a1a18;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  margin-bottom: 25px;
 }
