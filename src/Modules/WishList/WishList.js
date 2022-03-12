@@ -41,7 +41,7 @@ function WishList() {
         <Container fluid className="m-0 p-0">
           <Row className="w-100 ">
             {favorites !== undefined &&
-              favorites.map((productDetails) => {
+              favorites.map((productDetails , index) => {
                 const url = "https://offers.com.fig-leaf.net";
 
                 return (
