@@ -6,7 +6,6 @@ function HeaderOfCategory() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const categoryPath = window.location.href.lastIndexOf(":");
   const categoryId = window.location.href.slice(categoryPath + 1);
-  console.log(categoryId);
   const [currentCategory, setCurrentCategory] = useState("");
   const url = "https://offers.com.fig-leaf.net";
   useEffect(() => {
@@ -16,7 +15,6 @@ function HeaderOfCategory() {
       // headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       if (res.data.success === true) {
-        console.log(res.data.data[categoryId - 1]);
         setCurrentCategory(res.data.data[categoryId - 1]);
       }
     });

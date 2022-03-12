@@ -2,12 +2,17 @@
 .hot_sales {
   margin-top: 70px;
 }
-.hot_sales h2 {
+.en_hot_sales h2 {
   padding: 0;
   margin: 0;
   font-size: 26px;
   font-weight: bold;
-  font-family: "Helvetica";
+}
+.ar_hot_sales h2 {
+  padding: 0;
+  margin: 0;
+  font-size: 26px;
+  font-weight: bold;
 }
 .hot_sales a {
   text-decoration: none;

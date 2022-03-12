@@ -7,7 +7,16 @@ function BestPicks({ bestPicks }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
     <section className="best_picks pr pl">
-      <h2>{currentLocal.home.bestPicks}</h2>
+      <h2>
+        {" "}
+        {currentLocal.language === "English"
+          ? bestPicks.section &&
+            bestPicks.section.ar_name &&
+            bestPicks.section.en_name
+          : bestPicks.section &&
+            bestPicks.section.ar_name &&
+            bestPicks.section.ar_name}
+      </h2>
       <p className="best_picks_pragrapg">{currentLocal.bestSeller.disc}</p>
       <div className="product_container">
         <Container fluid>

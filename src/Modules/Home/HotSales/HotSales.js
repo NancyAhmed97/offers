@@ -11,11 +11,19 @@ import Product from "../../Common/Poduct/Product";
 function HotSales({ hotSales }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   SwiperCore.use([EffectFade, Navigation, Pagination]);
-
   return (
-    <div className={currentLocal.language === "English"?
-    "hot_sales pr pl":"ar_hot_sales hot_sales pr pl"}>
-      <h2>{currentLocal.home.hotSales}</h2>
+    <div
+      className={
+        currentLocal.language === "English"
+          ? "en_hot_sales hot_sales pr pl"
+          : "ar_hot_sales hot_sales pr pl"
+      }
+    >
+      <h2>
+        {currentLocal.language === "English"
+          ? hotSales && hotSales.section.en_name
+          : hotSales && hotSales.section.ar_name}
+      </h2>
       <p className="best_seller_pragrapg">
         {currentLocal.home.hotSalesPragaph}
       </p>
@@ -46,20 +54,18 @@ function HotSales({ hotSales }) {
             const url = "https://offers.com.fig-leaf.net";
             return (
               <SwiperSlide key={index}>
-           
-                  <Product
-                    img={url + Blog.image}
-                    title={
-                      currentLocal.language === "English"
-                        ? Blog.en_name
-                        : Blog.en_name
-                    }
-                    rating={Blog.rate}
-                    price={Blog.price}
-                    id={Blog.id}
-                    is_favorite={Blog.is_favorite}
-                  />
-              
+                <Product
+                  img={url + Blog.image}
+                  title={
+                    currentLocal.language === "English"
+                      ? Blog.en_name
+                      : Blog.en_name
+                  }
+                  rating={Blog.rate}
+                  price={Blog.price}
+                  id={Blog.id}
+                  is_favorite={Blog.is_favorite}
+                />
               </SwiperSlide>
             );
           })}

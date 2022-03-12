@@ -6,7 +6,12 @@ function BestSeller({ besSeller }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
     <section className="best_seller pr pl">
-      <h2>{currentLocal.bestSeller.bestSeller}</h2>
+      <h2>
+        {" "}
+        {currentLocal.language === "English"
+          ? besSeller.section && besSeller.section.en_name
+          : besSeller.section && besSeller.section.ar_name}
+      </h2>
       <p className="best_seller_pragrapg">{currentLocal.bestSeller.disc}</p>
       <div className="product_container">
         {besSeller.items !== undefined &&

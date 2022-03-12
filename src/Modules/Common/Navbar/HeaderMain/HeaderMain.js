@@ -407,7 +407,6 @@ function HeaderMain() {
       {searchResult.length !== 0 && (
         <div className="searchResult px-3 p-3">
           {searchResult.slice(0, 4).map((searchResultItem) => {
-            console.log(searchResultItem);
             return (
               <Link
                 to={`/productcart/:${
@@ -459,7 +458,6 @@ function HeaderMain() {
           {showAllCategoury && (
             <>
               {searchResult.slice(5).map((searchResultItem) => {
-                console.log(searchResultItem);
                 return (
                   <Link
                     to={`/productcart/:${

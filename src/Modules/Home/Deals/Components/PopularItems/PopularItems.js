@@ -6,14 +6,21 @@ import Product from "../../../../Common/Poduct/Product";
 function PopularItems({ popular }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return (
-    <div className=
-    {
-      currentLocal.language === "English"?"popular_items":"ar_popular_items popular_items"
-    }
+    <div
+      className={
+        currentLocal.language === "English"
+          ? "popular_items"
+          : "ar_popular_items popular_items"
+      }
     >
       <div className="title d-flex justify-content-between">
         <div>
-          <h2>{currentLocal.home.popularItems}</h2>
+          <h2>
+            {" "}
+            {currentLocal.language === "English"
+              ? popular.section && popular.section.en_name
+              : popular.section && popular.section.ar_name}
+          </h2>
         </div>
       </div>
       <div className="fulter_by_categoury">
