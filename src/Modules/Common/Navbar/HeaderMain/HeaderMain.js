@@ -345,6 +345,7 @@ function HeaderMain() {
                     return (
                       <div className="d-flex  justify-content-between" onClick={()=>{
                         history.push(`/CategouryDetails/:${categoriesItemId}`);
+                        window.location.reload(false);
                       }}
                       key={index}
                       >

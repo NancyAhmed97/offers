@@ -1,27 +1,27 @@
-@import url('http://fonts.cdnfonts.com/css/helvetica-2');
-.header_of_category .header_title h2{
-    margin-bottom: 42px;
-    font-weight: bold;
-    font-family: 'Helvetica';
-    margin-bottom: 10px;
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.header_of_category .header_title h2 {
+  margin-bottom: 42px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  margin-bottom: 10px;
 }
-.header_of_category .header_title p{
-    font-size: 16px;
-color: #1A1A18;
-opacity: 0.5;
-font-family: 'Helvetica';
+.header_of_category .header_title p {
+  font-size: 16px;
+  color: #1a1a18;
+  opacity: 0.5;
+  font-family: "Helvetica";
 }
-.header_of_category .header_img{
-    height:476.89px ;
+.header_of_category .header_img {
+  height: 450px;
 }
 @media only screen and (max-width: 768px) {
-    .header_of_category .header_img{
-        height:100% ;
-    }
-    .header_of_category .header_title p{
-        font-size: 15px;
-    color: #1A1A18;
+  .header_of_category .header_img {
+    height: 100%;
+  }
+  .header_of_category .header_title p {
+    font-size: 15px;
+    color: #1a1a18;
     opacity: 0.5;
-    font-family: 'Helvetica';
-    }
+    font-family: "Helvetica";
+  }
 }

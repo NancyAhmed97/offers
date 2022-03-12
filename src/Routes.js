@@ -33,15 +33,15 @@ function Routes() {
           <Route path="/privacy" render={() => <Privacy />} />
           <Route path="/contactus" render={() => <ContactUs />} />
           <Route path="/aboutus" render={() => <Aboutus />} />
-          <Route path={"/blogs"||"/blogs/:id"} render={() => <Blogs />} />
+          <Route path={"/blogs" || "/blogs/:id"} render={() => <Blogs />} />
           <Route path="/blogDetails/:id" render={() => <BlogDetails />} />
-          <Route
-            path="/CategouryDetails/:id"
-            render={() => <CategouryDetails />}
-          />
+          <Route path="/CategouryDetails" render={() => <CategouryDetails />} />
           <Route path="/productcart/:id" render={() => <ProductCart />} />
           <Route path="/signup" render={() => <SignUp />} />
-          <Route path="/trackorder" render={() => authState !== 0 ? <TrackOrder />:<SignUp />} />
+          <Route
+            path="/trackorder"
+            render={() => (authState !== 0 ? <TrackOrder /> : <SignUp />)}
+          />
           <Route
             path="/trackorderproducts/:id"
             render={() => <TrackOrderProduct />}
@@ -49,13 +49,19 @@ function Routes() {
           <Route path="/forgetpassword" render={() => <ForgetPassword />} />
           <Route path="/billing" render={() => <BillingContainer />} />
           <Route path="/payment" render={() => <PaymentContainer />} />
-          <Route path="/cart" render={() => authState !== 0 ? <CartContainer />:<SignUp />}/>
+          <Route
+            path="/cart"
+            render={() => (authState !== 0 ? <CartContainer /> : <SignUp />)}
+          />
           <Route
             path="/Resetpaaword/:pram1/:parm2"
             render={() => <ResetPassword />}
           />
           <Route path="/test" render={() => <ResponsiveDrawer />} />
-          <Route path="/wishlist" render={() => authState !== 0 ? <WishList />:<SignUp />} />
+          <Route
+            path="/wishlist"
+            render={() => (authState !== 0 ? <WishList /> : <SignUp />)}
+          />
           <Route path="/auction/:id" render={() => <Auction />} />
         </Switch>
       )}
