@@ -18,7 +18,6 @@ import BillingContainer from "./Modules/BillingContainer/BillingContainer";
 import PaymentContainer from "./Modules/PaymentContainer/PaymentContainer";
 import CartContainer from "./Modules/CartContainer/CartContainer";
 import WishList from "./Modules/WishList/WishList";
-import ResponsiveDrawer from "./Modules/ResponsiveDrawer";
 import Auction from "./Modules/Auction/Auction";
 import { useSelector } from "react-redux";
 function Routes() {
@@ -35,7 +34,10 @@ function Routes() {
           <Route path="/aboutus" render={() => <Aboutus />} />
           <Route path={"/blogs" || "/blogs/:id"} render={() => <Blogs />} />
           <Route path="/blogDetails/:id" render={() => <BlogDetails />} />
-          <Route path={"/CategouryDetails"|| "/CategouryDetails/:id"} render={() => <CategouryDetails />} />
+          <Route
+            path={"/CategouryDetails" || "/CategouryDetails/:id"}
+            render={() => <CategouryDetails />}
+          />
           <Route path="/productcart/:id" render={() => <ProductCart />} />
           <Route path="/signup" render={() => <SignUp />} />
           <Route
@@ -44,11 +46,19 @@ function Routes() {
           />
           <Route
             path="/trackorderproducts/:id"
-            render={() => <TrackOrderProduct />}
+            render={() =>
+              authState !== 0 ? <TrackOrderProduct /> : <SignUp />
+            }
           />
           <Route path="/forgetpassword" render={() => <ForgetPassword />} />
-          <Route path="/billing" render={() => <BillingContainer />} />
-          <Route path="/payment" render={() => <PaymentContainer />} />
+          <Route
+            path="/billing"
+            render={() => (authState !== 0 ? <BillingContainer /> : <SignUp />)}
+          />
+          <Route
+            path="/payment"
+            render={() => (authState !== 0 ? <PaymentContainer /> : <SignUp />)}
+          />
           <Route
             path="/cart"
             render={() => (authState !== 0 ? <CartContainer /> : <SignUp />)}
@@ -57,12 +67,14 @@ function Routes() {
             path="/Resetpaaword/:pram1/:parm2"
             render={() => <ResetPassword />}
           />
-          <Route path="/test" render={() => <ResponsiveDrawer />} />
           <Route
             path="/wishlist"
             render={() => (authState !== 0 ? <WishList /> : <SignUp />)}
           />
-          <Route path="/auction/:id" render={() => <Auction />} />
+          <Route
+            path="/auction/:id"
+            render={() => (authState !== 0 ? <Auction /> : <SignUp />)}
+          />
         </Switch>
       )}
     />
