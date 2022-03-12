@@ -26,13 +26,13 @@ function HeaderOfCategory() {
       <div className="header_title text-center mb-5">
         <h2>
           {currentLocal.language === "English"
-            ? currentCategory.en_name
-            : currentCategory.ar_name}
+            ? currentCategory&&currentCategory.en_name
+            :  currentCategory&&currentCategory.ar_name}
         </h2>
         <p>{currentLocal.home.hotSalesPragaph}</p>
       </div>
       <img
-        src={url + currentCategory.image}
+        src={currentCategory&&url + currentCategory.image}
         alt="electoronics"
         className="header_img w-100"
       />

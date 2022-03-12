@@ -35,7 +35,7 @@ function Routes() {
           <Route path="/aboutus" render={() => <Aboutus />} />
           <Route path={"/blogs" || "/blogs/:id"} render={() => <Blogs />} />
           <Route path="/blogDetails/:id" render={() => <BlogDetails />} />
-          <Route path="/CategouryDetails" render={() => <CategouryDetails />} />
+          <Route path={"/CategouryDetails"|| "/CategouryDetails/:id"} render={() => <CategouryDetails />} />
           <Route path="/productcart/:id" render={() => <ProductCart />} />
           <Route path="/signup" render={() => <SignUp />} />
           <Route
