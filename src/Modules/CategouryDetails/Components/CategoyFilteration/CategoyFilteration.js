@@ -36,7 +36,7 @@ function CategoyFilteration() {
     <div className="categoy_filteration pl pr">
       <div className="head_categoury d-flex">
         {filterItem &&
-          filterItem.map((item) => {
+          filterItem.map((item , index) => {
             const name =
               currentLocal.language === "English" ? item.en_name : item.ar_name;
             const active = selected === name ? "active" : "";
@@ -52,6 +52,7 @@ function CategoyFilteration() {
                   )
                 }
                 id={item.id}
+                kwy={index}
               >
                 {currentLocal.language === "English"
                   ? item.en_name

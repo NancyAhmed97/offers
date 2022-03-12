@@ -45,7 +45,7 @@ function WishList() {
                 const url = "https://offers.com.fig-leaf.net";
 
                 return (
-                  <Col md={3}className="mb-5">
+                  <Col md={3}className="mb-5" key={index}>
                     <Product
                       img={url + productDetails.image}
                       title={

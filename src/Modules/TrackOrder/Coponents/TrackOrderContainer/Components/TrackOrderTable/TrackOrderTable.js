@@ -56,7 +56,7 @@ function TrackOrderTable() {
         {orderDetails.length !== 0 &&
           orderDetails.products.map((productItem, index) => {
             return (
-              <Row className="mt-3">
+              <Row className="mt-3" key={index}>
                 <Col md={6} xs={6}>
                   <div className="d-flex">
                     <div className="product_img">

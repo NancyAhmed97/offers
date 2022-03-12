@@ -225,7 +225,7 @@ function DealsOfTheWeek() {
   return <div className='deals_of_the_week'>
       <h2>{currentLocal.home.dealsOfTheWeek}</h2>
       <Slider {...settings} accessibility={false}>
-        {blog.map((productDetails) => {
+        {blog.map((productDetails , index) => {
           return (
             <div>
                            <Link 
@@ -233,6 +233,7 @@ function DealsOfTheWeek() {
            onClick={() => {
             window.scrollTo(0, 0);
           }}
+          key={index}
           >
           <Product
                         img={productDetails.img}

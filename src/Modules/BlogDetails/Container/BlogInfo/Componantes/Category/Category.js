@@ -18,9 +18,9 @@ function Category({ blog, fields }) {
               <Container fluid className="m-0 p-0">
                 <Row className="p-0 m=0">
                   {fields &&
-                    fields.map((field) => {
+                    fields.map((field , index) => {
                       return (
-                        <Col md={2} className="p-0">
+                        <Col md={2} className="p-0" key={index}>
                           <div
                             className="filteration_by_category_container"
                             onClick={() => {
