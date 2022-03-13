@@ -9,11 +9,16 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import "./FilerBar.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
-function FilerBar({ selected, id }) {
+function FilerBar({ selected, id ,filterArray }) {
   const [value, setValue] = React.useState([20, 37]);
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [subProduct, setSubProduct] = useState([]);
   var { auth } = useSelector((state) => state);
+  const subCategoryId = localStorage.getItem("subCateguryId");
+  const sortById = localStorage.getItem("sortBy");
+  const minPriceId = localStorage.getItem("min_price");
+  const maxPriceId = localStorage.getItem("max_price");
+  console.log(sortById);
   useEffect(() => {
     axios({
       method: "get",
@@ -32,30 +37,34 @@ function FilerBar({ selected, id }) {
   }
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    localStorage.setItem("min_price",newValue[0])
-    localStorage.setItem("max_price",newValue[1])
+    localStorage.setItem("min_price", newValue[0]);
+    localStorage.setItem("max_price", newValue[1]);
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/products?category_id=${localStorage.getItem(
         "id"
-      )}&sub_category_id=${localStorage.getItem("subCateguryId")}&min_price=${newValue[0]}&max_price=${newValue[1]}`,
+      )}&sub_category_id=${subCategoryId ? subCategoryId : ""}&min_price=${
+        newValue[0]
+      }&max_price=${newValue[1]}&sort_by=${sortById ? sortById : ""}`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
-      localStorage.setItem("silterArray",res.data.data);
+      filterArray(res.data.data);
     });
   };
-const filterSubCategoury=(e)=>{
-  localStorage.setItem("subCateguryId",e.target.id);
-  axios({
-    method: "get",
-    url: `https://offers.com.fig-leaf.net/api/v1/products?category_id=${localStorage.getItem(
-      "id"
-    )}&sub_category_id=${e.target.id}`,
-    headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
-  }).then((res) => {
-    localStorage.setItem("silterArray",res.data.data);
-  });
-}
+  const filterSubCategoury = (e) => {
+    localStorage.setItem("subCateguryId", e.target.id);
+    axios({
+      method: "get",
+      url: `https://offers.com.fig-leaf.net/api/v1/products?category_id=${localStorage.getItem(
+        "id"
+      )}&sub_category_id=${e.target.id}&min_price=${
+        minPriceId?minPriceId:""
+      }&max_price=${maxPriceId?maxPriceId:""}&sort_by=${sortById? sortById:""}`,
+      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+    }).then((res) => {
+      localStorage.setItem("silterArray", res.data.data);
+    });
+  };
   return (
     <div className="filer_bar">
       <p className="filter">{currentLocal.shopByCategory.filterBy}</p>
@@ -70,7 +79,7 @@ const filterSubCategoury=(e)=>{
             <Typography> {selected}</Typography>
           </AccordionSummary>
           {subProduct.length !== 0 &&
-            subProduct.map((item,index) => {
+            subProduct.map((item, index) => {
               return (
                 <AccordionDetails>
                   <Typography

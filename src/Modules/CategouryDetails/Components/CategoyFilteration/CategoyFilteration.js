@@ -27,6 +27,9 @@ function CategoyFilteration() {
       }
     });
   }, [currentLocal.language]);
+  const filterArray=(value)=>{
+    console.log(value);
+  }
   const getSubCategoury = (tabs, itemId) => {
     setId(itemId);
     setSelectes(tabs);
@@ -67,7 +70,7 @@ function CategoyFilteration() {
             <FilerBar id={id} selected={selected} />
           </Col>
           <Col className="p-0" md={10}>
-            <CategoryProduct />
+            <CategoryProduct filterArray={filterArray}/>
           </Col>
         </Row>{" "}
         -

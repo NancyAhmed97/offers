@@ -42,9 +42,9 @@ function CategoryProduct() {
       // setPageCount(res.data.data.pagination.last_page);
     });
   }, [auth.authorization.access_token, localStorage.getItem("id")]);
-  var displayUsers = postsArr
-    .slice(pagesVisited, pagesVisited + usersPerPage)
-    .map((user) => {
+  var displayUsers =
+    postsArr.length !== 0 &&
+    postsArr.slice(pagesVisited, pagesVisited + usersPerPage).map((user) => {
       const url = "https://offers.com.fig-leaf.net";
       return (
         <Col lg="3" md="6">
@@ -68,10 +68,12 @@ function CategoryProduct() {
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
-  const handleClickListItem = (event) => {
+  const handleClickListItem = (event,e) => {
     setAnchorEl(event.currentTarget);
+    console.log(e.target.id);
   };
   const handleMenuItemClick = (event, index) => {
+    localStorage.setItem("sortBy",event.target.id)
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/products?category_id=${localStorage.getItem(
@@ -80,10 +82,12 @@ function CategoryProduct() {
         "subCateguryId"
       )}&min_price=${localStorage.getItem(
         "min_price"
-      )}&max_price=${localStorage.getItem("min_price")}&sort_by=${event.target.id}`,
+      )}&max_price=${localStorage.getItem("min_price")}&sort_by=${
+        event.target.id
+      }`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
-      localStorage.setItem("silterArray", res.data.data);
+      setPostsArr(res.data.data.items);
     });
     setSelectedIndex(index);
     setAnchorEl(null);
