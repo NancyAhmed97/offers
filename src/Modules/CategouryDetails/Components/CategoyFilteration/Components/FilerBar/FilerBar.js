@@ -9,7 +9,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import "./FilerBar.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
-function FilerBar({ selected, id, filterArray }) {
+function FilerBar({ selected, id, sendPriceToParent, sendDataToParent }) {
   const [value, setValue] = React.useState([20, 37]);
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [subProduct, setSubProduct] = useState([]);
@@ -18,7 +18,6 @@ function FilerBar({ selected, id, filterArray }) {
   const sortById = localStorage.getItem("sortBy");
   const minPriceId = localStorage.getItem("min_price");
   const maxPriceId = localStorage.getItem("max_price");
-  console.log(sortById);
   useEffect(() => {
     axios({
       method: "get",
@@ -48,7 +47,7 @@ function FilerBar({ selected, id, filterArray }) {
       }&max_price=${newValue[1]}&sort_by=${sortById ? sortById : ""}`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
-      filterArray(res.data.data);
+      sendPriceToParent(res.data.data)
     });
   };
   const filterSubCategoury = (e) => {
@@ -64,6 +63,8 @@ function FilerBar({ selected, id, filterArray }) {
       }`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
+      
+      sendDataToParent(res.data.data);
     });
   };
   return (

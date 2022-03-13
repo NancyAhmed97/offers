@@ -10,11 +10,12 @@ function CategoyFilteration() {
   const [filterItem, setFilterItem] = useState([]);
   const [selected, setSelectes] = useState("");
   const [id, setId] = useState("");
+  const [subCategoryArr, setSubCategoryArr] = useState("");
   useEffect(() => {
-    localStorage.removeItem("max_price")
-    localStorage.removeItem("min_price")
-    localStorage.removeItem("subCateguryId")
-    localStorage.removeItem("sortBy")
+    localStorage.removeItem("max_price");
+    localStorage.removeItem("min_price");
+    localStorage.removeItem("subCateguryId");
+    localStorage.removeItem("sortBy");
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/categories`,
@@ -31,9 +32,13 @@ function CategoyFilteration() {
       }
     });
   }, [currentLocal.language]);
-  const filterArray=(value)=>{
-    console.log(value);
-  }
+
+  const sendDataToParent = (val) => {
+    setSubCategoryArr(val);
+  };
+  const sendPriceToParent = (val) => {
+    setSubCategoryArr(val);
+  };
   const getSubCategoury = (tabs, itemId) => {
     setId(itemId);
     setSelectes(tabs);
@@ -43,7 +48,7 @@ function CategoyFilteration() {
     <div className="categoy_filteration pl pr">
       <div className="head_categoury d-flex">
         {filterItem &&
-          filterItem.map((item , index) => {
+          filterItem.map((item, index) => {
             const name =
               currentLocal.language === "English" ? item.en_name : item.ar_name;
             const active = selected === name ? "active" : "";
@@ -71,10 +76,17 @@ function CategoyFilteration() {
       <Container fluid classNameName="p-0 m-0">
         <Row classNameName="p-0 m-0">
           <Col className="p-0" md={2}>
-            <FilerBar id={id} selected={selected} />
+            <FilerBar
+              id={id}
+              selected={selected}
+              sendDataToParent={sendDataToParent}
+              sendPriceToParent={sendPriceToParent}
+            />
           </Col>
           <Col className="p-0" md={10}>
-            <CategoryProduct filterArray={filterArray}/>
+            <CategoryProduct
+              subCategoryArr={subCategoryArr}
+            />
           </Col>
         </Row>{" "}
         -
