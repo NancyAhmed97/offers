@@ -17,9 +17,6 @@ import "./CategoryProduct.css";
 function CategoryProduct() {
   var { auth } = useSelector((state) => state);
   const [postsArr, setPostsArr] = useState([]);
-  // const [pageCount, setPageCount] = useState("");
-  // const [currentPage, setCurrentPage] = useState("");
-  // const [perPage, setPerPage] = useState("");
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -68,23 +65,22 @@ function CategoryProduct() {
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
-  const handleClickListItem = (event,e) => {
+  const handleClickListItem = (event, e) => {
     setAnchorEl(event.currentTarget);
-    console.log(e.target.id);
   };
   const handleMenuItemClick = (event, index) => {
-    localStorage.setItem("sortBy",event.target.id)
+    localStorage.setItem("sortBy", event.target.id);
+    const minPriceId = localStorage.getItem("min_price");
+    const maxPriceId = localStorage.getItem("max_price");
+    const subCategoryId = localStorage.getItem("subCateguryId");
+
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/products?category_id=${localStorage.getItem(
         "id"
-      )}&sub_category_id=${localStorage.getItem(
-        "subCateguryId"
-      )}&min_price=${localStorage.getItem(
-        "min_price"
-      )}&max_price=${localStorage.getItem("min_price")}&sort_by=${
-        event.target.id
-      }`,
+      )}&sub_category_id=${subCategoryId ? subCategoryId : ""}&min_price=${
+        minPriceId ? minPriceId : ""
+      }&max_price=${maxPriceId ? maxPriceId : ""}&sort_by=${event.target.id}`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       setPostsArr(res.data.data.items);

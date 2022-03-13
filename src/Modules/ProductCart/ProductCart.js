@@ -35,19 +35,19 @@ function ProductCart(activeState) {
   }, [id, auth.authorization.access_token]);
   return (
     <section>
-            {loading ? (
+      {loading ? (
         <>
           {" "}
-      <Navbar />
-      <ProductCardDetails
-        product={product}
-        reviews={reviews}
-        activeState={activeState}
-      />
-      <ProductDesc reviews={reviews} />
-      <RelatedProducts related={related} />
-      <Footer />
-      </>
+          <Navbar />
+          <ProductCardDetails
+            product={product}
+            reviews={reviews}
+            activeState={activeState}
+          />
+          <ProductDesc reviews={reviews} product={product} />
+          <RelatedProducts related={related} />
+          <Footer />
+        </>
       ) : (
         <Backdrop
           sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}

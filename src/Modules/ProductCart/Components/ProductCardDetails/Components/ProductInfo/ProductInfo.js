@@ -334,8 +334,8 @@ function ProductInfo({ product, activeState,reviews }) {
         </div>
         <p className="productPragraph mt-4">
           {currentLocal.language === "English"
-            ? product.en_desc
-            : product.ar_desc}
+            ? product.en_short_desc
+            : product.ar_short_desc}
         </p>
         <p className="product_info_category_name">
           {currentLocal.productDetails.Categories}

@@ -3,9 +3,10 @@ import { Col, Container, Row } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 import { useSelector } from "react-redux";
 import "./ProductDesc.css";
-function ProductDesc({ reviews }) {
+function ProductDesc({ reviews, product }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [activeState, setActiveState] = useState("desc");
+  console.log(product);
   return (
     <div
       className={
@@ -40,16 +41,10 @@ function ProductDesc({ reviews }) {
       {activeState === "desc" && (
         <div className="product_desc_container">
           <p className="descPragraph">
-            {currentLocal.productDetails.descPragraph}
+            {currentLocal.language === "English"
+              ? product.en_desc
+              : product.ar_desc}
           </p>
-          <p>{currentLocal.productDetails.KeyFeatures}</p>
-          <ul className="m-0 p-0">
-            <li>slim body with metal cover</li>
-            <li>latest Intel Core i5-1135G7 processor (4 cores / 8 threads)</li>
-            <li>8GB DDR4 RAM and fast 512GB PCIe SSD</li>
-            <li>NVIDIA GeForce MX350 2GB GDDR5 graphics card</li>
-            <li>backlit keyboard, touchpad with gesture support</li>
-          </ul>
         </div>
       )}
       {activeState === "reviwes" && (

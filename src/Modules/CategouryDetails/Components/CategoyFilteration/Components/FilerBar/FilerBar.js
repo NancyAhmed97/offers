@@ -9,7 +9,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import "./FilerBar.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
-function FilerBar({ selected, id ,filterArray }) {
+function FilerBar({ selected, id, filterArray }) {
   const [value, setValue] = React.useState([20, 37]);
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [subProduct, setSubProduct] = useState([]);
@@ -58,11 +58,12 @@ function FilerBar({ selected, id ,filterArray }) {
       url: `https://offers.com.fig-leaf.net/api/v1/products?category_id=${localStorage.getItem(
         "id"
       )}&sub_category_id=${e.target.id}&min_price=${
-        minPriceId?minPriceId:""
-      }&max_price=${maxPriceId?maxPriceId:""}&sort_by=${sortById? sortById:""}`,
+        minPriceId ? minPriceId : ""
+      }&max_price=${maxPriceId ? maxPriceId : ""}&sort_by=${
+        localStorage.getItem("sortBy") ? localStorage.getItem("sortBy") : ""
+      }`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
-      localStorage.setItem("silterArray", res.data.data);
     });
   };
   return (
