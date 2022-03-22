@@ -16,14 +16,12 @@ function PaymentDetails({
   expiryMonthToParent,
   expiryYearToParent,
   alert,
-  setuccessAlert,
-  DangerAlert,
-  alertMsg,
 }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [startDate, setStartDate] = useState(new Date());
   const [nameOnCard, setNameOnCard] = useState("");
   const [cardNumber, setCardNumber] = useState("");
+  const [activeState, setActiveState] = useState("visa");
   const [cvv, setCvv] = useState("");
   const sentPaymentType = (e) => {
     sendDataToParent(e.target.value);
@@ -40,7 +38,7 @@ function PaymentDetails({
       cvvToParent(e.target.value);
     }
   };
-
+  console.log(activeState);
   return (
     <div
       className={
@@ -51,11 +49,14 @@ function PaymentDetails({
     >
       <h1 className="my-4 px-2">{currentLocal.payment.paymentDetails}</h1>
       <form>
-      {localStorage.getItem("orderCode") && (
+        {localStorage.getItem("orderCode") && (
           <div className="text-center">
             <p className="order_text">
               Please save the Code to can track your order
-              <span className="orderNumbers"> { localStorage.getItem("orderCode") }</span>
+              <span className="orderNumbers">
+                {" "}
+                {localStorage.getItem("orderCode")}
+              </span>
             </p>
           </div>
         )}
@@ -69,7 +70,14 @@ function PaymentDetails({
             </Alert>
           )}
         </div>
-        <div className="bank_card_form">
+        <div
+          className="bank_card_form"
+          onClick={() => {
+            setActiveState("visa");
+      
+            
+          }}
+        >
            {" "}
           <input
             type="radio"
@@ -86,75 +94,86 @@ function PaymentDetails({
             <img src={paymentimg} alt="paymentimg" />
           </div>
           <br />
-          <Row className="payment_check_container">
-            <Col md={6}>
-              <label htmlFor="nameOnCard" className="mt-3">
-                {currentLocal.payment.nameOnCard}
-              </label>
-              <input
-                className="dark_input w-100"
-                type="text"
-                id="nameOnCard"
-                onChange={saveData}
-                value={nameOnCard}
-              />{" "}
-            </Col>
-          </Row>
-          <Row>
-            <Col md={6}>
-              <label htmlFor="cardNumber" className="mt-3">
-                {currentLocal.payment.cardNumber}
-              </label>
-              <input
-                className="dark_input w-100"
-                type="number"
-                id="cardNumber"
-                onChange={saveData}
-                value={cardNumber}
-              />{" "}
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3}>
-              <label htmlFor="expiryDate" className="mt-3">
-                {currentLocal.payment.expiryDate}
-              </label>
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => {
-                  const expiryMonth = new Date(date);
-                  setStartDate(date);
+          {activeState === "visa" && (
+            <>
+              <Row className="payment_check_container">
+                <Col md={6}>
+                  <label htmlFor="nameOnCard" className="mt-3">
+                    {currentLocal.payment.nameOnCard}
+                  </label>
+                  <input
+                    className="dark_input w-100"
+                    type="text"
+                    id="nameOnCard"
+                    onChange={saveData}
+                    value={nameOnCard}
+                  />{" "}
+                </Col>
+              </Row>
+              <Row>
+                <Col md={6}>
+                  <label htmlFor="cardNumber" className="mt-3">
+                    {currentLocal.payment.cardNumber}
+                  </label>
+                  <input
+                    className="dark_input w-100"
+                    type="number"
+                    id="cardNumber"
+                    onChange={saveData}
+                    value={cardNumber}
+                  />{" "}
+                </Col>
+              </Row>
+              <Row>
+                <Col md={3}>
+                  <label htmlFor="expiryDate" className="mt-3">
+                    {currentLocal.payment.expiryDate}
+                  </label>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => {
+                      const expiryMonth = new Date(date);
+                      setStartDate(date);
 
-                  const month = expiryMonth.getMonth() + 1;
+                      const month = expiryMonth.getMonth() + 1;
 
-                  const result =
-                    expiryMonth.getMonth().toString().length === 1
-                      ? "0" + month
-                      : month;
+                      const result =
+                        expiryMonth.getMonth().toString().length === 1
+                          ? "0" + month
+                          : month;
 
-                  expiryMonthToParent(result);
-                  const d = new Date(startDate);
-                  expiryYearToParent(d.getFullYear());
-                }}
-                className="dark_input w-100"
-                id="expiryDate"
-              />
-            </Col>
-            <Col md={9}>
-              <label htmlFor="cvv" className="mt-3 d-block">
-                {currentLocal.payment.cvv}
-              </label>
-              <input
-                className="dark_input w-25"
-                type="number"
-                id="cvv"
-                onChange={saveData}
-                value={cvv}
-              />{" "}
-            </Col>
-          </Row>
+                      expiryMonthToParent(result);
+                      const d = new Date(startDate);
+                      expiryYearToParent(d.getFullYear());
+                    }}
+                    className="dark_input w-100"
+                    id="expiryDate"
+                  />
+                </Col>
+                <Col md={9}>
+                  <label htmlFor="cvv" className="mt-3 d-block">
+                    {currentLocal.payment.cvv}
+                  </label>
+                  <input
+                    className="dark_input w-25"
+                    type="number"
+                    id="cvv"
+                    onChange={saveData}
+                    value={cvv}
+                  />{" "}
+                </Col>
+              </Row>
+            </>
+          )}
         </div>
-        <div className="mda_form mt-3">
+        <div
+          className="mda_form mt-3"
+          onClick={() => {
+            setActiveState("mada");
+      
+            
+          }}
+        >
            {" "}
           <input
             type="radio"
@@ -170,8 +189,87 @@ function PaymentDetails({
           <div className="image float-end mt-4">
             <img src={madaImg} alt="madaImg" />
           </div>
+          <br />
+          {activeState === "mada" && (
+            <>
+              <Row className="payment_check_container">
+                <Col md={6}>
+                  <label htmlFor="nameOnCard" className="mt-3">
+                    {currentLocal.payment.nameOnCard}
+                  </label>
+                  <input
+                    className="dark_input w-100"
+                    type="text"
+                    id="nameOnCard"
+                    onChange={saveData}
+                    value={nameOnCard}
+                  />{" "}
+                </Col>
+              </Row>
+              <Row>
+                <Col md={6}>
+                  <label htmlFor="cardNumber" className="mt-3">
+                    {currentLocal.payment.cardNumber}
+                  </label>
+                  <input
+                    className="dark_input w-100"
+                    type="number"
+                    id="cardNumber"
+                    onChange={saveData}
+                    value={cardNumber}
+                  />{" "}
+                </Col>
+              </Row>
+              <Row className="pb-3">
+                <Col md={3}>
+                  <label htmlFor="expiryDate" className="mt-3">
+                    {currentLocal.payment.expiryDate}
+                  </label>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => {
+                      const expiryMonth = new Date(date);
+                      setStartDate(date);
+
+                      const month = expiryMonth.getMonth() + 1;
+
+                      const result =
+                        expiryMonth.getMonth().toString().length === 1
+                          ? "0" + month
+                          : month;
+
+                      expiryMonthToParent(result);
+                      const d = new Date(startDate);
+                      expiryYearToParent(d.getFullYear());
+                    }}
+                    className="dark_input w-100"
+                    id="expiryDate"
+                  />
+                </Col>
+                <Col md={9}>
+                  <label htmlFor="cvv" className="mt-3 d-block">
+                    {currentLocal.payment.cvv}
+                  </label>
+                  <input
+                    className="dark_input w-25"
+                    type="number"
+                    id="cvv"
+                    onChange={saveData}
+                    value={cvv}
+                  />{" "}
+                </Col>
+              </Row>
+            </>
+          )}{" "}
         </div>
-        <div className="apple_form mt-3">
+        <div
+          className="apple_form mt-3"
+          onClick={() => {
+            setActiveState("apple");
+      
+            
+          }}
+        >
           <input
             type="radio"
             id="applePay"
@@ -186,8 +284,87 @@ function PaymentDetails({
           <div className="image float-end mt-4">
             <img src={appleImg} alt="appleImg" />
           </div>
+          <br />
+          {activeState === "apple" && (
+            <>
+              <Row className="payment_check_container">
+                <Col md={6}>
+                  <label htmlFor="nameOnCard" className="mt-3">
+                    {currentLocal.payment.nameOnCard}
+                  </label>
+                  <input
+                    className="dark_input w-100"
+                    type="text"
+                    id="nameOnCard"
+                    onChange={saveData}
+                    value={nameOnCard}
+                  />{" "}
+                </Col>
+              </Row>
+              <Row>
+                <Col md={6}>
+                  <label htmlFor="cardNumber" className="mt-3">
+                    {currentLocal.payment.cardNumber}
+                  </label>
+                  <input
+                    className="dark_input w-100"
+                    type="number"
+                    id="cardNumber"
+                    onChange={saveData}
+                    value={cardNumber}
+                  />{" "}
+                </Col>
+              </Row>
+              <Row className="pb-3">
+                <Col md={3}>
+                  <label htmlFor="expiryDate" className="mt-3">
+                    {currentLocal.payment.expiryDate}
+                  </label>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => {
+                      const expiryMonth = new Date(date);
+                      setStartDate(date);
+
+                      const month = expiryMonth.getMonth() + 1;
+
+                      const result =
+                        expiryMonth.getMonth().toString().length === 1
+                          ? "0" + month
+                          : month;
+
+                      expiryMonthToParent(result);
+                      const d = new Date(startDate);
+                      expiryYearToParent(d.getFullYear());
+                    }}
+                    className="dark_input w-100"
+                    id="expiryDate"
+                  />
+                </Col>
+                <Col md={9}>
+                  <label htmlFor="cvv" className="mt-3 d-block">
+                    {currentLocal.payment.cvv}
+                  </label>
+                  <input
+                    className="dark_input w-25"
+                    type="number"
+                    id="cvv"
+                    onChange={saveData}
+                    value={cvv}
+                  />{" "}
+                </Col>
+              </Row>
+            </>
+          )}{" "}
         </div>
-        <div className="stc_form mt-3">
+        <div
+          className="stc_form mt-3"
+          onClick={() => {
+            setActiveState("stcPay");
+        
+            
+          }}
+        >
           <input
             type="radio"
             id="stcPay"
@@ -202,6 +379,77 @@ function PaymentDetails({
           <div className="image float-end mt-4">
             <img src={stcImg} alt="stcImg" />
           </div>
+          {activeState === "stcPay" && (
+            <>
+              <Row className="payment_check_container">
+                <Col md={6}>
+                  <label htmlFor="nameOnCard" className="mt-3">
+                    {currentLocal.payment.nameOnCard}
+                  </label>
+                  <input
+                    className="dark_input w-100"
+                    type="text"
+                    id="nameOnCard"
+                    onChange={saveData}
+                    value={nameOnCard}
+                  />{" "}
+                </Col>
+              </Row>
+              <Row>
+                <Col md={6}>
+                  <label htmlFor="cardNumber" className="mt-3">
+                    {currentLocal.payment.cardNumber}
+                  </label>
+                  <input
+                    className="dark_input w-100"
+                    type="number"
+                    id="cardNumber"
+                    onChange={saveData}
+                    value={cardNumber}
+                  />{" "}
+                </Col>
+              </Row>
+              <Row className="pb-3">
+                <Col md={3}>
+                  <label htmlFor="expiryDate" className="mt-3">
+                    {currentLocal.payment.expiryDate}
+                  </label>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => {
+                      const expiryMonth = new Date(date);
+                      setStartDate(date);
+
+                      const month = expiryMonth.getMonth() + 1;
+
+                      const result =
+                        expiryMonth.getMonth().toString().length === 1
+                          ? "0" + month
+                          : month;
+
+                      expiryMonthToParent(result);
+                      const d = new Date(startDate);
+                      expiryYearToParent(d.getFullYear());
+                    }}
+                    className="dark_input w-100"
+                    id="expiryDate"
+                  />
+                </Col>
+                <Col md={9}>
+                  <label htmlFor="cvv" className="mt-3 d-block">
+                    {currentLocal.payment.cvv}
+                  </label>
+                  <input
+                    className="dark_input w-25"
+                    type="number"
+                    id="cvv"
+                    onChange={saveData}
+                    value={cvv}
+                  />{" "}
+                </Col>
+              </Row>
+            </>
+          )}{" "}
         </div>
       </form>
     </div>
