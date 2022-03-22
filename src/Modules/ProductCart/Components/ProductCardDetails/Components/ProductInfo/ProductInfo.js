@@ -255,7 +255,11 @@ function ProductInfo({ product, activeState }) {
           </p>
         )}
         <div className="colors d-flex">
-          <div className={colorState?"activeColorName d-flex":"ColorName d-flex"}>
+          <div
+            className={
+              colorState ? "activeColorName d-flex" : "ColorName d-flex"
+            }
+          >
             <img src={redCheck} alt={redCheck} />
             <p className="mb-0 mx-2">{currentLocal.productDetails.ColorName}</p>
           </div>
@@ -268,7 +272,6 @@ function ProductInfo({ product, activeState }) {
                       ? productColor.en_name
                       : productColor.ar_name;
                   const active = selected === name ? "active" : "";
-             
                   return (
                     <Col md={3} className="mt-2">
                       <div
@@ -276,6 +279,7 @@ function ProductInfo({ product, activeState }) {
                         key={productColor.id}
                         onClick={() => {
                           setColorId(productColor.id);
+                          setColorState(true)
                           setSelectes(
                             currentLocal.language === "English"
                               ? productColor.en_name

@@ -20,7 +20,6 @@ function CategoryProduct({ subCategoryArr }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  // const [pageNumber, setPageNumber] = useState(0);
   const [pagination, setPagination] = useState("");
   const [pageCount, setPageCount] = useState("");
   const minPriceId = localStorage.getItem("min_price");
