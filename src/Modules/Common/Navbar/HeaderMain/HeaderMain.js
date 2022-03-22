@@ -18,6 +18,7 @@ import ReactStars from "react-rating-stars-component";
 import { logout } from "../../../../Redux/Authorization";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import { addProductWishList } from "../../../../Redux/wishListRedux";
 function HeaderMain() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
@@ -27,6 +28,7 @@ function HeaderMain() {
   const [categoryId, setcategoryId] = useState("");
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
+ const quantityWishList = useSelector(state=>state.wishlist.quantity)
   const history = useHistory();
   const [show, setShow] = useState(false);
   const [showSubCategoury, setShowSubCategoury] = useState(false);
@@ -39,6 +41,7 @@ function HeaderMain() {
   const handleClose = () => setShow(false);
   // const [open, setOpen] = useState(false);
   const handleShow = () => setShow(true);
+  const quantity = useSelector((state) => state.cart.quantity);
   const url = "https://offers.com.fig-leaf.net";
   useEffect(() => {
     axios({
@@ -55,7 +58,7 @@ function HeaderMain() {
       url: `https://offers.com.fig-leaf.net/api/v1/favorites`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
-      setFavCount(res.data.data.items.length);
+      dispatch(addProductWishList(res.data.data.items.length));
     });
     axios({
       method: "get",
@@ -66,7 +69,7 @@ function HeaderMain() {
         setCartCount(res.data.data.cart.products.length);
       }
     });
-  }, [auth]);
+  }, [auth, cartCount]);
   const louaut = () => {
     axios({
       method: "get",
@@ -112,7 +115,7 @@ function HeaderMain() {
     <div
       className={
         currentLocal.language === "English"
-          ? "header_main_container "
+          ? "header_main_container en_header_main_container "
           : "header_main_container ar_header_main_container "
       }
     >
@@ -154,7 +157,13 @@ function HeaderMain() {
                   <button type="submit" className="search_icon">
                     <img src={searchIcon} alt="searchIcon" />
                   </button>
-                  <Dropdown>
+                  <select name="cars" id="cars">
+                    <option value="volvo">all categories</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                  </select>
+                  {/* <Dropdown>
                     <Dropdown.Toggle
                       variant="transparent"
                       className="text-white"
@@ -179,17 +188,12 @@ function HeaderMain() {
                             {currentLocal.language === "English"
                               ? categoriesItem.en_name
                               : categoriesItem.ar_name}
-                            {/* {currentLocal.language === "English"
-                          ?<>
-                          <img src={saudi_arabia} alt="saudi_arabia" className="ml-3" />
-                          <span className="mx-3">اللغه العربيه</span>
-                          </>
-                          : "English"} */}
+                        
                           </Dropdown.Item>
                         );
                       })}
                     </Dropdown.Menu>
-                  </Dropdown>
+                  </Dropdown> */}
                 </form>
               </div>
             </Col>
@@ -199,7 +203,7 @@ function HeaderMain() {
                   <Link to={"/cart"}>
                     <li className="shopping d-flex mx-3">
                       <p className="count_items  mt-3">
-                        {authState !== 0 ? cartCount : 0}
+                        {authState !== 0 ? quantity : 0}
                       </p>
                       <img src={cart} alt="cart" />
                     </li>
@@ -207,7 +211,7 @@ function HeaderMain() {
                   <Link to={"/wishlist"}>
                     <li className="wish_list d-flex">
                       <p className="count_items mt-3">
-                        {authState !== 0 ? favCount : 0}
+                        {authState !== 0 ? quantityWishList : 0}
                       </p>
                       <img src={heart} alt="heart" />
                     </li>
@@ -406,7 +410,7 @@ function HeaderMain() {
       </div>
       {searchResult.length !== 0 && (
         <div className="searchResult px-3 p-3">
-          {searchResult.slice(0, 4).map((searchResultItem) => {
+          {searchResult.slice(0, 3).map((searchResultItem) => {
             return (
               <Link
                 to={`/productcart/:${

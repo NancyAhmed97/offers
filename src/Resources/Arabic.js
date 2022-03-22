@@ -163,7 +163,7 @@ export const ar = {
     productName: "أضف اسم المنتج هنا في هذه المساحة",
   },
   productDetails: {
-    selectColor:"إختر لون",
+    selectColor: "إختر لون",
     relatedProducts: "منتجات ذات صله",
     ColorName: "اسم اللون",
     Description: "الوصف",
@@ -208,6 +208,8 @@ export const ar = {
     Status: "حالة",
     Timestamp: "الطابع الزمني",
     offerSiteStores: "تقدم مخازن الموقع",
+    paymentPending:"انتظار الدفع",
+    orderCanceled:"تم إلغاء الطلب",
     orderPaced: "ترتيب وتيرة",
     orderConfirmed: "تم تاكيد الطلب",
     orderProcessing: "معالجة الطلب",
@@ -285,14 +287,15 @@ export const ar = {
   bit: {
     bitPrices: "أسعار المزاد",
     startingBid: "تبدأ المزاد",
-    auctionEnd:"موعد انتهاء المزاد",
-    bit:"زايد"
+    auctionEnd: "موعد انتهاء المزاد",
+    bit: "زايد",
   },
   rating: {
     feedback: "ردود الفعل",
     feedbackParagraph:
       "شارك تجربتك مع المجتمع ، لمساعدتنا على اتخاذ قرار أفضل.",
     textArea: "كيف كان شكل العمل مع هذه المبيعات؟",
-    rating:"شارك تجربتك "
+    rating: "شارك تجربتك ",
+    alert: "يرجى التعليق وتقييم المنتجات الخاصة بك",
   },
 };

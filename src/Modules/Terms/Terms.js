@@ -7,7 +7,11 @@ function Terms() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   return <section className='terms'>
     <Navbar />
-    <div className='terms_Container pr pl'>
+    <div  className={
+          currentLocal.language === "English"
+            ? "en_terms_Container terms_Container pr pl"
+            : "ar_terms_Container terms_Container pr pl"
+        }>
 <div className='terms_title text-center'>
   <h1>{currentLocal.footer.terms}</h1>
 </div>

@@ -17,8 +17,6 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 function Home() {
   var { auth } = useSelector((state) => state);
-  // const [msg, setMsg] = useState("");
-  // const [submitState, setSubmitState] = useState(false);
   const [sliders, setSliders] = useState([]);
   const [bestPicks, setBestPicks] = useState([]);
   const [banner, setBanner] = useState([]);
@@ -45,19 +43,8 @@ function Home() {
         setBestSeller(res.data.data.best_seller);
       }
     });
-    if (Object.keys(auth.authorization).length !== 0) {
-      // axios({
-      //   method: "get",
-      //   url: `https://offers.com.fig-leaf.net/api/v1/favorites`,
-      //   headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
-      // }).then((res) => {
-      //   if (res.data.success === true) {
-      //     console.log(res.data.data.items);
-      //     setLikeItems(res.data.data.items);
-      //   }
-      // });
-    }
-  }, [auth.authorization]);
+  
+  }, [auth.authorization,bolgs]);
 
   return (
     <section className="position-relative home">

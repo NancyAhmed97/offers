@@ -67,6 +67,20 @@
   top: 40px;
   right: 50px;
 }
+
+.payment_details .order_text {
+  font-size: 14px;
+  color: #0a0b0a;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+
+.payment_details .orderNumbers {
+  font-size: 16px;
+  color: #e2c164;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
 @media only screen and (max-width: 768px) {
   .payment_details .mada_label {
     position: absolute;

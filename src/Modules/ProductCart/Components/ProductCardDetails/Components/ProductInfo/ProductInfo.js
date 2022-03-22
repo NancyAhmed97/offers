@@ -2,20 +2,23 @@ import React, { useState, useEffect } from "react";
 import FaceBook from "../../../../../../Resources/Assets/img/LightFacebook";
 import Twitter from "../../../../../../Resources/Assets/img/Lighttwitter";
 import { useSelector } from "react-redux";
+import { addProduct } from "../../../../../../Redux/cartRedux";
 import LightLinkidin from "../../../../../../Resources/Assets/img/LightLinkidin";
-import increase from "../../../../../../Resources/Assets/img/Group 8140.svg";
-import decrease from "../../../../../../Resources/Assets/img/Line 60.svg";
 import likeIcon from "../../../../../../Resources/Assets/img/Group 5931.svg";
 import background from "../../../../../../Resources/Assets/img/Ellipse 129.svg";
 import LikedHear from "../../../../../../Resources/Assets/img/LikedHear.svg";
+import increase from "../../../../../../Resources/Assets/img/Group 8140.svg";
+import decrease from "../../../../../../Resources/Assets/img/Line 60.svg";
 import redCheck from "../../../../../../Resources/Assets/img/redCheck.svg";
 import ReactStars from "react-rating-stars-component";
 import { useLocation } from "react-router-dom";
+import moment from "moment";
+// import { useDispatch } from "react-redux";
 import "./ProductInfo.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Col, Container, Row } from "react-bootstrap";
-function ProductInfo({ product, activeState,reviews }) {
+function ProductInfo({ product, activeState }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const location = useLocation();
   const history = useHistory();
@@ -23,15 +26,22 @@ function ProductInfo({ product, activeState,reviews }) {
   var authState = Object.keys(auth.authorization).length;
   const [counterNumber, setCounterNumber] = useState(0);
   const [liked, setLiked] = useState(false);
+  const [dayFinished, setDayFinished] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  // const dispatch = useDispatch();
+  // const [minutes, setMinutes] = useState("");
   const [bitNumber, setBitNumber] = useState("");
   const [auctionEndTime, setauctionEndTime] = useState("");
   const [colorId, setColorId] = useState("");
   const [selected, setSelectes] = useState("");
+  const [addToCartState, setAddToCartState] = useState(false);
   // const [heightBitPrice, setHeightBitPrice] = useState("");
   const [bitPrices, setBitPrices] = useState([]);
   const searchInPath = location.pathname.indexOf(":");
   const id = location.pathname.slice(searchInPath + 1);
+
+  const now = new Date();
+
   useEffect(() => {
     axios({
       method: "get",
@@ -46,8 +56,17 @@ function ProductInfo({ product, activeState,reviews }) {
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       setauctionEndTime(res.data.data.product.auction_end_time);
+
+      if (
+        res.data.data.product.auction_end_time.slice(0, 10) >
+        moment(now).format("YYYY-MM-DD")
+      ) {
+        setDayFinished(true);
+      } else {
+        setDayFinished(false);
+      }
     });
-  }, [auth.authorization.access_token,id]);
+  }, [auth.authorization.access_token, id]);
   const saveData = (e) => {
     if (e.target.id === "bitNumber") {
       setBitNumber(e.target.value);
@@ -83,20 +102,27 @@ function ProductInfo({ product, activeState,reviews }) {
       setCounterNumber(counterNumber - 1);
     }
   };
+
   const addToCart = () => {
-    axios({
-      method: "post",
-      url: `https://offers.com.fig-leaf.net/api/v1/add_to_cart`,
-      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
-      data: {
-        product_id: product.id,
-        quantity: counterNumber,
-        color_id: colorId && colorId,
-      },
-    }).then((res) => {
-      if (res.data.success === true) {
-      }
-    });
+    if (authState === 0) {
+      history.push(`/SignUp`);
+    } else {
+      // dispatch(addProduct({ ...product, counterNumber }));
+      axios({
+        method: "post",
+        url: `https://offers.com.fig-leaf.net/api/v1/add_to_cart`,
+        headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+        data: {
+          product_id: product.id,
+          quantity: activeState.activeState === "true" ? 1 : counterNumber,
+          color_id: colorId && colorId,
+        },
+      }).then((res) => {
+        if (res.data.success === true) {
+          setAddToCartState(true);
+        }
+      });
+    }
   };
   const likeProduct = (e) => {
     if (authState !== 0) {
@@ -112,6 +138,7 @@ function ProductInfo({ product, activeState,reviews }) {
       window.scrollTo(0, 0);
     }
   };
+
   return (
     <div
       className={
@@ -185,11 +212,16 @@ function ProductInfo({ product, activeState,reviews }) {
                         id="bitNumber"
                         onChange={saveData}
                         value={bitNumber}
+                        disabled={!dayFinished && "disabled"}
                       />
                     </Col>
                     <Col md={5}>
-                      <div className="bit_button w-100 py-3">
-                        <button type="submit" className=" text-center bit_btn">
+                      <div className="bit_button w-100 pb-3">
+                        <button
+                          type="submit"
+                          className=" text-center bit_btn"
+                          disabled={!dayFinished && "disabled"}
+                        >
                           {currentLocal.bit.bit}
                         </button>
                       </div>
@@ -209,11 +241,17 @@ function ProductInfo({ product, activeState,reviews }) {
                     {bitPrices &&
                       bitPrices.map((price, index) => {
                         return (
-                          <div className="prices" key={index}>
-                            <p className="price_container">
-                              SAR
-                              <span>{price.price}</span>
-                            </p>
+                          <div
+                            className="prices d-flex justify-content-around"
+                            key={index}
+                          >
+                            <div className="name">{price.user.surname}</div>
+                            <div className="auction_price">
+                              <p className="price_container">
+                                SAR
+                                <span>{price.price}</span>
+                              </p>
+                            </div>
                           </div>
                         );
                       })}
@@ -223,10 +261,11 @@ function ProductInfo({ product, activeState,reviews }) {
             </div>
           </>
         )}
-
-        <p className="mb-0 slecet_color">
-          {currentLocal.productDetails.selectColor}
-        </p>
+        {!activeState && (
+          <p className="mb-0 slecet_color">
+            {currentLocal.productDetails.selectColor}
+          </p>
+        )}
         <div className="colors d-flex">
           <div className="ColorName d-flex">
             <img src={redCheck} alt={redCheck} />
@@ -286,21 +325,38 @@ function ProductInfo({ product, activeState,reviews }) {
           </div>
           {!activeState.activeState && (
             <div className="product_info_add_cart">
-              <div className="product_info_add_cart_button" onClick={addToCart}>
+              <div
+                className={
+                  addToCartState
+                    ? " added_to_cart"
+                    : "product_info_add_cart_button"
+                }
+                onClick={addToCart}
+              >
                 {currentLocal.productDetails.addToCart}
               </div>
             </div>
           )}
           {activeState && product.is_selected_for_auction && (
             <div className="product_info_add_cart">
-              <div className="product_info_add_cart_button" onClick={addToCart}>
+              <div
+                className={
+                  addToCartState
+                    ? " added_to_cart"
+                    : "product_info_add_cart_button"
+                }
+                onClick={addToCart}
+              >
                 {currentLocal.productDetails.addToCart}
               </div>
             </div>
           )}
           {/* </>
           )} */}
-          <div className="product_info_add_wish_list d-flex">
+          <div
+            className="product_info_add_wish_list d-flex"
+            style={{ cursor: "pointer" }}
+          >
             <div className="icons" id={product.id}>
               {product.is_favorite || liked ? (
                 <div className="likedIcone" onClick={likeProduct}>
@@ -335,11 +391,12 @@ function ProductInfo({ product, activeState,reviews }) {
         <p className="productPragraph mt-4">
           {currentLocal.language === "English"
             ? product.en_short_desc
-            : product.ar_short_desc}
+            : product.ar_shortحح_desc}
         </p>
         <p className="product_info_category_name">
           {currentLocal.productDetails.Categories}
           <span>
+            ؛
             {currentLocal.language === "English"
               ? product.category_id && product.category_id.en_name
               : product.category_id && product.category_id.ar_name}

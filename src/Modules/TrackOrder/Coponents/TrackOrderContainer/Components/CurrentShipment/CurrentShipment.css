@@ -19,14 +19,14 @@
 .css-zpcwqm-MuiStepConnector-root {
   position: absolute;
   top: 12px;
-  left: calc(-50% + -30px) !important;
-  right: calc(50% + 40px) !important;
+  left: calc(-40% + -20px) !important;
+  right: calc(40% + 30px) !important;
 }
 .ar_current_shipment .css-zpcwqm-MuiStepConnector-root {
   position: absolute;
   top: 12px;
-  right: calc(-50% + -30px) !important;
-  left: calc(50% + 40px) !important;
+  right: calc(-40% + -20px) !important;
+  left: calc(40% + 30px) !important;
 }
 .css-zpcwqm-MuiStepConnector-root .css-z7uhs0-MuiStepConnector-line {
   border-top: 4px solid #e2c164;
@@ -88,6 +88,48 @@
   position: absolute;
   top: -20px;
   right: 7px;
+}
+
+
+
+.modal-dialog  .button button {
+  background-color: #e2c164;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+.modal-header{
+    border-bottom: none;
+}
+.modal-body{
+    text-align: center !important;
+}
+.modal-body h4{
+    font-size: 22px;
+    color: #0a0b0a;
+    font-weight: bold;
+    font-family: "Helvetica";
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+.modal-body .alert{
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+}
+.modal-body p{
+    font-size: 14px;
+    color: rgba(33, 37, 41, 0.5);
+        font-weight: bold;
+    font-family: "Helvetica";
 }
 @media only screen and (max-width: 768px) {
   .current_shipment h1 {

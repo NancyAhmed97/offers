@@ -21,7 +21,7 @@ code {
 .floating div:last-child {
   display: none !important;
 }
-/* 
+
 .chat_whats_icon {
   right: 0;
   bottom: 0;
@@ -125,4 +125,4 @@ code {
   justify-content: center;
   -webkit-align-items: center;
   align-items: center;
-} */
+}

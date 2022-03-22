@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ReactStars from "react-rating-stars-component";
 import "./Product.css";
 import likeIcon from "../../../Resources/Assets/img/Group 5931.svg";
@@ -8,6 +8,10 @@ import background from "../../../Resources/Assets/img/Ellipse 129.svg";
 import LikedHear from "../../../Resources/Assets/img/LikedHear.svg";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import {
+  addProductWishList,
+  addQuantitWishList,
+} from "../../../Redux/wishListRedux";
 function Product({
   img,
   Currency,
@@ -23,35 +27,27 @@ function Product({
   desc,
   id,
   is_favorite,
+  currentState,
 }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
+  let quantityWishList = useSelector((state) => state.wishlist.quantity);
   const [liked, setLiked] = useState(false);
   const history = useHistory();
   var { auth } = useSelector((state) => state);
   var authState = Object.keys(auth.authorization).length;
-  const likeProduct = (e) => {
-    if (authState !== 0) {
-      axios({
-        method: "get",
-        url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
-        headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
-      }).then((res) => {
-      
-        setLiked(!liked);
-        // window.location.reload();
-      });
-    } else {
-      history.push("/signup");
-      window.scrollTo(0, 0);
-    }
-  };
+  const dispatch = useDispatch();
 
+  
   return (
     <div className="product_container">
       <div className="product">
         <div className="product_details">
           <Link
-            to={`/productcart/:${id !== undefined && id}`}
+            to={
+              currentState
+                ? `/blogDetails/:${id !== undefined && id}`
+                : `/productcart/:${id !== undefined && id}`
+            }
             onClick={() => {
               window.scrollTo(0, 0);
             }}
@@ -63,13 +59,17 @@ function Product({
           <div className="contant">
             {date && <p className="time">{date}</p>}
             <Link
-              to={`/productcart/:${id !== undefined && id}`}
+              to={
+                currentState
+                  ? `/blogDetails/:${id !== undefined && id}`
+                  : `/productcart/:${id !== undefined && id}`
+              }
               onClick={() => {
                 window.scrollTo(0, 0);
               }}
               className="text-decoration-none"
             >
-              <p className="m-0 product_title">{title}</p>
+              <p className="m-0 product_title pt-2">{title}</p>
             </Link>
             {desc && <p className="product_desc">{desc}</p>}
             {rating !== undefined && (
@@ -114,9 +114,23 @@ function Product({
                 </div>
               </>
             )}
-            <div className="icons" id={id}>
-              {/* {liked && (
-                <div className="likedIcone" onClick={likeProduct}>
+            <div className="icons" id={id} style={{ cursor: "pointer" }}>
+              {is_favorite || liked ? (
+                <div
+                  className="likedIcone"
+                  onClick={(e) => {
+                    axios({
+                      method: "get",
+                      url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
+                      headers: {
+                        Authorization: `Bearer ${auth.authorization.access_token}`,
+                      },
+                    }).then((res) => {
+                      setLiked(false);
+                      dispatch(addProductWishList(quantityWishList - 1));
+                    });
+                  }}
+                >
                   <img
                     src={background}
                     alt="background"
@@ -130,70 +144,30 @@ function Product({
                     id={id}
                   />
                 </div>
-              )} */}
-              {/* { !is_favorite ? (
+              ) : (
                 <img
                   src={likeIcon}
                   alt="likeIcon"
                   className="like_icon"
-                  onClick={likeProduct}
+                  onClick={(e) => {
+                     axios({
+                      method: "get",
+                      url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
+                      headers: {
+                        Authorization: `Bearer ${auth.authorization.access_token}`,
+                      },
+                    }).then((res) => {
+                      dispatch(addProductWishList(quantityWishList + 1));
+                      setLiked(true);
+                    });
+                  }}
                   id={id}
                 />
-              ) : (
-                <div className="likedIcone" onClick={likeProduct}>
-                  <img
-                    src={background}
-                    alt="background"
-                    className="background"
-                    id={id}
-                  />
-                  <img
-                    src={LikedHear}
-                    alt="LikedHear"
-                    className="LikedHear"
-                    id={id}
-                  />
-                </div>
-              )} */}
-              {
-                (is_favorite ||liked)?
-                       <div className="likedIcone" onClick={likeProduct}>
-                  <img
-                    src={background}
-                    alt="background"
-                    className="background"
-                    id={id}
-                  />
-                  <img
-                    src={LikedHear}
-                    alt="LikedHear"
-                    className="LikedHear"
-                    id={id}
-                  />
-                </div>
-                :
-                <img
-                src={likeIcon}
-                alt="likeIcon"
-                className="like_icon"
-                onClick={likeProduct}
-                id={id}
-              />
-              }
+              )}
             </div>
           </div>
         </div>
       </div>
-      {/* <img
-        src={likeIcon}
-        alt="likeIcon"
-        className="like_icon"
-        onClick={addToWishList}
-      />
-         <div className="likedIcone">
-          <img src={background} alt="background" className="background" />
-          <img src={LikedHear} alt="LikedHear" className="LikedHear" />
-        </div> */}
     </div>
   );
 }

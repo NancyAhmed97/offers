@@ -20,12 +20,17 @@ function CategoryProduct({ subCategoryArr }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const [pageNumber, setPageNumber] = useState(0);
+  // const [pageNumber, setPageNumber] = useState(0);
   const [pagination, setPagination] = useState("");
+  const [pageCount, setPageCount] = useState("");
+  const minPriceId = localStorage.getItem("min_price");
+  const maxPriceId = localStorage.getItem("max_price");
+  const sortBy=localStorage.getItem("sortBy")
+  const subCategoryId = localStorage.getItem("subCateguryId");
   const usersPerPage = 12;
+  const pageNumber = 0;
   const pagesVisited = pageNumber * usersPerPage;
   const open = Boolean(anchorEl);
-  console.log(subCategoryArr);
   useEffect(() => {
     axios({
       method: "get",
@@ -38,6 +43,11 @@ function CategoryProduct({ subCategoryArr }) {
       setPagination(
         subCategoryArr ? subCategoryArr.pagination : res.data.data.pagination
       );
+      setPageCount(
+        subCategoryArr
+          ? subCategoryArr.pagination.last_page
+          : res.data.data.pagination.last_page
+      );
     });
   }, [auth.authorization.access_token, subCategoryArr]);
   var displayUsers =
@@ -45,13 +55,13 @@ function CategoryProduct({ subCategoryArr }) {
       postsArr.slice(pagesVisited, pagesVisited + usersPerPage).map((user) => {
         const url = "https://offers.com.fig-leaf.net";
         return (
-          <Col lg="3" md="6">
+          <Col lg="3" md="6" className="mt-2">
             <Product
               img={url + user.image}
               title={
                 currentLocal.language === "English"
-                  ? user.en_title
-                  : user.ar_title
+                  ? user.en_name
+                  : user.ar_name
               }
               key={user.id}
               rating={user.rate}
@@ -63,24 +73,33 @@ function CategoryProduct({ subCategoryArr }) {
         );
       })
     ) : (
-      <p className="d-flex justify-content-center align-items-center w-100">
+      <p className="d-flex justify-content-center align-items-center w-100 h-100">
         No products
       </p>
     );
-
-  console.log(displayUsers);
-  const pageCount = Math.ceil(postsArr.length / usersPerPage);
   const changePage = ({ selected }) => {
-    setPageNumber(selected);
+    axios({
+      method: "get",
+      url: `https://offers.com.fig-leaf.net/api/v1/products?category_id=${localStorage.getItem(
+        "id"
+      )}&sub_category_id=${subCategoryId ? subCategoryId : ""}&min_price=${
+        minPriceId ? minPriceId : ""
+      }&max_price=${
+        maxPriceId ? maxPriceId : ""
+      }&sort_by=${sortBy?sortBy:""}&page=${selected + 1}`,
+      headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
+    }).then((res) => {
+      setPostsArr(res.data.data.items);
+      setPagination(
+        subCategoryArr ? subCategoryArr.pagination : res.data.data.pagination
+      );
+    });
   };
   const handleClickListItem = (event, e) => {
     setAnchorEl(event.currentTarget);
   };
   const handleMenuItemClick = (event, index) => {
     localStorage.setItem("sortBy", event.target.id);
-    const minPriceId = localStorage.getItem("min_price");
-    const maxPriceId = localStorage.getItem("max_price");
-    const subCategoryId = localStorage.getItem("subCateguryId");
 
     axios({
       method: "get",
@@ -91,8 +110,7 @@ function CategoryProduct({ subCategoryArr }) {
       }&max_price=${maxPriceId ? maxPriceId : ""}&sort_by=${event.target.id}`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
-      console.log(res.data.data.items);
-      setPostsArr(res.data.data.items);
+      setPostsArr(subCategoryArr ? subCategoryArr.items : res.data.data.items);
     });
     setSelectedIndex(index);
     setAnchorEl(null);
@@ -108,7 +126,7 @@ function CategoryProduct({ subCategoryArr }) {
         <div className="d-flex">
           <p className="showing">{currentLocal.shopByCategory.Showing}:</p>
           <p className="mb-0 pagination mx-2">
-            {pagination.current_page} - {pagination.per_page} out of{" "}
+            {pagination.first_page_url} - {pagination.first_page_url+11} out of{" "}
             {pagination.total} {currentLocal.shopByCategory.products}
           </p>
         </div>
@@ -160,8 +178,8 @@ function CategoryProduct({ subCategoryArr }) {
           </div>
         </div>
       </div>
-      <Container>
-        <Row>{displayUsers}</Row>
+      <Container className={postsArr.length === 0 && "handle_container"}>
+        <Row className={postsArr.length === 0 && "h-100"}>{displayUsers}</Row>
       </Container>
 
       <ReactPaginate
@@ -179,7 +197,7 @@ function CategoryProduct({ subCategoryArr }) {
             <img src={leftArrow} alt="leftArrow" />
           )
         }
-        pageCount={pageCount ? pageCount : 0}
+        pageCount={pageCount}
         onPageChange={changePage}
         containerClassName={"paginationBttns"}
         previousLinkClassName={"previousBttn"}

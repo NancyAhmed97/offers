@@ -7,8 +7,12 @@
   display: flex;
   justify-content: center;
 }
-.top_bar p {
+.en_top_bar p {
   font-family: "Helvetica";
+  font-size: 16px;
+}
+.ar_top_bar p {
+  
   font-size: 16px;
 }
 .top_bar .american_flag {
@@ -31,21 +35,31 @@
 .top_bar .top_bar_container ul li svg :hover {
   fill: #e2c164;
 }
-.top_bar .top_bar_container .top_bar_center p {
+.en_top_bar .top_bar_container .top_bar_center p {
   height: 100%;
   margin: 0;
   color: #e2c164;
   font-family: "Helvetica";
   cursor: pointer;
 }
+.ar_top_bar .top_bar_container .top_bar_center p {
+  height: 100%;
+  margin: 0;
+  color: #e2c164;
+  cursor: pointer;
+}
 .top_bar .top_bar_right {
   display: flex;
   flex-direction: row;
 }
-.top_bar .dropdown-toggle {
+.en_top_bar .dropdown-toggle {
   justify-content: space-between;
   width: 140px;
   font-family: "Helvetica";
+}
+.ar_top_bar .dropdown-toggle {
+  justify-content: space-between;
+  width: 140px;
 }
 .ar_top_bar .dropdown-toggle {
   margin-left: 30px;

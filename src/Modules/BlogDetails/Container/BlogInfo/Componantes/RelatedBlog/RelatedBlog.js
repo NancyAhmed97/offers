@@ -20,7 +20,11 @@ function RelatedBlog({ related }) {
                     }}
                   >
                     <div className="blog_img">
-                      <img src={blogDetails.image} className="w-100" alt="blogDetails"/>
+                      <img
+                        src={blogDetails.image}
+                        className="w-100"
+                        alt="blogDetails"
+                      />
                     </div>
                     <div className="blog_content">
                       <p className="date px-2 py-1 mt-3">
@@ -32,6 +36,12 @@ function RelatedBlog({ related }) {
                           ? blogDetails.en_title
                           : blogDetails.ar_title}
                       </h5>
+                      {/* <p className="product_desc">
+                        {" "}
+                        {currentLocal.language === "English"
+                          ? blogDetails.en_short_description
+                          : blogDetails.ar_short_description}
+                      </p> */}
                     </div>
                   </Link>
                 </Col>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./TrackOrderTable.css";
-import productImg from "../../../../../../Resources/Assets/img/Appleheadphones.png";
+// import productImg from "../../../../../../Resources/Assets/img/Appleheadphones.png";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { Col, Container, Row } from "react-bootstrap";
@@ -55,12 +55,14 @@ function TrackOrderTable() {
         </Row>
         {orderDetails.length !== 0 &&
           orderDetails.products.map((productItem, index) => {
+            const url = "https://offers.com.fig-leaf.net";
+
             return (
               <Row className="mt-3" key={index}>
                 <Col md={6} xs={6}>
                   <div className="d-flex">
                     <div className="product_img">
-                      <img src={productImg} alt="productImg" />
+                      <img src={url+productItem.image} alt="productImg" />
                     </div>
                     <div>
                       <p className="product_img_name mx-3">

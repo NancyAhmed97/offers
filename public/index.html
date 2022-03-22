@@ -60,12 +60,12 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-    <div class="elfsight-app-b3528520-c05e-42e0-b5a7-d350c7fe72f6"></div>
-    <!-- <div class="chat_whats_icon" id="chat_whats_icon">
+    <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-b3528520-c05e-42e0-b5a7-d350c7fe72f6"></div> -->
+    <div class="chat_whats_icon" id="chat_whats_icon">
       <img src="whatsapp.PNG" alt="whatsappIcon" />
     </div>
-    <div class="chat" id="chat" style="display: none;">
+    <div class="chat" id="chat" style="display: none">
       <div class="chat_header eawc-header-header">
         <div class="logoImg d-flex">
           <img src="chaticon.png" alt="oferIcon" />
@@ -86,7 +86,7 @@
         <div class="start_chat">
           <a
             class="eawc-button-button jsx-3564369513"
-            href="https://api.whatsapp.com/send/?phone=2001021053778&text&app_absent=0"
+            href="https://api.whatsapp.com/send/?phone=+966 57 854 9206&text&app_absent=0"
             target="_blank"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -98,7 +98,7 @@
           </a>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <div id="root"></div>
     <!--
@@ -112,21 +112,19 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-
-      // let close = document.getElementById("close");
-      // let chat = document.getElementById("chat");
-      // let openChat = document.getElementById("chat_whats_icon");
-      // close.addEventListener("click", function () {
-      //   chat.style.display = "none";
-      // });
-      // openChat.addEventListener("click", function () {
-      //   if ((chat.style.display === "none")) {
-      //     chat.style.display = "block";
-      //   } else {
-      //     chat.style.display = "none";
-      //   }
-      //   console.log(chat.style.display);
-      // });
+      let close = document.getElementById("close");
+      let chat = document.getElementById("chat");
+      let openChat = document.getElementById("chat_whats_icon");
+      close.addEventListener("click", function () {
+        chat.style.display = "none";
+      });
+      openChat.addEventListener("click", function () {
+        if (chat.style.display === "none") {
+          chat.style.display = "block";
+        } else {
+          chat.style.display = "none";
+        }
+      });
     </script>
   </body>
 </html>

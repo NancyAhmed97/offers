@@ -2,7 +2,7 @@
 
 .related_blog {
   margin-top: 55px;
-  margin-bottom: 100px;
+  margin-bottom: 65px;
 }
 .related_blog .date {
   background-color: #e2c164;
@@ -10,6 +10,13 @@
   font-size: 12px;
   color: #fff;
 }
+/* .related_blog  .product_desc {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  color: #1a1a18;
+
+} */
 .related_blog h5 {
   color: #1a1a18;
   font-size: 16px;
@@ -36,5 +43,4 @@
   .related_blog .date {
     width: 135px;
   }
-
 }

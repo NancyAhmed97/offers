@@ -6,7 +6,6 @@ import "./ProductDesc.css";
 function ProductDesc({ reviews, product }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const [activeState, setActiveState] = useState("desc");
-  console.log(product);
   return (
     <div
       className={
@@ -51,9 +50,9 @@ function ProductDesc({ reviews, product }) {
         <div className="product_reviwes_container">
           <Container fluid>
             {reviews &&
-              reviews.items.map((review) => {
+              reviews.items.map((review,index) => {
                 return (
-                  <Row className="my-3">
+                  <Row className="my-3" key={index}>
                     <Col md={2} className="px-0">
                       <p className="name">{review.user}</p>
                       <p className="date">{review.created_at}</p>

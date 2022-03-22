@@ -51,7 +51,8 @@ function FooterLinks() {
             </div>
             <div className="footer_pagraph">
               <p className="text-white mt-5 pr-5">
-                {currentLocal.footer.pragraph}
+                {currentLocal.aboutus.pragraphTwo}
+                {currentLocal.aboutus.pragraphFive}
               </p>
             </div>
           </Col>
@@ -65,7 +66,7 @@ function FooterLinks() {
               >
                 {currentLocal.footer.aboutOffer}
               </li>
-              <li className="menu_child_item mb-3">
+              <li className="menu_child_item mb-3 text-white">
                 <Link
                   to="/aboutus"
                   className="text-white"

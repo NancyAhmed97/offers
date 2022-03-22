@@ -37,7 +37,7 @@ function BlogsContainer() {
     .slice(pagesVisited, pagesVisited + usersPerPage)
     .map((user) => {
       return (
-        <Col lg="4" md="6">
+        <Col lg="4" md="6" >
           <Link
             to={`/blogDetails/:${user.id}`}
             onClick={() => {
@@ -60,6 +60,7 @@ function BlogsContainer() {
                   ? user.en_short_description
                   : user.ar_short_description
               }
+              currentState={true}
             />
           </Link>
         </Col>

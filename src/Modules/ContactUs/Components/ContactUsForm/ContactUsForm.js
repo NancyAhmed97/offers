@@ -79,7 +79,7 @@ function ContactUsForm() {
     <div
       className={
         currentLocal.language === "English"
-          ? "contact_form pr pl"
+          ? "en_contact_form contact_form pr pl"
           : "ar_contact_form contact_form pr pl"
       }
     >

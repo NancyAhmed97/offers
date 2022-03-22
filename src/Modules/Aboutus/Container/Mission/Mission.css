@@ -1,85 +1,94 @@
-@import url('http://fonts.cdnfonts.com/css/helvetica-2');
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
 
-.mission{
-    margin-top: 55px;
-    margin-bottom: 64px;
+.mission {
+  margin-top: 55px;
+  margin-bottom: 64px;
 }
-.mission .mission_pragraph{
-    display: flex;
-    justify-content: center;
+.mission .mission_pragraph {
+  display: flex;
+  justify-content: center;
 }
-.mission .mission_pragraph p{
-    width: 635px;
-
+.mission .mission_pragraph p {
+  width: 635px;
 }
 
-
-.mission .mission_container .mission_pragraph{
-font-size: 14px;
-color: #002543;
-font-family: 'Helvetica';
-opacity: 0.5;
+.en_mission .mission_container .mission_pragraph {
+  font-size: 16px;
+  color: #002543;
+  font-family: "Helvetica";
+  opacity: 0.5;
+}
+.ar_mission .mission_container .mission_pragraph {
+  font-size: 14px;
+  color: #002543;
+  opacity: 0.5;
 }
 .mission .about_title {
-    position: relative;
+  position: relative;
 }
-.mission .about_title h1{
-    color: #2B1A04;
+.mission .about_title h1 {
+  color: #2b1a04;
+  opacity: 0.05;
+  font-size: 96px;
+  font-family: "Helvetica";
+}
+
+.en_mission .about_title .about_title_question_answer .about_title_question {
+  color: #e2c164;
+  font-size: 14px;
+  font-family: "Helvetica";
+}
+.ar_mission .about_title .about_title_question_answer .about_title_question {
+  color: #e2c164;
+  font-size: 16px;
+}
+.en_mission .about_title .about_title_question_answer .about_title_answer {
+  color: #2b1a04;
+  font-size: 16px;
+  font-family: "Helvetica";
+}
+.ar_mission .about_title .about_title_question_answer .about_title_answer {
+  color: #2b1a04;
+  font-size: 18px;
+}
+.mission .about_title_question_answer {
+  position: absolute;
+  top: 47px;
+  width: 386px;
+  opacity: 1 !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media only screen and (max-width: 768px) {
+  .mission .about_title h1 {
+    color: #2b1a04;
     opacity: 0.05;
-    font-size: 96px;
-    font-family: 'Helvetica';
-
-}
-
-.mission .about_title .about_title_question_answer .about_title_question{
-    color: #E2C164;
-    font-size: 14px;
-    font-family: 'Helvetica';
-
-}
-.mission .about_title .about_title_question_answer .about_title_answer{
-    color: #2B1A04;
-    font-size: 16px;
-    font-family: 'Helvetica';
-
-}
-.mission  .about_title_question_answer{
+    font-size: 36px;
+    font-family: "Helvetica";
+  }
+  .mission .about_title_question_answer {
     position: absolute;
-    top: 47px;
-    width: 386px;
+    top: 15px;
+    width: 220px;
     opacity: 1 !important;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-@media only screen and (max-width: 768px) {
-    .mission .about_title h1{
-        color: #2B1A04;
-        opacity: 0.05;
-        font-size: 36px;
-        font-family: 'Helvetica';
-    
-    }
-    .mission  .about_title_question_answer{
-        position: absolute;
-        top: 15px;
-        width: 220px;
-        opacity: 1 !important;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-    }
+    width: 100%;
+  }
 
-    .mission .about_title .about_title_question_answer .about_title_answer{
-        color: #2B1A04;
-        font-size: 12px;
-        font-family: 'Helvetica';
-    
-    }
-    .mission .about_title .about_title_question_answer .about_title_question{
-    margin-bottom: 0px!important;
-    
-    }
+  .en_mission .about_title .about_title_question_answer .about_title_answer {
+    color: #2b1a04;
+    font-size: 12px;
+    font-family: "Helvetica";
+    margin-bottom: 0px !important;
+  }
+  .ar_mission .about_title .about_title_question_answer .about_title_answer {
+    color: #2b1a04;
+    font-size: 12px;
+    margin-bottom: 0px !important;
+  }
+
 }

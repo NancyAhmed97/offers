@@ -211,6 +211,8 @@ export const en = {
     Status: "Status",
     Timestamp: "Timestamp",
     offerSiteStores: "Offer Site Stores",
+    paymentPending:"payment pending",
+    orderCanceled:"order canceled",
     orderPaced: "Order Paced",
     orderConfirmed: "Order Confirmed",
     orderProcessing: "Order Processing",
@@ -296,6 +298,7 @@ export const en = {
     feedback:"Feedback",
     feedbackParagraph:"share your experience with community , to help us make better decision.",
     textArea:"what was it like working with this sales?",
-    rating:"share your experience"
+    rating:"share your experience",
+    alert:"please comment and rate your products"
   }
 };

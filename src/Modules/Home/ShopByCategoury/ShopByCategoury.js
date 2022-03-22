@@ -38,7 +38,7 @@ function ShopByCategoury() {
                   {currentLocal.shopByCategory.electronics}
                 </p>
                 <Link
-                  to={`/CategouryDetails`}
+                  to={`/CategouryDetails/:1`}
                   onClick={() => {
                     window.scrollTo(0, 0);
                   }}
@@ -72,7 +72,7 @@ function ShopByCategoury() {
                     {currentLocal.shopByCategory.schoolSupplies}
                   </p>
                   <Link
-                    to={`/CategouryDetails`}
+                    to={`/CategouryDetails/:2`}
                     onClick={() => {
                       window.scrollTo(0, 0);
                     }}
@@ -105,7 +105,7 @@ function ShopByCategoury() {
                 <div className="shop_by_comanication_content">
                   <p>{currentLocal.shopByCategory.communications}</p>
                   <Link
-                    to={`/CategouryDetails`}
+                    to={`/CategouryDetails/:4`}
                     onClick={() => {
                       window.scrollTo(0, 0);
                     }}
@@ -136,7 +136,7 @@ function ShopByCategoury() {
               <div className="shop_by_toys_content">
                 <p> {currentLocal.shopByCategory.toys} </p>
                 <Link
-                  to={`/CategouryDetails`}
+                  to={`/CategouryDetails/:3`}
                   onClick={() => {
                     window.scrollTo(0, 0);
                   }}

@@ -9,32 +9,48 @@
 .about_info .about_title {
     position: relative;
 }
-.about_info .about_title h1{
+.en_about_info .about_title h1{
     color: #2B1A04;
     opacity: 0.05;
     font-size: 96px;
     font-family: 'Helvetica';
-
+}
+.ar_about_info .about_title h1{
+    color: #2B1A04;
+    opacity: 0.05;
+    font-size: 96px;
 }
 
-.about_info .about_title .about_title_question_answer .about_title_question{
+.ar_about_info .about_title .about_title_question_answer .about_title_question{
+    color: #E2C164;
+    font-size: 15px;
+}
+
+.en_about_info .about_title .about_title_question_answer .about_title_question{
     color: #E2C164;
     font-size: 14px;
     font-family: 'Helvetica';
-
 }
-.about_info .about_title .about_title_question_answer .about_title_answer{
+.en_about_info .about_title .about_title_question_answer .about_title_answer{
     color: #2B1A04;
+    font-size: 16px;
+    font-family: 'Helvetica';
+}
+.ar_about_info .about_title .about_title_question_answer .about_title_answer{
+    color: #2B1A04;
+    font-size: 15px;
+}
+.en_about_info .about_container .about_pragraph p{
+    color: #002543;
+    opacity: 0.5;
     font-size: 16px;
     font-family: 'Helvetica';
 
 }
-.about_info .about_container .about_pragraph p{
+.ar_about_info .about_container .about_pragraph p{
     color: #002543;
     opacity: 0.5;
-    font-size: 14px;
-    font-family: 'Helvetica';
-
+    font-size: 16px;
 }
 .about_info .secont_about_container{
     display: flex;
@@ -58,10 +74,19 @@
     height: 360px;
   
 } */
-.about_info .secont_about_info p
+.ar_about_info .secont_about_info{
+    margin-right: 51px;
+}
+.en_about_info .secont_about_info p
 {
     color: #002543;
     font-family: 'Helvetica';
+    opacity: 0.5;
+    
+}
+.ar_about_info .secont_about_info p
+{
+    color: #002543;
     opacity: 0.5;
     
 }
@@ -72,6 +97,9 @@
     opacity: 1 !important;
 }
 @media only screen and (max-width: 768px) {
+    .ar_about_info .secont_about_info{
+        margin-right: 0px;
+    }
     .about_info .secont_about_container{
         display: flex;
         flex-direction: column;
@@ -96,11 +124,17 @@
       padding-top: 25px;
       
     } 
-    .about_info .about_title h1{
+    .en_about_info .about_title h1{
         color: #2B1A04;
         opacity: 0.05;
         font-size: 56px;
         font-family: 'Helvetica';
+    
+    }
+    .ar_about_info .about_title h1{
+        color: #2B1A04;
+        opacity: 0.05;
+        font-size: 56px;
     
     }
     .about_info  .about_title_question_answer{
@@ -110,10 +144,15 @@
         opacity: 1 !important;
     }
 
-    .about_info .about_title .about_title_question_answer .about_title_answer{
+    .en_about_info .about_title .about_title_question_answer .about_title_answer{
         color: #2B1A04;
         font-size: 12px;
         font-family: 'Helvetica';
+    
+    }
+    .ar_about_info .about_title .about_title_question_answer .about_title_answer{
+        color: #2B1A04;
+        font-size: 12px;
     
     }
     .about_info .about_title .about_title_question_answer .about_title_question{

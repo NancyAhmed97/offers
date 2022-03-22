@@ -49,14 +49,17 @@ function BestPicks({ bestPicks }) {
               const url = "https://offers.com.fig-leaf.net";
               return (
                 <Product
-                  img={url + productDetails.image}
-                  title={productDetails.title}
-                  rating={productDetails.rate}
-                  price={productDetails.price}
-                  id={productDetails.id}
-                  is_favorite={productDetails.is_favorite}
-                  key={index}
-                />
+                img={url + productDetails.image}
+                title={
+                  currentLocal.language === "English"
+                    ? productDetails.en_name
+                    : productDetails.ar_name
+                }
+                rating={productDetails.rate}
+                price={productDetails.price}
+                id={productDetails.id}
+                is_favorite={productDetails.is_favorite}
+              />
               );
             })}
         </div>

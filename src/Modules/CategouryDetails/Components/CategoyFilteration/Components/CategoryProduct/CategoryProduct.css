@@ -5,6 +5,9 @@
 .css-bshv44-MuiButtonBase-root-MuiListItem-root {
   padding: 0 !important;
 }
+.category_product .handle_container {
+  height: 50vh;
+}
 .css-83ijpv-MuiTypography-root {
   color: #e2c164 !important ;
   margin-right: 5px !important;
@@ -40,36 +43,33 @@
 .css-tlelie-MuiListItemText-root {
   margin-top: 0 !important;
 }
-.category_product .product_container{
+.category_product .product_container {
   position: relative;
 }
-.categoy_filteration .product_title{
+.categoy_filteration .product_title {
   color: #1a1a18;
   font-size: 16px;
   font-family: "Helvetica";
   font-weight: bold;
   margin-top: 10px;
 }
-.categoy_filteration .product .price span
-{
+.categoy_filteration .product .price span {
   color: #e2c164;
   font-family: "Helvetica";
   font-size: 17px;
   font-weight: bold;
   opacity: 0.99 !important;
-
 }
-.categoy_filteration .product .price span:first-of-type
-{
-  color: #1a1a18 ;
+.categoy_filteration .product .price span:first-of-type {
+  color: #1a1a18;
   opacity: 0.99;
   font-family: "Helvetica";
   font-size: 14px;
 }
-.category_product  .likedIcone{
+.category_product .likedIcone {
   position: relative;
 }
-.categoy_filteration  .icons {
+.categoy_filteration .icons {
   position: absolute;
   top: 10px;
   left: 75%;
@@ -79,7 +79,7 @@
   left: 11px;
   top: 9px;
 }
-.category_product .product .likedIcone img:first-of-type{
+.category_product .product .likedIcone img:first-of-type {
   width: 42px !important;
   height: 42px;
 }

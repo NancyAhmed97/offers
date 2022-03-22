@@ -15,11 +15,18 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.header_main .header_auth a {
+.en_header_main_container .header_auth a {
   color: #fff !important;
   text-decoration: none;
   margin-top: 15px;
   font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: 400;
+}
+.ar_header_main .header_auth a {
+  color: #fff !important;
+  text-decoration: none;
+  margin-top: 15px;
   font-size: 16px;
   font-weight: 400;
 }

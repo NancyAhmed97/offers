@@ -1,31 +1,50 @@
 
 @import url('http://fonts.cdnfonts.com/css/helvetica-2');
 
-.privacy .privacy_title h1{
+.en_privacy_Container .privacy_title h1{
 font-size: 42px;
 font-weight: bold;
 font-family: 'Helvetica';
 }
+.ar_privacy_Container.privacy_title h1{
+font-size: 42px;
+font-weight: bold;
+}
 .privacy .privacy_content{
     margin-bottom: 75px;
 }
-.privacy .privacy_content p{
+.en_privacy_Container  .privacy_content p{
 font-size: 16;
 color: #002543;
 opacity: 0.5;
 font-family: 'Helvetica';
 }
-.privacy .privacy_title p{
+.ar_privacy_Container  .privacy_content p{
+font-size: 16px;
+color: #002543;
+opacity: 0.5;
+}
+.en_privacy_Container .privacy_title p{
  
     font-family: 'Helvetica';
     font-size: 16px;
     color: #1A1A18;
     opacity: 0.5;
 }
-.privacy .privacy_content h5{
+.ar_privacy_Container .privacy_title p{
+ 
+    font-size: 16px;
+    color: #1A1A18;
+    opacity: 0.5;
+}
+.en_privacy_Container .privacy_content h5{
     font-size: 16px;
     font-weight: bold;
     font-family: 'Helvetica';
+}
+.ar_privacy_Container .privacy_content h5{
+    font-size: 17px;
+    font-weight: bold;
 }
 @media only screen and (max-width: 768px) {
     .privacy .privacy_title h1{

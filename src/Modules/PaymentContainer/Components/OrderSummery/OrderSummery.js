@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import rightArrow from "../../../../Resources/Assets/img/Icon feather-arrow-left.svg";
 import leftArrow from "../../../../Resources/Assets/img/leftArrow.svg";
@@ -18,10 +18,6 @@ function OrderSummery({
 }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
-  const [orderNumber, setOrderNumber] = useState("");
-  // const [setuccessAlert, setSuccessAlert] = useState("");
-  // const [alertMsg, setAlertMsg] = useState("");
-  // const [dangerAlert, setDangerAlert] = useState("");
 
   const sendOrder = () => {
     if (
@@ -57,7 +53,7 @@ function OrderSummery({
         },
       }).then((res) => {
         if (res.data.success === true) {
-          setOrderNumber(res.data.data.order_number);
+          localStorage.setItem("orderCode",res.data.data.order_number)
           alertState(false);
           SuccessAlert(true);
           AlertMsg(res.data.message);
@@ -71,14 +67,7 @@ function OrderSummery({
   return (
     <div className="order_summery mt-4">
       <div className="order_summery_container">
-        {orderNumber && (
-          <div>
-            <p className="order_text">
-              Please save the Code to can track your order{" "}
-              <span className="orderNumbers">{orderNumber}</span>
-            </p>
-          </div>
-        )}
+   
         <h1>{currentLocal.payment.orderSummary}</h1>
         <div className="total d-flex justify-content-between mt-2">
           <p>{currentLocal.payment.total}</p>

@@ -29,6 +29,7 @@ font-size: 14px;
   align-items: center;
   height: 100%;
   justify-content: flex-end;
+  margin-top: -10px;
 }
 .right_footer_links .customer_care_menu ,.right_footer_links .about_offer_menu , .right_footer_links .contact_us_menu {
   display: flex;

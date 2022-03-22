@@ -20,7 +20,7 @@ function TapBar() {
     <div
       className={
         currentLocal.language === "English"
-          ? "top_bar pr pl"
+          ? "top_bar en_top_bar pr pl"
           : "top_bar pr pl ar_top_bar"
       }
     >
@@ -72,8 +72,7 @@ function TapBar() {
         </div>
         <div
           className="top_bar_center"
-          onClick={() => {
-          }}
+   
         >
           <p className="d-inline-block mx-3">
             {currentLocal.home.customerService}

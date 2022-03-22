@@ -1,21 +1,35 @@
-@import url('http://fonts.cdnfonts.com/css/helvetica-2');
-.aboutus .about_title{
-    margin-bottom: 42px;
-    font-weight: bold;
-    font-family: 'Helvetica';
-
+@import url("http://fonts.cdnfonts.com/css/helvetica-2");
+.en_aboutus .about_title {
+  margin-bottom: 42px;
+  font-weight: bold;
+  font-family: "Helvetica";
 }
-.aboutus .about_title h1{
-font-size: 42px;
-color: #1A1A18;
-font-family: 'Helvetica';
-font-weight: bold;
-text-transform: uppercase;
+.ar_aboutus .about_title {
+  margin-bottom: 42px;
+  font-weight: bold;
 }
-.aboutus .about_title .about_us_pragraph p{
-font-size: 16px;
-color: #1A1A18;
-opacity: 0.5;
-font-family: 'Helvetica';
-
+.en_aboutus .about_title h1 {
+  font-size: 42px;
+  color: #1a1a18;
+  font-family: "Helvetica";
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.ar_aboutus .about_title h1 {
+  font-size: 42px;
+  color: #1a1a18;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.en_aboutus .about_title .about_us_pragraph p {
+  font-size: 16px;
+  color: #1a1a18;
+  opacity: 0.5;
+  font-family: "Helvetica";
+}
+.ar_aboutus .about_title .about_us_pragraph p {
+  font-size: 16px;
+  color: #1a1a18;
+  opacity: 0.5;
+  font-family: "Helvetica";
 }

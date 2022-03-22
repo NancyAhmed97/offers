@@ -51,6 +51,14 @@ function PaymentDetails({
     >
       <h1 className="my-4 px-2">{currentLocal.payment.paymentDetails}</h1>
       <form>
+      {localStorage.getItem("orderCode") && (
+          <div className="text-center">
+            <p className="order_text">
+              Please save the Code to can track your order
+              <span className="orderNumbers"> { localStorage.getItem("orderCode") }</span>
+            </p>
+          </div>
+        )}
         <div className="errorMsg">
           {alert && (
             <Alert

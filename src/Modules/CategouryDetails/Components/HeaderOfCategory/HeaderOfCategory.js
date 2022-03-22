@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./HeaderOfCategory.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { LocalDining } from "@mui/icons-material";
+import { Backdrop, CircularProgress } from "@mui/material";
 function HeaderOfCategory() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const categoryPath = window.location.href.lastIndexOf(":");
   const categoryId = window.location.href.slice(categoryPath + 1);
   const [currentCategory, setCurrentCategory] = useState("");
+  const [loading, setLoading] = useState(false);
   const url = "https://offers.com.fig-leaf.net";
   useEffect(() => {
     axios({
@@ -16,60 +19,36 @@ function HeaderOfCategory() {
     }).then((res) => {
       if (res.data.success === true) {
         setCurrentCategory(res.data.data[categoryId - 1]);
+        setLoading(true);
       }
     });
   }, []);
   return (
     <div className="header_of_category pt-5  pl pr">
-      <div className="header_title text-center mb-5">
-        <h2>
-          {currentLocal.language === "English"
-            ? currentCategory&&currentCategory.en_name
-            :  currentCategory&&currentCategory.ar_name}
-        </h2>
-        <p>{currentLocal.home.hotSalesPragaph}</p>
-      </div>
-      <img
-        src={currentCategory&&url + currentCategory.image}
-        alt="electoronics"
-        className="header_img w-100"
-      />
-
-      {/* {categoryId==="1"&&
-      <>
-      <div className='header_title text-center mb-5'>
-          <h2>{currentLocal.shopByCategory.electronics}</h2>
-          <p>{currentLocal.home.hotSalesPragaph}</p>
-      </div>
-      </>
-      }
-        {categoryId==="2"&&
-      <>
-      <div className='header_title text-center mb-5'>
-          <h2>{currentLocal.shopByCategory.schoolSupplies}</h2>
-          <p>{currentLocal.home.hotSalesPragaph}</p>
-      </div>
-      <img src={backSchoolConcept} alt="schoolSupplies" className='header_img w-100'/>
-      </>
-      }
-        {categoryId==="3"&&
-      <>
-      <div className='header_title text-center mb-5'>
-          <h2>{currentLocal.shopByCategory.communications}</h2>
-          <p>{currentLocal.home.hotSalesPragaph}</p>
-      </div>
-      <img src={Commanication} alt="communications" className='header_img w-100'/>
-      </>
-      }
-        {categoryId==="4"&&
-      <>
-      <div className='header_title text-center mb-5'>
-          <h2>{currentLocal.shopByCategory.toys}</h2>
-          <p>{currentLocal.home.hotSalesPragaph}</p>
-      </div>
-      <img src={ToysCategory} alt="communications" className='header_img w-100'/>
-      </>
-      } */}
+      {loading ? (
+        <>
+          <div className="header_title text-center mb-5">
+            <h2>
+              {currentLocal.language === "English"
+                ? currentCategory && currentCategory.en_name
+                : currentCategory && currentCategory.ar_name}
+            </h2>
+            <p>{currentLocal.home.hotSalesPragaph}</p>
+          </div>
+          <img
+            src={currentCategory && url + currentCategory.image}
+            alt="electoronics"
+            className="header_img w-100"
+          />
+        </>
+      ) : (
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      )}
     </div>
   );
 }
