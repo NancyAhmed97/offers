@@ -21,7 +21,7 @@
   width: 825px;
 }
 .blog_details_info .blogDetailImg img {
-  width: 100%;
+  width: 90%;
 }
 @media only screen and (max-width: 768px) {
   .blog_details_info img {
