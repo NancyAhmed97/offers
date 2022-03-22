@@ -1,15 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct } from "../../../../Redux/cartRedux";
 import closeIcon from "../../../../Resources/Assets/img/Group 8156.svg";
 import increase from "../../../../Resources/Assets/img/Group 8203.png";
 import decrease from "../../../../Resources/Assets/img/Group 8204.png";
-
 import "./CartDetails.css";
 function CartDetails() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const quantityCart = useSelector((state) => state.cart.quantity);
+
   const [product, setProduct] = useState([]);
   useEffect(() => {
     axios({
@@ -39,6 +42,8 @@ function CartDetails() {
     }).then((res) => {
       if (res.data.success === true) {
         setProduct(res.data.data.cart.products);
+        dispatch(addProduct(quantityCart - 1));
+
       }
     });
   };

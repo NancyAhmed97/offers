@@ -19,6 +19,7 @@ import { logout } from "../../../../Redux/Authorization";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { addProductWishList } from "../../../../Redux/wishListRedux";
+import { addProduct } from "../../../../Redux/cartRedux";
 function HeaderMain() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
@@ -34,7 +35,6 @@ function HeaderMain() {
   const [showSubCategoury, setShowSubCategoury] = useState(false);
   const [SubCategoury, setSubCategoury] = useState([]);
   const [subCategouryId, setSubCategouryId] = useState(false);
-  const [favCount, setFavCount] = useState("");
   const [categoriesItemId, setCategoriesItemId] = useState("");
   const [cartCount, setCartCount] = useState("");
   const [showAllCategoury, setShowAllCategoury] = useState(false);
@@ -67,6 +67,8 @@ function HeaderMain() {
     }).then((res) => {
       if (res.data.success === true) {
         setCartCount(res.data.data.cart.products.length);
+        dispatch(addProduct(res.data.data.cart.products.length));
+
       }
     });
   }, [auth, cartCount]);

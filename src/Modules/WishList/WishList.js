@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Footer from "../Common/Footer/Footer";
 import Navbar from "../Common/Navbar/Navba";
 import Product from "../Common/Poduct/Product";
 import increase from "../../Resources/Assets/img/Group 8140.svg";
 import decrease from "../../Resources/Assets/img/Line 60.svg";
 import "./WishList.css";
+
 import { Col, Container, Row } from "react-bootstrap";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { addProduct } from "../../Redux/cartRedux";
 function WishList() {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   var { auth } = useSelector((state) => state);
@@ -19,7 +21,8 @@ function WishList() {
   const [addToCartState, setAddToCartState] = useState(false);
   var authState = Object.keys(auth.authorization).length;
   const [counterNumber, setCounterNumber] = useState(0);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const quantityCart = useSelector((state) => state.cart.quantity);
   const history = useHistory();
   useEffect(() => {
     axios({
@@ -32,7 +35,7 @@ function WishList() {
         setLoading(true);
       }
     });
-  }, [auth]);
+  }, [auth,favorites]);
   const increaseCount = () => {
     setCounterNumber(counterNumber + 1);
   };
@@ -97,9 +100,6 @@ function WishList() {
                               if (authState === 0) {
                                 history.push(`/SignUp`);
                               } else {
-                                // dispatch(
-                                //   addProduct({ ...productDetails, counterNumber })
-                                // );
                                 axios({
                                   method: "post",
                                   url: `https://offers.com.fig-leaf.net/api/v1/add_to_cart`,
@@ -113,6 +113,8 @@ function WishList() {
                                 }).then((res) => {
                                   if (res.data.success === true) {
                                     setAddToCartState(true);
+                                    dispatch(addProduct(quantityCart + 1));
+
                                   }
                                 });
                               }

@@ -10,7 +10,6 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import {
   addProductWishList,
-  addQuantitWishList,
 } from "../../../Redux/wishListRedux";
 function Product({
   img,

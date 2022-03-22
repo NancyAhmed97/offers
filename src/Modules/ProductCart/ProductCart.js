@@ -32,7 +32,7 @@ function ProductCart(activeState) {
         setReviews(res.data.data.reviews);
       }
     });
-  }, [id, auth.authorization.access_token]);
+  }, [id, auth.authorization.access_token,product]);
   return (
     <section>
       {loading ? (

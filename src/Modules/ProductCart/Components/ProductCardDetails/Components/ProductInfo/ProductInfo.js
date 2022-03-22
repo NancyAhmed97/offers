@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FaceBook from "../../../../../../Resources/Assets/img/LightFacebook";
 import Twitter from "../../../../../../Resources/Assets/img/Lighttwitter";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../../../../../Redux/cartRedux";
 import LightLinkidin from "../../../../../../Resources/Assets/img/LightLinkidin";
 import likeIcon from "../../../../../../Resources/Assets/img/Group 5931.svg";
@@ -18,6 +18,7 @@ import "./ProductInfo.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Col, Container, Row } from "react-bootstrap";
+import { addProductWishList } from "../../../../../../Redux/wishListRedux";
 function ProductInfo({ product, activeState }) {
   const { currentLocal } = useSelector((state) => state.currentLocal);
   const location = useLocation();
@@ -28,17 +29,18 @@ function ProductInfo({ product, activeState }) {
   const [liked, setLiked] = useState(false);
   const [dayFinished, setDayFinished] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const [minutes, setMinutes] = useState("");
   const [bitNumber, setBitNumber] = useState("");
   const [auctionEndTime, setauctionEndTime] = useState("");
   const [colorId, setColorId] = useState("");
   const [selected, setSelectes] = useState("");
   const [addToCartState, setAddToCartState] = useState(false);
-  // const [heightBitPrice, setHeightBitPrice] = useState("");
+  let quantityWishList = useSelector((state) => state.wishlist.quantity);
   const [bitPrices, setBitPrices] = useState([]);
   const searchInPath = location.pathname.indexOf(":");
   const id = location.pathname.slice(searchInPath + 1);
+  const quantityCart = useSelector((state) => state.cart.quantity);
 
   const now = new Date();
 
@@ -107,7 +109,6 @@ function ProductInfo({ product, activeState }) {
     if (authState === 0) {
       history.push(`/SignUp`);
     } else {
-      // dispatch(addProduct({ ...product, counterNumber }));
       axios({
         method: "post",
         url: `https://offers.com.fig-leaf.net/api/v1/add_to_cart`,
@@ -120,24 +121,13 @@ function ProductInfo({ product, activeState }) {
       }).then((res) => {
         if (res.data.success === true) {
           setAddToCartState(true);
+          dispatch(addProduct(quantityCart + 1));
+
         }
       });
     }
   };
-  const likeProduct = (e) => {
-    if (authState !== 0) {
-      axios({
-        method: "get",
-        url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
-        headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
-      }).then((res) => {
-        setLiked(!liked);
-      });
-    } else {
-      history.push("/signup");
-      window.scrollTo(0, 0);
-    }
-  };
+
 
   return (
     <div
@@ -359,7 +349,21 @@ function ProductInfo({ product, activeState }) {
           >
             <div className="icons" id={product.id}>
               {product.is_favorite || liked ? (
-                <div className="likedIcone" onClick={likeProduct}>
+                <div
+                  className="likedIcone"
+                  onClick={(e) => {
+                    axios({
+                      method: "get",
+                      url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
+                      headers: {
+                        Authorization: `Bearer ${auth.authorization.access_token}`,
+                      },
+                    }).then((res) => {
+                      setLiked(false);
+                      dispatch(addProductWishList(quantityWishList - 1));
+                    });
+                  }}
+                >
                   <img
                     src={background}
                     alt="background"
@@ -378,7 +382,18 @@ function ProductInfo({ product, activeState }) {
                   src={likeIcon}
                   alt="likeIcon"
                   className="like_icon"
-                  onClick={likeProduct}
+                  onClick={(e) => {
+                    axios({
+                      method: "get",
+                      url: `https://offers.com.fig-leaf.net/api/v1/toggleFavorite/${e.target.id}`,
+                      headers: {
+                        Authorization: `Bearer ${auth.authorization.access_token}`,
+                      },
+                    }).then((res) => {
+                      dispatch(addProductWishList(quantityWishList + 1));
+                      setLiked(true);
+                    });
+                  }}
                   id={product.id}
                 />
               )}
