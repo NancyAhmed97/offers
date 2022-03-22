@@ -29,13 +29,14 @@ function HeaderMain() {
   const [categoryId, setcategoryId] = useState("");
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
- const quantityWishList = useSelector(state=>state.wishlist.quantity)
+  const quantityWishList = useSelector((state) => state.wishlist.quantity);
   const history = useHistory();
   const [show, setShow] = useState(false);
   const [showSubCategoury, setShowSubCategoury] = useState(false);
   const [SubCategoury, setSubCategoury] = useState([]);
   const [subCategouryId, setSubCategouryId] = useState(false);
   const [categoriesItemId, setCategoriesItemId] = useState("");
+  const [categoryIdValue, setCategoryIdValue] = useState("");
   const [cartCount, setCartCount] = useState("");
   const [showAllCategoury, setShowAllCategoury] = useState(false);
   const handleClose = () => setShow(false);
@@ -68,7 +69,6 @@ function HeaderMain() {
       if (res.data.success === true) {
         setCartCount(res.data.data.cart.products.length);
         dispatch(addProduct(res.data.data.cart.products.length));
-
       }
     });
   }, [auth, cartCount]);
@@ -159,13 +159,8 @@ function HeaderMain() {
                   <button type="submit" className="search_icon">
                     <img src={searchIcon} alt="searchIcon" />
                   </button>
-                  <select name="cars" id="cars">
-                    <option value="volvo">all categories</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                  </select>
-                  {/* <Dropdown>
+
+                  <Dropdown>
                     <Dropdown.Toggle
                       variant="transparent"
                       className="text-white"
@@ -175,27 +170,32 @@ function HeaderMain() {
                         marginTop: "5px",
                       }}
                     >
-                      <div>{currentLocal.home.category}</div>
+                      <div>{categoryIdValue?categoryIdValue:currentLocal.home.category}</div>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
                       {categories.map((categoriesItem) => {
                         return (
                           <Dropdown.Item
-                            onClick={() => {
+                            onClick={(e) => {
+                             setCategoryIdValue(e.target.id);
                               setcategoryId(categoriesItem.id);
                             }}
                             key={categoriesItem.id}
+                            id={
+                              currentLocal.language === "English"
+                                ? categoriesItem.en_name
+                                : categoriesItem.ar_name
+                            }
                           >
                             {currentLocal.language === "English"
                               ? categoriesItem.en_name
                               : categoriesItem.ar_name}
-                        
                           </Dropdown.Item>
                         );
                       })}
                     </Dropdown.Menu>
-                  </Dropdown> */}
+                  </Dropdown>
                 </form>
               </div>
             </Col>
@@ -359,9 +359,7 @@ function HeaderMain() {
                 >
                   <div className="d-flex py-4">
                     <img src={categouryArrow} alt="menuArrow" />
-                    <div className="subCategouryId" onClick={() => {}}>
-                      {subCategouryId}
-                    </div>
+                    <div className="subCategouryId">{subCategouryId}</div>
                   </div>{" "}
                 </div>
                 {SubCategoury &&
@@ -369,7 +367,10 @@ function HeaderMain() {
                     return (
                       <div
                         className="d-flex  justify-content-between"
-                        onClick={() => {
+                        id={supCategoriesItem.id}
+                        onClick={(e) => {
+                          localStorage.setItem("subCateguryId", e.target.id);
+                          localStorage.setItem("id", categoriesItemId);
                           history.push(
                             `/CategouryDetails/:${categoriesItemId}`
                           );
@@ -377,13 +378,17 @@ function HeaderMain() {
                         }}
                         key={index}
                       >
-                        <div className="categouryId">
+                        <div className="categouryId" id={supCategoriesItem.id}>
                           {" "}
                           {currentLocal.language === "English"
                             ? supCategoriesItem.en_name
                             : supCategoriesItem.ar_name}
                         </div>
-                        <img src={menuArrow} alt="menuArrow" />
+                        <img
+                          src={menuArrow}
+                          alt="menuArrow"
+                          id={supCategoriesItem.id}
+                        />
                       </div>
                     );
                   })}

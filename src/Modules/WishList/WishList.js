@@ -21,6 +21,7 @@ function WishList() {
   const [addToCartState, setAddToCartState] = useState(false);
   var authState = Object.keys(auth.authorization).length;
   const [counterNumber, setCounterNumber] = useState(0);
+  const [clickName, setClickName] = useState("");
   const dispatch = useDispatch();
   const quantityCart = useSelector((state) => state.cart.quantity);
   const history = useHistory();
@@ -35,17 +36,30 @@ function WishList() {
         setLoading(true);
       }
     });
-  }, [auth,favorites]);
-  const increaseCount = () => {
-    setCounterNumber(counterNumber + 1);
+  }, [auth]);
+
+  const increaseFun = (id) => {
+    console.log(id);
+    let i = favorites.find((item) => {
+      if (item.id === id) {
+        setCounterNumber(counterNumber + 1);
+      }
+    });
   };
-  const decreaseCount = () => {
-    if (counterNumber !== 0) {
-      setCounterNumber(counterNumber - 1);
-    }
-  };
+  // const decreaseCount = () => {
+  //   if (counterNumber !== 0 && addToCartState) {
+  //     setCounterNumber(counterNumber - 1);
+  //   }
+  // };
+  console.log(addToCartState && authState !== 0);
+  console.log(authState !== 0);
+  console.log(addToCartState);
   return (
-    <section className={currentLocal.language==="English"?"wish_list ":"ar_wish_list"}>
+    <section
+      className={
+        currentLocal.language === "English" ? "wish_list " : "ar_wish_list"
+      }
+    >
       {loading ? (
         <>
           <Navbar />
@@ -58,8 +72,17 @@ function WishList() {
               <Row className="w-100 ">
                 {favorites !== undefined &&
                   favorites.map((productDetails, index) => {
+                    console.log(productDetails.id);
                     const url = "https://offers.com.fig-leaf.net";
-
+                    const name =
+                      currentLocal.language === "English"
+                        ? productDetails.en_name
+                        : productDetails.ar_name;
+                    const addToCartStateActive =
+                      clickName === name ? true : false;
+                    console.log(clickName);
+                    console.log(name);
+                    console.log(addToCartStateActive);
                     return (
                       <Col md={3} className="mb-5" key={index}>
                         <Product
@@ -77,16 +100,30 @@ function WishList() {
                         <div className="product_info_number_product_container mt-2">
                           <p
                             className="p-0 m-0 decrease_container"
-                            onClick={decreaseCount}
+                            // onClick={decreaseCount}
                           >
                             <img src={decrease} alt="decrease" />
                           </p>
                           <p className="p-0 m-0 counter">{counterNumber}</p>
                           <p
                             className="p-0 m-0 increase_container"
-                            onClick={increaseCount}
+                            onClick={(e) => {
+                              setClickName(e.target.id);
+                              console.log(addToCartStateActive);
+                              if (addToCartStateActive) {
+                                setCounterNumber(counterNumber + 1);
+                              }
+                            }}
                           >
-                            <img src={increase} alt="increase" />
+                            <img
+                              src={increase}
+                              alt="increase"
+                              id={
+                                currentLocal.language === "English"
+                                  ? productDetails.en_name
+                                  : productDetails.ar_name
+                              }
+                            />
                           </p>
                         </div>
                         <div className="product_info_add_cart">
@@ -96,10 +133,19 @@ function WishList() {
                                 ? " added_to_cart"
                                 : "product_info_add_cart_button"
                             }
-                            onClick={() => {
+                            id={
+                              currentLocal.language === "English"
+                                ? productDetails.en_name
+                                : productDetails.ar_name
+                            }
+                            onClick={(e) => {
+                              setClickName(e.target.id);
                               if (authState === 0) {
                                 history.push(`/SignUp`);
-                              } else {
+                              } else if (
+                                addToCartStateActive &&
+                                authState !== 0
+                              ) {
                                 axios({
                                   method: "post",
                                   url: `https://offers.com.fig-leaf.net/api/v1/add_to_cart`,
@@ -114,7 +160,6 @@ function WishList() {
                                   if (res.data.success === true) {
                                     setAddToCartState(true);
                                     dispatch(addProduct(quantityCart + 1));
-
                                   }
                                 });
                               }

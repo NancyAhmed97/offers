@@ -30,12 +30,12 @@ function ProductInfo({ product, activeState }) {
   const [dayFinished, setDayFinished] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const dispatch = useDispatch();
-  // const [minutes, setMinutes] = useState("");
   const [bitNumber, setBitNumber] = useState("");
   const [auctionEndTime, setauctionEndTime] = useState("");
   const [colorId, setColorId] = useState("");
   const [selected, setSelectes] = useState("");
   const [addToCartState, setAddToCartState] = useState(false);
+  const [colorState, setColorState] = useState(false);
   let quantityWishList = useSelector((state) => state.wishlist.quantity);
   const [bitPrices, setBitPrices] = useState([]);
   const searchInPath = location.pathname.indexOf(":");
@@ -122,12 +122,10 @@ function ProductInfo({ product, activeState }) {
         if (res.data.success === true) {
           setAddToCartState(true);
           dispatch(addProduct(quantityCart + 1));
-
         }
       });
     }
   };
-
 
   return (
     <div
@@ -257,7 +255,7 @@ function ProductInfo({ product, activeState }) {
           </p>
         )}
         <div className="colors d-flex">
-          <div className="ColorName d-flex">
+          <div className={colorState?"activeColorName d-flex":"ColorName d-flex"}>
             <img src={redCheck} alt={redCheck} />
             <p className="mb-0 mx-2">{currentLocal.productDetails.ColorName}</p>
           </div>
@@ -270,6 +268,7 @@ function ProductInfo({ product, activeState }) {
                       ? productColor.en_name
                       : productColor.ar_name;
                   const active = selected === name ? "active" : "";
+             
                   return (
                     <Col md={3} className="mt-2">
                       <div

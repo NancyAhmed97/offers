@@ -82,6 +82,7 @@ function FilerBar({ selected, id, sendPriceToParent, sendDataToParent }) {
           </AccordionSummary>
           {subProduct.length !== 0 &&
             subProduct.map((item, index) => {
+              console.log(item);
               return (
                 <AccordionDetails>
                   <Typography
@@ -90,7 +91,7 @@ function FilerBar({ selected, id, sendPriceToParent, sendDataToParent }) {
                     id={item.id}
                     key={index}
                   >
-                    {currentLocal.langouage === "English"
+                    {currentLocal.language === "English"
                       ? item.en_name
                       : item.ar_name}
                   </Typography>

@@ -73,7 +73,7 @@ function CartDetails() {
       data: {
         cart_product_id: id,
         quantity: product[i].quantity + 1,
-        color_id: product[i].color.id,
+        color_id:product[i].color&&product[i].color.id,
       },
     }).then((res) => {
       if (res.data.success === true) {

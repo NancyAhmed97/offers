@@ -25,16 +25,25 @@ function CategoryProduct({ subCategoryArr }) {
   const [pageCount, setPageCount] = useState("");
   const minPriceId = localStorage.getItem("min_price");
   const maxPriceId = localStorage.getItem("max_price");
-  const sortBy=localStorage.getItem("sortBy")
+  const sortBy = localStorage.getItem("sortBy");
   const subCategoryId = localStorage.getItem("subCateguryId");
+  const categoryId = localStorage.getItem("id");
+  const sortById = localStorage.getItem("sortBy");
   const usersPerPage = 12;
   const pageNumber = 0;
   const pagesVisited = pageNumber * usersPerPage;
   const open = Boolean(anchorEl);
   useEffect(() => {
+    
     axios({
       method: "get",
-      url: `https://offers.com.fig-leaf.net/api/v1/products?category_id=1`,
+      url: `https://offers.com.fig-leaf.net/api/v1/products?category_id=${
+        categoryId ? categoryId : 1
+      }&sub_category_id=${subCategoryId ? subCategoryId : ""}&min_price=${
+        minPriceId ? minPriceId : ""
+      }&max_price=${maxPriceId ? maxPriceId : ""}&sort_by=${
+        sortById ? sortById : ""
+      }`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       setPostsArr(
@@ -50,6 +59,12 @@ function CategoryProduct({ subCategoryArr }) {
       );
     });
   }, [auth.authorization.access_token, subCategoryArr]);
+  useEffect(() => {
+    const subCategoryId = localStorage.removeItem("subCateguryId");
+    
+
+  }, [])
+  
   var displayUsers =
     postsArr.length !== 0 ? (
       postsArr.slice(pagesVisited, pagesVisited + usersPerPage).map((user) => {
@@ -84,9 +99,9 @@ function CategoryProduct({ subCategoryArr }) {
         "id"
       )}&sub_category_id=${subCategoryId ? subCategoryId : ""}&min_price=${
         minPriceId ? minPriceId : ""
-      }&max_price=${
-        maxPriceId ? maxPriceId : ""
-      }&sort_by=${sortBy?sortBy:""}&page=${selected + 1}`,
+      }&max_price=${maxPriceId ? maxPriceId : ""}&sort_by=${
+        sortBy ? sortBy : ""
+      }&page=${selected + 1}`,
       headers: { Authorization: `Bearer ${auth.authorization.access_token}` },
     }).then((res) => {
       setPostsArr(res.data.data.items);
@@ -126,8 +141,8 @@ function CategoryProduct({ subCategoryArr }) {
         <div className="d-flex">
           <p className="showing">{currentLocal.shopByCategory.Showing}:</p>
           <p className="mb-0 pagination mx-2">
-            {pagination.first_page_url} - {pagination.first_page_url+11} out of{" "}
-            {pagination.total} {currentLocal.shopByCategory.products}
+            {pagination.first_page_url} - {pagination.first_page_url + 11} out
+            of {pagination.total} {currentLocal.shopByCategory.products}
           </p>
         </div>
         <div className="d-flex sort_by_container">

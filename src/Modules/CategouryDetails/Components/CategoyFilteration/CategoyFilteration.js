@@ -14,10 +14,10 @@ function CategoyFilteration() {
   const [subCategoryArr, setSubCategoryArr] = useState("");
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    localStorage.removeItem("max_price");
-    localStorage.removeItem("min_price");
-    localStorage.removeItem("subCateguryId");
-    localStorage.removeItem("sortBy");
+    // localStorage.removeItem("max_price");
+    // localStorage.removeItem("min_price");
+    // localStorage.removeItem("subCateguryId");
+    // localStorage.removeItem("sortBy");
     axios({
       method: "get",
       url: `https://offers.com.fig-leaf.net/api/v1/categories`,
